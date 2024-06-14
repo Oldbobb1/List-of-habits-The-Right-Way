@@ -13,7 +13,7 @@ class SettingViewController: UIViewController {
     
     let nameLabel = Label.label(text: "Bobbi R.", fontSize: 18)
     let descriptionLabel = Label.label(text:"Apple ID, iCloud, контент и покупки", fontSize: 14)
-    let profileImageView = createImage("guidePrew")
+    let profileImageView = Image.createImage("guidePrew")
   
     let containerView: UIView = {
         let containerView = UIView()
@@ -32,14 +32,14 @@ class SettingViewController: UIViewController {
         return arrowImageView
     }()
     
-    let stackView2 =  stack()
+    let stackView = StackView.stack()
     let label1 = Label.label(text: "Theme", fontSize: 18)
-    let switchButt = createSwitchButton(isOn: false)
+    let switchButt = ButtonsWithAction.createSwitchButton(isOn: false)
     
-    let button1 = createButtonWithTextAndAction(setTitle: "Support", height: 40)
-    let button2 = createButtonWithTextAndAction(setTitle: "Guidance ", height: 40)
-    let button3 = createButtonWithTextAndAction(setTitle: "Rate the app", height: 40)
-    let button4 = createButtonWithTextAndAction(setTitle: "Subscription", height: 40)
+    let button1 = ButtonsWithAction.createButtonWithdAction(setTitle: "Support", height: 40)
+    let button2 = ButtonsWithAction.createButtonWithdAction(setTitle: "Guidance ", height: 40)
+    let button3 = ButtonsWithAction.createButtonWithdAction(setTitle: "Rate the app", height: 40)
+    let button4 = ButtonsWithAction.createButtonWithdAction(setTitle: "Subscription", height: 40)
     
     let signInWithAppleButton = ASAuthorizationAppleIDButton(type: .signIn, style: .white)
   
@@ -54,9 +54,9 @@ class SettingViewController: UIViewController {
         containerView.addSubview(descriptionLabel)
         containerView.addSubview(arrowImageView)
         
-        view.addSubview(stackView2)
-        stackView2.addArrangedSubview(label1)
-        stackView2.addArrangedSubview(switchButt)
+        view.addSubview(stackView)
+        stackView.addArrangedSubview(label1)
+        stackView.addArrangedSubview(switchButt)
         
         view.addSubview(button1)
         view.addSubview(button2)
@@ -75,9 +75,9 @@ class SettingViewController: UIViewController {
         
         label1.textAlignment = .left
         label1.textColor = .black
-        stackView2.backgroundColor = .white
-        stackView2.translatesAutoresizingMaskIntoConstraints = false
-        stackView2.layer.cornerRadius = 10
+        stackView.backgroundColor = .white
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.layer.cornerRadius = 10
         
         signInWithAppleButton.cornerRadius = 10
         signInWithAppleButton.semanticContentAttribute = .forceRightToLeft
@@ -85,27 +85,18 @@ class SettingViewController: UIViewController {
         switchButt.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         
         signInWithAppleButton.addTarget(self, action: #selector(handleLogInWithAppleIDButtonPress), for: .touchUpInside)
-        
+    
         button1.addTarget(self, action: #selector(openMailApp), for: .touchUpInside)
         button2.addTarget(self, action: #selector(openGuidanceView), for: .touchUpInside)
         button3.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
         button4.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
         
-       
         Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0)
         
-//        Layout.applyView(containerView, view: view, topOffset: 40, leadingOffset: 10,trailingOffset: -10, additionalConstraints: {make in
-//            make.height.equalTo(80)
-//        })
-        
-        containerView.snp.makeConstraints { make in
-            make.leading.equalTo(view.snp.leading).offset(10)
-            make.trailing.equalTo(view.snp.trailing).offset(-10)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(40)
+        Layout.applyView(containerView, view: view, topOffset: 40, leadingOffset: 10,trailingOffset: -10, additionalConstraints: {make in
             make.height.equalTo(80)
-        }
-
-        // Устанавливаем ограничения для profileImageView
+        })
+        
         profileImageView.snp.makeConstraints { make in
             make.leading.equalTo(containerView.snp.leading).offset(16)
             make.centerY.equalTo(containerView)
@@ -113,21 +104,18 @@ class SettingViewController: UIViewController {
             make.height.equalTo(60)
         }
 
-        // Устанавливаем ограничения для nameLabel
         nameLabel.snp.makeConstraints { make in
             make.leading.equalTo(profileImageView.snp.trailing).offset(16)
             make.top.equalTo(containerView.snp.top).offset(20)
             make.trailing.equalTo(arrowImageView.snp.leading).offset(-16)
         }
 
-        // Устанавливаем ограничения для descriptionLabel
         descriptionLabel.snp.makeConstraints { make in
             make.leading.equalTo(profileImageView.snp.trailing).offset(16)
             make.top.equalTo(nameLabel.snp.bottom).offset(4)
             make.trailing.equalTo(arrowImageView.snp.leading).offset(-16)
         }
 
-        // Устанавливаем ограничения для arrowImageView
         arrowImageView.snp.makeConstraints { make in
             make.trailing.equalTo(containerView.snp.trailing).offset(-16)
             make.centerY.equalTo(containerView)
@@ -135,40 +123,28 @@ class SettingViewController: UIViewController {
             make.height.equalTo(14)
         }
         
-//        Layout.applyView(stackView2, view: view, leadingOffset: 10, trailingOffset: -10 , additionalConstraints:  { make in
-//            make.top.equalTo(self.label.snp.bottom).offset(156)
-//            make.height.equalTo(40)
-//        })
-        
-        stackView2.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(156) //70
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(10)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-10)
+        Layout.applyView(stackView, view: view, leadingOffset: 10, trailingOffset: -10 , additionalConstraints:  { make in
+            make.top.equalTo(self.label.snp.bottom).offset(156)
             make.height.equalTo(40)
-        }
+        })
         
-        label1.snp.makeConstraints {make in
+        Layout.applyView(label1, view: view, leadingOffset: 20, additionalConstraints:  {make in
             make.top.equalToSuperview().offset(-2)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(20)
-        }
-        switchButt.snp.makeConstraints {make in
+        })
+    
+        Layout.applyView(switchButt, view: view, trailingOffset: -14, additionalConstraints:  {make in
             make.top.equalToSuperview().offset(4)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-14)
-        }
+        })
+            
         Layout.applyView(button1, view: view, topOffset: 229, leadingOffset: 10, trailingOffset: -10)
         Layout.applyView(button2, view: view, topOffset: 272, leadingOffset: 10, trailingOffset: -10)
         Layout.applyView(button3, view: view, topOffset: 315, leadingOffset: 10, trailingOffset: -10)
         Layout.applyView(button4, view: view, topOffset: 358, leadingOffset: 10, trailingOffset: -10)
         
-        signInWithAppleButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(401) //272 //358
-//               make.center.equalToSuperview()
-//               make.width.equalTo(400)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(10)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-10)
+        Layout.applyView(signInWithAppleButton, view: view, topOffset: 401, leadingOffset: 10, trailingOffset: -10  ,additionalConstraints: { make in
             make.height.equalTo(40)
-        }
-        
+        })
+            
         ThemeManager.setTheme(theme: "light")
     }
     

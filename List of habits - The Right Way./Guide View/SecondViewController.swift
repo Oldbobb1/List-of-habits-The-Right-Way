@@ -10,7 +10,7 @@ class SecondViewController: UIViewController{
     
     let label = Label.label(text: "Отметки", fontSize: 20)
     let label1 = Label.label(text: "Отметьте выполнение привычки в указанный день.С каждым повторением вы делаете шаг вперед, а с каждым пропуском - два шага назад.", fontSize: 15)
-//    let imageView = createImage("")
+//    let imageView = Image.createImage("")
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -21,8 +21,7 @@ class SecondViewController: UIViewController{
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.systemBackground
-    
-        
+
         view.addSubview(label)
         view.addSubview(label1)
         //        self.view.addSubview(imageView)

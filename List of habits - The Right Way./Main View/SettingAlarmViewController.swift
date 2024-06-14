@@ -8,9 +8,9 @@ import UIKit
 
 class SettingAlarmViewController: UIViewController {
     
-    let button = addButtonWithAction(setTitle:"Back", height: 35, width: 100)
+    let button = ButtonsWithAction.addButtonWithAction(setTitle:"Back", height: 35, width: 100)
     let label = Label.label(text: "Signal repetition", fontSize: 18)
-    let stackView1 = stack()
+    let stackView = StackView.stack()
 
     let switchBut: UISwitch = {
         let switchButton = UISwitch()
@@ -26,17 +26,16 @@ class SettingAlarmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        view.backgroundColor = UIColor.systemBackground
+        view.addSubview(button)
+        view.addSubview(stackView)
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(switchBut)
         
         label.textAlignment = .left
-        stackView1.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
-        stackView1.layer.cornerRadius = 10
-        
-        view.backgroundColor = UIColor.systemBackground
-        
-        view.addSubview(stackView1)
-        stackView1.addArrangedSubview(label)
-        view.addSubview(button)
-        stackView1.addArrangedSubview(switchBut)
+        stackView.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
+        stackView.layer.cornerRadius = 10
         
         setupDaysOfWeek()
         
@@ -44,20 +43,18 @@ class SettingAlarmViewController: UIViewController {
         
         Layout.applyView(button, view: view, topOffset: 0.9, leadingOffset: 0.5, trailingOffset: -285)
         
-        stackView1.snp.makeConstraints { make in
-            make.top.equalTo(button.snp.bottom).offset(330)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(10)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-10)
+        Layout.applyView(stackView, view: view, leadingOffset: 10,trailingOffset: -10 , additionalConstraints: { make in
+            make.top.equalTo(self.button.snp.bottom).offset(330)
             make.height.equalTo(38)
-        }
-        label.snp.makeConstraints {make in
+        })
+        
+        Layout.applyView(label, view: view, leadingOffset: 20 , additionalConstraints: {make in
             make.top.equalToSuperview().offset(-2)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(20)
-        }
-        switchBut.snp.makeConstraints {make in
+        })
+
+        Layout.applyView(switchBut, view: view,trailingOffset: -14 , additionalConstraints: {make in
             make.top.equalToSuperview().offset(4)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-14)
-        }
+        })
         
         let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
         swipeClose.direction = .right
@@ -78,21 +75,15 @@ class SettingAlarmViewController: UIViewController {
         for (index, day) in days.enumerated() {
             let dayButton = UIButton()
             dayButton.setTitle(day, for: .normal)
-            //            dayButton.setTitleColor(.black, for: .normal)
-            
+//            dayButton.backgroundColor =  UIColor(red: 255/255, green: 180/255, blue: 0, alpha: 1)
+            dayButton.contentHorizontalAlignment = .left
+            dayButton.layer.cornerRadius = 10
+//            dayButton.layer.borderWidth = 0.8
+                      
             var config = UIButton.Configuration.plain()
             config.titlePadding = 10
             dayButton.configuration = config
-            
-            dayButton.backgroundColor =  UIColor(red: 255/255, green: 180/255, blue: 0, alpha: 1)
-            
-            //                .clear
-            //                                         .systemMint
-            //                                         .systemGray5
-            dayButton.contentHorizontalAlignment = .left
-            dayButton.layer.cornerRadius = 10
-            //            dayButton.layer.borderWidth = 0.8
-            
+        
             if self.traitCollection.userInterfaceStyle == .dark {
                 dayButton.setTitleColor(.label, for: .normal)
             } else {
@@ -101,18 +92,10 @@ class SettingAlarmViewController: UIViewController {
             
             view.addSubview(dayButton)
             
-//            Layout.applyView(dayButton, view: view, additionalConstraints: { make in
-//                make.top.equalToSuperview().offset(160 + index * 38)
-//                make.leading.equalToSuperview().offset(10)
-//                make.trailing.equalToSuperview().offset(-10)
-//                //                make.height.equalToSuperview().offset(40)
-//            })
-        
             dayButton.snp.makeConstraints { make in
                 make.top.equalToSuperview().offset(160 + index * 38)
                 make.leading.equalToSuperview().offset(10)
                 make.trailing.equalToSuperview().offset(-10)
-                //                make.height.equalToSuperview().offset(40)
             }
             dayButton.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
         }

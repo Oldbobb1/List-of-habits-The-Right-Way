@@ -11,7 +11,7 @@ class ThirdViewController: UIViewController{
     let label = Label.label(text: "Обзор", fontSize: 20)
     let label1 = Label.label(text: "При помощи графиков вы легко можете посмотреть полную историю ваших привычек и то, как они закрепились со временем.", fontSize: 15)
     
-//    let imageView = createImage("")
+//    let imageView = Image.createImage("")
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

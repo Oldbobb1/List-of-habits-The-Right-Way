@@ -7,26 +7,21 @@
 
 import UIKit
 
+class ButtonsWithAction {
     
-  func createButtonWithTextAndAction(setTitle: String, height: CGFloat ) -> UIButton {
+  static  func createButtonWithdAction(setTitle: String, height: CGFloat ) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(setTitle, for: .normal)
-        //    button.setTitleColor(.darkText, for: .normal)
         button.contentHorizontalAlignment = .left
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        button.heightAnchor.constraint(equalToConstant: height).isActive = true
         
         var config = UIButton.Configuration.plain()
         config.titlePadding = 10
         button.configuration = config
-        
-        button.backgroundColor = .white
-        //    button.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
-        button.layer.cornerRadius = 10
-        //    button.layer.borderWidth = 0.5
-        //    button.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
-        
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        button.heightAnchor.constraint(equalToConstant: height).isActive = true
-        
+
         if UIScreen.main.traitCollection.userInterfaceStyle == .dark {
             button.setTitleColor(.label, for: .normal)
         }
@@ -36,22 +31,21 @@ import UIKit
         return button
     }
     
- func addButtonWithAction(setTitle: String, height: CGFloat, width: CGFloat) -> UIButton {
+  static  func addButtonWithAction(setTitle: String, height: CGFloat, width: CGFloat) -> UIButton {
         let but = UIButton(type: .system)
         but.setTitle(setTitle, for: .normal)
-        //    but.setTitleColor(.black, for: .normal)
+//      /    but.backgroundColor = .black
+      //    but.backgroundColor = UIColor(red: 24/255, green: 117/255, blue: 19/255, alpha: 0.6)
+      //    but.contentHorizontalAlignment = .left
+      //    but.layer.borderWidth = 0.8
+      //    but.layer.cornerRadius = 10
+      but.heightAnchor.constraint(equalToConstant: height).isActive = true
+      but.widthAnchor.constraint(equalToConstant: height).isActive = true
+      but.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         
         var config = UIButton.Configuration.plain()
         config.titlePadding = 10
         but.configuration = config
-        //    but.backgroundColor = .black
-        //    but.backgroundColor = UIColor(red: 24/255, green: 117/255, blue: 19/255, alpha: 0.6)
-        //    but.contentHorizontalAlignment = .left
-        //    but.layer.borderWidth = 0.8
-        //    but.layer.cornerRadius = 10
-        but.heightAnchor.constraint(equalToConstant: height).isActive = true
-        but.widthAnchor.constraint(equalToConstant: height).isActive = true
-        but.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         
         if UIScreen.main.traitCollection.userInterfaceStyle == .dark {
             but.setTitleColor(.label, for: .normal)
@@ -61,11 +55,8 @@ import UIKit
         }
         return but
     }
-    
-    
-    
-    // функция с установкой размеров для изображения
-  func addButtonImage(systemName: String, setImage: UIImage?) -> UIButton {
+
+ static func addButtonImage(systemName: String, setImage: UIImage?) -> UIButton {  // функция с установкой размеров для изображения
         let button = UIButton(type: .system)
         let image = setImage ?? UIImage(systemName: systemName)
         let newSize = CGSize(width: 65, height: 60)
@@ -79,9 +70,7 @@ import UIKit
         return button
     }
     
-    
-    
-  func createSwitchButton(isOn: Bool) -> UISwitch {
+  static func createSwitchButton(isOn: Bool) -> UISwitch {
         let switchButton = UISwitch()
         switchButton.isOn = isOn
         
@@ -92,10 +81,7 @@ import UIKit
         
         return switchButton
     }
-    
-    
-    
-    
-    
+
+}
     
     

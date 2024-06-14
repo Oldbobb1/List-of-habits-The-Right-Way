@@ -9,51 +9,14 @@ import SnapKit
 
 class ListViewController: UIViewController {
     
-    let button = addButtonImage(systemName: "plus.circle", setImage: nil )
     let label = Label.label(text: "List", fontSize: 25)
-    let stackView = stack()
-    let table = createNewTableView()
-
+    let stackView = StackView.stack()
+    let table = TableView.createNewTableView()
+    let button = ButtonsWithAction.addButtonImage(systemName: "plus.circle", setImage: nil )
+   
     let  NewLocationIdentifier = "NewLocation"
     
     let models: [NewsWithLocationModel] = [
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-        
         NewsWithLocationModel(
             name: "Habbit"
         ),
@@ -62,12 +25,13 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(button)
-        view.addSubview(stackView)
-        self.table.addSubview(button)
-        view.addSubview(label)
-        view.addSubview(table)
         
+        view.addSubview(label)
+        view.addSubview(stackView)
+        view.addSubview(table)
+        view.addSubview(button)
+        self.table.addSubview(button)
+
         table.delegate = self
         table.dataSource = self
         table.register(NewLocation.self, forCellReuseIdentifier: "NewLocationIdentifier")
@@ -77,13 +41,12 @@ class ListViewController: UIViewController {
             
         Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0 )
         
-        Layout.applyView(table, view: view, leadingOffset: 10 , trailingOffset: -10, bottomOffset: 0, additionalConstraints:{ make in
-            make.top.equalTo(self.stackView.snp.bottom).offset(5)
-        })
-
         Layout.applyView(stackView, view: view , leadingOffset: 270, trailingOffset: 0,  additionalConstraints: {make in
             make.top.equalTo(self.label.snp.bottom).offset(0)
             make.height.equalTo(38)
+        })
+        Layout.applyView(table, view: view, leadingOffset: 10 , trailingOffset: -10, bottomOffset: 0, additionalConstraints:{ make in
+            make.top.equalTo(self.stackView.snp.bottom).offset(5)
         })
         
         Layout.applyView(button, view: view, leadingOffset: 15 , bottomOffset: -10)
