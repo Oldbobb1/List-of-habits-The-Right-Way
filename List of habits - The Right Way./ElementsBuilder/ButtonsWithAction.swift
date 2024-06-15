@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ButtonsWithAction {
+public class ButtonsWithAction {
     
-  static  func createButtonWithdAction(setTitle: String, height: CGFloat ) -> UIButton {
+    public static  func createButtonWithdAction(setTitle: String, height: CGFloat ) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(setTitle, for: .normal)
         button.contentHorizontalAlignment = .left
@@ -31,7 +31,7 @@ class ButtonsWithAction {
         return button
     }
     
-  static  func addButtonWithAction(setTitle: String, height: CGFloat, width: CGFloat) -> UIButton {
+    public static  func addButtonWithAction(setTitle: String, height: CGFloat, width: CGFloat) -> UIButton {
         let but = UIButton(type: .system)
         but.setTitle(setTitle, for: .normal)
 //      /    but.backgroundColor = .black
@@ -56,7 +56,7 @@ class ButtonsWithAction {
         return but
     }
 
- static func addButtonImage(systemName: String, setImage: UIImage?) -> UIButton {  // функция с установкой размеров для изображения
+    public static func addButtonImage(systemName: String, setImage: UIImage?) -> UIButton {  // функция с установкой размеров для изображения
         let button = UIButton(type: .system)
         let image = setImage ?? UIImage(systemName: systemName)
         let newSize = CGSize(width: 65, height: 60)
@@ -70,7 +70,7 @@ class ButtonsWithAction {
         return button
     }
     
-  static func createSwitchButton(isOn: Bool) -> UISwitch {
+    public static func createSwitchButton(isOn: Bool) -> UISwitch {
         let switchButton = UISwitch()
         switchButton.isOn = isOn
         

@@ -15,23 +15,20 @@ class HabbitViewController: UIViewController  {
     let button3 = ButtonsWithAction.createButtonWithdAction(setTitle: "Repeat", height: 40)
     let button4 = ButtonsWithAction.createButtonWithdAction(setTitle: "Color", height: 40)
 
-    //var selectedDate: Date? = Date()
+//    var alarmTime: Date?
+    
     var date: UIDatePicker = {
         let date = UIDatePicker()
         date.datePickerMode = .time
         date.preferredDatePickerStyle = .wheels
         date.backgroundColor = UIColor.systemBackground
-//
+        
 //        if let savedDate = UserDefaults.standard.object(forKey: "savedDate") as? Date {
 //            date.date = savedDate
 //        }
-//        datePicker.date = selectedDate ?? Date()
-        
         return date
     }()
     
- 
-
      var  selectedColorView: UIView = {
         let col = UIView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
         col.layer.cornerRadius = 15
@@ -41,6 +38,16 @@ class HabbitViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateUI()
+        
+        swipe()
+        
+        savedUI()
+        
+    }
+    
+    private func updateUI() {
         
         view.backgroundColor = UIColor.systemBackground
         
@@ -56,10 +63,6 @@ class HabbitViewController: UIViewController  {
         self.view.addSubview(button4)
         
         textField.delegate = self
-        
-        let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
-        swipeClose.direction = .right
-        self.view.addGestureRecognizer(swipeClose)
         
         button1.addTarget(self, action: #selector(closeView), for: .touchUpInside)
 //        button2.addTarget(self, action:  #selector(closeView1), for: .touchUpInside)
@@ -79,15 +82,29 @@ class HabbitViewController: UIViewController  {
             make.trailing.equalToSuperview().offset(-10) // Помещаем кружок в правую часть кнопки
             make.centerY.equalToSuperview() // Центрируем по вертикали
         }
+    }
+    
+    
+    private func swipe() {
+        
+        let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
+        swipeClose.direction = .right
+        self.view.addGestureRecognizer(swipeClose)
+    }
+    
+    
+    
+    private func savedUI() {
         
 //        if let savedColor = loadSelectedColor() {
-      //                selectedColorView.backgroundColor = savedColor
-      //            }
-      //
-      //        textField.addTarget(self, action: #selector(textFieldSave(_:)), for: .editingChanged)
-      //        date.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
-        
+             //                selectedColorView.backgroundColor = savedColor
+             //            }
+             //
+             //        textField.addTarget(self, action: #selector(textFieldSave(_:)), for: .editingChanged)
+       //              date.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
     }
+    
+    
     
     @objc func buttonWithOpenSetting(_ sender: UIButton) {
         let view = SettingAlarmViewController()
@@ -115,9 +132,11 @@ class HabbitViewController: UIViewController  {
     }
     
 //    Метод, который будет вызываться при изменении времени в date picker
-  //    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
-  //        UserDefaults.standard.set(sender.date, forKey: "savedDate")
-  //    }
+//      @objc func datePickerValueChanged(_ sender: UIDatePicker) {
+////          alarmTime = date.date
+//          UserDefaults.standard.set(sender.date, forKey: "savedDate")
+//      }
+    
   //    @objc func textFieldSave(_ textField: UITextField) {
   //        UserDefaults.standard.set(textField.text, forKey: "saveText")
   //    }

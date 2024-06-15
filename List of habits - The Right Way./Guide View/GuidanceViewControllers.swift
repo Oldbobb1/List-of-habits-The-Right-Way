@@ -12,8 +12,16 @@ class GuidanceViewControllers: UIViewController {
     let label1 = Label.label(text: "Habits поможет вам завести и поддерживать полезные привычки, позволяя улучшить свою жизнь.", fontSize: 15)
     let imageView = Image.createImage("guidePrew")
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateUI()
+        swipe()
+        
+    }
+    
+    private func updateUI() {
         
         view.backgroundColor = UIColor.systemBackground
         
@@ -32,6 +40,9 @@ class GuidanceViewControllers: UIViewController {
         
         Layout.applyView(label, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -80 )
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
+    }
+    
+  private  func swipe() {
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
         swipeLeft.direction = .left

@@ -15,7 +15,6 @@ class SettingAlarmViewController: UIViewController {
     let switchBut: UISwitch = {
         let switchButton = UISwitch()
         switchButton.isOn = false
-        //        // В методе viewDidLoad или в методе, где вы настраиваете switch button
         //        if let switchState = UserDefaults.standard.object(forKey: "switchState") as? Bool {
         //            switchButton.isOn = switchState
         //        }
@@ -24,9 +23,17 @@ class SettingAlarmViewController: UIViewController {
     
     let days = ["Every Monday", "Every Tuesday", "Every Wednesday", "Every Thursday", "Every Friday", "Every Saturday", "Every Sunday"]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateUI()
+        
+        swipe()
+    }
     
+  private func updateUI() {
+        
         view.backgroundColor = UIColor.systemBackground
         view.addSubview(button)
         view.addSubview(stackView)
@@ -34,7 +41,7 @@ class SettingAlarmViewController: UIViewController {
         stackView.addArrangedSubview(switchBut)
         
         label.textAlignment = .left
-        stackView.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
+//        stackView.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
         stackView.layer.cornerRadius = 10
         
         setupDaysOfWeek()
@@ -55,11 +62,14 @@ class SettingAlarmViewController: UIViewController {
         Layout.applyView(switchBut, view: view,trailingOffset: -14 , additionalConstraints: {make in
             make.top.equalToSuperview().offset(4)
         })
+      
+    }
+    
+    private func swipe() {
         
         let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
         swipeClose.direction = .right
         self.view.addGestureRecognizer(swipeClose)
-        
     }
         
     @objc func closeButtonTapped() {
@@ -75,10 +85,8 @@ class SettingAlarmViewController: UIViewController {
         for (index, day) in days.enumerated() {
             let dayButton = UIButton()
             dayButton.setTitle(day, for: .normal)
-//            dayButton.backgroundColor =  UIColor(red: 255/255, green: 180/255, blue: 0, alpha: 1)
             dayButton.contentHorizontalAlignment = .left
             dayButton.layer.cornerRadius = 10
-//            dayButton.layer.borderWidth = 0.8
                       
             var config = UIButton.Configuration.plain()
             config.titlePadding = 10

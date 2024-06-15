@@ -14,48 +14,64 @@ class ListViewController: UIViewController {
     let table = TableView.createNewTableView()
     let button = ButtonsWithAction.addButtonImage(systemName: "plus.circle", setImage: nil )
    
-    let  NewLocationIdentifier = "NewLocation"
+//    let  NewLocationIdentifier = "EmojiTableViewCell"
     
-    let models: [NewsWithLocationModel] = [
-        NewsWithLocationModel(
-            name: "Habbit"
-        ),
-    ]
-    
+//    var objects = [
+//        Emoji(emoji: "🥰", name: "Love", description: "Let's love each other", isFavourite: false),
+//        Emoji(emoji: "⚽️", name: "Football", description: "Let's play football together", isFavourite: false),
+//        Emoji(emoji: "🐱", name: "Cat", description: "Cat is the cutest animal", isFavourite: false)
+//    ]
+// 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        view.addSubview(label)
-        view.addSubview(stackView)
-        view.addSubview(table)
-        view.addSubview(button)
-        self.table.addSubview(button)
-
-        table.delegate = self
-        table.dataSource = self
-        table.register(NewLocation.self, forCellReuseIdentifier: "NewLocationIdentifier")
-        table.frame = view.bounds
-
-        button.addTarget(self, action: #selector(buttonOpenView) , for: .touchUpInside)
-            
-        Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0 )
+        updateUI()
         
-        Layout.applyView(stackView, view: view , leadingOffset: 270, trailingOffset: 0,  additionalConstraints: {make in
-            make.top.equalTo(self.label.snp.bottom).offset(0)
-            make.height.equalTo(38)
-        })
-        Layout.applyView(table, view: view, leadingOffset: 10 , trailingOffset: -10, bottomOffset: 0, additionalConstraints:{ make in
-            make.top.equalTo(self.stackView.snp.bottom).offset(5)
-        })
-        
-        Layout.applyView(button, view: view, leadingOffset: 15 , bottomOffset: -10)
+        updateCalendar()
+       
+    }
+    
+    func updateCalendar() {
         
         let calendar = Calendar.current
         for i in -2..<1 {
             let day = calendar.date(byAdding: .day, value: i, to: Date())!
             dateCurrent(to: stackView, withDay: day)
         }
+        
+    }
+    
+    private func updateUI() {
+        
+//        self.title = "Emoji Reader"
+      //        self.navigationItem.leftBarButtonItem = self.editButtonItem
+
+              
+              view.addSubview(label)
+              view.addSubview(stackView)
+              view.addSubview(table)
+              view.addSubview(button)
+              self.table.addSubview(button)
+
+              table.delegate = self
+              table.dataSource = self
+      //        table.register(NewLocation.self, forCellReuseIdentifier: "NewLocationIdentifier")
+              table.frame = view.bounds
+
+              button.addTarget(self, action: #selector(buttonOpenView) , for: .touchUpInside)
+                  
+              Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0 )
+              
+              Layout.applyView(stackView, view: view , leadingOffset: 270, trailingOffset: 0,  additionalConstraints: {make in
+                  make.top.equalTo(self.label.snp.bottom).offset(0)
+                  make.height.equalTo(38)
+              })
+              Layout.applyView(table, view: view, leadingOffset: 10 , trailingOffset: -10, bottomOffset: 0, additionalConstraints:{ make in
+                  make.top.equalTo(self.stackView.snp.bottom).offset(5)
+              })
+              
+              Layout.applyView(button, view: view, leadingOffset: 15 , bottomOffset: -10)
+            
     }
     
     @objc func buttonOpenView(_ sender: UIButton) {
@@ -69,18 +85,17 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+//        return objects.count
+        return 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewLocationIdentifier", for: indexPath)
-        let models = models[indexPath.row]
-        cell.textLabel?.text = models.name
-        //        cell.backgroundColor = .yellow
-        cell.backgroundColor = .green
-                cell.layer.cornerRadius = 30
-                cell.layer.borderWidth = 1
-        return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "emojiCell", for: indexPath) as! EmojiTableViewCell
+//        let object = objects[indexPath.row]
+//        cell.set(object: object)
+//        return cell
+        return UITableViewCell()
     }
+
 }
 
 

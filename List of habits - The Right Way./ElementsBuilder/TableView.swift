@@ -7,8 +7,8 @@
 
 import UIKit
 
-class TableView {
-  static  func createNewTableView() -> UITableView {
+public class TableView {
+    public  static  func createNewTableView() -> UITableView {
         let tableView = UITableView()
         tableView.showsVerticalScrollIndicator = false
         return tableView

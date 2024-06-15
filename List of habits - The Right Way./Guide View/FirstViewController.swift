@@ -22,6 +22,15 @@ class FirstViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateUI()
+        
+        swipe()
+        
+       
+    }
+    
+    private func updateUI() {
+        
         view.backgroundColor = UIColor.systemBackground
         
         view.addSubview(label)
@@ -39,6 +48,9 @@ class FirstViewController: UIViewController{
         
         Layout.applyView(label, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -90 )
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: 10 )
+    }
+    
+    private func swipe() {
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
         swipeLeft.direction = .left
@@ -47,7 +59,9 @@ class FirstViewController: UIViewController{
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeBack))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
+        
     }
+    
     
     @objc func swipeLeft() {
         let newViewController = SecondViewController()

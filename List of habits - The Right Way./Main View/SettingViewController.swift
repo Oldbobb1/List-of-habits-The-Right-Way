@@ -10,7 +10,6 @@ import AuthenticationServices
 class SettingViewController: UIViewController {
 
     let label = Label.label(text: "Setting", fontSize: 25)
-    
     let nameLabel = Label.label(text: "Bobbi R.", fontSize: 18)
     let descriptionLabel = Label.label(text:"Apple ID, iCloud, контент и покупки", fontSize: 14)
     let profileImageView = Image.createImage("guidePrew")
@@ -23,7 +22,7 @@ class SettingViewController: UIViewController {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         return containerView
     }()
-    
+        
     let arrowImageView: UIImageView = {
         let arrowImageView = UIImageView()
         arrowImageView.image = UIImage(systemName: "chevron.right")
@@ -45,6 +44,13 @@ class SettingViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+       updateUI()
+            
+        ThemeManager.setTheme(theme: "light")
+    }
+    
+    private func updateUI() {
         
         view.addSubview(label)
         
@@ -144,8 +150,7 @@ class SettingViewController: UIViewController {
         Layout.applyView(signInWithAppleButton, view: view, topOffset: 401, leadingOffset: 10, trailingOffset: -10  ,additionalConstraints: { make in
             make.height.equalTo(40)
         })
-            
-        ThemeManager.setTheme(theme: "light")
+        
     }
     
     @objc func openMailApp() {

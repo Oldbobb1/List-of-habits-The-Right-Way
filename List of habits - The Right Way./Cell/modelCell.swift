@@ -7,59 +7,57 @@
 
 import UIKit
 
-struct NewsWithLocationModel {
-    let name: String
-  
+//struct NewsWithLocationModel {
+//    let name: String
+//  
+//}
+
+struct Emoji {
+    var emoji: String
+    var name: String
+    var description: String
+    var isFavourite: Bool
 }
 
-//struct NewsWithLocationModel {
-////    let name: String
-//    var text: String?
-//    var date: Date?
-//    var color: UIColor?
-//}
 
+class EmojiTableViewCell: UITableViewCell {
 
+    var emojiLabel = UILabel()
+    var nameLabel = UILabel()
+    var descriptionLabel = UILabel()
 
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        addSubview(emojiLabel)
+        addSubview(nameLabel)
+        addSubview(descriptionLabel)
+        
+        emojiLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().offset(10)
+        }
+        
+        nameLabel.snp.makeConstraints { make in
+            make.top.equalTo(emojiLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(10)
+        }
+        
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
+        }
+    }
 
-//class NewsTableViewCell: UITableViewCell {
-//    @IBOutlet weak var textField: UITextField!
-//    @IBOutlet weak var datePicker: UIDatePicker!
-////    @IBOutlet weak var datePickerButton: UIButton! //
-//    
-////    var colorPicker: UIColorPickerViewController!
-////    var datePicker: UIDatePicker!
-////    
-//    func configure(with model: NewsWithLocationModel) {
-//        textField.text = model.text
-//        datePicker.date = model.date ?? Date()
-//        colorPicker.selectedColor = model.color ?? UIColor.white
-//    }
-//    
-////    override func awakeFromNib() {
-////        super.awakeFromNib()
-////        
-////        // Создание и настройка UIDatePicker
-////        datePicker = UIDatePicker()
-////        datePicker.datePickerMode = .dateAndTime
-////        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
-////        
-////        // Остальные конфигурации и инициализации ячейки
-////    }
-////    
-////    @IBAction func dateButtonTapped(_ sender: UIButton) {
-////        // Открытие полноценного календаря при нажатии на кнопку
-////        let calendarViewController = UIViewController()
-////        calendarViewController.view.backgroundColor = UIColor.white
-////        calendarViewController.view.addSubview(datePicker)
-////    }
-////    
-////    @objc func datePickerValueChanged() {
-////        // Обработка изменения выбранной даты
-////    }
-//
-//
-//}
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-
+    func set(object: Emoji) {
+        self.emojiLabel.text = object.emoji
+        self.nameLabel.text = object.name
+        self.descriptionLabel.text = object.description
+    }
+}
 

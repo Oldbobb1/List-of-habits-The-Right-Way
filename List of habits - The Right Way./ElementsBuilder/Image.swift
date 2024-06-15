@@ -8,12 +8,13 @@
 import UIKit
 
 
-class Image {
+public class Image {
     
-  static  func createImage (_ named: String) -> UIImageView {
+    public  static  func createImage (_ named: String) -> UIImageView {
         let imageView = UIImageView()
         imageView.image = UIImage(named:named)
         imageView.clipsToBounds = true
         return imageView
     }
 }
+

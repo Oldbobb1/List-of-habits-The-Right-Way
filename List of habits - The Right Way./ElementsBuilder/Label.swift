@@ -6,9 +6,9 @@
 
 import UIKit
 
-class Label {
+public class Label {
     
-   static func label(text: String, fontSize: CGFloat ) -> UILabel {
+    public  static func label(text: String, fontSize: CGFloat ) -> UILabel {
         let label = UILabel()
         label.text = text
         label.textAlignment = .center

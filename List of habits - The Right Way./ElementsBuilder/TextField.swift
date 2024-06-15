@@ -7,8 +7,8 @@
 
 import UIKit
 
-class TextField {
-   static func createTextField(height: CGFloat) -> UITextField {
+public class TextField {
+    public  static func createTextField(height: CGFloat) -> UITextField {
         let text = UITextField()
         text.placeholder = "    Название привычки"
         text.borderStyle = .roundedRect

@@ -7,8 +7,8 @@
 
 import UIKit
 
-class StackView {
-   static func stack() -> UIStackView {
+public class StackView {
+    public  static func stack() -> UIStackView {
         let stack = UIStackView()
         //    stack.backgroundColor = .lightGray
         //    stack.backgroundColor = UIColor.systemBackground

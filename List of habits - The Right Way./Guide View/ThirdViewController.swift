@@ -21,6 +21,12 @@ class ThirdViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateUI()
+        swipe()
+        
+    }
+    private func updateUI() {
+        
         view.backgroundColor = UIColor.systemBackground
         
         
@@ -43,6 +49,10 @@ class ThirdViewController: UIViewController{
                 
         Layout.applyView(label, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -80 )
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
+    }
+    
+    
+    private func swipe() {
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeBack))
         swipeRight.direction = .right
@@ -53,6 +63,7 @@ class ThirdViewController: UIViewController{
         self.view.addGestureRecognizer(swipeClose)
         
     }
+
     
     @objc func swipeBack() {
         self.navigationController?.popViewController(animated: true)
