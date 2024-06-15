@@ -25,6 +25,7 @@ class ThirdViewController: UIViewController{
         swipe()
         
     }
+    
     private func updateUI() {
         
         view.backgroundColor = UIColor.systemBackground

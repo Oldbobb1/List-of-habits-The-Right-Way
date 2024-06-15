@@ -25,8 +25,7 @@ class FirstViewController: UIViewController{
         updateUI()
         
         swipe()
-        
-       
+    
     }
     
     private func updateUI() {

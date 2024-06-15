@@ -45,6 +45,7 @@ class HabbitViewController: UIViewController  {
         
         savedUI()
         
+        buttonAction() 
     }
     
     private func updateUI() {
@@ -63,12 +64,7 @@ class HabbitViewController: UIViewController  {
         self.view.addSubview(button4)
         
         textField.delegate = self
-        
-        button1.addTarget(self, action: #selector(closeView), for: .touchUpInside)
-//        button2.addTarget(self, action:  #selector(closeView1), for: .touchUpInside)
-        button3.addTarget(self, action: #selector(buttonWithOpenSetting), for: .touchUpInside)
-        button4.addTarget(self, action: #selector(showColor), for: .touchUpInside)
-        
+            
         Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: -0)
         Layout.applyView(button1, view: view, topOffset: 0.99, leadingOffset: 0.5, trailingOffset: -285)
         Layout.applyView(button2, view: view, topOffset: 0.99, leadingOffset: 285, trailingOffset: -0.5)
@@ -104,6 +100,14 @@ class HabbitViewController: UIViewController  {
        //              date.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
     }
     
+    private func buttonAction() {
+        
+        button1.addTarget(self, action: #selector(closeView), for: .touchUpInside)
+//        button2.addTarget(self, action:  #selector(closeView1), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(buttonWithOpenSetting), for: .touchUpInside)
+        button4.addTarget(self, action: #selector(showColor), for: .touchUpInside)
+        
+    }
     
     
     @objc func buttonWithOpenSetting(_ sender: UIButton) {

@@ -47,6 +47,10 @@ class SettingViewController: UIViewController {
             
        updateUI()
             
+        buttonAction()
+        
+        setupUI()
+        
         ThemeManager.setTheme(theme: "light")
     }
     
@@ -69,34 +73,7 @@ class SettingViewController: UIViewController {
         view.addSubview(button3)
         view.addSubview(button4)
         view.addSubview(signInWithAppleButton)
-        
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.textAlignment = .left
-        nameLabel.textColor = .black
-
-        descriptionLabel.textColor = .gray
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.textAlignment = .left
-        
-        label1.textAlignment = .left
-        label1.textColor = .black
-        stackView.backgroundColor = .white
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.layer.cornerRadius = 10
-        
-        signInWithAppleButton.cornerRadius = 10
-        signInWithAppleButton.semanticContentAttribute = .forceRightToLeft
     
-        switchButt.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
-        
-        signInWithAppleButton.addTarget(self, action: #selector(handleLogInWithAppleIDButtonPress), for: .touchUpInside)
-    
-        button1.addTarget(self, action: #selector(openMailApp), for: .touchUpInside)
-        button2.addTarget(self, action: #selector(openGuidanceView), for: .touchUpInside)
-        button3.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
-        button4.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
-        
         Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0)
         
         Layout.applyView(containerView, view: view, topOffset: 40, leadingOffset: 10,trailingOffset: -10, additionalConstraints: {make in
@@ -151,6 +128,40 @@ class SettingViewController: UIViewController {
             make.height.equalTo(40)
         })
         
+    }
+    
+    private func setupUI() {
+        
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.textAlignment = .left
+        nameLabel.textColor = .black
+
+        descriptionLabel.textColor = .gray
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.textAlignment = .left
+        
+        label1.textAlignment = .left
+        label1.textColor = .black
+        stackView.backgroundColor = .white
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.layer.cornerRadius = 10
+        
+        signInWithAppleButton.cornerRadius = 10
+        signInWithAppleButton.semanticContentAttribute = .forceRightToLeft
+    }
+    
+  private func buttonAction() {
+        
+        switchButt.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
+        
+        signInWithAppleButton.addTarget(self, action: #selector(handleLogInWithAppleIDButtonPress), for: .touchUpInside)
+    
+        button1.addTarget(self, action: #selector(openMailApp), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(openGuidanceView), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
+        button4.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
+      
     }
     
     @objc func openMailApp() {

@@ -28,7 +28,10 @@ class ListViewController: UIViewController {
         updateUI()
         
         updateCalendar()
-       
+        
+        setuoUI()
+        
+        buttonAction()
     }
     
     func updateCalendar() {
@@ -46,20 +49,12 @@ class ListViewController: UIViewController {
 //        self.title = "Emoji Reader"
       //        self.navigationItem.leftBarButtonItem = self.editButtonItem
 
-              
               view.addSubview(label)
               view.addSubview(stackView)
               view.addSubview(table)
               view.addSubview(button)
               self.table.addSubview(button)
-
-              table.delegate = self
-              table.dataSource = self
-      //        table.register(NewLocation.self, forCellReuseIdentifier: "NewLocationIdentifier")
-              table.frame = view.bounds
-
-              button.addTarget(self, action: #selector(buttonOpenView) , for: .touchUpInside)
-                  
+        
               Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0 )
               
               Layout.applyView(stackView, view: view , leadingOffset: 270, trailingOffset: 0,  additionalConstraints: {make in
@@ -71,7 +66,20 @@ class ListViewController: UIViewController {
               })
               
               Layout.applyView(button, view: view, leadingOffset: 15 , bottomOffset: -10)
-            
+    }
+    
+    private func setuoUI() {
+        
+        table.delegate = self
+        table.dataSource = self
+//        table.register(NewLocation.self, forCellReuseIdentifier: "NewLocationIdentifier")
+        table.frame = view.bounds
+    }
+    
+    private func buttonAction() {
+        
+        button.addTarget(self, action: #selector(buttonOpenView) , for: .touchUpInside)
+        
     }
     
     @objc func buttonOpenView(_ sender: UIButton) {

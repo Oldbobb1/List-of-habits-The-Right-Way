@@ -30,6 +30,12 @@ class SettingAlarmViewController: UIViewController {
         updateUI()
         
         swipe()
+        
+        setupDaysOfWeek()
+        
+        buttonAction()
+        
+        setupUI()
     }
     
   private func updateUI() {
@@ -39,14 +45,6 @@ class SettingAlarmViewController: UIViewController {
         view.addSubview(stackView)
         stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(switchBut)
-        
-        label.textAlignment = .left
-//        stackView.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
-        stackView.layer.cornerRadius = 10
-        
-        setupDaysOfWeek()
-        
-        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         
         Layout.applyView(button, view: view, topOffset: 0.9, leadingOffset: 0.5, trailingOffset: -285)
         
@@ -70,6 +68,20 @@ class SettingAlarmViewController: UIViewController {
         let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
         swipeClose.direction = .right
         self.view.addGestureRecognizer(swipeClose)
+    }
+    
+    private func buttonAction() {
+        
+        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        
+    }
+    
+    private func setupUI() {
+        
+        label.textAlignment = .left
+//        stackView.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
+        stackView.layer.cornerRadius = 10
+        
     }
         
     @objc func closeButtonTapped() {

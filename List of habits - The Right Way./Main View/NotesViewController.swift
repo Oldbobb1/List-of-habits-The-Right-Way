@@ -19,11 +19,10 @@ class NotesViewController: UIViewController {
     }
     
     private func updateUI() {
-        view.addSubview(label)
         
+        view.addSubview(label)
 
         Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0)
-        
     }
     
 }
@@ -31,7 +30,7 @@ class NotesViewController: UIViewController {
 
 
 
-//class NotesViewController: UITableViewController {
+//class NotesViewController: UIViewController {
 //    
 //    var emoji = Emoji(emoji: "", name: "", description: "", isFavourite: false)
 //    
