@@ -7,99 +7,127 @@
 
 import UIKit
 
-//class NewLocation: UITableViewCell {
-//        
-//    private lazy var stackView: UIStackView = {
-//        let stackView = UIStackView()
-//        stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.axis = .horizontal
-//        stackView.alignment = .fill
-////        stackView.spacing = 16
-////        stackView.addArrangedSubview(nameLabel)
-//        return stackView
-//    }()
-//    
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//           super.init(style: style, reuseIdentifier: reuseIdentifier)
-//           contentView.addSubview(stackView)
-//           setupConstraints()
-//       
-//
-//       }
-//       
-//       required init?(coder: NSCoder) {
-//           fatalError("init(coder:) has not been implemented")
-//       }
-//       
-//       func configure(_ viewModel: NewsWithLocationModel) {
-////           nameLabel.text = viewModel.name
-//         
-//       }
-//       
-//       private func setupConstraints() {
-//
-//           let padding: CGFloat = 40
-//         
-//
-//           
-//           let constraints = [
-//               stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-//               stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-//               stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-//               stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding),
-//              
-//                          ]
-//       
-//           NSLayoutConstraint.activate(constraints)
-//        
-//       }
-//   
-//    
-//   }
 
-class NewEmojiTableViewController: UITableViewController {
-    
-    var emoji = Emoji(emoji: "", name: "", description: "", isFavourite: false)
-    
-    var emojiTextField = UITextField()
-   var nameTextField =  UITextField()
- var descriptionTextField = UITextField()
-    
-    @IBOutlet weak var saveButton: UIBarButtonItem!
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class EmojiTableViewCell: UITableViewCell {
         
-        updateUI()
-        updateSaveButtonState()
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    let circleView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 15
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        return view
+    }()
+    
+    let buttonStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    let containerView = UIView()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+       addSubview(circleView)
+      addSubview(buttonStackView)
+        
+    addSubview(nameLabel)
+        
+        // Настраиваем контейнерный вид
+        containerView.layer.borderWidth = 1
+        containerView.layer.borderColor = UIColor.red.cgColor
+        containerView.layer.cornerRadius = 8
+        contentView.addSubview(containerView)
+        
+    
+        containerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(40) // Добавляем отступ в 10 пунктов
+        }
+     
+        
+        nameLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(28)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-150)
+        }
+//        circleView.snp.makeConstraints { make in
+//            make.width.height.equalTo(30)
+//            make.left.equalToSuperview().offset(10)
+//            make.centerY.equalToSuperview()
+//        }
+//        
+        buttonStackView.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-10)
+            make.centerY.equalToSuperview()
+        }
+
+        _ = (1...3).map { _ -> UIButton in
+            let button = UIButton()
+            button.setTitle("x", for: .normal)
+            button.setTitleColor(.gray, for: .normal)
+            buttonStackView.addArrangedSubview(button)
+            return button
+        }
+      
+      
+
     }
     
-    private func updateSaveButtonState() {
-        let emojiText = emojiTextField.text ?? ""
-        let nameText = nameTextField.text ?? ""
-        let descriptionText = descriptionTextField.text ?? ""
-        
-        saveButton.isEnabled = !emojiText.isEmpty && !nameText.isEmpty && !descriptionText.isEmpty
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    private func updateUI() {
-        emojiTextField.text = emoji.emoji
-        nameTextField.text = emoji.name
-        descriptionTextField.text = emoji.description
-    }
-    
-    @IBAction func textChanged(_ sender: UITextField) {
-        updateSaveButtonState()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        guard segue.identifier == "saveSegue" else { return }
-        
-        let emoji = emojiTextField.text ?? ""
-        let name = nameTextField.text ?? ""
-        let description = descriptionTextField.text ?? ""
-        
-        self.emoji = Emoji(emoji: emoji, name: name, description: description, isFavourite: self.emoji.isFavourite)
+    func set(object: Emoji) {
+//        emojiLabel.text = object.emoji
+        nameLabel.text = object.name
+//        descriptionLabel.text = object.description
+        nameLabel.numberOfLines = 2
         
     }
 }
+
+
+
+//class CustomCell: UITableViewCell {
+//
+//    let containerView = UIView()
+//    let label = UILabel()
+//    
+//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//        
+//        // Настраиваем контейнерный вид
+//        containerView.layer.borderWidth = 1
+//        containerView.layer.borderColor = UIColor.red.cgColor
+//        containerView.layer.cornerRadius = 8
+//        contentView.addSubview(containerView)
+//        
+//        // Настраиваем вид текста
+//        label.textColor = UIColor.black
+//        containerView.addSubview(label)
+//        
+//        containerView.snp.makeConstraints { make in
+//            make.edges.equalToSuperview().inset(10) // Добавляем отступ в 10 пунктов
+//        }
+//        
+//        label.snp.makeConstraints { make in
+//            make.edges.equalToSuperview().inset(10)
+//        }
+//    }
+//    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    
+//    func configure(text: String) {
+//        label.text = text
+//    }
+//}

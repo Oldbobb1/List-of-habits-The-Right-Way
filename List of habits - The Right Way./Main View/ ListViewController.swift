@@ -7,21 +7,19 @@
 import UIKit
 import SnapKit
 
+
 class ListViewController: UIViewController {
+    
     
     let label = Label.label(text: "List", fontSize: 25)
     let stackView = StackView.stack()
     let table = TableView.createNewTableView()
     let button = ButtonsWithAction.addButtonImage(systemName: "plus.circle", setImage: nil )
-   
-//    let  NewLocationIdentifier = "EmojiTableViewCell"
     
-//    var objects = [
-//        Emoji(emoji: "🥰", name: "Love", description: "Let's love each other", isFavourite: false),
-//        Emoji(emoji: "⚽️", name: "Football", description: "Let's play football together", isFavourite: false),
-//        Emoji(emoji: "🐱", name: "Cat", description: "Cat is the cutest animal", isFavourite: false)
-//    ]
-// 
+    let  emojiCell = "EmojiTableViewCell"
+
+    var objects = [ Emoji]()
+         
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,11 +27,23 @@ class ListViewController: UIViewController {
         
         updateCalendar()
         
-        setuoUI()
+        setupUI()
         
         buttonAction()
-    }
+        
+     NotificationCenter.default.addObserver(self, selector: #selector(handleNewEmojiAdded(_:)), name: Notification.Name("NewEmojiAdded"), object: nil)
+        
+       }
     
+    @objc func handleNewEmojiAdded(_ notification: Notification) {
+        if let newEmoji = notification.object as? Emoji {
+            objects.append(newEmoji)
+            let newIndexPath = IndexPath(row: objects.count - 1, section: 0)
+            table.insertRows(at: [newIndexPath], with: .automatic)
+          
+        }
+    }
+
     func updateCalendar() {
         
         let calendar = Calendar.current
@@ -41,39 +51,37 @@ class ListViewController: UIViewController {
             let day = calendar.date(byAdding: .day, value: i, to: Date())!
             dateCurrent(to: stackView, withDay: day)
         }
-        
     }
+    
     
     private func updateUI() {
         
-//        self.title = "Emoji Reader"
-      //        self.navigationItem.leftBarButtonItem = self.editButtonItem
-
-              view.addSubview(label)
-              view.addSubview(stackView)
-              view.addSubview(table)
-              view.addSubview(button)
-              self.table.addSubview(button)
+        view.addSubview(label)
+        view.addSubview(stackView)
+        view.addSubview(table)
+        view.addSubview(button)
+        self.table.addSubview(button)
         
-              Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0 )
-              
-              Layout.applyView(stackView, view: view , leadingOffset: 270, trailingOffset: 0,  additionalConstraints: {make in
-                  make.top.equalTo(self.label.snp.bottom).offset(0)
-                  make.height.equalTo(38)
-              })
-              Layout.applyView(table, view: view, leadingOffset: 10 , trailingOffset: -10, bottomOffset: 0, additionalConstraints:{ make in
-                  make.top.equalTo(self.stackView.snp.bottom).offset(5)
-              })
-              
-              Layout.applyView(button, view: view, leadingOffset: 15 , bottomOffset: -10)
+        Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0 )
+        
+        Layout.applyView(stackView, view: view , leadingOffset: 270, trailingOffset: 0,  additionalConstraints: {make in
+            make.top.equalTo(self.label.snp.bottom).offset(0)
+            make.height.equalTo(38)
+        })
+        Layout.applyView(table, view: view, leadingOffset: 10 , trailingOffset: -10, bottomOffset: 0, additionalConstraints:{ make in
+            make.top.equalTo(self.stackView.snp.bottom).offset(5)
+        })
+        
+        Layout.applyView(button, view: view, leadingOffset: 15 , bottomOffset: -10)
     }
     
-    private func setuoUI() {
+    private func setupUI() {
         
         table.delegate = self
         table.dataSource = self
-//        table.register(NewLocation.self, forCellReuseIdentifier: "NewLocationIdentifier")
+        table.register(EmojiTableViewCell.self, forCellReuseIdentifier: "emojiCell")
         table.frame = view.bounds
+    
     }
     
     private func buttonAction() {
@@ -92,23 +100,60 @@ class ListViewController: UIViewController {
 
 
 extension ListViewController: UITableViewDataSource {
+        
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80 // Установить высоту ячейки
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return objects.count
-        return 0
+        return objects.count
+     
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "emojiCell", for: indexPath) as! EmojiTableViewCell
-//        let object = objects[indexPath.row]
-//        cell.set(object: object)
-//        return cell
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "emojiCell", for: indexPath) as! EmojiTableViewCell
+        let object = objects[indexPath.row]
+        cell.set(object: object)
+        cell.layer.cornerRadius = 10
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
+        return cell
     }
-
+    
+   func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            objects.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+ func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+ func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedEmoji = objects.remove(at: sourceIndexPath.row)
+        objects.insert(movedEmoji, at: destinationIndexPath.row)
+        tableView.reloadData()
+    }
 }
-
 
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected cell \(indexPath.row)")
     }
 }
+
+
+
+
+
+

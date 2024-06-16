@@ -11,7 +11,7 @@ class SettingAlarmViewController: UIViewController {
     let button = ButtonsWithAction.addButtonWithAction(setTitle:"Back", height: 35, width: 100)
     let label = Label.label(text: "Signal repetition", fontSize: 18)
     let stackView = StackView.stack()
-
+    
     let switchBut: UISwitch = {
         let switchButton = UISwitch()
         switchButton.isOn = false
@@ -38,7 +38,7 @@ class SettingAlarmViewController: UIViewController {
         setupUI()
     }
     
-  private func updateUI() {
+    private func updateUI() {
         
         view.backgroundColor = UIColor.systemBackground
         view.addSubview(button)
@@ -56,11 +56,11 @@ class SettingAlarmViewController: UIViewController {
         Layout.applyView(label, view: view, leadingOffset: 20 , additionalConstraints: {make in
             make.top.equalToSuperview().offset(-2)
         })
-
+        
         Layout.applyView(switchBut, view: view,trailingOffset: -14 , additionalConstraints: {make in
             make.top.equalToSuperview().offset(4)
         })
-      
+        
     }
     
     private func swipe() {
@@ -79,11 +79,11 @@ class SettingAlarmViewController: UIViewController {
     private func setupUI() {
         
         label.textAlignment = .left
-//        stackView.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
+        //        stackView.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
         stackView.layer.cornerRadius = 10
         
     }
-        
+    
     @objc func closeButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -99,11 +99,11 @@ class SettingAlarmViewController: UIViewController {
             dayButton.setTitle(day, for: .normal)
             dayButton.contentHorizontalAlignment = .left
             dayButton.layer.cornerRadius = 10
-                      
+            
             var config = UIButton.Configuration.plain()
             config.titlePadding = 10
             dayButton.configuration = config
-        
+            
             if self.traitCollection.userInterfaceStyle == .dark {
                 dayButton.setTitleColor(.label, for: .normal)
             } else {
@@ -126,7 +126,7 @@ class SettingAlarmViewController: UIViewController {
         if let checkmarkLabel = view.subviews.compactMap({ $0 as? UILabel }).first(where: { $0.center.y == sender.center.y }) {
             // Если галочка уже добавлена - удаляем ее
             checkmarkLabel.removeFromSuperview()
-//            UserDefaults.standard.set(false, forKey: "checkmarkSave")
+            //            UserDefaults.standard.set(false, forKey: "checkmarkSave")
         } else {
             // Иначе создаем новую галочку и добавляем на кнопку
             let checkmarkLabel = UILabel()
@@ -138,7 +138,7 @@ class SettingAlarmViewController: UIViewController {
             checkmarkLabel.center.y = sender.center.y
             
             view.addSubview(checkmarkLabel)
-//            UserDefaults.standard.set(false, forKey: "checkmarkSave")
+            //            UserDefaults.standard.set(false, forKey: "checkmarkSave")
             
         }
     }

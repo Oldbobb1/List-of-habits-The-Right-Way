@@ -8,21 +8,21 @@ import UIKit
 import AuthenticationServices
 
 class SettingViewController: UIViewController {
-
+    
     let label = Label.label(text: "Setting", fontSize: 25)
     let nameLabel = Label.label(text: "Bobbi R.", fontSize: 18)
     let descriptionLabel = Label.label(text:"Apple ID, iCloud, контент и покупки", fontSize: 14)
     let profileImageView = Image.createImage("guidePrew")
-  
+    
     let containerView: UIView = {
         let containerView = UIView()
-//        containerView.backgroundColor = .systemBackground
+        //        containerView.backgroundColor = .systemBackground
         containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 12
         containerView.translatesAutoresizingMaskIntoConstraints = false
         return containerView
     }()
-        
+    
     let arrowImageView: UIImageView = {
         let arrowImageView = UIImageView()
         arrowImageView.image = UIImage(systemName: "chevron.right")
@@ -41,12 +41,12 @@ class SettingViewController: UIViewController {
     let button4 = ButtonsWithAction.createButtonWithdAction(setTitle: "Subscription", height: 40)
     
     let signInWithAppleButton = ASAuthorizationAppleIDButton(type: .signIn, style: .white)
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            
-       updateUI()
-            
+        
+        updateUI()
+        
         buttonAction()
         
         setupUI()
@@ -73,7 +73,7 @@ class SettingViewController: UIViewController {
         view.addSubview(button3)
         view.addSubview(button4)
         view.addSubview(signInWithAppleButton)
-    
+        
         Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0)
         
         Layout.applyView(containerView, view: view, topOffset: 40, leadingOffset: 10,trailingOffset: -10, additionalConstraints: {make in
@@ -86,19 +86,19 @@ class SettingViewController: UIViewController {
             make.width.equalTo(60)
             make.height.equalTo(60)
         }
-
+        
         nameLabel.snp.makeConstraints { make in
             make.leading.equalTo(profileImageView.snp.trailing).offset(16)
             make.top.equalTo(containerView.snp.top).offset(20)
             make.trailing.equalTo(arrowImageView.snp.leading).offset(-16)
         }
-
+        
         descriptionLabel.snp.makeConstraints { make in
             make.leading.equalTo(profileImageView.snp.trailing).offset(16)
             make.top.equalTo(nameLabel.snp.bottom).offset(4)
             make.trailing.equalTo(arrowImageView.snp.leading).offset(-16)
         }
-
+        
         arrowImageView.snp.makeConstraints { make in
             make.trailing.equalTo(containerView.snp.trailing).offset(-16)
             make.centerY.equalTo(containerView)
@@ -114,11 +114,11 @@ class SettingViewController: UIViewController {
         Layout.applyView(label1, view: view, leadingOffset: 20, additionalConstraints:  {make in
             make.top.equalToSuperview().offset(-2)
         })
-    
+        
         Layout.applyView(switchButt, view: view, trailingOffset: -14, additionalConstraints:  {make in
             make.top.equalToSuperview().offset(4)
         })
-            
+        
         Layout.applyView(button1, view: view, topOffset: 229, leadingOffset: 10, trailingOffset: -10)
         Layout.applyView(button2, view: view, topOffset: 272, leadingOffset: 10, trailingOffset: -10)
         Layout.applyView(button3, view: view, topOffset: 315, leadingOffset: 10, trailingOffset: -10)
@@ -135,7 +135,7 @@ class SettingViewController: UIViewController {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.textAlignment = .left
         nameLabel.textColor = .black
-
+        
         descriptionLabel.textColor = .gray
         descriptionLabel.numberOfLines = 0
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -151,17 +151,17 @@ class SettingViewController: UIViewController {
         signInWithAppleButton.semanticContentAttribute = .forceRightToLeft
     }
     
-  private func buttonAction() {
+    private func buttonAction() {
         
         switchButt.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         
         signInWithAppleButton.addTarget(self, action: #selector(handleLogInWithAppleIDButtonPress), for: .touchUpInside)
-    
+        
         button1.addTarget(self, action: #selector(openMailApp), for: .touchUpInside)
         button2.addTarget(self, action: #selector(openGuidanceView), for: .touchUpInside)
         button3.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
         button4.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
-      
+        
     }
     
     @objc func openMailApp() {
@@ -205,13 +205,13 @@ class SettingViewController: UIViewController {
     
     @objc private func handleLogInWithAppleIDButtonPress() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
-    let request = appleIDProvider.createRequest()
-    request.requestedScopes = [.fullName, .email]
-            
-    let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-    authorizationController.delegate = self
-    authorizationController.presentationContextProvider = self
-    authorizationController.performRequests()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
     }
     
 }
