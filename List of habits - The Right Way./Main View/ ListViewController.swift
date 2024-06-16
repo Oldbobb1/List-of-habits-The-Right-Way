@@ -19,7 +19,7 @@ class ListViewController: UIViewController {
     let  emojiCell = "EmojiTableViewCell"
 
     var objects = [ Emoji]()
-         
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,6 +81,9 @@ class ListViewController: UIViewController {
         table.dataSource = self
         table.register(EmojiTableViewCell.self, forCellReuseIdentifier: "emojiCell")
         table.frame = view.bounds
+        table.backgroundColor = .systemGray4
+//        table.contentInset.bottom = CGFloat(- verticalPadding / 2)
+//        table.contentInset.top = CGFloat(-verticalPadding / 2)
     
     }
     
@@ -105,6 +108,7 @@ extension ListViewController: UITableViewDataSource {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80 // Установить высоту ячейки
     }
@@ -113,14 +117,29 @@ extension ListViewController: UITableViewDataSource {
         return objects.count
      
     }
+        
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
+        let verticalPadding: CGFloat = 10
 
+        let maskLayer = CALayer()
+        maskLayer.cornerRadius = 20    //if you want round edges
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+        cell.layer.mask = maskLayer
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.red.cgColor
+//
+    }
+ 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "emojiCell", for: indexPath) as! EmojiTableViewCell
-        let object = objects[indexPath.row]
+//        let object = objects[indexPath.row]
+        let object = objects[indexPath.section]
         cell.set(object: object)
-        cell.layer.cornerRadius = 10
+        cell.layer.cornerRadius = 20
         cell.layer.borderWidth = 1
-        cell.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
+        cell.layer.borderColor = UIColor.black.cgColor
         return cell
     }
     
@@ -145,6 +164,8 @@ func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.Ed
         tableView.reloadData()
     }
 }
+
+
 
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

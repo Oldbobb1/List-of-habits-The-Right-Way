@@ -31,8 +31,8 @@ class EmojiTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    let containerView = UIView()
-
+ 
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -41,18 +41,7 @@ class EmojiTableViewCell: UITableViewCell {
         
     addSubview(nameLabel)
         
-        // Настраиваем контейнерный вид
-        containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = UIColor.red.cgColor
-        containerView.layer.cornerRadius = 8
-        contentView.addSubview(containerView)
-        
-    
-        containerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(40) // Добавляем отступ в 10 пунктов
-        }
-     
-        
+
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
             make.leading.equalToSuperview().offset(10)
