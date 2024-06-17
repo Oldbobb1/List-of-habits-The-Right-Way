@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C40F026F2C20780600DFD0FB /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C40F026E2C20780600DFD0FB /* FSCalendar */; };
 		C438807A2C1354B60005EC9B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43880792C1354B60005EC9B /* FirstViewController.swift */; };
 		C438807C2C1354C00005EC9B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438807B2C1354C00005EC9B /* SecondViewController.swift */; };
 		C438807E2C1354C80005EC9B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438807D2C1354C80005EC9B /* ThirdViewController.swift */; };
@@ -86,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4DD37E42C1222C5006DBF3D /* SnapKit in Frameworks */,
+				C40F026F2C20780600DFD0FB /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +228,7 @@
 			name = "List of habits - The Right Way.";
 			packageProductDependencies = (
 				C4DD37E32C1222C5006DBF3D /* SnapKit */,
+				C40F026E2C20780600DFD0FB /* FSCalendar */,
 			);
 			productName = "List of habits - The Right Way.";
 			productReference = C4DD37BB2C12161F006DBF3D /* List of habits - The Right Way..app */;
@@ -257,6 +260,7 @@
 			mainGroup = C4DD37B22C12161F006DBF3D;
 			packageReferences = (
 				C4DD37E22C1222C5006DBF3D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C40F026D2C20780600DFD0FB /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = C4DD37BC2C12161F006DBF3D /* Products */;
 			projectDirPath = "";
@@ -461,7 +465,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,7 +498,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,6 +537,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C40F026D2C20780600DFD0FB /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
 		C4DD37E22C1222C5006DBF3D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -544,6 +556,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C40F026E2C20780600DFD0FB /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C40F026D2C20780600DFD0FB /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
 		C4DD37E32C1222C5006DBF3D /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C4DD37E22C1222C5006DBF3D /* XCRemoteSwiftPackageReference "SnapKit" */;

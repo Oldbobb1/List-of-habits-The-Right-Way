@@ -19,6 +19,8 @@ class ListViewController: UIViewController {
     
     var objects = [Emoji]()
     
+    let maxElements = 10 // Максимальное количество элементов в массиве
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,14 +83,18 @@ class ListViewController: UIViewController {
     }
     
     @objc func handleNewEmojiAdded(_ notification: Notification) {
-        if let newEmoji = notification.object as? Emoji {
-            objects.append(newEmoji)
-            let newIndexPath = IndexPath(row: objects.count - 1, section: 0)
-            table.insertRows(at: [newIndexPath], with: .automatic)
-            
-            saveEmojiData()
+        if objects.count < maxElements {
+            if let newEmoji = notification.object as? Emoji {
+                objects.append(newEmoji)
+                let newIndexPath = IndexPath(row: objects.count - 1, section: 0)
+                table.insertRows(at: [newIndexPath], with: .automatic)
+                saveEmojiData()
+            }
+        } else {
+            print("Max")
         }
     }
+    
     // Сохраняем массив данных о ячейках в UserDefaults
     func saveEmojiData() {
         let encodedData = try? JSONEncoder().encode(objects)

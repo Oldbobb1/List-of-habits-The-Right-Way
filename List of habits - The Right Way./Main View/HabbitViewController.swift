@@ -105,7 +105,6 @@ class HabbitViewController: UIViewController  {
     }
     
     @objc func saveButtonTapped() {
-        
         guard let emojiName = textField.text else { return }
         let newEmoji = Emoji(name: emojiName )
         

@@ -33,6 +33,10 @@ public class ButtonsWithAction {
         but.widthAnchor.constraint(equalToConstant: height).isActive = true
         but.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         
+        var config = UIButton.Configuration.plain()
+        config.titlePadding = 10
+        but.configuration = config
+        
         if UIScreen.main.traitCollection.userInterfaceStyle == .dark {
             but.setTitleColor(.label, for: .normal)
         }

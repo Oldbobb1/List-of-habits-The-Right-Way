@@ -5,6 +5,7 @@
 //  Created by Bobbi on 6.06.24.
 
 import UIKit
+import FSCalendar
 
 class EmojiTableViewCell: UITableViewCell {
     
@@ -21,17 +22,27 @@ class EmojiTableViewCell: UITableViewCell {
         return view
     }()
     
-    let buttonStackView: UIStackView = {
+    var buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.spacing = 10
+        //        stackView.backgroundColor = .blue
         return stackView
     }()
     
+//   fileprivate weak var calendar: FSCalendar!
+//    var calendar: FSCalendar!
+     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+            
+//        calendarView = FSCalendar()
+//        calendarView.delegate = self
+//        calendarView.dataSource = self
+//        calendarView.frame = bounds
+//        addSubview(calendarView)
+//    
         addSubview(nameLabel)
 //        addSubview(circleView)
         addSubview(buttonStackView)
@@ -56,11 +67,12 @@ class EmojiTableViewCell: UITableViewCell {
         _ = (1...3).map { _ -> UIButton in
             let button = UIButton()
             button.setTitle("x", for: .normal)
-            button.setTitleColor(.gray, for: .normal)
+            button.setTitleColor(.black, for: .normal)
+            //            button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             buttonStackView.addArrangedSubview(button)
             return button
         }
-        
+    
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -71,5 +83,17 @@ class EmojiTableViewCell: UITableViewCell {
         nameLabel.text = object.name
         nameLabel.numberOfLines = 2
     }
+    
+    
 }
+
+
+extension EmojiTableViewCell: FSCalendarDelegate, FSCalendarDataSource {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        // Здесь можно изменить внешний вид выбранной даты (например, появление галочки)
+    }
+}
+
+
+
 

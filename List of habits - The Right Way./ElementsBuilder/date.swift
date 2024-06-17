@@ -21,7 +21,7 @@ func dateCurrent(to stackView: UIStackView, withDay day: Date) {
     
     stackView.addArrangedSubview(dayOfWeekLabel)
 }
-
+//
 //    let calendar = Calendar.current
 //
 //    for i in 0..<3 {

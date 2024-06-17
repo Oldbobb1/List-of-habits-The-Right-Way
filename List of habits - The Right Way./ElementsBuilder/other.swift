@@ -46,3 +46,14 @@ import UIKit
 //       var config = UIButton.Configuration.plain()
 //        config.titlePadding = 10
 //        button.configuration = config
+
+
+
+
+//func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+//    calendar.snp.updateConstraints { (make) in
+//        make.height.equalTo(bounds.height)
+//        // Do other updates
+//    }
+//    self.view.layoutIfNeeded()
+//}
