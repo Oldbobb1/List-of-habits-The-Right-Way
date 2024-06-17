@@ -10,7 +10,6 @@ class NotesViewController: UIViewController {
     
     let label = Label.label(text: "Notes", fontSize: 25)
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

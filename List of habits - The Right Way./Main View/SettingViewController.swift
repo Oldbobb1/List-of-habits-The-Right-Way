@@ -35,21 +35,17 @@ class SettingViewController: UIViewController {
     let label1 = Label.label(text: "Theme", fontSize: 18)
     let switchButt = ButtonsWithAction.createSwitchButton(isOn: false)
     
-    let button1 = ButtonsWithAction.createButtonWithdAction(setTitle: "Support", height: 40)
-    let button2 = ButtonsWithAction.createButtonWithdAction(setTitle: "Guidance ", height: 40)
-    let button3 = ButtonsWithAction.createButtonWithdAction(setTitle: "Rate the app", height: 40)
-    let button4 = ButtonsWithAction.createButtonWithdAction(setTitle: "Subscription", height: 40)
+    let button1 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Support", height: 40)
+    let button2 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Guidance ", height: 40)
+    let button3 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Rate the app", height: 40)
+    let button4 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Subscription", height: 40)
     
     let signInWithAppleButton = ASAuthorizationAppleIDButton(type: .signIn, style: .white)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
-        
-        buttonAction()
-        
-        setupUI()
+        updateUI(); setupUI(); buttonAction()
         
         ThemeManager.setTheme(theme: "light")
     }
@@ -161,7 +157,6 @@ class SettingViewController: UIViewController {
         button2.addTarget(self, action: #selector(openGuidanceView), for: .touchUpInside)
         button3.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
         button4.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
-        
     }
     
     @objc func openMailApp() {
@@ -214,14 +209,14 @@ class SettingViewController: UIViewController {
         authorizationController.performRequests()
     }
     
+    
 }
-
-
 
 
 extension SettingViewController: ASAuthorizationControllerDelegate {
     
 }
+
 
 extension SettingViewController: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {

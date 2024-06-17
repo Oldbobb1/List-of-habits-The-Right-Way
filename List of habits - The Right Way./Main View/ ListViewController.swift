@@ -10,50 +10,24 @@ import SnapKit
 
 class ListViewController: UIViewController {
     
-    
     let label = Label.label(text: "List", fontSize: 25)
     let stackView = StackView.stack()
     let table = TableView.createNewTableView()
     let button = ButtonsWithAction.addButtonImage(systemName: "plus.circle", setImage: nil )
     
     let  emojiCell = "EmojiTableViewCell"
-
-    var objects = [ Emoji]()
+    
+    var objects = [Emoji]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
+        updateUI();  setupUI(); updateCalendar(); buttonAction(); loadEmojiData()
         
-        updateCalendar()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNewEmojiAdded(_:)), name: Notification.Name("NewEmojiAdded"), object: nil)
         
-        setupUI()
-        
-        buttonAction()
-        
-     NotificationCenter.default.addObserver(self, selector: #selector(handleNewEmojiAdded(_:)), name: Notification.Name("NewEmojiAdded"), object: nil)
-        
-       }
-    
-    @objc func handleNewEmojiAdded(_ notification: Notification) {
-        if let newEmoji = notification.object as? Emoji {
-            objects.append(newEmoji)
-            let newIndexPath = IndexPath(row: objects.count - 1, section: 0)
-            table.insertRows(at: [newIndexPath], with: .automatic)
-          
-        }
     }
 
-    func updateCalendar() {
-        
-        let calendar = Calendar.current
-        for i in -2..<1 {
-            let day = calendar.date(byAdding: .day, value: i, to: Date())!
-            dateCurrent(to: stackView, withDay: day)
-        }
-    }
-    
-    
     private func updateUI() {
         
         view.addSubview(label)
@@ -81,10 +55,16 @@ class ListViewController: UIViewController {
         table.dataSource = self
         table.register(EmojiTableViewCell.self, forCellReuseIdentifier: "emojiCell")
         table.frame = view.bounds
-        table.backgroundColor = .systemGray4
-//        table.contentInset.bottom = CGFloat(- verticalPadding / 2)
-//        table.contentInset.top = CGFloat(-verticalPadding / 2)
+        //        table.backgroundColor = .systemGray4
+    }
     
+    func updateCalendar() {
+        
+        let calendar = Calendar.current
+        for i in -2..<1 {
+            let day = calendar.date(byAdding: .day, value: i, to: Date())!
+            dateCurrent(to: stackView, withDay: day)
+        }
     }
     
     private func buttonAction() {
@@ -99,11 +79,36 @@ class ListViewController: UIViewController {
         navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true, completion: nil)
     }
+    
+    @objc func handleNewEmojiAdded(_ notification: Notification) {
+        if let newEmoji = notification.object as? Emoji {
+            objects.append(newEmoji)
+            let newIndexPath = IndexPath(row: objects.count - 1, section: 0)
+            table.insertRows(at: [newIndexPath], with: .automatic)
+            
+            saveEmojiData()
+        }
+    }
+    // Сохраняем массив данных о ячейках в UserDefaults
+    func saveEmojiData() {
+        let encodedData = try? JSONEncoder().encode(objects)
+        UserDefaults.standard.set(encodedData, forKey: "SavedEmojis") // исправленный ключ
+    }
+    // Загружаем данные о ячейках из UserDefaults
+    func loadEmojiData() {
+        if let savedData = UserDefaults.standard.data(forKey: "SavedEmojis") { // исправленный ключ
+            if let decodedData = try? JSONDecoder().decode([Emoji].self, from: savedData) {
+                objects = decodedData
+            }
+        }
+    }
+    
+    
 }
 
 
 extension ListViewController: UITableViewDataSource {
-        
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -115,56 +120,51 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
-     
     }
-        
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
         let verticalPadding: CGFloat = 10
-
+        
         let maskLayer = CALayer()
-        maskLayer.cornerRadius = 20    //if you want round edges
+        maskLayer.cornerRadius = 30 //if you want round edges
+        maskLayer.borderWidth = 1
+        maskLayer.borderColor = UIColor.black.cgColor
         maskLayer.backgroundColor = UIColor.black.cgColor
         maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
         cell.layer.mask = maskLayer
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.red.cgColor
-//
     }
- 
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "emojiCell", for: indexPath) as! EmojiTableViewCell
-//        let object = objects[indexPath.row]
-        let object = objects[indexPath.section]
+        let object = objects[indexPath.row]
         cell.set(object: object)
-        cell.layer.cornerRadius = 20
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.black.cgColor
+        cell.backgroundColor = .systemGray4
         return cell
     }
     
-   func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     
-func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             objects.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            saveEmojiData()
         }
     }
     
- func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
- func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedEmoji = objects.remove(at: sourceIndexPath.row)
         objects.insert(movedEmoji, at: destinationIndexPath.row)
         tableView.reloadData()
     }
 }
-
 
 
 extension ListViewController: UITableViewDelegate {

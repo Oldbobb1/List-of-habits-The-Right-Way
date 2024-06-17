@@ -12,12 +12,10 @@ class GuidanceViewControllers: UIViewController {
     let label1 = Label.label(text: "Habits поможет вам завести и поддерживать полезные привычки, позволяя улучшить свою жизнь.", fontSize: 15)
     let imageView = Image.createImage("guidePrew")
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
-        swipe()
+        updateUI(); swipe()
         
     }
     
@@ -43,7 +41,6 @@ class GuidanceViewControllers: UIViewController {
     }
     
   private  func swipe() {
-        
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)

@@ -1,15 +1,13 @@
-//
 //  classCell.swift
+
 //  List of habits - The Right Way.
-//
+
 //  Created by Bobbi on 6.06.24.
-//
 
 import UIKit
 
-
 class EmojiTableViewCell: UITableViewCell {
-        
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         return label
@@ -31,33 +29,30 @@ class EmojiTableViewCell: UITableViewCell {
         return stackView
     }()
     
- 
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-       addSubview(circleView)
-      addSubview(buttonStackView)
+        addSubview(nameLabel)
+//        addSubview(circleView)
+        addSubview(buttonStackView)
         
-    addSubview(nameLabel)
-        
-
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
             make.leading.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-150)
         }
+        
 //        circleView.snp.makeConstraints { make in
 //            make.width.height.equalTo(30)
 //            make.left.equalToSuperview().offset(10)
 //            make.centerY.equalToSuperview()
 //        }
-//        
+        
         buttonStackView.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-10)
             make.centerY.equalToSuperview()
         }
-
+        
         _ = (1...3).map { _ -> UIButton in
             let button = UIButton()
             button.setTitle("x", for: .normal)
@@ -65,9 +60,7 @@ class EmojiTableViewCell: UITableViewCell {
             buttonStackView.addArrangedSubview(button)
             return button
         }
-      
-      
-
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,48 +68,8 @@ class EmojiTableViewCell: UITableViewCell {
     }
     
     func set(object: Emoji) {
-//        emojiLabel.text = object.emoji
         nameLabel.text = object.name
-//        descriptionLabel.text = object.description
         nameLabel.numberOfLines = 2
-        
     }
 }
 
-
-
-//class CustomCell: UITableViewCell {
-//
-//    let containerView = UIView()
-//    let label = UILabel()
-//    
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        
-//        // Настраиваем контейнерный вид
-//        containerView.layer.borderWidth = 1
-//        containerView.layer.borderColor = UIColor.red.cgColor
-//        containerView.layer.cornerRadius = 8
-//        contentView.addSubview(containerView)
-//        
-//        // Настраиваем вид текста
-//        label.textColor = UIColor.black
-//        containerView.addSubview(label)
-//        
-//        containerView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview().inset(10) // Добавляем отступ в 10 пунктов
-//        }
-//        
-//        label.snp.makeConstraints { make in
-//            make.edges.equalToSuperview().inset(10)
-//        }
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//    
-//    func configure(text: String) {
-//        label.text = text
-//    }
-//}

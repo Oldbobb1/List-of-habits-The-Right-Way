@@ -7,7 +7,6 @@
 import UIKit
 
 public class Label {
-    
     public  static func label(text: String, fontSize: CGFloat ) -> UILabel {
         let label = UILabel()
         label.text = text
@@ -16,7 +15,6 @@ public class Label {
         label.numberOfLines = 0
         return label
     }
-    
 }
 
 

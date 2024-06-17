@@ -41,3 +41,8 @@ import UIKit
 //           return .dark
 //       }
 //   }
+
+//MARK: - отсутп для текста в кнопке
+//       var config = UIButton.Configuration.plain()
+//        config.titlePadding = 10
+//        button.configuration = config

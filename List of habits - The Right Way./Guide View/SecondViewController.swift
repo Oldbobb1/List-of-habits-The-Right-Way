@@ -14,15 +14,14 @@ class SecondViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
-       
-        swipe()
+        updateUI(); swipe()
         
     }
 
@@ -49,7 +48,6 @@ class SecondViewController: UIViewController{
     
     
     private func swipe() {
-        
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)

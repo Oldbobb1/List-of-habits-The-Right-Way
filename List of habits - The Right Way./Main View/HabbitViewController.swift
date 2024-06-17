@@ -12,12 +12,10 @@ class HabbitViewController: UIViewController  {
     let button1 = ButtonsWithAction.addButtonWithAction(setTitle: "Cancel", height: 33, width: 100)
     let button2 = ButtonsWithAction.addButtonWithAction(setTitle: "Save",height: 33, width: 10)
     let textField = TextField.createTextField(height: 40)
-    let button3 = ButtonsWithAction.createButtonWithdAction(setTitle: "Repeat", height: 40)
-    let button4 = ButtonsWithAction.createButtonWithdAction(setTitle: "Color", height: 40)
+    let button3 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Repeat", height: 40)
+    let button4 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Color", height: 40)
     
-    //    var emoji = Emoji(name: "")
-    
-    var date: UIDatePicker = {
+    let date: UIDatePicker = {
         let date = UIDatePicker()
         date.datePickerMode = .time
         date.preferredDatePickerStyle = .wheels
@@ -29,7 +27,7 @@ class HabbitViewController: UIViewController  {
         return date
     }()
     
-    var  selectedColorView: UIView = {
+    let  selectedColorView: UIView = {
         let col = UIView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
         col.layer.cornerRadius = 15
         col.translatesAutoresizingMaskIntoConstraints = false
@@ -39,15 +37,10 @@ class HabbitViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
-        
-        swipe()
-        
-        buttonAction()
-        
-        updateSaveButtonState()
+        updateUI(); swipe(); buttonAction(); updateSaveButtonState()
         
     }
+    
     private func updateUI() {
         
         view.backgroundColor = UIColor.systemBackground
@@ -80,33 +73,19 @@ class HabbitViewController: UIViewController  {
         }
     }
     
+    private func buttonAction() {
+        
+        button1.addTarget(self, action: #selector(closeView), for: .touchUpInside)
+        button2.addTarget(self, action:  #selector(saveButtonTapped), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(buttonWithOpenSetting), for: .touchUpInside)
+        button4.addTarget(self, action: #selector(showColor), for: .touchUpInside)
+    }
     
     private func swipe() {
-        
         let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
         swipeClose.direction = .right
         self.view.addGestureRecognizer(swipeClose)
     }
-    
-    private func savedUI() {
-        
-        //        if let savedColor = loadSelectedColor() {
-        //            selectedColorView.backgroundColor = savedColor
-        //        }
-        //
-        //        textField.addTarget(self, action: #selector(textFieldSave(_:)), for: .editingChanged)
-        //        date.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
-    }
-    
-    private func buttonAction() {
-        
-        button1.addTarget(self, action: #selector(closeView), for: .touchUpInside)
-                button2.addTarget(self, action:  #selector(saveButtonTapped), for: .touchUpInside)
-        button3.addTarget(self, action: #selector(buttonWithOpenSetting), for: .touchUpInside)
-        button4.addTarget(self, action: #selector(showColor), for: .touchUpInside)
-        
-    }
-    
     
     @objc func buttonWithOpenSetting(_ sender: UIButton) {
         let view = SettingAlarmViewController()
@@ -118,14 +97,6 @@ class HabbitViewController: UIViewController  {
     @objc func closeView() {
         self.dismiss(animated: true, completion: nil)
     }
-    //    @objc func closeView1() {
-    //        guard isTextFieldFilled && isColorPickerFilled else {
-    //            // Если хотя бы одно из полей не заполнено, не закрывать экран
-    //            return
-    //        }
-    //
-    //        self.dismiss(animated: true, completion: nil)
-    //    }
     
     @objc func showColor(_ sender: UIButton) {
         let color  = UIColorPickerViewController()
@@ -133,67 +104,38 @@ class HabbitViewController: UIViewController  {
         self.present(color, animated: true, completion: nil)
     }
     
-    //    Метод, который будет вызываться при изменении времени в date picker
-    //      @objc func datePickerValueChanged(_ sender: UIDatePicker) {
-    ////          alarmTime = date.date
-    //          UserDefaults.standard.set(sender.date, forKey: "savedDate")
-    //      }
-    
-    //    @objc func textFieldSave(_ textField: UITextField) {
-    //        UserDefaults.standard.set(textField.text, forKey: "saveText")
-    //    }
-    
-    //    @objc  func saveSelectedColor(_ color: UIColor) {
-    //        let colorData = try? NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
-    //        UserDefaults.standard.set(colorData, forKey: "selectedColor")
-    //    }
-    //
-    //    // Метод для загрузки выбранного цвета из UserDefaults
-    //    func loadSelectedColor() -> UIColor? {
-    //        if let colorData = UserDefaults.standard.data(forKey: "selectedColor"),
-    //           let color = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: colorData) {
-    //            return color
-    //        } else {
-    //            return nil
-    //        }
-    //    }
-    //
-    //    // Метод, который будет вызываться при изменении цвета в UIView
-    //    func colorViewDidChangeColor(_ color: UIColor) {
-    //        saveSelectedColor(color)
-    //    }  // Метод для сохранения выбранного цвета в UserDefaults
-    
     @objc func saveButtonTapped() {
-        guard let emojiName = textField.text else { return }
         
-        let newEmoji = Emoji(name: emojiName)
+        guard let emojiName = textField.text else { return }
+        let newEmoji = Emoji(name: emojiName )
         
         updateSaveButtonState()
-    
+        
         NotificationCenter.default.post(name: Notification.Name("NewEmojiAdded"), object: newEmoji)
-
+        
         self.dismiss(animated: true, completion: nil)
-    
     }
+    
     func updateSaveButtonState() {
-           let nameText = textField.text ?? ""
-           button2.isEnabled =  !nameText.isEmpty
-       }
-
-       func textFieldDidEndEditing(_ textField: UITextField) {
-           updateSaveButtonState()
-       }
-
+        let nameText = textField.text ?? ""
+        button2.isEnabled =  !nameText.isEmpty
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+    }
+    
     
 }
 
 
-
 extension HabbitViewController: UIColorPickerViewControllerDelegate {
-    //    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-    //        // Обновляем цвет кнопки
-    //        color.backgroundColor = viewController.selectedColor
-    //    }
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        //        // Обновляем цвет кнопки
+        //        color.backgroundColor = viewController.selectedColor
+    }
+    
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         //        let selectedColor = viewController.selectedColor
         // Обновляем цвет кружка выбранного цвета
@@ -203,15 +145,17 @@ extension HabbitViewController: UIColorPickerViewControllerDelegate {
         //        saveSelectedColor(selectedColor)
         selectedColorView.backgroundColor = selectedColor
         //        viewController.dismiss(animated: true, completion: nil)
+        updateSaveButtonState()
     }
+    
 }
 
 
-
-
 extension HabbitViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
 }

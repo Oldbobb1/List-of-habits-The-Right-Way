@@ -1,9 +1,8 @@
-//
 //  textField.swift
+
 //  List of habits - The Right Way.
-//
+
 //  Created by Bobbi on 6.06.24.
-//
 
 import UIKit
 
@@ -24,7 +23,6 @@ public class TextField {
         } else {
             text.attributedPlaceholder = NSAttributedString(string: "    Название привычки", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         }
-        
         return text
     }
 }

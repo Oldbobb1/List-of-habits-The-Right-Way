@@ -21,21 +21,12 @@ class SettingAlarmViewController: UIViewController {
         return switchButton
     }()
     
-    let days = ["Every Monday", "Every Tuesday", "Every Wednesday", "Every Thursday", "Every Friday", "Every Saturday", "Every Sunday"]
-    
+    let days = ["  Every Monday", "  Every Tuesday", "  Every Wednesday", "  Every Thursday", "  Every Friday", "  Every Saturday", "  Every Sunday"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
-        
-        swipe()
-        
-        setupDaysOfWeek()
-        
-        buttonAction()
-        
-        setupUI()
+        updateUI(); setupUI(); swipe(); buttonAction(); setupDaysOfWeek()
     }
     
     private func updateUI() {
@@ -63,27 +54,23 @@ class SettingAlarmViewController: UIViewController {
         
     }
     
-    private func swipe() {
-        
-        let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
-        swipeClose.direction = .right
-        self.view.addGestureRecognizer(swipeClose)
+    private func setupUI() {
+        label.textAlignment = .left
+        //        stackView.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
+        stackView.layer.cornerRadius = 10
     }
     
     private func buttonAction() {
         
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-        
     }
     
-    private func setupUI() {
-        
-        label.textAlignment = .left
-        //        stackView.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
-        stackView.layer.cornerRadius = 10
-        
+    private func swipe() {
+        let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
+        swipeClose.direction = .right
+        self.view.addGestureRecognizer(swipeClose)
     }
-    
+
     @objc func closeButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -99,17 +86,14 @@ class SettingAlarmViewController: UIViewController {
             dayButton.setTitle(day, for: .normal)
             dayButton.contentHorizontalAlignment = .left
             dayButton.layer.cornerRadius = 10
-            
-            var config = UIButton.Configuration.plain()
-            config.titlePadding = 10
-            dayButton.configuration = config
+            dayButton.layer.borderWidth = 1
+            dayButton.layer.borderColor = UIColor.red.cgColor
             
             if self.traitCollection.userInterfaceStyle == .dark {
                 dayButton.setTitleColor(.label, for: .normal)
             } else {
                 dayButton.setTitleColor(.label, for: .normal)
             }
-            
             view.addSubview(dayButton)
             
             dayButton.snp.makeConstraints { make in
@@ -139,9 +123,9 @@ class SettingAlarmViewController: UIViewController {
             
             view.addSubview(checkmarkLabel)
             //            UserDefaults.standard.set(false, forKey: "checkmarkSave")
-            
         }
     }
+  
     
 }
 
