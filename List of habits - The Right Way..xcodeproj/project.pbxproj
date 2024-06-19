@@ -35,6 +35,7 @@
 		C4DD37F02C122650006DBF3D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37EF2C122650006DBF3D /* TextField.swift */; };
 		C4DD37F22C122677006DBF3D /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37F12C122677006DBF3D /* StackView.swift */; };
 		C4F0C80F2C22E19F00D5B6CA /* swipeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F0C80E2C22E19F00D5B6CA /* swipeClass.swift */; };
+		C4F0C8132C2306FC00D5B6CA /* GuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F0C8122C2306FC00D5B6CA /* GuideModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +82,7 @@
 		C4DD37EF2C122650006DBF3D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		C4DD37F12C122677006DBF3D /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		C4F0C80E2C22E19F00D5B6CA /* swipeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swipeClass.swift; sourceTree = "<group>"; };
+		C4F0C8122C2306FC00D5B6CA /* GuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +155,9 @@
 			children = (
 				C4CEF9172C19FBBF000806DC /* List of habits - The Right Way..entitlements */,
 				C4DD37D62C1221A2006DBF3D /* Aplication */,
+				C4F0C8102C2306C800D5B6CA /* ModelMainView */,
 				C4DD37D72C1221B6006DBF3D /* Main View */,
+				C4F0C8112C2306D800D5B6CA /* ModelGuideView */,
 				C43880782C13549C0005EC9B /* Guide View */,
 				C46B82CB2C1C8327007F2290 /* Theme */,
 				C4F0C80D2C22E18000D5B6CA /* swipeClass */,
@@ -218,6 +222,21 @@
 				C4F0C80E2C22E19F00D5B6CA /* swipeClass.swift */,
 			);
 			path = swipeClass;
+			sourceTree = "<group>";
+		};
+		C4F0C8102C2306C800D5B6CA /* ModelMainView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelMainView;
+			sourceTree = "<group>";
+		};
+		C4F0C8112C2306D800D5B6CA /* ModelGuideView */ = {
+			isa = PBXGroup;
+			children = (
+				C4F0C8122C2306FC00D5B6CA /* GuideModel.swift */,
+			);
+			path = ModelGuideView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +335,7 @@
 				C4DD37DB2C122213006DBF3D /* ButtonsWithAction.swift in Sources */,
 				C4DD37E82C1223CF006DBF3D /* SettingAlarmViewController.swift in Sources */,
 				C438807A2C1354B60005EC9B /* FirstViewController.swift in Sources */,
+				C4F0C8132C2306FC00D5B6CA /* GuideModel.swift in Sources */,
 				C457608C2C1BA21800CE6822 /* Theme.swift in Sources */,
 				C4DD37EE2C122606006DBF3D /* other.swift in Sources */,
 				C4DD37F22C122677006DBF3D /* StackView.swift in Sources */,
