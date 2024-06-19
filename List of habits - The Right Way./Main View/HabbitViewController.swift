@@ -39,9 +39,7 @@ class HabbitViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI();  buttonAction(); updateSaveButtonState()
-        
-        swipe = SwipeClass(viewController: self,leftAction:{}, rightAction: {[weak self] in  self?.dismiss(animated: true, completion: nil)})
+        updateUI();  buttonAction(); updateSaveButtonState(); swipeActions()
     }
     
     private func updateUI() {
@@ -94,6 +92,14 @@ class HabbitViewController: UIViewController  {
     @objc func closeView() {
         self.dismiss(animated: true, completion: nil)
     }
+    private func swipeActions() {
+    swipe = SwipeClass(viewController: self,
+                       leftAction:{},
+                       rightAction: {[weak self] in
+        guard let self = self else {return}
+        self.dismiss(animated: true, completion: nil)
+    })
+}
     
     @objc func showColor(_ sender: UIButton) {
         let color  = UIColorPickerViewController()

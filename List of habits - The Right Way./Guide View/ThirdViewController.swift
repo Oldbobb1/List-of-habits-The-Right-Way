@@ -12,21 +12,17 @@ class ThirdViewController: UIViewController{
     let label1 = Label.label(text: "При помощи графиков вы легко можете посмотреть полную историю ваших привычек и то, как они закрепились со временем.", fontSize: 15)
     //    let imageView = Image.createImage("")
     var swipe: SwipeClass?
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
-        
-        swipe = SwipeClass(viewController: self,
-                           leftAction: { [weak self] in  self?.dismiss(animated: false, completion: nil)},
-                           rightAction:{ [weak self] in   self?.navigationController?.popViewController(animated: true)})
+        updateUI(); swipeActions()
     }
     
     private func updateUI() {
@@ -54,5 +50,16 @@ class ThirdViewController: UIViewController{
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
     }
     
+    private func swipeActions() {
+        swipe = SwipeClass(viewController: self,
+                           leftAction: { [weak self] in
+            guard let self = self else {return }
+            self.dismiss(animated: false, completion: nil)
+        },
+                           rightAction:{ [weak self] in
+            guard let self = self else {return }
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
 }
 

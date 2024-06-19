@@ -28,9 +28,8 @@ class SettingAlarmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI(); setupUI(); buttonAction(); setupDaysOfWeek()
+        updateUI(); setupUI(); buttonAction(); setupDaysOfWeek();  swipeActions() 
         
-        swipe = SwipeClass(viewController: self, leftAction: {}, rightAction: {[weak self] in self?.dismiss(animated: true, completion: nil)})
     }
     
     private func updateUI() {
@@ -68,10 +67,18 @@ class SettingAlarmViewController: UIViewController {
         
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
     }
-
+    
     @objc func closeButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
+    private func swipeActions() {
+    swipe = SwipeClass(viewController: self,
+                       leftAction: {},
+                       rightAction: {[weak self] in
+        guard let self = self else {return}
+        self.dismiss(animated: true, completion: nil)
+    })
+}
 
     func setupDaysOfWeek() {
         

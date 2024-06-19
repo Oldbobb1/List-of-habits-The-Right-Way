@@ -10,7 +10,7 @@ class SecondViewController: UIViewController{
     
     let label = Label.label(text: "Отметки", fontSize: 20)
     let label1 = Label.label(text: "Отметьте выполнение привычки в указанный день.С каждым повторением вы делаете шаг вперед, а с каждым пропуском - два шага назад.", fontSize: 15)
-//    let imageView = Image.createImage("")
+    //    let imageView = Image.createImage("")
     var swipe: SwipeClass?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,16 +22,10 @@ class SecondViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
+        updateUI(); swipeActions()
         
-        swipe = SwipeClass(viewController: self,
-                           leftAction: {[weak self] in
-            let view = ThirdViewController()
-            self?.navigationController?.pushViewController(view, animated: true)
-        },
-                           rightAction: { [weak self] in self?.navigationController?.popViewController(animated: true)})
     }
-
+    
     private func updateUI() {
         
         view.backgroundColor = UIColor.systemBackground
@@ -45,9 +39,23 @@ class SecondViewController: UIViewController{
         //                    make.width.equalTo(300)
         //                    make.height.equalTo(300)
         //                }
-                
+        
         Layout.applyView(label, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -80 )
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
     }
     
+    
+    private func swipeActions() {
+        swipe = SwipeClass(viewController: self,
+                           leftAction: {[weak self] in
+            guard let self = self else {return}
+            let view = ThirdViewController()
+            self.navigationController?.pushViewController(view, animated: true)
+        },
+                           rightAction: { [weak self] in
+            guard let self = self else {return}
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
 }
+

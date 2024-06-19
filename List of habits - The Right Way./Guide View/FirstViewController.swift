@@ -22,14 +22,8 @@ class FirstViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
+        updateUI(); swipeActions()
         
-        swipe = SwipeClass(viewController: self,
-                           leftAction: {[weak self] in
-            let view = SecondViewController()
-            self?.navigationController?.pushViewController(view, animated: true)
-        },
-                           rightAction: {[weak self] in self?.navigationController?.popViewController(animated: true)})
     }
     
     private func updateUI() {
@@ -56,6 +50,19 @@ class FirstViewController: UIViewController{
         })
         Layout.applyView(label, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -90 )
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: 10 )
+    }
+    
+    private func swipeActions() {
+        swipe = SwipeClass(viewController: self,
+                           leftAction: {[weak self] in
+            guard let self = self else {return}
+            let view = SecondViewController()
+            self.navigationController?.pushViewController(view, animated: true)
+        },
+                           rightAction: {[weak self] in
+            guard let self = self else {return}
+            self.navigationController?.popViewController(animated: true)
+        })
     }
 }
 

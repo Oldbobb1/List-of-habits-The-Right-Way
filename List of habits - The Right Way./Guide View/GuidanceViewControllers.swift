@@ -16,15 +16,8 @@ class GuidanceViewControllers: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
+        updateUI(); swipeActions()
         
-        swipe = SwipeClass(viewController: self,
-                           leftAction: { [weak self] in
-            let view = FirstViewController()
-            self?.navigationController?.pushViewController(view, animated: true)
-        },
-                           rightAction: { [weak self] in self?.dismiss(animated: true, completion: nil)
-        })
     }
     
     private func updateUI() {
@@ -33,7 +26,7 @@ class GuidanceViewControllers: UIViewController {
         view.addSubview(label)
         view.addSubview(label1)
         self.view.addSubview(imageView)
-    
+        
         imageView.layer.cornerRadius = 150
         
         Layout.applyView(imageView, view: view, additionalConstraints: { (make) in
@@ -47,7 +40,21 @@ class GuidanceViewControllers: UIViewController {
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
     }
     
+    private func swipeActions() {
+        swipe = SwipeClass(viewController: self,
+                           leftAction: { [weak self] in
+            guard let self = self else {return}
+            let view = FirstViewController()
+            self.navigationController?.pushViewController(view, animated: true)
+        },
+                           rightAction: { [weak self] in
+            guard let self = self else {return}
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
+    
 }
+
 
 
 
