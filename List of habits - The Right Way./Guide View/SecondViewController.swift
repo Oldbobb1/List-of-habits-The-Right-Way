@@ -11,6 +11,7 @@ class SecondViewController: UIViewController{
     let label = Label.label(text: "Отметки", fontSize: 20)
     let label1 = Label.label(text: "Отметьте выполнение привычки в указанный день.С каждым повторением вы делаете шаг вперед, а с каждым пропуском - два шага назад.", fontSize: 15)
 //    let imageView = Image.createImage("")
+    var swipe: SwipeClass?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -21,14 +22,19 @@ class SecondViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI(); swipe()
+        updateUI()
         
+        swipe = SwipeClass(viewController: self,
+                           leftAction: {[weak self] in
+            let view = ThirdViewController()
+            self?.navigationController?.pushViewController(view, animated: true)
+        },
+                           rightAction: { [weak self] in self?.navigationController?.popViewController(animated: true)})
     }
 
     private func updateUI() {
         
         view.backgroundColor = UIColor.systemBackground
-
         view.addSubview(label)
         view.addSubview(label1)
         //        self.view.addSubview(imageView)
@@ -42,29 +48,6 @@ class SecondViewController: UIViewController{
                 
         Layout.applyView(label, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -80 )
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
-        
-        
     }
     
-    
-    private func swipe() {
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
-        swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)
-        
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeBack))
-        swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
-        
-    }
-    
-
-    @objc func swipeLeft() {
-        let newViewController = ThirdViewController()
-        self.navigationController?.pushViewController(newViewController, animated: true)
-    }
-    
-    @objc func swipeBack() {
-        self.navigationController?.popViewController(animated: true)
-    }
 }

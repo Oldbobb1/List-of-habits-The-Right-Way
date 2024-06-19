@@ -11,24 +11,27 @@ class ThirdViewController: UIViewController{
     let label = Label.label(text: "Обзор", fontSize: 20)
     let label1 = Label.label(text: "При помощи графиков вы легко можете посмотреть полную историю ваших привычек и то, как они закрепились со временем.", fontSize: 15)
     //    let imageView = Image.createImage("")
-    
+    var swipe: SwipeClass?
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI(); swipe()
+        updateUI()
         
+        swipe = SwipeClass(viewController: self,
+                           leftAction: { [weak self] in  self?.dismiss(animated: false, completion: nil)},
+                           rightAction:{ [weak self] in   self?.navigationController?.popViewController(animated: true)})
     }
     
     private func updateUI() {
         
         view.backgroundColor = UIColor.systemBackground
-        
         view.addSubview(label)
         view.addSubview(label1)
         //        self.view.addSubview(imageView)
@@ -39,6 +42,7 @@ class ThirdViewController: UIViewController{
         //                                make.width.equalTo(300)
         //                                make.height.equalTo(300)
         //                            })
+        
         //        imageView.snp.makeConstraints { (make) in
         //                    make.centerX.equalToSuperview()
         //                    make.centerY.equalToSuperview()
@@ -50,25 +54,5 @@ class ThirdViewController: UIViewController{
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
     }
     
-    private func swipe() {
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeBack))
-        swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
-        
-        let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
-        swipeClose.direction = .left
-        self.view.addGestureRecognizer(swipeClose)
-        
-    }
-    
-    @objc func swipeBack() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc func closeView() {
-        self.dismiss(animated: false, completion: nil)
-    }
-    
 }
-
 

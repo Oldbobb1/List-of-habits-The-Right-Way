@@ -23,10 +23,14 @@ class SettingAlarmViewController: UIViewController {
     
     let days = ["  Every Monday", "  Every Tuesday", "  Every Wednesday", "  Every Thursday", "  Every Friday", "  Every Saturday", "  Every Sunday"]
     
+    var swipe: SwipeClass?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI(); setupUI(); swipe(); buttonAction(); setupDaysOfWeek()
+        updateUI(); setupUI(); buttonAction(); setupDaysOfWeek()
+        
+        swipe = SwipeClass(viewController: self, leftAction: {}, rightAction: {[weak self] in self?.dismiss(animated: true, completion: nil)})
     }
     
     private func updateUI() {
@@ -64,21 +68,11 @@ class SettingAlarmViewController: UIViewController {
         
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
     }
-    
-    private func swipe() {
-        let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
-        swipeClose.direction = .right
-        self.view.addGestureRecognizer(swipeClose)
-    }
 
     @objc func closeButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    @objc func closeView() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+
     func setupDaysOfWeek() {
         
         for (index, day) in days.enumerated() {

@@ -34,6 +34,7 @@
 		C4DD37EE2C122606006DBF3D /* other.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37ED2C122606006DBF3D /* other.swift */; };
 		C4DD37F02C122650006DBF3D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37EF2C122650006DBF3D /* TextField.swift */; };
 		C4DD37F22C122677006DBF3D /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37F12C122677006DBF3D /* StackView.swift */; };
+		C4F0C80F2C22E19F00D5B6CA /* swipeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F0C80E2C22E19F00D5B6CA /* swipeClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +80,7 @@
 		C4DD37ED2C122606006DBF3D /* other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = other.swift; sourceTree = "<group>"; };
 		C4DD37EF2C122650006DBF3D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		C4DD37F12C122677006DBF3D /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		C4F0C80E2C22E19F00D5B6CA /* swipeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swipeClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				C4DD37D72C1221B6006DBF3D /* Main View */,
 				C43880782C13549C0005EC9B /* Guide View */,
 				C46B82CB2C1C8327007F2290 /* Theme */,
+				C4F0C80D2C22E18000D5B6CA /* swipeClass */,
 				C46B82CC2C1C8336007F2290 /* Layout */,
 				C4DD37D92C1221F8006DBF3D /* ElementsBuilder */,
 				C4DD37D82C1221E1006DBF3D /* Cell */,
@@ -207,6 +210,14 @@
 				C49734462C163076001546DE /* TableView.swift */,
 			);
 			path = ElementsBuilder;
+			sourceTree = "<group>";
+		};
+		C4F0C80D2C22E18000D5B6CA /* swipeClass */ = {
+			isa = PBXGroup;
+			children = (
+				C4F0C80E2C22E19F00D5B6CA /* swipeClass.swift */,
+			);
+			path = swipeClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +308,7 @@
 				C4DD37DF2C122247006DBF3D /* modelCell.swift in Sources */,
 				C4DD37F02C122650006DBF3D /* TextField.swift in Sources */,
 				C438807C2C1354C00005EC9B /* SecondViewController.swift in Sources */,
+				C4F0C80F2C22E19F00D5B6CA /* swipeClass.swift in Sources */,
 				C49734452C1629EE001546DE /* Image.swift in Sources */,
 				C457608E2C1BA4E600CE6822 /* Layout.swift in Sources */,
 				C4DD37EA2C12243D006DBF3D /* GuidanceViewControllers.swift in Sources */,
@@ -457,7 +469,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F23TVVXJV4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "List of habits - The Right Way./Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Habits;
@@ -490,7 +502,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F23TVVXJV4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "List of habits - The Right Way./Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Habits;

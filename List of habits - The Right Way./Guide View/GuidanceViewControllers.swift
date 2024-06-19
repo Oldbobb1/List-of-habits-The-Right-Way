@@ -11,18 +11,25 @@ class GuidanceViewControllers: UIViewController {
     let label = Label.label(text: "Habits", fontSize: 20)
     let label1 = Label.label(text: "Habits поможет вам завести и поддерживать полезные привычки, позволяя улучшить свою жизнь.", fontSize: 15)
     let imageView = Image.createImage("guidePrew")
+    var swipe: SwipeClass?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI(); swipe()
+        updateUI()
         
+        swipe = SwipeClass(viewController: self,
+                           leftAction: { [weak self] in
+            let view = FirstViewController()
+            self?.navigationController?.pushViewController(view, animated: true)
+        },
+                           rightAction: { [weak self] in self?.dismiss(animated: true, completion: nil)
+        })
     }
     
     private func updateUI() {
         
         view.backgroundColor = UIColor.systemBackground
-        
         view.addSubview(label)
         view.addSubview(label1)
         self.view.addSubview(imageView)
@@ -40,27 +47,7 @@ class GuidanceViewControllers: UIViewController {
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
     }
     
-  private  func swipe() {
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
-        swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)
-        
-        let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
-        swipeClose.direction = .right
-        self.view.addGestureRecognizer(swipeClose)
-    }
-    
-    @objc func swipeLeft() {
-        let newViewController = FirstViewController()
-        self.navigationController?.pushViewController(newViewController, animated: true)
-    }
-    
-    @objc func closeView() {
-        self.dismiss(animated: true, completion: nil)
-    }
 }
-
-
 
 
 

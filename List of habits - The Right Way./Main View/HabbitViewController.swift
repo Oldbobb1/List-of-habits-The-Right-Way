@@ -11,9 +11,11 @@ class HabbitViewController: UIViewController  {
     let label = Label.label(text: "New Habbit", fontSize: 25)
     let button1 = ButtonsWithAction.addButtonWithAction(setTitle: "Cancel", height: 33, width: 100)
     let button2 = ButtonsWithAction.addButtonWithAction(setTitle: "Save",height: 33, width: 10)
-    let textField = TextField.createTextField(height: 40)
+    let textField = TextField.createTextField(height: 40, placeholder: "  habit name")
     let button3 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Repeat", height: 40)
     let button4 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Color", height: 40)
+    
+    var swipe: SwipeClass?
     
     let date: UIDatePicker = {
         let date = UIDatePicker()
@@ -37,8 +39,9 @@ class HabbitViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI(); swipe(); buttonAction(); updateSaveButtonState()
+        updateUI();  buttonAction(); updateSaveButtonState()
         
+        swipe = SwipeClass(viewController: self,leftAction:{}, rightAction: {[weak self] in  self?.dismiss(animated: true, completion: nil)})
     }
     
     private func updateUI() {
@@ -81,12 +84,6 @@ class HabbitViewController: UIViewController  {
         button4.addTarget(self, action: #selector(showColor), for: .touchUpInside)
     }
     
-    private func swipe() {
-        let swipeClose = UISwipeGestureRecognizer(target: self, action: #selector(closeView))
-        swipeClose.direction = .right
-        self.view.addGestureRecognizer(swipeClose)
-    }
-    
     @objc func buttonWithOpenSetting(_ sender: UIButton) {
         let view = SettingAlarmViewController()
         let navController = UINavigationController(rootViewController: view)
@@ -103,7 +100,7 @@ class HabbitViewController: UIViewController  {
         color.delegate = self
         self.present(color, animated: true, completion: nil)
     }
-    
+
     @objc func saveButtonTapped() {
         guard let emojiName = textField.text else { return }
         let newEmoji = Emoji(name: emojiName )

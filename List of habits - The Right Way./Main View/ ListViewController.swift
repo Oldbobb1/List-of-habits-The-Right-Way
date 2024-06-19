@@ -7,21 +7,20 @@
 import UIKit
 import SnapKit
 
-
-class ListViewController: UIViewController {
+class ListViewController: UIViewController{
     
     let label = Label.label(text: "List", fontSize: 25)
     let stackView = StackView.stack()
     let table = TableView.createNewTableView()
     let button = ButtonsWithAction.addButtonImage(systemName: "plus.circle", setImage: nil )
     
-    let  emojiCell = "EmojiTableViewCell"
+   let  emojiCell = "EmojiTableViewCell"
     
-    var objects = [Emoji]()
+   var objects = [Emoji]()
     
-    let maxElements = 10 // Максимальное количество элементов в массиве
-
-    override func viewDidLoad() {
+  let  maxElements = 10 // Максимальное количество элементов в массиве
+       
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         updateUI();  setupUI(); updateCalendar(); buttonAction(); loadEmojiData()
@@ -91,10 +90,8 @@ class ListViewController: UIViewController {
                 saveEmojiData()
             }
         } else {
-            print("Max")
         }
     }
-    
     // Сохраняем массив данных о ячейках в UserDefaults
     func saveEmojiData() {
         let encodedData = try? JSONEncoder().encode(objects)
@@ -178,9 +175,5 @@ extension ListViewController: UITableViewDelegate {
         print("Selected cell \(indexPath.row)")
     }
 }
-
-
-
-
 
 
