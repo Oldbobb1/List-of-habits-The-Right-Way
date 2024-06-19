@@ -7,51 +7,30 @@
 import UIKit
 import SnapKit
 
-class ListViewController: UIViewController{
+class ListViewController: UIViewController {
     
-    let label = Label.label(text: "List", fontSize: 25)
-    let stackView = StackView.stack()
-    let table = TableView.createNewTableView()
-    let button = ButtonsWithAction.addButtonImage(systemName: "plus.circle", setImage: nil )
+    let  emojiCell = "EmojiTableViewCell"
+    let  maxElements = 10
     
-   let  emojiCell = "EmojiTableViewCell"
+    var list: ListModel!
     
-   var objects = [Emoji]()
+    var table = UITableView(); var stackView = UIStackView(); var button = UIButton()
     
-  let  maxElements = 10 // Максимальное количество элементов в массиве
-       
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI();  setupUI(); updateCalendar(); buttonAction(); loadEmojiData()
+        list = ListModel(); list.updateUI(view: self.view); list.updateCalendar(); list.loadEmojiData()
+        
+        table = list.table
+        stackView = list.stackView
+        button = list.button
+        
+        setupUI(); buttonAction()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNewEmojiAdded(_:)), name: Notification.Name("NewEmojiAdded"), object: nil)
-        
-    }
-
-    private func updateUI() {
-        
-        view.addSubview(label)
-        view.addSubview(stackView)
-        view.addSubview(table)
-        view.addSubview(button)
-        self.table.addSubview(button)
-        
-        Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0 )
-        
-        Layout.applyView(stackView, view: view , leadingOffset: 270, trailingOffset: 0,  additionalConstraints: {make in
-            make.top.equalTo(self.label.snp.bottom).offset(0)
-            make.height.equalTo(38)
-        })
-        Layout.applyView(table, view: view, leadingOffset: 10 , trailingOffset: -10, bottomOffset: 0, additionalConstraints:{ make in
-            make.top.equalTo(self.stackView.snp.bottom).offset(5)
-        })
-        
-        Layout.applyView(button, view: view, leadingOffset: 15 , bottomOffset: -10)
     }
     
     private func setupUI() {
-        
         table.delegate = self
         table.dataSource = self
         table.register(EmojiTableViewCell.self, forCellReuseIdentifier: "emojiCell")
@@ -59,19 +38,8 @@ class ListViewController: UIViewController{
         //        table.backgroundColor = .systemGray4
     }
     
-    func updateCalendar() {
-        
-        let calendar = Calendar.current
-        for i in -2..<1 {
-            let day = calendar.date(byAdding: .day, value: i, to: Date())!
-            dateCurrent(to: stackView, withDay: day)
-        }
-    }
-    
     private func buttonAction() {
-        
         button.addTarget(self, action: #selector(buttonOpenView) , for: .touchUpInside)
-        
     }
     
     @objc func buttonOpenView(_ sender: UIButton) {
@@ -82,31 +50,16 @@ class ListViewController: UIViewController{
     }
     
     @objc func handleNewEmojiAdded(_ notification: Notification) {
-        if objects.count < maxElements {
+        if list.objects.count < maxElements {
             if let newEmoji = notification.object as? Emoji {
-                objects.append(newEmoji)
-                let newIndexPath = IndexPath(row: objects.count - 1, section: 0)
+                list.objects.append(newEmoji)
+                let newIndexPath = IndexPath(row: list.objects.count - 1, section: 0)
                 table.insertRows(at: [newIndexPath], with: .automatic)
-                saveEmojiData()
+                list.saveEmojiData()
             }
         } else {
         }
     }
-    // Сохраняем массив данных о ячейках в UserDefaults
-    func saveEmojiData() {
-        let encodedData = try? JSONEncoder().encode(objects)
-        UserDefaults.standard.set(encodedData, forKey: "SavedEmojis") // исправленный ключ
-    }
-    // Загружаем данные о ячейках из UserDefaults
-    func loadEmojiData() {
-        if let savedData = UserDefaults.standard.data(forKey: "SavedEmojis") { // исправленный ключ
-            if let decodedData = try? JSONDecoder().decode([Emoji].self, from: savedData) {
-                objects = decodedData
-            }
-        }
-    }
-    
-    
 }
 
 
@@ -122,7 +75,7 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return list.objects.count
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
@@ -140,7 +93,7 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "emojiCell", for: indexPath) as! EmojiTableViewCell
-        let object = objects[indexPath.row]
+        let object = list.objects[indexPath.row]
         cell.set(object: object)
         cell.backgroundColor = .systemGray4
         return cell
@@ -152,9 +105,9 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
+            list.objects.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            saveEmojiData()
+            list.saveEmojiData()
         }
     }
     
@@ -163,8 +116,8 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedEmoji = objects.remove(at: sourceIndexPath.row)
-        objects.insert(movedEmoji, at: destinationIndexPath.row)
+        let movedEmoji = list.objects.remove(at: sourceIndexPath.row)
+        list.objects.insert(movedEmoji, at: destinationIndexPath.row)
         tableView.reloadData()
     }
 }
@@ -175,5 +128,3 @@ extension ListViewController: UITableViewDelegate {
         print("Selected cell \(indexPath.row)")
     }
 }
-
-

@@ -8,22 +8,14 @@ import UIKit
 
 class NotesViewController: UIViewController {
     
-    let label = Label.label(text: "Notes", fontSize: 25)
+    var notes: NotesModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI()
-        
+       notes = NotesModel()
+        notes.updateUI(view: self.view)
     }
-    
-    private func updateUI() {
-        
-        view.addSubview(label)
-        
-        Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0)
-    }
-    
 }
 
 

@@ -7,15 +7,13 @@
 import UIKit
 
 class GuidanceViewControllers: UIViewController {
-
-    var swipe: SwipeClass?
-    var guide: GuideModel!
+    
+    var swipe: SwipeClass?, guide: GuideModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guide = GuideModel()
-        guide.updateUI(view: self.view)
+        guide = GuideModel(); guide.updateUI(view: self.view)
         swipeActions()
     }
     
@@ -31,7 +29,6 @@ class GuidanceViewControllers: UIViewController {
             self.dismiss(animated: true, completion: nil)
         })
     }
-    
 }
 
 

@@ -8,17 +8,15 @@ import UIKit
 
 class GuideModel {
     
+    let label = Label.label(text: "Habits", fontSize: 20)
+    let label1 = Label.label(text: "Habits поможет вам завести и поддерживать полезные привычки, позволяя улучшить свою жизнь.", fontSize: 15)
+    let imageView = Image.createImage("guidePrew")
+    
     func updateUI(view:UIView) {
         
         view.backgroundColor = UIColor.systemBackground
         
-        let label = Label.label(text: "Habits", fontSize: 20)
-        let label1 = Label.label(text: "Habits поможет вам завести и поддерживать полезные привычки, позволяя улучшить свою жизнь.", fontSize: 15)
-        let imageView = Image.createImage("guidePrew")
-        
-        view.addSubview(label)
-        view.addSubview(label1)
-        view.addSubview(imageView)
+        view.addSubview(label); view.addSubview(label1); view.addSubview(imageView)
         
         imageView.layer.cornerRadius = 150
         
@@ -28,7 +26,6 @@ class GuideModel {
             make.width.equalTo(300)
             make.height.equalTo(300)
         })
-        
         Layout.applyView(label, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -80 )
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
     }

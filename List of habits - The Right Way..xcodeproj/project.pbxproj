@@ -34,6 +34,14 @@
 		C4DD37EE2C122606006DBF3D /* other.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37ED2C122606006DBF3D /* other.swift */; };
 		C4DD37F02C122650006DBF3D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37EF2C122650006DBF3D /* TextField.swift */; };
 		C4DD37F22C122677006DBF3D /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37F12C122677006DBF3D /* StackView.swift */; };
+		C4DDD4DD2C23155500D35ABD /* FirstModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DDD4DC2C23155500D35ABD /* FirstModel.swift */; };
+		C4DDD4DF2C23170100D35ABD /* SecondModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DDD4DE2C23170100D35ABD /* SecondModel.swift */; };
+		C4DDD4E12C23180F00D35ABD /* ThirdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DDD4E02C23180F00D35ABD /* ThirdModel.swift */; };
+		C4DDD4E32C2319CA00D35ABD /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DDD4E22C2319CA00D35ABD /* ListModel.swift */; };
+		C4DDD4E52C2319DC00D35ABD /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DDD4E42C2319DC00D35ABD /* NotesModel.swift */; };
+		C4DDD4E72C2319EA00D35ABD /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DDD4E62C2319EA00D35ABD /* SettingModel.swift */; };
+		C4DDD4E92C2319FA00D35ABD /* HabbitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DDD4E82C2319FA00D35ABD /* HabbitModel.swift */; };
+		C4DDD4EB2C231A0C00D35ABD /* SettingAlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DDD4EA2C231A0C00D35ABD /* SettingAlarmModel.swift */; };
 		C4F0C80F2C22E19F00D5B6CA /* swipeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F0C80E2C22E19F00D5B6CA /* swipeClass.swift */; };
 		C4F0C8132C2306FC00D5B6CA /* GuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F0C8122C2306FC00D5B6CA /* GuideModel.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +89,14 @@
 		C4DD37ED2C122606006DBF3D /* other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = other.swift; sourceTree = "<group>"; };
 		C4DD37EF2C122650006DBF3D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		C4DD37F12C122677006DBF3D /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		C4DDD4DC2C23155500D35ABD /* FirstModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstModel.swift; sourceTree = "<group>"; };
+		C4DDD4DE2C23170100D35ABD /* SecondModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondModel.swift; sourceTree = "<group>"; };
+		C4DDD4E02C23180F00D35ABD /* ThirdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdModel.swift; sourceTree = "<group>"; };
+		C4DDD4E22C2319CA00D35ABD /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		C4DDD4E42C2319DC00D35ABD /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
+		C4DDD4E62C2319EA00D35ABD /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		C4DDD4E82C2319FA00D35ABD /* HabbitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitModel.swift; sourceTree = "<group>"; };
+		C4DDD4EA2C231A0C00D35ABD /* SettingAlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAlarmModel.swift; sourceTree = "<group>"; };
 		C4F0C80E2C22E19F00D5B6CA /* swipeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swipeClass.swift; sourceTree = "<group>"; };
 		C4F0C8122C2306FC00D5B6CA /* GuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,6 +243,11 @@
 		C4F0C8102C2306C800D5B6CA /* ModelMainView */ = {
 			isa = PBXGroup;
 			children = (
+				C4DDD4E22C2319CA00D35ABD /* ListModel.swift */,
+				C4DDD4E42C2319DC00D35ABD /* NotesModel.swift */,
+				C4DDD4E62C2319EA00D35ABD /* SettingModel.swift */,
+				C4DDD4E82C2319FA00D35ABD /* HabbitModel.swift */,
+				C4DDD4EA2C231A0C00D35ABD /* SettingAlarmModel.swift */,
 			);
 			path = ModelMainView;
 			sourceTree = "<group>";
@@ -235,6 +256,9 @@
 			isa = PBXGroup;
 			children = (
 				C4F0C8122C2306FC00D5B6CA /* GuideModel.swift */,
+				C4DDD4DC2C23155500D35ABD /* FirstModel.swift */,
+				C4DDD4DE2C23170100D35ABD /* SecondModel.swift */,
+				C4DDD4E02C23180F00D35ABD /* ThirdModel.swift */,
 			);
 			path = ModelGuideView;
 			sourceTree = "<group>";
@@ -318,18 +342,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4DDD4E32C2319CA00D35ABD /* ListModel.swift in Sources */,
 				C4DD37D52C12214F006DBF3D /* SettingViewController.swift in Sources */,
 				C4DD37E12C12225C006DBF3D /* classCell.swift in Sources */,
 				C4DD37E62C122340006DBF3D /* HabbitViewController.swift in Sources */,
 				C438807E2C1354C80005EC9B /* ThirdViewController.swift in Sources */,
 				C4DD37D32C1220BC006DBF3D /* NotesViewController.swift in Sources */,
 				C4DD37C32C12161F006DBF3D /*  ListViewController.swift in Sources */,
+				C4DDD4E92C2319FA00D35ABD /* HabbitModel.swift in Sources */,
 				C4DD37DF2C122247006DBF3D /* modelCell.swift in Sources */,
 				C4DD37F02C122650006DBF3D /* TextField.swift in Sources */,
 				C438807C2C1354C00005EC9B /* SecondViewController.swift in Sources */,
+				C4DDD4E72C2319EA00D35ABD /* SettingModel.swift in Sources */,
 				C4F0C80F2C22E19F00D5B6CA /* swipeClass.swift in Sources */,
 				C49734452C1629EE001546DE /* Image.swift in Sources */,
 				C457608E2C1BA4E600CE6822 /* Layout.swift in Sources */,
+				C4DDD4DD2C23155500D35ABD /* FirstModel.swift in Sources */,
+				C4DDD4DF2C23170100D35ABD /* SecondModel.swift in Sources */,
 				C4DD37EA2C12243D006DBF3D /* GuidanceViewControllers.swift in Sources */,
 				C4DD37DD2C12221D006DBF3D /* Label.swift in Sources */,
 				C4DD37DB2C122213006DBF3D /* ButtonsWithAction.swift in Sources */,
@@ -339,10 +368,13 @@
 				C457608C2C1BA21800CE6822 /* Theme.swift in Sources */,
 				C4DD37EE2C122606006DBF3D /* other.swift in Sources */,
 				C4DD37F22C122677006DBF3D /* StackView.swift in Sources */,
+				C4DDD4E12C23180F00D35ABD /* ThirdModel.swift in Sources */,
 				C4DD37BF2C12161F006DBF3D /* AppDelegate.swift in Sources */,
+				C4DDD4EB2C231A0C00D35ABD /* SettingAlarmModel.swift in Sources */,
 				C49734472C163076001546DE /* TableView.swift in Sources */,
 				C4DD37EC2C1225A1006DBF3D /* date.swift in Sources */,
 				C4DD37C12C12161F006DBF3D /* SceneDelegate.swift in Sources */,
+				C4DDD4E52C2319DC00D35ABD /* NotesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +521,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F23TVVXJV4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "List of habits - The Right Way./Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Habits;
@@ -522,7 +554,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F23TVVXJV4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "List of habits - The Right Way./Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Habits;

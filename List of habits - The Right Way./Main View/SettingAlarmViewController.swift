@@ -8,80 +8,38 @@ import UIKit
 
 class SettingAlarmViewController: UIViewController {
     
-    let button = ButtonsWithAction.addButtonWithAction(setTitle:"Back", height: 35, width: 100)
-    let label = Label.label(text: "Signal repetition", fontSize: 18)
-    let stackView = StackView.stack()
-    
-    let switchBut: UISwitch = {
-        let switchButton = UISwitch()
-        switchButton.isOn = false
-        //        if let switchState = UserDefaults.standard.object(forKey: "switchState") as? Bool {
-        //            switchButton.isOn = switchState
-        //        }
-        return switchButton
-    }()
-    
-    let days = ["  Every Monday", "  Every Tuesday", "  Every Wednesday", "  Every Thursday", "  Every Friday", "  Every Saturday", "  Every Sunday"]
-    
-    var swipe: SwipeClass?
+    var button = UIButton(), swipe: SwipeClass?, setting:SettingAlarmModel!
+    var stackView = UIStackView()
+        let days = ["  Every Monday", "  Every Tuesday", "  Every Wednesday", "  Every Thursday", "  Every Friday", "  Every Saturday", "  Every Sunday"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI(); setupUI(); buttonAction(); setupDaysOfWeek();  swipeActions() 
+        setting = SettingAlarmModel(); setting.updateUI(view: self.view)
         
-    }
-    
-    private func updateUI() {
+        stackView = setting.stackView
         
-        view.backgroundColor = UIColor.systemBackground
-        view.addSubview(button)
-        view.addSubview(stackView)
-        stackView.addArrangedSubview(label)
-        stackView.addArrangedSubview(switchBut)
-        
-        Layout.applyView(button, view: view, topOffset: 0.9, leadingOffset: 0.5, trailingOffset: -285)
-        
-        Layout.applyView(stackView, view: view, leadingOffset: 10,trailingOffset: -10 , additionalConstraints: { make in
-            make.top.equalTo(self.button.snp.bottom).offset(330)
-            make.height.equalTo(38)
-        })
-        
-        Layout.applyView(label, view: view, leadingOffset: 20 , additionalConstraints: {make in
-            make.top.equalToSuperview().offset(-2)
-        })
-        
-        Layout.applyView(switchBut, view: view,trailingOffset: -14 , additionalConstraints: {make in
-            make.top.equalToSuperview().offset(4)
-        })
-        
-    }
-    
-    private func setupUI() {
-        label.textAlignment = .left
-        //        stackView.backgroundColor = UIColor(red: 0, green: 180/255, blue: 1, alpha: 1)
-        stackView.layer.cornerRadius = 10
+        button = setting.button; buttonAction(); swipeActions()
+                setupDaysOfWeek()
     }
     
     private func buttonAction() {
-        
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
     }
     
     @objc func closeButtonTapped() {
         self.dismiss(animated: true, completion: nil)
     }
+    
     private func swipeActions() {
-    swipe = SwipeClass(viewController: self,
-                       leftAction: {},
-                       rightAction: {[weak self] in
-        guard let self = self else {return}
-        self.dismiss(animated: true, completion: nil)
-    })
-}
-
+        swipe = SwipeClass(viewController: self,
+                           leftAction: {},
+                           rightAction: {[weak self] in
+            guard let self = self else {return}
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
     func setupDaysOfWeek() {
-        
         for (index, day) in days.enumerated() {
             let dayButton = UIButton()
             dayButton.setTitle(day, for: .normal)
@@ -126,9 +84,5 @@ class SettingAlarmViewController: UIViewController {
             //            UserDefaults.standard.set(false, forKey: "checkmarkSave")
         }
     }
-  
-    
 }
-
-
 

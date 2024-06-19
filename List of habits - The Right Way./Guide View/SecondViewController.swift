@@ -6,12 +6,9 @@
 
 import UIKit
 
-class SecondViewController: UIViewController{
+class SecondViewController: UIViewController {
     
-    let label = Label.label(text: "Отметки", fontSize: 20)
-    let label1 = Label.label(text: "Отметьте выполнение привычки в указанный день.С каждым повторением вы делаете шаг вперед, а с каждым пропуском - два шага назад.", fontSize: 15)
-    //    let imageView = Image.createImage("")
-    var swipe: SwipeClass?
+    var swipe: SwipeClass?, second: SecondModel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,28 +19,10 @@ class SecondViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUI(); swipeActions()
+        second = SecondModel(); second.updateUI(view: self.view)
         
+        swipeActions()
     }
-    
-    private func updateUI() {
-        
-        view.backgroundColor = UIColor.systemBackground
-        view.addSubview(label)
-        view.addSubview(label1)
-        //        self.view.addSubview(imageView)
-        
-        //        imageView.snp.makeConstraints { (make) in
-        //                    make.centerX.equalToSuperview()
-        //                    make.centerY.equalToSuperview()
-        //                    make.width.equalTo(300)
-        //                    make.height.equalTo(300)
-        //                }
-        
-        Layout.applyView(label, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -80 )
-        Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
-    }
-    
     
     private func swipeActions() {
         swipe = SwipeClass(viewController: self,

@@ -11,8 +11,7 @@ class SwipeClass {
     typealias SwipeAction = () -> Void
     
     weak var viewController: UIViewController?
-    private var leftAction: SwipeAction?
-    private var rightAction: SwipeAction?
+    private var leftAction: SwipeAction?, rightAction: SwipeAction?
     
     init(viewController:UIViewController,leftAction: @escaping SwipeAction ,rightAction: @escaping SwipeAction ) {
         self.viewController = viewController
