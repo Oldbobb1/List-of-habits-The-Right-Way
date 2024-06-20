@@ -100,7 +100,6 @@ extension HabbitViewController: UIColorPickerViewControllerDelegate {
         //        saveSelectedColor(selectedColor)
         selectedColorView.backgroundColor = selectedColor
         //        viewController.dismiss(animated: true, completion: nil)
-        updateSaveButtonState()
     }
     
 }

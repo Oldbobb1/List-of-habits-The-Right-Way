@@ -12,16 +12,13 @@ class ThirdViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        thrid = ThirdModel(); thrid.updateUI(view: self.view)
-        
-        swipeActions()
+        thrid = ThirdModel(); thrid.updateUI(view: self.view); swipeActions()
     }
     
     private func swipeActions() {

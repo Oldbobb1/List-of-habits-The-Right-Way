@@ -12,7 +12,7 @@ class SettingViewController: UIViewController {
     var setting: SettingModel!, switchButt = UISwitch(), signInWithAppleButton = ASAuthorizationAppleIDButton()
         
     var button1 = UIButton(), button2 = UIButton(), button3 = UIButton(), button4 = UIButton()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +27,6 @@ class SettingViewController: UIViewController {
     }
     
     private func buttonAction() {
-        
         switchButt.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         signInWithAppleButton.addTarget(self, action: #selector(handleLogInWithAppleIDButtonPress), for: .touchUpInside)
         
@@ -38,9 +37,7 @@ class SettingViewController: UIViewController {
     }
     
     @objc func openMailApp() {
-        let recipient = "therromanov@gmail.com"
-        let subject = "Suggestion"
-        
+        let recipient = "therromanov@gmail.com", subject = "Suggestion"
         if let url = URL(string: "mailto:\(recipient)?subject=\(subject)") {
             UIApplication.shared.open(url)
         }

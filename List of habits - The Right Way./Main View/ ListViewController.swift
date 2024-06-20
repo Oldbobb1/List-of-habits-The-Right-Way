@@ -9,12 +9,9 @@ import SnapKit
 
 class ListViewController: UIViewController {
     
-    let  emojiCell = "EmojiTableViewCell"
-    let  maxElements = 10
+    let  emojiCell = "EmojiTableViewCell" , maxElements = 10
     
-    var list: ListModel!
-    
-    var table = UITableView(); var stackView = UIStackView(); var button = UIButton()
+    var list: ListModel!; var table = UITableView(); var stackView = UIStackView(); var button = UIButton()
     
     public override func viewDidLoad() {
         super.viewDidLoad()

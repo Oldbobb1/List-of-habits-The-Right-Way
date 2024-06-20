@@ -13,8 +13,7 @@ class NotesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       notes = NotesModel()
-        notes.updateUI(view: self.view)
+        notes = NotesModel(); notes.updateUI(view: self.view)
     }
 }
 

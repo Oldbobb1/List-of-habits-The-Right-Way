@@ -18,12 +18,12 @@ class SecondModel{
             
         view.addSubview(label); view.addSubview(label1) //        view.addSubview(imageView)
         
-        //        imageView.snp.makeConstraints { (make) in
-        //                    make.centerX.equalToSuperview()
-        //                    make.centerY.equalToSuperview()
-        //                    make.width.equalTo(300)
-        //                    make.height.equalTo(300)
-        //                }
+//        Layout.applyView(imageView, view: view, additionalConstraints: { (make) in
+//            make.centerX.equalToSuperview()
+//            make.centerY.equalToSuperview()
+//            make.width.equalTo(300)
+//            make.height.equalTo(300)
+//        })
         Layout.applyView(label, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -80 )
         Layout.applyView(label1, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: -20 )
     }

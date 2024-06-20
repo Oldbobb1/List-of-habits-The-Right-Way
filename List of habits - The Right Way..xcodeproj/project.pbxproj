@@ -31,7 +31,6 @@
 		C4DD37E82C1223CF006DBF3D /* SettingAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37E72C1223CF006DBF3D /* SettingAlarmViewController.swift */; };
 		C4DD37EA2C12243D006DBF3D /* GuidanceViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37E92C12243D006DBF3D /* GuidanceViewControllers.swift */; };
 		C4DD37EC2C1225A1006DBF3D /* date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37EB2C1225A1006DBF3D /* date.swift */; };
-		C4DD37EE2C122606006DBF3D /* other.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37ED2C122606006DBF3D /* other.swift */; };
 		C4DD37F02C122650006DBF3D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37EF2C122650006DBF3D /* TextField.swift */; };
 		C4DD37F22C122677006DBF3D /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37F12C122677006DBF3D /* StackView.swift */; };
 		C4DDD4DD2C23155500D35ABD /* FirstModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DDD4DC2C23155500D35ABD /* FirstModel.swift */; };
@@ -86,7 +85,6 @@
 		C4DD37E72C1223CF006DBF3D /* SettingAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAlarmViewController.swift; sourceTree = "<group>"; };
 		C4DD37E92C12243D006DBF3D /* GuidanceViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceViewControllers.swift; sourceTree = "<group>"; };
 		C4DD37EB2C1225A1006DBF3D /* date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = date.swift; sourceTree = "<group>"; };
-		C4DD37ED2C122606006DBF3D /* other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = other.swift; sourceTree = "<group>"; };
 		C4DD37EF2C122650006DBF3D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		C4DD37F12C122677006DBF3D /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		C4DDD4DC2C23155500D35ABD /* FirstModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstModel.swift; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 				C4DD37DA2C122213006DBF3D /* ButtonsWithAction.swift */,
 				C4DD37DC2C12221D006DBF3D /* Label.swift */,
 				C4DD37EB2C1225A1006DBF3D /* date.swift */,
-				C4DD37ED2C122606006DBF3D /* other.swift */,
 				C4DD37EF2C122650006DBF3D /* TextField.swift */,
 				C4DD37F12C122677006DBF3D /* StackView.swift */,
 				C49734442C1629EE001546DE /* Image.swift */,
@@ -366,7 +363,6 @@
 				C438807A2C1354B60005EC9B /* FirstViewController.swift in Sources */,
 				C4F0C8132C2306FC00D5B6CA /* GuideModel.swift in Sources */,
 				C457608C2C1BA21800CE6822 /* Theme.swift in Sources */,
-				C4DD37EE2C122606006DBF3D /* other.swift in Sources */,
 				C4DD37F22C122677006DBF3D /* StackView.swift in Sources */,
 				C4DDD4E12C23180F00D35ABD /* ThirdModel.swift in Sources */,
 				C4DD37BF2C12161F006DBF3D /* AppDelegate.swift in Sources */,

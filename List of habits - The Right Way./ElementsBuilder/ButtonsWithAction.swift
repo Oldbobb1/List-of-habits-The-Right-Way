@@ -46,7 +46,8 @@ public class ButtonsWithAction {
         return but
     }
     
-    // функция с установкой размеров для изображения
+    // MARK: - функция с установкой размеров для изображения.
+    
     public static func addButtonImage(systemName: String, setImage: UIImage?) -> UIButton {
         let button = UIButton(type: .system)
         let image = setImage ?? UIImage(systemName: systemName)
@@ -64,13 +65,11 @@ public class ButtonsWithAction {
     public static func createSwitchButton(isOn: Bool) -> UISwitch {
         let switchButton = UISwitch()
         switchButton.isOn = isOn
-        
         if let switchState = UserDefaults.standard.object(forKey: "switchState") as? Bool {
             switchButton.isOn = switchState
         }
         return switchButton
     }
-    
 }
 
 

@@ -22,7 +22,7 @@ class FirstModel {
         
         Layout.applyView(imageView, view: view, additionalConstraints: { (make) in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-50)
+            make.centerY.equalToSuperview().offset(-30) // -50 - guidePrew2
             make.width.equalTo(370)
             make.height.equalTo(470) // 450 - guidePrew2
         })

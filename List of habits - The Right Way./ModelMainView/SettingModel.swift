@@ -51,8 +51,7 @@ class SettingModel {
         containerView.addSubview(arrowImageView)
         
         view.addSubview(stackView)
-        stackView.addArrangedSubview(label1)
-        stackView.addArrangedSubview(switchButt)
+        stackView.addArrangedSubview(label1); stackView.addArrangedSubview(switchButt)
         
         view.addSubview(button1); view.addSubview(button2); view.addSubview(button3); view.addSubview(button4); view.addSubview(signInWithAppleButton)
         

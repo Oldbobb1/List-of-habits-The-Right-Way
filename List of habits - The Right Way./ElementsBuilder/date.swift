@@ -21,12 +21,15 @@ func dateCurrent(to stackView: UIStackView, withDay day: Date) {
     
     stackView.addArrangedSubview(dayOfWeekLabel)
 }
-//
-//    let calendar = Calendar.current
-//
-//    for i in 0..<3 {
-//        let day = calendar.date(byAdding: .day, value: i, to: Date())!
-//        addDayLabel(to: stackView, withDay: day)
-//    }
 
+//MARK: - использование в модели или непоследственно в классе (в классе вызов во viewDidload).
+
+func calendar() {
+    let calendar = Calendar.current
+    
+    for i in 0..<3 {
+        let day = calendar.date(byAdding: .day, value: i, to: Date())!
+//        dateCurrent(to: stackView, withDay: day)
+    }
+}
 

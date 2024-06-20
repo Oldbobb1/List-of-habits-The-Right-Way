@@ -10,7 +10,3 @@ struct Emoji: Codable {
     var name: String
 }
 
-
-
-
-

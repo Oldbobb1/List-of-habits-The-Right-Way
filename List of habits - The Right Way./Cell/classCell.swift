@@ -84,7 +84,6 @@ class EmojiTableViewCell: UITableViewCell {
         nameLabel.numberOfLines = 2
     }
     
-    
 }
 
 

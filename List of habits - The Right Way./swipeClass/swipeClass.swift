@@ -6,7 +6,7 @@
 
 import UIKit
 
-class SwipeClass {
+public class SwipeClass {
     
     typealias SwipeAction = () -> Void
     
@@ -21,7 +21,6 @@ class SwipeClass {
     }
     
     private func setupSwipe() {
-        
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
         swipeLeft.direction = .left
         viewController?.view.addGestureRecognizer(swipeLeft)
@@ -39,5 +38,3 @@ class SwipeClass {
         rightAction?()
     }
 }
-
-

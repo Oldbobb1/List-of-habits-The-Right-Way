@@ -12,16 +12,13 @@ class SecondViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        second = SecondModel(); second.updateUI(view: self.view)
-        
-        swipeActions()
+        second = SecondModel(); second.updateUI(view: self.view); swipeActions()
     }
     
     private func swipeActions() {

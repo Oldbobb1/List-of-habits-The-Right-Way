@@ -13,8 +13,9 @@ class GuidanceViewControllers: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guide = GuideModel(); guide.updateUI(view: self.view)
-        swipeActions()
+        guide = GuideModel(); guide.updateUI(view: self.view); swipeActions()
+        
+       
     }
     
     private func swipeActions() {
