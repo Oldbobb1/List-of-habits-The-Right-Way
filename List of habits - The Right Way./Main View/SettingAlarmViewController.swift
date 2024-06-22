@@ -23,6 +23,7 @@ class SettingAlarmViewController: UIViewController {
         button = setting.button; buttonAction(); swipeActions(); //setupDaysOfWeek()
         
         daysOfWeek.setupDaysOfWeek(view: view, traitCollection: traitCollection)
+        
     }
     
     private func buttonAction() {

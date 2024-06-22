@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class HabbitModel {
     
     let label = Label.label(text: "New Habbit", fontSize: 25)
@@ -35,10 +34,11 @@ class HabbitModel {
         col.translatesAutoresizingMaskIntoConstraints = false
         return col
     }()
-    
+        
     func updateUI(view:UIView) {
         
         view.backgroundColor = UIColor.systemBackground
+        
         view.addSubview(label); view.addSubview(button1); view.addSubview(button2); view.addSubview(textField)
         view.addSubview(date); view.addSubview(button3); view.addSubview(button4); button4.addSubview(selectedColorView)
 
@@ -57,6 +57,3 @@ class HabbitModel {
         }
     }
 }
-
-
-

@@ -84,13 +84,3 @@ class SettingViewController: UIViewController {
         authorizationController.performRequests()
     }
 }
-
-extension SettingViewController: ASAuthorizationControllerDelegate {
-
-}
-
-extension SettingViewController: ASAuthorizationControllerPresentationContextProviding {
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
-    }
-}
