@@ -33,7 +33,7 @@ class SettingModel {
     
     let stackView = StackView.stack()
     let label1 = Label.label(text: "Theme", fontSize: 18)
-    let switchButt = ButtonsWithAction.createSwitchButton(isOn: false)
+    lazy var switchButt = ButtonsWithAction.createSwitchButton(isOn: false)
     
     let button1 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Support", height: 40)
     let button2 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Guidance ", height: 40)

@@ -37,7 +37,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
     
         let thirdView = SettingViewController()
-        thirdView.view.backgroundColor = UIColor.systemBackground
+        thirdView.view.backgroundColor =
+//        UIColor(named: "colourChange")
+        UIColor.systemBackground
         let thirdFolder = UIImage(systemName: "gear")
         thirdView.tabBarItem = UITabBarItem(title: "setting", image: thirdFolder, tag: 3 )
         
@@ -46,7 +48,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
+        
         self.window = window
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

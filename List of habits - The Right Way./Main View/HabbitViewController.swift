@@ -10,17 +10,22 @@ class HabbitViewController: UIViewController  {
     
     var swipe: SwipeClass?; var habbit: HabbitModel!
         
-    var textField = UITextField(); var button1 = UIButton(), button2 = UIButton(), button3 = UIButton(), button4 = UIButton()
+    var textField = UITextField(); var button1 = UIButton(), button2 = UIButton(), button4 = UIButton()
     var selectedColorView = UIView()
+    
+    var stack = UIStackView(), swichh = UISwitch()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         habbit = HabbitModel(); habbit.updateUI(view: self.view)
         
+        habbit.setupDaysOfWeek(view: view, traitCollection: traitCollection)
+        
         textField = habbit.textField
         
-        button1 = habbit.button1; button2 = habbit.button2; button3 = habbit.button3; button4 = habbit.button4
+        button1 = habbit.button1; button2 = habbit.button2;
+        button4 = habbit.button4
         
         selectedColorView = habbit.selectedColorView
 
@@ -28,12 +33,13 @@ class HabbitViewController: UIViewController  {
         
         textField.delegate = self
         
+        stack = habbit.stackView; swichh = habbit.switchBut
+
     }
     
     private func buttonAction() {
         button1.addTarget(self, action: #selector(closeView), for: .touchUpInside)
         button2.addTarget(self, action:  #selector(saveButtonTapped), for: .touchUpInside)
-        button3.addTarget(self, action: #selector(buttonWithOpenSetting), for: .touchUpInside)
         button4.addTarget(self, action: #selector(showColor), for: .touchUpInside)
     }
     
@@ -44,13 +50,6 @@ class HabbitViewController: UIViewController  {
             guard let self = self else {return}
             self.dismiss(animated: true, completion: nil)
         })
-    }
-    
-    @objc func buttonWithOpenSetting(_ sender: UIButton) {
-        let view = SettingAlarmViewController()
-        let navController = UINavigationController(rootViewController: view)
-        navController.modalPresentationStyle = .fullScreen
-        self.present(navController, animated: true, completion: nil)
     }
     
     @objc func closeView() {

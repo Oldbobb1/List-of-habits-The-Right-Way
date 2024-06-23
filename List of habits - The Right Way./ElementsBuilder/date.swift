@@ -24,12 +24,12 @@ func dateCurrent(to stackView: UIStackView, withDay day: Date) {
 
 //MARK: - использование в модели или непоследственно в классе (в классе вызов во viewDidload).
 
-func calendar() {
-    let calendar = Calendar.current
-    
-    for i in 0..<3 {
-        let day = calendar.date(byAdding: .day, value: i, to: Date())!
+//func calendar() {
+//    let calendar = Calendar.current
+//    
+//    for i in 0..<3 {
+//        let date = calendar.date(byAdding: .day, value: i, to: Date())!
 //        dateCurrent(to: stackView, withDay: day)
-    }
-}
+//    }
+//}
 

@@ -18,10 +18,10 @@ public class ButtonsWithAction {
         button.heightAnchor.constraint(equalToConstant: height).isActive = true
         
         if UIScreen.main.traitCollection.userInterfaceStyle == .dark {
-            button.setTitleColor(.label, for: .normal)
+            button.setTitleColor(.darkText, for: .normal)
         }
         else {
-            button.setTitleColor(.black, for: .normal)
+            button.setTitleColor(.darkText, for: .normal)
         }
         return button
     }
@@ -65,6 +65,7 @@ public class ButtonsWithAction {
     public static func createSwitchButton(isOn: Bool) -> UISwitch {
         let switchButton = UISwitch()
         switchButton.isOn = isOn
+//        switchButton.thumbTintColor = .blue
         if let switchState = UserDefaults.standard.object(forKey: "switchState") as? Bool {
             switchButton.isOn = switchState
         }

@@ -13,8 +13,6 @@ public class TextField {
         text.borderStyle = .roundedRect
         text.autocorrectionType = .yes
         text.layer.cornerRadius = 10
-        text.layer.borderWidth = 1
-        text.layer.borderColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
         text.font = UIFont.systemFont(ofSize: 15)
         text.heightAnchor.constraint(equalToConstant: height).isActive = true
         

@@ -16,5 +16,3 @@ class NotesViewController: UIViewController {
         notes = NotesModel(); notes.updateUI(view: self.view)
     }
 }
-
-

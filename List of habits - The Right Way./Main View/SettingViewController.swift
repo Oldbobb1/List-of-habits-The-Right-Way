@@ -23,9 +23,8 @@ class SettingViewController: UIViewController {
 
         buttonAction()
         
-        ThemeManager.setTheme(theme: "light")
     }
-    
+        
     private func buttonAction() {
         switchButt.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         signInWithAppleButton.addTarget(self, action: #selector(handleLogInWithAppleIDButtonPress), for: .touchUpInside)

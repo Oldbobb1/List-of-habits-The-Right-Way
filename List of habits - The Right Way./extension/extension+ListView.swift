@@ -21,8 +21,7 @@ extension ListViewController: UITableViewDataSource {
         return list.objects.count
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let verticalPadding: CGFloat = 10
         
         let maskLayer = CALayer()
