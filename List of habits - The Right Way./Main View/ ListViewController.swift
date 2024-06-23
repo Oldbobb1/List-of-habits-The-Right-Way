@@ -9,20 +9,23 @@ import SnapKit
 
 class ListViewController: UIViewController {
     
-    let  emojiCell = "EmojiTableViewCell" , maxElements = 10
-    
+    let  emojiCell = "EmojiTableViewCell", maxElements = 10
     var list: ListModel!; var table = UITableView(); var stackView = UIStackView(); var button = UIButton()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        list = ListModel(); list.updateUI(view: self.view); list.updateCalendar(); list.loadEmojiData()
+        list = ListModel()
+        list.updateUI(view: self.view)
+        list.updateCalendar()
+        list.loadEmojiData()
         
         table = list.table
         stackView = list.stackView
         button = list.button
         
-        setupUI(); buttonAction()
+        setupUI()
+        buttonAction()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNewEmojiAdded(_:)), name: Notification.Name("NewEmojiAdded"), object: nil)
     }
@@ -32,7 +35,6 @@ class ListViewController: UIViewController {
         table.dataSource = self
         table.register(EmojiTableViewCell.self, forCellReuseIdentifier: "emojiCell")
         table.frame = view.bounds
-        //        table.backgroundColor = .systemGray4
     }
     
     private func buttonAction() {

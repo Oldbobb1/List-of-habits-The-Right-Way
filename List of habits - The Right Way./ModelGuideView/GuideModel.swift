@@ -13,10 +13,11 @@ class GuideModel {
     let imageView = Image.createImage("guidePrew")
     
     func updateUI(view:UIView) {
-        
         view.backgroundColor = UIColor.systemBackground
         
-        view.addSubview(label); view.addSubview(label1); view.addSubview(imageView)
+        view.addSubview(label)
+        view.addSubview(label1)
+        view.addSubview(imageView)
         
         imageView.layer.cornerRadius = 150
         

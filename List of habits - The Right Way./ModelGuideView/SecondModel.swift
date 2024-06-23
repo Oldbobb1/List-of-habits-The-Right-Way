@@ -16,7 +16,8 @@ class SecondModel{
         
         view.backgroundColor = UIColor.systemBackground
             
-        view.addSubview(label); view.addSubview(label1) //        view.addSubview(imageView)
+        view.addSubview(label); view.addSubview(label1)
+//        view.addSubview(imageView)
         
 //        Layout.applyView(imageView, view: view, additionalConstraints: { (make) in
 //            make.centerX.equalToSuperview()

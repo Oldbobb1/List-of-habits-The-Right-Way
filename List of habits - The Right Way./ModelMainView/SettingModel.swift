@@ -33,27 +33,33 @@ class SettingModel {
     
     let stackView = StackView.stack()
     let label1 = Label.label(text: "Theme", fontSize: 18)
-    lazy var switchButt = ButtonsWithAction.createSwitchButton(isOn: false)
+    let switchButt = ButtonsWithAction.createSwitchButton(isOn: false)
     
     let button1 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Support", height: 40)
     let button2 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Guidance ", height: 40)
     let button3 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Rate the app", height: 40)
     let button4 = ButtonsWithAction.createButtonWithdAction(setTitle: "  Subscription", height: 40)
-    
     let signInWithAppleButton = ASAuthorizationAppleIDButton(type: .signIn, style: .white)
     
     func updateUI(view: UIView) {
         
-        view.addSubview(label); view.addSubview(containerView)
+        view.addSubview(label)
+        view.addSubview(containerView)
+        
         containerView.addSubview(profileImageView)
         containerView.addSubview(nameLabel)
         containerView.addSubview(descriptionLabel)
         containerView.addSubview(arrowImageView)
         
         view.addSubview(stackView)
-        stackView.addArrangedSubview(label1); stackView.addArrangedSubview(switchButt)
+        stackView.addArrangedSubview(label1)
+        stackView.addArrangedSubview(switchButt)
         
-        view.addSubview(button1); view.addSubview(button2); view.addSubview(button3); view.addSubview(button4); view.addSubview(signInWithAppleButton)
+        view.addSubview(button1)
+        view.addSubview(button2)
+        view.addSubview(button3)
+        view.addSubview(button4)
+        view.addSubview(signInWithAppleButton)
         
         Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0)
         
@@ -104,13 +110,13 @@ class SettingModel {
         Layout.applyView(button2, view: view, topOffset: 272, leadingOffset: 10, trailingOffset: -10)
         Layout.applyView(button3, view: view, topOffset: 315, leadingOffset: 10, trailingOffset: -10)
         Layout.applyView(button4, view: view, topOffset: 358, leadingOffset: 10, trailingOffset: -10)
+        
         Layout.applyView(signInWithAppleButton, view: view, topOffset: 401, leadingOffset: 10, trailingOffset: -10  ,additionalConstraints: { make in
             make.height.equalTo(40)
         })
     }
     
     func setupUI() {
-        
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.textAlignment = .left
         nameLabel.textColor = .black

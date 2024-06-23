@@ -8,27 +8,37 @@ import UIKit
 import AuthenticationServices
 
 class SettingViewController: UIViewController {
-   
+    
     var setting: SettingModel!, switchButt = UISwitch(), signInWithAppleButton = ASAuthorizationAppleIDButton()
-        
     var button1 = UIButton(), button2 = UIButton(), button3 = UIButton(), button4 = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setting = SettingModel(); setting.updateUI(view: self.view); setting.setupUI()
-    
-        switchButt = setting.switchButt; signInWithAppleButton = setting.signInWithAppleButton
-        button1 = setting.button1; button2 = setting.button2; button3 = setting.button3; button4 = setting.button4
-
+        setting = SettingModel()
+        setting.updateUI(view: self.view)
+        setting.setupUI()
+        
+        switchButt = setting.switchButt
+        signInWithAppleButton = setting.signInWithAppleButton
+        button1 = setting.button1
+        button2 = setting.button2
+        button3 = setting.button3
+        button4 = setting.button4
+        
         buttonAction()
-        
+        saveSwitch()
     }
-        
+    
+    func saveSwitch() {
+        if let switchState = UserDefaults.standard.object(forKey: "switchState") as? Bool {
+            switchButt.isOn = switchState
+        }
+    }
+    
     private func buttonAction() {
         switchButt.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         signInWithAppleButton.addTarget(self, action: #selector(handleLogInWithAppleIDButtonPress), for: .touchUpInside)
-        
         button1.addTarget(self, action: #selector(openMailApp), for: .touchUpInside)
         button2.addTarget(self, action: #selector(openGuidanceView), for: .touchUpInside)
         button3.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
@@ -57,15 +67,12 @@ class SettingViewController: UIViewController {
     
     @objc func switchValueChanged(_ sender: UISwitch) {
         if sender.isOn {
-            // Сменить на темную тему
             UserDefaults.standard.set("dark", forKey: "theme")
         } else {
-            // Сменить на светлую тему
             UserDefaults.standard.set("light", forKey: "theme")
         }
-        // Сохранить состояние переключателя
         UserDefaults.standard.set(sender.isOn, forKey: "switchState")
-        // Применить тему к приложению
+        
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let window = windowScene.windows.first {
             window.overrideUserInterfaceStyle = sender.isOn ? .dark : .light

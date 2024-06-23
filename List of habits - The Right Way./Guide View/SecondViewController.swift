@@ -18,7 +18,9 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        second = SecondModel(); second.updateUI(view: self.view); swipeActions()
+        second = SecondModel()
+        second.updateUI(view: self.view)
+        swipeActions()
     }
     
     private func swipeActions() {

@@ -13,11 +13,12 @@ class ThirdModel{
     //    let imageView = Image.createImage("")
     
     func updateUI(view: UIView) {
-        
         view.backgroundColor = UIColor.systemBackground
-
-        view.addSubview(label); view.addSubview(label1) //        view.addSubview(imageView)
-//
+        
+        view.addSubview(label)
+        view.addSubview(label1)
+//        view.addSubview(imageView)
+        
 //        Layout.applyView(imageView, view: view, additionalConstraints: { (make) in
 //            make.centerX.equalToSuperview()
 //            make.centerY.equalToSuperview()

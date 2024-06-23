@@ -23,8 +23,8 @@ extension HabbitViewController: UIColorPickerViewControllerDelegate {
         selectedColorView.backgroundColor = selectedColor
         //        viewController.dismiss(animated: true, completion: nil)
     }
-    
 }
+
 
 extension HabbitViewController: UITextFieldDelegate {
     
@@ -32,5 +32,4 @@ extension HabbitViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
 }

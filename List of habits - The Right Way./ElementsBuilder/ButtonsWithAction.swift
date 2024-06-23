@@ -65,10 +65,6 @@ public class ButtonsWithAction {
     public static func createSwitchButton(isOn: Bool) -> UISwitch {
         let switchButton = UISwitch()
         switchButton.isOn = isOn
-//        switchButton.thumbTintColor = .blue
-        if let switchState = UserDefaults.standard.object(forKey: "switchState") as? Bool {
-            switchButton.isOn = switchState
-        }
         return switchButton
     }
 }

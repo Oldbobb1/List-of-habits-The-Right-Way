@@ -18,7 +18,9 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        first = FirstModel(); first.updateUI(view: self.view); swipeActions()
+        first = FirstModel()
+        first.updateUI(view: self.view)
+        swipeActions()
     }
     
     private func swipeActions() {

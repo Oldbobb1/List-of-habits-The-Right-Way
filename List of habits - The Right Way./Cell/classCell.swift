@@ -86,7 +86,6 @@ class EmojiTableViewCell: UITableViewCell {
     
 }
 
-
 extension EmojiTableViewCell: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         // Здесь можно изменить внешний вид выбранной даты (например, появление галочки)

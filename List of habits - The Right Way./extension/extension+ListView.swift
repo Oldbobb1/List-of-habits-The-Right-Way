@@ -64,7 +64,6 @@ extension ListViewController: UITableViewDataSource {
     }
 }
 
-
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected cell \(indexPath.row)")
