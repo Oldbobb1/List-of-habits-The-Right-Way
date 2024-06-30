@@ -1,17 +1,15 @@
-//
 //  SceneDelegate.swift
+
 //  List of habits - The Right Way.
-//
+
 //  Created by Bobbi on 6.06.24.
-//
 
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -25,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarController.tabBar.tintColor.withAlphaComponent(1)
         tabBarController.tabBar.barStyle = .default
     
+   
         let firstView = ListViewController()
         firstView.view.backgroundColor = UIColor.systemBackground
         let firstFolder = UIImage(systemName: "list.bullet.circle")
@@ -36,19 +35,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         secondView.tabBarItem = UITabBarItem(title: "notes", image: secondFolder, tag: 2 )
         
     
-        let thirdView = SettingViewController()
+        let thirdView =  SettingViewController()
         thirdView.view.backgroundColor = UIColor.systemBackground
         let thirdFolder = UIImage(systemName: "gear")
         thirdView.tabBarItem = UITabBarItem(title: "setting", image: thirdFolder, tag: 3 )
         
-       
         tabBarController.viewControllers = [firstView, secondView, thirdView]
         
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
         
         self.window = window
-        
+    
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

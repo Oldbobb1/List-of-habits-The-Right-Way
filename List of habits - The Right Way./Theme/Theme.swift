@@ -6,25 +6,6 @@
 
 import UIKit
 
-//class ThemeManager {
-//    static func setTheme(theme: String) {
-//        let savedTheme = UserDefaults.standard.string(forKey: "theme") ?? "light"
-//        if savedTheme == "dark" {
-//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-//                if let window = windowScene.windows.first {
-//                    window.overrideUserInterfaceStyle = .dark
-//                }
-//            }
-//        } else {
-//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-//                if let window = windowScene.windows.first {
-//                    window.overrideUserInterfaceStyle = .light
-//                }
-//            }
-//        }
-//    }
-//}
-
 class ThemeManager {
     static var currentTheme: String {
         get {
@@ -73,3 +54,6 @@ class ThemeManager {
         }
     }
 }
+
+
+

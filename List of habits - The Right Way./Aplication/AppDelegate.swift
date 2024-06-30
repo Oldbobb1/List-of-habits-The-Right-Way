@@ -1,9 +1,8 @@
-//
 //  AppDelegate.swift
+
 //  List of habits - The Right Way.
-//
+
 //  Created by Bobbi on 6.06.24.
-//
 
 import UIKit
 
@@ -13,15 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        ThemeManager.setTheme(theme: ThemeManager.currentTheme)
-        
+    
         Thread.sleep(forTimeInterval: 0.3)
            
             return true
         
         }
-
-   
     
     // MARK: UISceneSession Lifecycle
 

@@ -11,11 +11,17 @@
 		C40859BF2C27837F00423DA8 /* extension+SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40859BE2C27837F00423DA8 /* extension+SettingView.swift */; };
 		C40859C12C27850400423DA8 /* extension+HabbitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40859C02C27850400423DA8 /* extension+HabbitView.swift */; };
 		C40F026F2C20780600DFD0FB /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C40F026E2C20780600DFD0FB /* FSCalendar */; };
+		C41562C12C29AFB200DB93F0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41562C02C29AFB200DB93F0 /* File.swift */; };
 		C438807A2C1354B60005EC9B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43880792C1354B60005EC9B /* FirstViewController.swift */; };
 		C438807C2C1354C00005EC9B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438807B2C1354C00005EC9B /* SecondViewController.swift */; };
 		C438807E2C1354C80005EC9B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438807D2C1354C80005EC9B /* ThirdViewController.swift */; };
+		C457550E2C2DD51700ECF6A6 /* HabbitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457550D2C2DD51700ECF6A6 /* HabbitView.swift */; };
+		C45755102C2DD84C00ECF6A6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457550F2C2DD84C00ECF6A6 /* SettingView.swift */; };
+		C45755132C2DDCFB00ECF6A6 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45755122C2DDCFB00ECF6A6 /* NotesView.swift */; };
+		C45755152C2DDEA100ECF6A6 /* LIstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45755142C2DDEA100ECF6A6 /* LIstView.swift */; };
 		C457608C2C1BA21800CE6822 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457608B2C1BA21800CE6822 /* Theme.swift */; };
 		C457608E2C1BA4E600CE6822 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457608D2C1BA4E600CE6822 /* Layout.swift */; };
+		C47A72F52C297D2D007D84C2 /* DaysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A72F42C297D2D007D84C2 /* DaysModel.swift */; };
 		C49734452C1629EE001546DE /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49734442C1629EE001546DE /* Image.swift */; };
 		C49734472C163076001546DE /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49734462C163076001546DE /* TableView.swift */; };
 		C4DD37BF2C12161F006DBF3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD37BE2C12161F006DBF3D /* AppDelegate.swift */; };
@@ -63,12 +69,18 @@
 		C40859BB2C27810200423DA8 /* extension+ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+ListView.swift"; sourceTree = "<group>"; };
 		C40859BE2C27837F00423DA8 /* extension+SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+SettingView.swift"; sourceTree = "<group>"; };
 		C40859C02C27850400423DA8 /* extension+HabbitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+HabbitView.swift"; sourceTree = "<group>"; };
+		C41562C02C29AFB200DB93F0 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C43880792C1354B60005EC9B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		C438807B2C1354C00005EC9B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C438807D2C1354C80005EC9B /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		C457550D2C2DD51700ECF6A6 /* HabbitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitView.swift; sourceTree = "<group>"; };
+		C457550F2C2DD84C00ECF6A6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		C45755122C2DDCFB00ECF6A6 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		C45755142C2DDEA100ECF6A6 /* LIstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIstView.swift; sourceTree = "<group>"; };
 		C457608B2C1BA21800CE6822 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C457608D2C1BA4E600CE6822 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		C47888E52C19C76E0093D657 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		C47A72F42C297D2D007D84C2 /* DaysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysModel.swift; sourceTree = "<group>"; };
 		C49734442C1629EE001546DE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		C49734462C163076001546DE /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		C4CEF9172C19FBBF000806DC /* List of habits - The Right Way..entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "List of habits - The Right Way..entitlements"; sourceTree = "<group>"; };
@@ -124,6 +136,14 @@
 			path = extension;
 			sourceTree = "<group>";
 		};
+		C41562BF2C29AFA300DB93F0 /* signIn */ = {
+			isa = PBXGroup;
+			children = (
+				C41562C02C29AFB200DB93F0 /* File.swift */,
+			);
+			path = signIn;
+			sourceTree = "<group>";
+		};
 		C43880782C13549C0005EC9B /* Guide View */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +153,25 @@
 				C438807D2C1354C80005EC9B /* ThirdViewController.swift */,
 			);
 			path = "Guide View";
+			sourceTree = "<group>";
+		};
+		C457550C2C2DD4EB00ECF6A6 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				C45755142C2DDEA100ECF6A6 /* LIstView.swift */,
+				C45755122C2DDCFB00ECF6A6 /* NotesView.swift */,
+				C457550F2C2DD84C00ECF6A6 /* SettingView.swift */,
+				C457550D2C2DD51700ECF6A6 /* HabbitView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		C45755112C2DDCCF00ECF6A6 /* Days */ = {
+			isa = PBXGroup;
+			children = (
+				C47A72F42C297D2D007D84C2 /* DaysModel.swift */,
+			);
+			path = Days;
 			sourceTree = "<group>";
 		};
 		C46B82CB2C1C8327007F2290 /* Theme */ = {
@@ -182,7 +221,9 @@
 				C4CEF9172C19FBBF000806DC /* List of habits - The Right Way..entitlements */,
 				C4DD37D62C1221A2006DBF3D /* Aplication */,
 				C4F0C8102C2306C800D5B6CA /* ModelMainView */,
-				C4DD37D72C1221B6006DBF3D /* Main View */,
+				C45755112C2DDCCF00ECF6A6 /* Days */,
+				C457550C2C2DD4EB00ECF6A6 /* MainView */,
+				C4DD37D72C1221B6006DBF3D /* Controller */,
 				C40859BD2C2782E200423DA8 /* extension */,
 				C4F0C8112C2306D800D5B6CA /* ModelGuideView */,
 				C43880782C13549C0005EC9B /* Guide View */,
@@ -190,6 +231,7 @@
 				C4F0C80D2C22E18000D5B6CA /* swipeClass */,
 				C46B82CC2C1C8336007F2290 /* Layout */,
 				C4DD37D92C1221F8006DBF3D /* ElementsBuilder */,
+				C41562BF2C29AFA300DB93F0 /* signIn */,
 				C4DD37D82C1221E1006DBF3D /* Cell */,
 				C4DD37C72C121621006DBF3D /* Assets.xcassets */,
 				C4DD37C92C121621006DBF3D /* LaunchScreen.storyboard */,
@@ -207,7 +249,7 @@
 			path = Aplication;
 			sourceTree = "<group>";
 		};
-		C4DD37D72C1221B6006DBF3D /* Main View */ = {
+		C4DD37D72C1221B6006DBF3D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				C4DD37C22C12161F006DBF3D /*  ListViewController.swift */,
@@ -215,7 +257,7 @@
 				C4DD37D42C12214F006DBF3D /* SettingViewController.swift */,
 				C4DD37E52C122340006DBF3D /* HabbitViewController.swift */,
 			);
-			path = "Main View";
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C4DD37D82C1221E1006DBF3D /* Cell */ = {
@@ -354,19 +396,23 @@
 				C4DD37D52C12214F006DBF3D /* SettingViewController.swift in Sources */,
 				C4DD37E12C12225C006DBF3D /* classCell.swift in Sources */,
 				C4DD37E62C122340006DBF3D /* HabbitViewController.swift in Sources */,
+				C45755102C2DD84C00ECF6A6 /* SettingView.swift in Sources */,
 				C438807E2C1354C80005EC9B /* ThirdViewController.swift in Sources */,
 				C40859C12C27850400423DA8 /* extension+HabbitView.swift in Sources */,
 				C4DD37D32C1220BC006DBF3D /* NotesViewController.swift in Sources */,
 				C4DD37C32C12161F006DBF3D /*  ListViewController.swift in Sources */,
 				C4DDD4E92C2319FA00D35ABD /* HabbitModel.swift in Sources */,
 				C4DD37DF2C122247006DBF3D /* modelCell.swift in Sources */,
+				C47A72F52C297D2D007D84C2 /* DaysModel.swift in Sources */,
 				C40859BF2C27837F00423DA8 /* extension+SettingView.swift in Sources */,
+				C457550E2C2DD51700ECF6A6 /* HabbitView.swift in Sources */,
 				C4DD37F02C122650006DBF3D /* TextField.swift in Sources */,
 				C438807C2C1354C00005EC9B /* SecondViewController.swift in Sources */,
 				C4DDD4E72C2319EA00D35ABD /* SettingModel.swift in Sources */,
 				C40859BC2C27810200423DA8 /* extension+ListView.swift in Sources */,
 				C4F0C80F2C22E19F00D5B6CA /* swipeClass.swift in Sources */,
 				C49734452C1629EE001546DE /* Image.swift in Sources */,
+				C45755152C2DDEA100ECF6A6 /* LIstView.swift in Sources */,
 				C457608E2C1BA4E600CE6822 /* Layout.swift in Sources */,
 				C4DDD4DD2C23155500D35ABD /* FirstModel.swift in Sources */,
 				C4DDD4DF2C23170100D35ABD /* SecondModel.swift in Sources */,
@@ -379,6 +425,8 @@
 				C4DD37F22C122677006DBF3D /* StackView.swift in Sources */,
 				C4DDD4E12C23180F00D35ABD /* ThirdModel.swift in Sources */,
 				C4DD37BF2C12161F006DBF3D /* AppDelegate.swift in Sources */,
+				C45755132C2DDCFB00ECF6A6 /* NotesView.swift in Sources */,
+				C41562C12C29AFB200DB93F0 /* File.swift in Sources */,
 				C49734472C163076001546DE /* TableView.swift in Sources */,
 				C4DD37EC2C1225A1006DBF3D /* date.swift in Sources */,
 				C4DD37C12C12161F006DBF3D /* SceneDelegate.swift in Sources */,
@@ -529,7 +577,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F23TVVXJV4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "List of habits - The Right Way./Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Habits;
@@ -562,7 +610,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F23TVVXJV4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "List of habits - The Right Way./Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Habits;

@@ -8,11 +8,11 @@ import UIKit
 
 class NotesViewController: UIViewController {
     
-    var notes: NotesModel!
+    var notesView = NotesView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        notes = NotesModel(); notes.updateUI(view: self.view)
+    
+        notesView.updateUI(view)
     }
 }

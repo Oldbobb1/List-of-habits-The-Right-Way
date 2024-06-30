@@ -14,7 +14,7 @@ class ThirdModel{
     
     func updateUI(view: UIView) {
         view.backgroundColor = UIColor.systemBackground
-        
+
         view.addSubview(label)
         view.addSubview(label1)
 //        view.addSubview(imageView)

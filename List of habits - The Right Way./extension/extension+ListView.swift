@@ -18,7 +18,7 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.objects.count
+        return listModel.objects.count
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -35,7 +35,7 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "emojiCell", for: indexPath) as! EmojiTableViewCell
-        let object = list.objects[indexPath.row]
+        let object = listModel.objects[indexPath.row]
         cell.set(object: object)
         cell.backgroundColor = .systemGray4
         return cell
@@ -47,9 +47,9 @@ extension ListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            list.objects.remove(at: indexPath.row)
+            listModel.objects.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            list.saveEmojiData()
+            listModel.saveEmojiData()
         }
     }
     
@@ -58,8 +58,8 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedEmoji = list.objects.remove(at: sourceIndexPath.row)
-        list.objects.insert(movedEmoji, at: destinationIndexPath.row)
+        let movedEmoji = listModel.objects.remove(at: sourceIndexPath.row)
+        listModel.objects.insert(movedEmoji, at: destinationIndexPath.row)
         tableView.reloadData()
     }
 }

@@ -8,12 +8,6 @@ import UIKit
 
 class NotesModel {
     
-    let label = Label.label(text: "Notes", fontSize: 25)
-    
-    func updateUI(view: UIView) {
-        
-        view.addSubview(label)
-        
-        Layout.applyView(label, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0)
-    }
 }
+
+

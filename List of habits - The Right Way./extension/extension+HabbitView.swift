@@ -20,7 +20,7 @@ extension HabbitViewController: UIColorPickerViewControllerDelegate {
         
         let selectedColor = viewController.selectedColor
         //        saveSelectedColor(selectedColor)
-        selectedColorView.backgroundColor = selectedColor
+        habbitView.selectedColorView.backgroundColor = selectedColor
         //        viewController.dismiss(animated: true, completion: nil)
     }
 }
