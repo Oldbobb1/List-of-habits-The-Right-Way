@@ -8,7 +8,9 @@ import UIKit
 
 class HabitManager  {
     
-    var habits = [HabitEntry]()
+    var habits: [HabitEntry] = []
+    
+   
     
     func saveHabitData() {
         let encodedData = try? JSONEncoder().encode(habits)

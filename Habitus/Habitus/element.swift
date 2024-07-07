@@ -232,6 +232,7 @@ public class TableView {
         let tableView = UITableView(frame: frame ?? .null, style: style ?? .plain )
         tableView.backgroundColor = backgroundColor
         tableView.showsVerticalScrollIndicator = false
+        tableView.clipsToBounds = true
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }

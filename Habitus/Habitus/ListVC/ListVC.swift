@@ -33,7 +33,7 @@ class ListVC: UIViewController {
     }
     
     @objc func openHabbitCreation(_ sender: UIButton) {
-        let habitVC  = HabbitVC()
+        let habitVC  = HabitVC()
         let navController = UINavigationController(rootViewController: habitVC)
         navController.modalPresentationStyle = .fullScreen
         animateButtonScaleChange(for: sender, scaleFactor: 1.3)
@@ -60,7 +60,7 @@ class ListVC: UIViewController {
             }
         } else { }
     }
-    
+   
     func toggleMessageLabelVisibility() {
         listView.messageLabel.isHidden = !listModel.habits.isEmpty
      }
