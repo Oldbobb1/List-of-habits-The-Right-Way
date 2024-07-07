@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C4AC69A62C3A8F62004889C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69A52C3A8F62004889C1 /* AppDelegate.swift */; };
+		C4AC69A82C3A8F62004889C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69A72C3A8F62004889C1 /* SceneDelegate.swift */; };
+		C4AC69AA2C3A8F62004889C1 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69A92C3A8F62004889C1 /* ListVC.swift */; };
+		C4AC69AF2C3A8F63004889C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AC69AE2C3A8F63004889C1 /* Assets.xcassets */; };
+		C4AC69B22C3A8F63004889C1 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C4AC69B12C3A8F63004889C1 /* Base */; };
+		C4AC69BD2C3A9011004889C1 /* NotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69BC2C3A9011004889C1 /* NotesVC.swift */; };
+		C4AC69BF2C3A9017004889C1 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69BE2C3A9017004889C1 /* SettingVC.swift */; };
+		C4AC69C12C3A901D004889C1 /* HabbitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69C02C3A901D004889C1 /* HabbitVC.swift */; };
+		C4AC69C32C3A90AF004889C1 /* element.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69C22C3A90AF004889C1 /* element.swift */; };
+		C4AC69C62C3A92BD004889C1 /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69C52C3A92BD004889C1 /* HabitManager.swift */; };
+		C4AC69C82C3A92CA004889C1 /* HabitListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69C72C3A92CA004889C1 /* HabitListUI.swift */; };
+		C4AC69CB2C3A93A2004889C1 /* ListVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69CA2C3A93A2004889C1 /* ListVCExtension.swift */; };
+		C4AC69CE2C3A946B004889C1 /* HabitEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69CD2C3A946B004889C1 /* HabitEntry.swift */; };
+		C4AC69D02C3A9504004889C1 /* HabitTrackerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69CF2C3A9504004889C1 /* HabitTrackerCell.swift */; };
+		C4AC69D92C3AB1FE004889C1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4AC69D82C3AB1FE004889C1 /* SnapKit */; };
+		C4AC6A022C3AB3A3004889C1 /* GuidanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */; };
+		C4AC6A042C3ABD21004889C1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC6A032C3ABD21004889C1 /* File.swift */; };
+		C4AC6A072C3ABD49004889C1 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C4AC6A062C3ABD49004889C1 /* FSCalendar */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C4AC69A22C3A8F62004889C1 /* Habitus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4AC69A52C3A8F62004889C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C4AC69A72C3A8F62004889C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C4AC69A92C3A8F62004889C1 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
+		C4AC69AE2C3A8F63004889C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4AC69B12C3A8F63004889C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C4AC69B32C3A8F63004889C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4AC69BC2C3A9011004889C1 /* NotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesVC.swift; sourceTree = "<group>"; };
+		C4AC69BE2C3A9017004889C1 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		C4AC69C02C3A901D004889C1 /* HabbitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitVC.swift; sourceTree = "<group>"; };
+		C4AC69C22C3A90AF004889C1 /* element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = element.swift; sourceTree = "<group>"; };
+		C4AC69C52C3A92BD004889C1 /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
+		C4AC69C72C3A92CA004889C1 /* HabitListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListUI.swift; sourceTree = "<group>"; };
+		C4AC69CA2C3A93A2004889C1 /* ListVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVCExtension.swift; sourceTree = "<group>"; };
+		C4AC69CD2C3A946B004889C1 /* HabitEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEntry.swift; sourceTree = "<group>"; };
+		C4AC69CF2C3A9504004889C1 /* HabitTrackerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerCell.swift; sourceTree = "<group>"; };
+		C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceVC.swift; sourceTree = "<group>"; };
+		C4AC6A032C3ABD21004889C1 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4AC699F2C3A8F62004889C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4AC69D92C3AB1FE004889C1 /* SnapKit in Frameworks */,
+				C4AC6A072C3ABD49004889C1 /* FSCalendar in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C4AC69992C3A8F62004889C1 = {
+			isa = PBXGroup;
+			children = (
+				C4AC69A42C3A8F62004889C1 /* Habitus */,
+				C4AC69A32C3A8F62004889C1 /* Products */,
+				C4AC69D12C3AB1DC004889C1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C4AC69A32C3A8F62004889C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4AC69A22C3A8F62004889C1 /* Habitus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4AC69A42C3A8F62004889C1 /* Habitus */ = {
+			isa = PBXGroup;
+			children = (
+				C4AC69A52C3A8F62004889C1 /* AppDelegate.swift */,
+				C4AC69A72C3A8F62004889C1 /* SceneDelegate.swift */,
+				C4AC69C42C3A92AA004889C1 /* ListVC */,
+				C4AC69BC2C3A9011004889C1 /* NotesVC.swift */,
+				C4AC69BE2C3A9017004889C1 /* SettingVC.swift */,
+				C4AC69C02C3A901D004889C1 /* HabbitVC.swift */,
+				C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */,
+				C4AC69C22C3A90AF004889C1 /* element.swift */,
+				C4AC6A032C3ABD21004889C1 /* File.swift */,
+				C4AC69AE2C3A8F63004889C1 /* Assets.xcassets */,
+				C4AC69B02C3A8F63004889C1 /* LaunchScreen.storyboard */,
+				C4AC69B32C3A8F63004889C1 /* Info.plist */,
+			);
+			path = Habitus;
+			sourceTree = "<group>";
+		};
+		C4AC69C42C3A92AA004889C1 /* ListVC */ = {
+			isa = PBXGroup;
+			children = (
+				C4AC69C52C3A92BD004889C1 /* HabitManager.swift */,
+				C4AC69C72C3A92CA004889C1 /* HabitListUI.swift */,
+				C4AC69A92C3A8F62004889C1 /* ListVC.swift */,
+				C4AC69C92C3A9369004889C1 /* ListVCExtension */,
+				C4AC69CC2C3A9443004889C1 /* ListVCCell */,
+			);
+			path = ListVC;
+			sourceTree = "<group>";
+		};
+		C4AC69C92C3A9369004889C1 /* ListVCExtension */ = {
+			isa = PBXGroup;
+			children = (
+				C4AC69CA2C3A93A2004889C1 /* ListVCExtension.swift */,
+			);
+			path = ListVCExtension;
+			sourceTree = "<group>";
+		};
+		C4AC69CC2C3A9443004889C1 /* ListVCCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4AC69CD2C3A946B004889C1 /* HabitEntry.swift */,
+				C4AC69CF2C3A9504004889C1 /* HabitTrackerCell.swift */,
+			);
+			path = ListVCCell;
+			sourceTree = "<group>";
+		};
+		C4AC69D12C3AB1DC004889C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4AC69A12C3A8F62004889C1 /* Habitus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4AC69B62C3A8F63004889C1 /* Build configuration list for PBXNativeTarget "Habitus" */;
+			buildPhases = (
+				C4AC699E2C3A8F62004889C1 /* Sources */,
+				C4AC699F2C3A8F62004889C1 /* Frameworks */,
+				C4AC69A02C3A8F62004889C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Habitus;
+			packageProductDependencies = (
+				C4AC69D82C3AB1FE004889C1 /* SnapKit */,
+				C4AC6A062C3ABD49004889C1 /* FSCalendar */,
+			);
+			productName = Habitus;
+			productReference = C4AC69A22C3A8F62004889C1 /* Habitus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4AC699A2C3A8F62004889C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					C4AC69A12C3A8F62004889C1 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = C4AC699D2C3A8F62004889C1 /* Build configuration list for PBXProject "Habitus" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C4AC69992C3A8F62004889C1;
+			packageReferences = (
+				C4AC69D72C3AB1FE004889C1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C4AC6A052C3ABD49004889C1 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+			);
+			productRefGroup = C4AC69A32C3A8F62004889C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4AC69A12C3A8F62004889C1 /* Habitus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4AC69A02C3A8F62004889C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4AC69AF2C3A8F63004889C1 /* Assets.xcassets in Resources */,
+				C4AC69B22C3A8F63004889C1 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4AC699E2C3A8F62004889C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4AC69C82C3A92CA004889C1 /* HabitListUI.swift in Sources */,
+				C4AC69C62C3A92BD004889C1 /* HabitManager.swift in Sources */,
+				C4AC69AA2C3A8F62004889C1 /* ListVC.swift in Sources */,
+				C4AC69BD2C3A9011004889C1 /* NotesVC.swift in Sources */,
+				C4AC69A62C3A8F62004889C1 /* AppDelegate.swift in Sources */,
+				C4AC69BF2C3A9017004889C1 /* SettingVC.swift in Sources */,
+				C4AC69C12C3A901D004889C1 /* HabbitVC.swift in Sources */,
+				C4AC69CE2C3A946B004889C1 /* HabitEntry.swift in Sources */,
+				C4AC69A82C3A8F62004889C1 /* SceneDelegate.swift in Sources */,
+				C4AC6A042C3ABD21004889C1 /* File.swift in Sources */,
+				C4AC69D02C3A9504004889C1 /* HabitTrackerCell.swift in Sources */,
+				C4AC6A022C3AB3A3004889C1 /* GuidanceVC.swift in Sources */,
+				C4AC69CB2C3A93A2004889C1 /* ListVCExtension.swift in Sources */,
+				C4AC69C32C3A90AF004889C1 /* element.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C4AC69B02C3A8F63004889C1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4AC69B12C3A8F63004889C1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C4AC69B42C3A8F63004889C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C4AC69B52C3A8F63004889C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C4AC69B72C3A8F63004889C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Habitus/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Habitus;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Bobbi.Habitus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4AC69B82C3A8F63004889C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Habitus/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Habitus;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Bobbi.Habitus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4AC699D2C3A8F62004889C1 /* Build configuration list for PBXProject "Habitus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4AC69B42C3A8F63004889C1 /* Debug */,
+				C4AC69B52C3A8F63004889C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4AC69B62C3A8F63004889C1 /* Build configuration list for PBXNativeTarget "Habitus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4AC69B72C3A8F63004889C1 /* Debug */,
+				C4AC69B82C3A8F63004889C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C4AC69D72C3AB1FE004889C1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		C4AC6A052C3ABD49004889C1 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C4AC69D82C3AB1FE004889C1 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4AC69D72C3AB1FE004889C1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		C4AC6A062C3ABD49004889C1 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4AC6A052C3ABD49004889C1 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = C4AC699A2C3A8F62004889C1 /* Project object */;
+}
