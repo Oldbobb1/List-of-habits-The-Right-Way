@@ -10,7 +10,8 @@ import UIKit
 class GuidanceVC: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     var imageNames  = [
-        ("guidePrew", ImageShape.circle),
+//        ("AppIcon", ImageShape.circle),
+        ("AppIcon", ImageShape.square),
         ("guidePrew2", ImageShape.square),
         ("guidePrew3", ImageShape.square),
         ("guidePrew4", ImageShape.square),

@@ -38,7 +38,7 @@ class SettingVC: UIViewController  {
             ("questionmark.bubble", "Поддержка", false, { self.openMailApp()}, color: .red),
             ("text.book.closed.fill", "Гайд", false, { self.openGuidancePresentation()}, color: .red),
             ("star.square", "Оцените приложение", false, { self.showAlert()}, color: .red),
-            ("dollarsign.circle.fill", "Подписка", false, { self.showAlert()}, color: .red)
+            ("dollarsign.circle.fill", "Подписка", false, { self.subscribe()}, color: .red)
         ]
         
         accountItems = [
@@ -81,7 +81,15 @@ class SettingVC: UIViewController  {
           alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
           self.present(alertController, animated: true, completion: nil)
       }
-
+    
+    func subscribe() {
+        let sub = SubscribeVC()
+        let nav = UINavigationController(rootViewController: sub)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
+        
+    }
+    
     func openGuidancePresentation() {
           let guidanceVC = GuidanceVC()
           let navigat = UINavigationController(rootViewController: guidanceVC)
