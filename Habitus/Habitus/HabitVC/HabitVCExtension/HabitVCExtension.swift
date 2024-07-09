@@ -1,36 +1,10 @@
-//
 //  HabitVCExtension.swift
+
 //  Habitus
-//
+
 //  Created by Bobbi R. on 7.07.24.
-//
 
 import UIKit
-
-extension HabitVC: UIColorPickerViewControllerDelegate {
-    
-    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-        selectedColor = viewController.selectedColor
-        updateSaveButtonState()
-    }
-    
-    
-    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
-        let selectedColor = viewController.selectedColor
-        selectedColorView.backgroundColor = selectedColor
-    }
-    
-}
-
-
-extension HabitVC: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
-
 
 extension HabitVC: UITableViewDataSource {
     
@@ -52,11 +26,11 @@ extension HabitVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "textCell", for: indexPath) as! textCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
                     cell.configure(text: nil, delegate: self, color: selectedColor) // Передача текста и цвета
                  return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DatePickerCell", for: indexPath) as! DatePickerCell
             cell.configure(date: Date())
             return cell
         case 2:
@@ -80,8 +54,8 @@ extension HabitVC: UITableViewDataSource {
             cell.textLabel?.text = title
             cell.textLabel?.font = .systemFont(ofSize: 17)
             if title == "Color" {
-                selectedColorView.backgroundColor = selectedColorView.backgroundColor ?? .clear
-                cell.accessoryView = selectedColorView
+                habitView.selectedColorView.backgroundColor = habitView.selectedColorView.backgroundColor ?? .clear
+                cell.accessoryView = habitView.selectedColorView
                 cell.selectionStyle = .default
             }
             // Accessory
@@ -116,6 +90,7 @@ extension HabitVC: UITableViewDataSource {
     }
 
 }
+
 
 extension HabitVC: UITableViewDelegate {
     

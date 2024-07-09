@@ -1,9 +1,8 @@
-//
 //  SettingVCExtension.swift
+
 //  Habitus
-//
+
 //  Created by Bobbi R. on 7.07.24.
-//
 
 import UIKit
 
@@ -54,7 +53,7 @@ extension SettingVC: UITableViewDataSource {
             cell.textLabel?.text = title
             cell.textLabel?.font = .systemFont(ofSize: 17)
             //            cell.textLabel?.textColor = color
-    
+            
             if (hasSwitch) {
                 let switchView = UISwitch(frame: .zero)
                 switchView.tag = indexPath.row // Установка тега для различения переключателей
@@ -115,5 +114,5 @@ extension SettingVC: UITableViewDataSource {
 
 
 extension SettingVC: UITableViewDelegate {
-   
+    
 }

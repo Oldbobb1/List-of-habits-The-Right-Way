@@ -22,25 +22,24 @@ class ListVC: UIViewController {
     }
     
     private func configureUI() {
+        
         listModel.loadHabitData()
         listView.initializeUI(view)
         listView.updateDaysCalendar()
         listView.userContentTableView.delegate = self
         listView.userContentTableView.dataSource = self
-        listView.userContentTableView.frame = view.bounds
-        listView.userContentTableView.register(HabitTrackerCell.self, forCellReuseIdentifier: "habitCell")
-        listView.createButton.addTarget(self, action: #selector(openHabbitCreation) , for: .touchUpInside)
+        listView.buttonOpenHabitVC.addTarget(self, action: #selector(openHabbitCreation) , for: .touchUpInside)
     }
     
     @objc func openHabbitCreation(_ sender: UIButton) {
         let habitVC  = HabitVC()
         let navController = UINavigationController(rootViewController: habitVC)
         navController.modalPresentationStyle = .fullScreen
-        animateButtonScaleChange(for: sender, scaleFactor: 1.3)
+        animateButtonScale(for: sender, scaleFactor: 1.3)
         self.present(navController, animated: true, completion: nil)
     }
     
-    func animateButtonScaleChange(for button: UIButton, scaleFactor: CGFloat) {
+    func animateButtonScale(for button: UIButton, scaleFactor: CGFloat) {
         UIView.animate(withDuration: 0.1, animations: {
             button.transform = CGAffineTransform(scaleX: scaleFactor, y: scaleFactor)
         }) { _ in
@@ -64,6 +63,7 @@ class ListVC: UIViewController {
     func toggleMessageLabelVisibility() {
         listView.messageLabel.isHidden = !listModel.habits.isEmpty
      }
+    
 }
 
 

@@ -1,66 +1,8 @@
-//
-//  File1.swift
+//  SubscribeVC.swift
+
 //  Habitus
-//
+
 //  Created by Bobbi R. on 7.07.24.
-//
-
-
-
-//import UIKit
-//
-//class SubscribeVC: UIViewController {
-//
-//    
-//    
-//    let titleLabel = Label.label(text: "Подписка", fontSize: 25, weight: .bold, textColor: .label)
-//    
-//    var swipe: SwipeClass?
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        view.backgroundColor = .white
-//        
-//        
-//        view.addSubview(titleLabel)
-//        
-//        Layout.applyView(titleLabel, view: view, topOffset: 10, leadingOffset: 0, trailingOffset: 0)
-//   
-//        swipeAct()
-//    }
-//    
-//    func swipeAct() {
-//        swipe = SwipeClass(viewController: self,
-//                           leftAction: {},
-//                           rightAction: {[weak self] in
-//            guard let self = self else {return}
-//            dismiss(animated: true, completion: nil)})
-//    }
-//    
-//    @objc func showSubscriptionOptions() {
-//          let alertController = UIAlertController(title: "Выберите подписку", message: nil, preferredStyle: .actionSheet)
-//          
-//          let option1 = UIAlertAction(title: "Месячная подписка", style: .default) { _ in
-//              print("Месячная подписка выбрана")
-//          }
-//          let option2 = UIAlertAction(title: "Годовая подписка", style: .default) { _ in
-//              print("Годовая подписка выбрана")
-//          }
-//          let option3 = UIAlertAction(title: "Пожизненная подписка", style: .default) { _ in
-//              print("Пожизненная подписка выбрана")
-//          }
-//          let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-//          
-//          alertController.addAction(option1)
-//          alertController.addAction(option2)
-//          alertController.addAction(option3)
-//          alertController.addAction(cancelAction)
-//          
-//          self.present(alertController, animated: true, completion: nil)
-//      }
-//    
-//   
-//}
 
 import UIKit
 import SnapKit
@@ -71,10 +13,11 @@ class SubscribeVC: UIViewController, UIPageViewControllerDataSource, UIPageViewC
     var pageViewController: UIPageViewController!
     var slides: [UIViewController] = []
     var swipe: SwipeClass?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         setupPageViewController()
         setupSubscribeButton()
@@ -181,6 +124,7 @@ class SubscribeVC: UIViewController, UIPageViewControllerDataSource, UIPageViewC
         return slides[index + 1]
     }
 }
+
 
 class SlideViewController: UIViewController {
     

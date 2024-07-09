@@ -16,13 +16,13 @@ extension SceneDelegate: UITabBarControllerDelegate {
         switch index {
         case 0:
             tabBarController.tabBar.barTintColor = backgroundColor
-            tabBarController.tabBar.tintColor = UIColor.systemOrange
+            tabBarController.tabBar.tintColor = UIColor.black
         case 1:
             tabBarController.tabBar.barTintColor = backgroundColor
-            tabBarController.tabBar.tintColor = UIColor.systemGreen
+            tabBarController.tabBar.tintColor = UIColor.black
         case 2:
             tabBarController.tabBar.barTintColor = backgroundColor
-            tabBarController.tabBar.tintColor = UIColor.systemYellow
+            tabBarController.tabBar.tintColor = UIColor.black
         default:
             break
         }
@@ -38,39 +38,28 @@ class AnimatedTabBarController: UITabBarController {
         animateTabBarItem(tabBarItemView)
     }
     
-    //    private func animateTabBarItem(_ view: UIControl) {    // - оборот 360
-    //        let animation = CABasicAnimation(keyPath: "transform.rotation.z")
-    //        animation.fromValue = 0
-    //        animation.toValue = CGFloat.pi * 2
-    //        animation.duration = 0.5
-    //        animation.repeatCount = 1
-    //        view.layer.add(animation, forKey: "rotate")
+    //    private func animateTabBarItem(_ view: UIControl) {  // - пульс
+    //        let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
+    //        pulseAnimation.duration = 0.1
+    //        pulseAnimation.fromValue = 1.0
+    //        pulseAnimation.toValue = 1.1
+    //        pulseAnimation.autoreverses = true
+    //        pulseAnimation.repeatCount = 1
+    //        view.layer.add(pulseAnimation, forKey: "pulse")
     //    }
     
-//    private func animateTabBarItem(_ view: UIControl) {  // - пульс
-//        let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
-//        pulseAnimation.duration = 0.1
-//        pulseAnimation.fromValue = 1.0
-//        pulseAnimation.toValue = 1.1
-//        pulseAnimation.autoreverses = true
-//        pulseAnimation.repeatCount = 1
-//        view.layer.add(pulseAnimation, forKey: "pulse")
-//    }
     private func animateTabBarItem(_ view: UIControl) {
         for subview in view.subviews {
             if let label = subview as? UILabel {
-                // Убедитесь, что текстовый элемент остается статичным
                 label.layer.removeAllAnimations()
             } else {
-                // Добавьте анимацию "пульс" к другим элементам
                 let pulseAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-//                pulseAnimation.duration = 0.1
                 pulseAnimation.fromValue = 0
                 pulseAnimation.toValue = 1 * CGFloat.pi
-//                pulseAnimation.autoreverses = true
                 pulseAnimation.repeatCount = 1
                 subview.layer.add(pulseAnimation, forKey: "rotate")
             }
         }
     }
+    
 }

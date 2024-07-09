@@ -15,6 +15,7 @@ class ImagePresentViewController: UIViewController {
     var descriptionLabel: UILabel!
     var imageShape: ImageShape = .square
     var imageDescription: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,11 +25,8 @@ class ImagePresentViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        descriptionLabel = UILabel()
-               descriptionLabel.text = imageDescription
-               descriptionLabel.textAlignment = .center
-               descriptionLabel.numberOfLines = 0
-               descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel = Label.label(text:imageDescription, fontSize: 15, weight: .bold, textColor: .label, textAlignment: .center)
+
         view.addSubview(descriptionLabel)
         
         if let imageName = imageName {

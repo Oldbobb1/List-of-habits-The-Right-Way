@@ -1,17 +1,16 @@
-//
-//  SettingView.swift
+//  SettingViewUI.swift
+
 //  Habitus
-//
+
 //  Created by Bobbi R. on 7.07.24.
-//
 
 import UIKit
 
-class SettingView {
-
+class SettingViewUI {
+    
+    let titleLabel = Label.label(text: "Setting", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center)
     let settingTableView = TableView.tableView(frame: .zero, style: .insetGrouped, backgroundColor: .clear)
-    let titleLabel = Label.label(text: "Setting", fontSize: 25, weight: .bold, textColor: nil)
-
+    
     func initializeUI(_ view: UIView) {
         
         view.addSubview(titleLabel)

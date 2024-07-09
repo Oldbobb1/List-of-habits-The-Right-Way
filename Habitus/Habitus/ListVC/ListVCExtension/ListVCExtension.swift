@@ -51,7 +51,6 @@ extension ListVC: UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
             listModel.saveHabitData()
             toggleMessageLabelVisibility()
-  
         }
     }
     
@@ -60,17 +59,19 @@ extension ListVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        let movedEmoji = listModel.habits.remove(at: sourceIndexPath.row)
-//        listModel.habits.insert(movedEmoji, at: destinationIndexPath.row)
+        //        let movedEmoji = listModel.habits.remove(at: sourceIndexPath.row)
+        //        listModel.habits.insert(movedEmoji, at: destinationIndexPath.row)
         tableView.reloadData()
     }
+    
 }
+
 
 extension ListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let calendarVC = CalendarViewController()
-//        calendarVC.modalPresentationStyle = .fullScreen
+        calendarVC.modalPresentationStyle = .fullScreen
         present(calendarVC, animated: true, completion: nil)
     }
     

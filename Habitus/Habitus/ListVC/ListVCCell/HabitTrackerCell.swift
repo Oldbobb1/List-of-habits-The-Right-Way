@@ -8,18 +8,8 @@ import UIKit
 
 class HabitTrackerCell: UITableViewCell {
     
-    let nameLabelCell: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    var buttonStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10
-        return stackView
-    }()
+    let nameLabelCell = Label.label(text: "", fontSize: 15, weight: .bold, textColor: .label, textAlignment: .left)
+    var buttonStackView = StackView.stack()
     
     var buttonStates: [ButtonState] = [] {
         didSet {
@@ -44,7 +34,6 @@ class HabitTrackerCell: UITableViewCell {
             make.leading.equalToSuperview().offset(285)
             make.centerY.equalToSuperview()
         }
-        
         loadButtonStates()
     }
     
@@ -74,7 +63,6 @@ class HabitTrackerCell: UITableViewCell {
             let dayButton = UIButton()
             dayButton.tag = i
             dayButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-            
             // Создаем метку для дня недели и числа месяца
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EE"
@@ -117,14 +105,12 @@ class HabitTrackerCell: UITableViewCell {
             buttonStates = [ButtonState](repeating: ButtonState(isChecked: false), count: 3)
             return
         }
-        
         var loadedButtonStates = [ButtonState]()
         for stateDict in savedButtonStates {
             if let isChecked = stateDict["isChecked"] as? Bool {
                 loadedButtonStates.append(ButtonState(isChecked: isChecked))
             }
         }
-        
         buttonStates = loadedButtonStates
     }
     

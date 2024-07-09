@@ -10,8 +10,6 @@ class HabitManager  {
     
     var habits: [HabitEntry] = []
     
-   
-    
     func saveHabitData() {
         let encodedData = try? JSONEncoder().encode(habits)
         UserDefaults.standard.set(encodedData, forKey: "SavedHabit")

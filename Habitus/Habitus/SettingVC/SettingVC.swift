@@ -1,34 +1,31 @@
-//
-//  File1.swift
+//  SettingVC.swift
+
 //  Habitus
-//
+
 //  Created by Bobbi R. on 7.07.24.
-//
 
 import UIKit
 import AuthenticationServices
 
 class SettingVC: UIViewController  {
-   
+    
     var isUserLoggedIn = false, userName: String = "", userImage: UIImage?
     
-    let settingView = SettingView(), settingModel = SettingModel()
+    let settingView = SettingViewUI(), settingModel = SettingModel()
     
     var settingsItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?, color: UIColor)] = []
     var accountItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?, color: UIColor)] = []
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        settingView.settingTableView.dataSource = self
-        settingView.settingTableView.delegate = self
+        settingView.settingTableView.dataSource = self; settingView.settingTableView.delegate = self
         
-        settingView.initializeUI(view)
-        settingModel.requestNotificationAuthorization()
+        settingView.initializeUI(view); settingModel.requestNotificationAuthorization()
         configureSettingsItems()
         
         ThemeManager.observeSystemThemeChanges()
-//        ThemeManager.setTheme(theme: ThemeManager.currentTheme)
+        //        ThemeManager.setTheme(theme: ThemeManager.currentTheme)
     }
     
     func configureSettingsItems() {
@@ -38,11 +35,11 @@ class SettingVC: UIViewController  {
             ("questionmark.bubble", "Поддержка", false, { self.openMailApp()}, color: .red),
             ("text.book.closed.fill", "Гайд", false, { self.openGuidancePresentation()}, color: .red),
             ("star.square", "Оцените приложение", false, { self.showAlert()}, color: .red),
-            ("dollarsign.circle.fill", "Подписка", false, { self.subscribe()}, color: .red)
+            ("dollarsign.circle.fill", "Подписка", false, { self.openSubscribeVC()}, color: .red)
         ]
         
         accountItems = [
-            ("apple.logo", "Войти с Apple", false, { self.performSignInWithApple() }, color: .red),
+            ("apple.logo", "Войти с Apple", false, { self.signInWithApple() }, color: .red),
             ("icloud.and.arrow.up", "Резервное копирование", false, { }, color: .green),
             ("arrowshape.turn.up.left", "Выйти", false, {}, color: .blue)
         ]
@@ -77,12 +74,12 @@ class SettingVC: UIViewController  {
     }
     
     func showAlert() {
-          let alertController = UIAlertController(title: "Уведомление", message: "В разработке, появится позже", preferredStyle: .alert)
-          alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-          self.present(alertController, animated: true, completion: nil)
-      }
+        let alertController = UIAlertController(title: "Уведомление", message: "В разработке, появится позже", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
     
-    func subscribe() {
+    func openSubscribeVC() {
         let sub = SubscribeVC()
         let nav = UINavigationController(rootViewController: sub)
         nav.modalPresentationStyle = .fullScreen
@@ -91,21 +88,20 @@ class SettingVC: UIViewController  {
     }
     
     func openGuidancePresentation() {
-          let guidanceVC = GuidanceVC()
-          let navigat = UINavigationController(rootViewController: guidanceVC)
-          navigat.modalPresentationStyle = .fullScreen
-          self.present(navigat,animated: true, completion: nil)
-      }
-      
-      func openMailApp() {
-          let recipient = "therromanov@gmail.com", subject = "Suggestion"
-          if let url = URL(string: "mailto:\(recipient)?subject=\(subject)") {
-              UIApplication.shared.open(url)
-          }
-      }
-
+        let guidanceVC = GuidanceVC()
+        let navigat = UINavigationController(rootViewController: guidanceVC)
+        navigat.modalPresentationStyle = .fullScreen
+        self.present(navigat,animated: true, completion: nil)
+    }
     
-    func performSignInWithApple() {
+    func openMailApp() {
+        let recipient = "therromanov@gmail.com", subject = "Suggestion"
+        if let url = URL(string: "mailto:\(recipient)?subject=\(subject)") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func signInWithApple() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.fullName, .email]
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
@@ -113,7 +109,7 @@ class SettingVC: UIViewController  {
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
-
+    
 }
 
 
