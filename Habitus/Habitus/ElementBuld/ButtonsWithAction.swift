@@ -18,7 +18,7 @@ public class ButtonsWithAction {
         but.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         return but
     }
-
+    
     public static  func addButtonWithAction(setTitle: String) -> UIButton {
         let but = UIButton(type: .system)
         but.setTitle(setTitle, for: .normal)
@@ -27,10 +27,7 @@ public class ButtonsWithAction {
         but.configuration = .plain()
         return but
     }
-
-
     // MARK: - функция с установкой размеров для изображения.
-
     public static func createButtonWithSystemImage(systemName: String, setImage: UIImage?) -> UIButton {
         let button = UIButton(type: .system)
         let image = setImage ?? UIImage(systemName: systemName)
@@ -44,10 +41,10 @@ public class ButtonsWithAction {
         button.layer.cornerRadius = 360
         return button
     }
-
-    public static func createSwitchButton(isOn: Bool) -> UISwitch {
-        let switchButton = UISwitch()
-        switchButton.isOn = isOn
-        return switchButton
-    }
+    
+//    public static func createSwitchButton(isOn: Bool) -> UISwitch {
+//        let switchButton = UISwitch()
+//        switchButton.isOn = isOn
+//        return switchButton
+//    }
 }

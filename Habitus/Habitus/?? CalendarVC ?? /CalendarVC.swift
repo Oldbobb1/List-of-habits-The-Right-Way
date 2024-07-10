@@ -1,51 +1,34 @@
-//
-//  File.swift
+//  CalendarVC.swift
+
 //  Habitus
-//
+
 //  Created by Bobbi R. on 7.07.24.
-//
 
 import Foundation
 import FSCalendar
 
-// Класс для контроллера календаря
 class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     let calendar = FSCalendar()
     var selectedDates = [Bool]()
-//    weak var delegate: EmojisTableViewCellDelegate? // Убедитесь, что делегат отмечен как weak
-
-  
-
-    let button = ButtonsWithAction.createButtonWithdAction(setTitle: "close", cornerRadius: 40, content: .center)
-
     
-//    init(selectedDates: [Bool]) {
-//        self.selectedDates = selectedDates
-//        super.init(nibName: nil, bundle: nil)
-//    }
-
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    let button = ButtonsWithAction.createButtonWithdAction(setTitle: "close", cornerRadius: 40, content: .center)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         calendar.delegate = self
         calendar.dataSource = self
+        calendar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(calendar)
 
         view.addSubview(button)
         button.addTarget(self, action: #selector(close), for: .touchUpInside)
-        // Настройка ограничений для календаря
-        calendar.translatesAutoresizingMaskIntoConstraints = false
 
         Layout.applyView(calendar, view: view, topOffset: 200, leadingOffset: 30, trailingOffset: -30, bottomOffset: -200)
-
         Layout.applyView(button, view: view, topOffset: 0, leadingOffset: 300, trailingOffset: -10)
-        
+
         // Выделяем выбранные даты
         let calendar = Calendar.current
         for (index, selected) in selectedDates.enumerated() {
@@ -55,6 +38,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
             }
         }
     }
+    
     @objc func close() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -64,11 +48,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         let dayIndex = calendar.component(.day, from: date) - 1
         
         if dayIndex >= 0 && dayIndex < selectedDates.count {
-            selectedDates[dayIndex].toggle() // Переключаем состояние выбранной даты
-            
-            // Обновляем таблицу (вызываем делегат)
-//            delegate?.updateCalendar(selectedDates: selectedDates)
-            
+            selectedDates[dayIndex].toggle()
+
             // Обновляем отображение календаря
             if selectedDates[dayIndex] {
                 // Выделяем дату в календаре

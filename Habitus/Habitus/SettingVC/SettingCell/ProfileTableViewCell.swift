@@ -5,6 +5,7 @@
 //  Created by Bobbi R. on 7.07.24.
 
 import UIKit
+import SnapKit
 
 class ProfileTableViewCell: UITableViewCell {
     
@@ -19,18 +20,13 @@ class ProfileTableViewCell: UITableViewCell {
         contentView.addSubview(profileLabel)
         contentView.addSubview(profileSubtitleLabel)
         
-        profileImageView.snp.makeConstraints { make in
-            make.leading.equalTo(contentView.snp.leading).offset(16)
-            make.centerY.equalTo(contentView.snp.centerY)
+        Layout.applyView(profileImageView, view: contentView, additionalConstraints: { make in
+            make.centerY.equalTo(self.contentView.snp.centerY)
             make.width.equalTo(70)
             make.height.equalTo(70)
-        }
+        })
         
-        profileLabel.snp.makeConstraints { make in
-            make.leading.equalTo(profileImageView.snp.trailing).offset(16)
-            make.top.equalTo(contentView.snp.top).offset(16)
-            //            make.trailing.equalTo(profileArrowImageView.snp.leading).offset(-16)
-        }
+        Layout.applyView(profileLabel, view: contentView, topOffset: 16, leadingOffset: 86)
         
         profileSubtitleLabel.snp.makeConstraints { make in
             make.leading.equalTo(profileImageView.snp.trailing).offset(16)
@@ -48,5 +44,5 @@ class ProfileTableViewCell: UITableViewCell {
         profileLabel.text = name
         profileSubtitleLabel.text = subtitle
     }
-    
 }
+

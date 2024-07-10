@@ -1,10 +1,11 @@
-//  textCell.swift
+//  TextFieldCell.swift
 
 //  Habitus
 
 //  Created by Bobbi R. on 9.07.24.
 
 import UIKit
+import SnapKit
 
 class TextFieldCell: UITableViewCell {
     
@@ -15,15 +16,8 @@ class TextFieldCell: UITableViewCell {
         
         contentView.addSubview(textField)
         contentView.clipsToBounds = true
-        
-        textField.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).offset(8)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
-            make.leading.equalTo(contentView.snp.leading).offset(10)
-            make.trailing.equalTo(contentView.snp.trailing).offset(-10)
-          
-        }
 
+        Layout.applyView(textField, view: contentView, topOffset: 8, leadingOffset: 10, trailingOffset: -10, bottomOffset: -8)
     }
     
     required init?(coder: NSCoder) {

@@ -88,11 +88,7 @@ extension HabitVC: UITableViewDataSource {
             break
         }
     }
-
 }
 
 
-extension HabitVC: UITableViewDelegate {
-    
-    
-}
+extension HabitVC: UITableViewDelegate {}

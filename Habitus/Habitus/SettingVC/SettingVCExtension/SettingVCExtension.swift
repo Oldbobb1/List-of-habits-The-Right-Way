@@ -113,6 +113,4 @@ extension SettingVC: UITableViewDataSource {
 
 
 
-extension SettingVC: UITableViewDelegate {
-    
-}
+extension SettingVC: UITableViewDelegate {}

@@ -10,7 +10,7 @@ import SnapKit
 struct Layout  {
 
     static func applyView(_ element: UIView, view: UIView, topOffset: CGFloat? = nil, leadingOffset: CGFloat? = nil, trailingOffset: CGFloat? = nil, bottomOffset: CGFloat? = nil, additionalConstraints: ((ConstraintMaker) -> Void)...) {
-
+        
         element.snp.makeConstraints { make in
             if let topOffset = topOffset {
                 make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(topOffset)

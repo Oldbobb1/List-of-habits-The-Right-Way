@@ -9,7 +9,7 @@ import UIKit
 class HabitTrackerCell: UITableViewCell {
     
     let nameLabelCell = Label.label(text: "", fontSize: 15, weight: .bold, textColor: .label, textAlignment: .left)
-    var buttonStackView = StackView.stack()
+    let buttonStackView = StackView.stackView()
     
     var buttonStates: [ButtonState] = [] {
         didSet {
@@ -113,5 +113,4 @@ class HabitTrackerCell: UITableViewCell {
         }
         buttonStates = loadedButtonStates
     }
-    
 }

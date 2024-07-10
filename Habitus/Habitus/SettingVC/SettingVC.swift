@@ -19,9 +19,11 @@ class SettingVC: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        settingView.settingTableView.dataSource = self; settingView.settingTableView.delegate = self
+        settingView.settingTableView.dataSource = self
+        settingView.settingTableView.delegate = self
         
-        settingView.initializeUI(view); settingModel.requestNotificationAuthorization()
+        settingView.initializeUI(view)
+        settingModel.requestNotificationAuthorization()
         configureSettingsItems()
         
         ThemeManager.observeSystemThemeChanges()
@@ -37,7 +39,6 @@ class SettingVC: UIViewController  {
             ("star.square", "Оцените приложение", false, { self.showAlert()}, color: .red),
             ("dollarsign.circle.fill", "Подписка", false, { self.openSubscribeVC()}, color: .red)
         ]
-        
         accountItems = [
             ("apple.logo", "Войти с Apple", false, { self.signInWithApple() }, color: .red),
             ("icloud.and.arrow.up", "Резервное копирование", false, { }, color: .green),
@@ -109,7 +110,6 @@ class SettingVC: UIViewController  {
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
-    
 }
 
 

@@ -15,11 +15,9 @@ class DaysCell: UITableViewCell {
         
         // Добавление кнопок дней недели
         daysModel.setupDaysOfWeek(contentView)
-                              
-        
+                        
         contentView.layer.cornerRadius = 10
         contentView.clipsToBounds = true
-//        contentView.layer.borderWidth = 1
     }
     
     required init?(coder: NSCoder) {

@@ -10,12 +10,11 @@ class HabitListUI  {
     
     let titleLabel = Label.label(text: "List", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center)
     let messageLabel = Label.label(text: "Add Habit", fontSize: 20, weight: .bold, textColor: nil, textAlignment: .center)
-    let calendarDateStackView = StackView.stack()
+    let calendarDateStackView = StackView.stackView()
     let userContentTableView = TableView.tableView(frame: .zero, style: .plain, backgroundColor: .secondarySystemBackground)
     let buttonOpenHabitVC = ButtonsWithAction.createButtonWithSystemImage(systemName: "plus.circle", setImage: nil )
     
     func initializeUI(_ view: UIView) {
-        
         view.addSubview(titleLabel)
         view.addSubview(messageLabel)
         view.addSubview(calendarDateStackView)
@@ -48,5 +47,4 @@ class HabitListUI  {
             dateCurrent(to: calendarDateStackView, withDay: day)
         }
     }
-    
 }

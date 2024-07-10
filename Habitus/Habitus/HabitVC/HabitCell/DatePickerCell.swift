@@ -1,11 +1,11 @@
-//
-//  AllCell.swift
+//  DatePickerCell.swift
+
 //  Habitus
-//
+
 //  Created by Bobbi R. on 7.07.24.
-//
 
 import UIKit
+import SnapKit
 
 class DatePickerCell: UITableViewCell {
     
@@ -20,13 +20,8 @@ class DatePickerCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.addSubview(datePicker)
-    
-        datePicker.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).offset(8)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
-            make.leading.equalTo(contentView.snp.leading).offset(10)
-            make.trailing.equalTo(contentView.snp.trailing).offset(-10)
-        }
+        
+        Layout.applyView(datePicker, view: contentView, topOffset: 8, leadingOffset: 10, trailingOffset: -10, bottomOffset: -8)
     }
     
     required init?(coder: NSCoder) {

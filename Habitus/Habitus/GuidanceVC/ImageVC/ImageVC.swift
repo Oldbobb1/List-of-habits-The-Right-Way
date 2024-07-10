@@ -1,40 +1,37 @@
 //  ImageVC.swift
+
 //  Habitus
-//
+
 //  Created by Bobbi R. on 7.07.24.
-//
 
 import UIKit
 
 class ImagePresentViewController: UIViewController {
     
-    var imageView: UIImageView!
-    var imageName: String?
-    var currentIndex = 0
-    var totalPages = 0
-    var descriptionLabel: UILabel!
-    var imageShape: ImageShape = .square
-    var imageDescription: String = ""
+    var imageView: UIImageView!, imageName: String?, currentIndex = 0
+    var totalPages = 0, descriptionLabel: UILabel!
+    var imageShape: ImageShape = .square, imageDescription: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        view.backgroundColor = .systemBackground
+                
+        configureUI()
+    }
+    
+    func configureUI(){
         
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         descriptionLabel = Label.label(text:imageDescription, fontSize: 15, weight: .bold, textColor: .label, textAlignment: .center)
-
-        view.addSubview(descriptionLabel)
         
+        view.addSubview(imageView)
+        view.addSubview(descriptionLabel)
+      
         if let imageName = imageName {
             imageView.image = UIImage(named: imageName)
         }
-        
-        view.addSubview(imageView)
-        
         
         switch imageShape {
         case .square:

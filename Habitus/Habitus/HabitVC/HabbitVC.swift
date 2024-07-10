@@ -30,12 +30,11 @@ class HabitVC: UIViewController {
     }
     
     func configureUI() {
-        
-        habitView.tableView.dataSource = self
-        habitView.tableView.delegate = self
+        habitView.createTableView.dataSource = self
+        habitView.createTableView.delegate = self
         
         habitView.buttonCloseUIView.addTarget(self, action: #selector(closeHabitVC), for: .touchUpInside)
-        habitView.buttonSaveAndSendInTable.addTarget(self, action: #selector(saveHabitButtonTapped), for: .touchUpInside)
+        habitView.buttonSaveAndSendInTable.addTarget(self, action: #selector(saveHabitAdnSendButtonTapped), for: .touchUpInside)
         habitView.buttonSaveAndSendInTable.isEnabled = false
     }
     
@@ -57,8 +56,8 @@ class HabitVC: UIViewController {
         
     }
     
-    @objc func saveHabitButtonTapped() {
-        guard let textCell = habitView.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldCell,
+    @objc func saveHabitAdnSendButtonTapped() {
+        guard let textCell = habitView.createTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldCell,
               let habitName = textCell.textField.text, let selectedColor = selectedColor else { return }
         let newHabit = HabitEntry(name: habitName, color: selectedColor)
         updateHabitSaveButtonState()
@@ -71,7 +70,7 @@ class HabitVC: UIViewController {
     }
     
     func updateHabitSaveButtonState() {
-        let textCell = habitView.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldCell
+        let textCell = habitView.createTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldCell
         let nameText = textCell?.textField.text ?? ""
         let isColorSelected = selectedColor != nil // Проверка, что цвет выбран
         habitView.buttonSaveAndSendInTable.isEnabled = !nameText.isEmpty && isColorSelected

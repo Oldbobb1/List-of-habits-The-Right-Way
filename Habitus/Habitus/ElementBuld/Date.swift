@@ -5,7 +5,6 @@
 //  Created by Bobbi R. on 7.07.24.
 
 import UIKit
-import SnapKit
 
 func dateCurrent(to stackView: UIStackView, withDay day: Date) {
     let dateFormatter = DateFormatter()

@@ -12,7 +12,6 @@ class SettingViewUI {
     let settingTableView = TableView.tableView(frame: .zero, style: .insetGrouped, backgroundColor: .clear)
     
     func initializeUI(_ view: UIView) {
-        
         view.addSubview(titleLabel)
         view.addSubview(settingTableView)
         
@@ -25,5 +24,4 @@ class SettingViewUI {
             make.top.equalTo(self.titleLabel.snp.bottom).offset(5)
         })
     }
-    
 }

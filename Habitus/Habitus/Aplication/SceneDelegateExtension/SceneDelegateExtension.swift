@@ -1,4 +1,4 @@
-//  extensionScene.swift
+//  SceneDelegateExtension.swift
 
 //  Habitus
 
@@ -29,24 +29,48 @@ extension SceneDelegate: UITabBarControllerDelegate {
     }
 }
 
+//class AnimatedTabBarController: UITabBarController {
+//    
+//    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+//       
+//        guard let index = tabBar.items?.firstIndex(of: item), let tabBarItemView = tabBar.subviews[index + 1] as? UIControl else { return }
+//        
+//        animateTabBarItem(tabBarItemView)
+//    }
+//    
+//    private func animateTabBarItem(_ view: UIControl) {
+//        for subview in view.subviews {
+//            if let label = subview as? UILabel {
+//                label.layer.removeAllAnimations()
+//            } else {
+//                let pulseAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+//                pulseAnimation.fromValue = 0
+//                pulseAnimation.toValue = 1 * CGFloat.pi
+//                pulseAnimation.repeatCount = 1
+//                subview.layer.add(pulseAnimation, forKey: "rotate")
+//            }
+//        }
+//    }
+//}
+
 class AnimatedTabBarController: UITabBarController {
-    
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+
+    private var isFirstLaunch = true
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        if isFirstLaunch, let firstTabBarItemView = tabBar.subviews[1] as? UIControl {
+            animateTabBarItem(firstTabBarItemView)
+            isFirstLaunch = false
+        }
+    }
+
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         guard let index = tabBar.items?.firstIndex(of: item), let tabBarItemView = tabBar.subviews[index + 1] as? UIControl else { return }
         
         animateTabBarItem(tabBarItemView)
     }
-    
-    //    private func animateTabBarItem(_ view: UIControl) {  // - пульс
-    //        let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
-    //        pulseAnimation.duration = 0.1
-    //        pulseAnimation.fromValue = 1.0
-    //        pulseAnimation.toValue = 1.1
-    //        pulseAnimation.autoreverses = true
-    //        pulseAnimation.repeatCount = 1
-    //        view.layer.add(pulseAnimation, forKey: "pulse")
-    //    }
     
     private func animateTabBarItem(_ view: UIControl) {
         for subview in view.subviews {
@@ -61,5 +85,4 @@ class AnimatedTabBarController: UITabBarController {
             }
         }
     }
-    
 }

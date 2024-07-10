@@ -13,7 +13,6 @@ extension HabitVC: UIColorPickerViewControllerDelegate {
         updateHabitSaveButtonState()
     }
     
-    
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         let selectedColor = viewController.selectedColor
         habitView.selectedColorView.backgroundColor = selectedColor

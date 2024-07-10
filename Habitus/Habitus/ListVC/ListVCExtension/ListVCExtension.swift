@@ -74,5 +74,4 @@ extension ListVC: UITableViewDelegate {
         calendarVC.modalPresentationStyle = .fullScreen
         present(calendarVC, animated: true, completion: nil)
     }
-    
 }

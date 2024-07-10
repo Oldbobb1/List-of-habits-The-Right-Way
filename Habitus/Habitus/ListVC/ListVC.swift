@@ -9,20 +9,18 @@ import SnapKit
 
 class ListVC: UIViewController {
     
-    let habitCell = "HabitTableViewCell"
-    let maxElements = 10
+    let habitCell = "HabitTableViewCell", maxElements = 10
     let listView = HabitListUI(), listModel = HabitManager ()
     
-     override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-         
-         configureUI()
-         
+        
+        configureUI()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(newHabitAdded(_:)), name: Notification.Name("NewHabitAdded"), object: nil)
     }
     
     private func configureUI() {
-        
         listModel.loadHabitData()
         listView.initializeUI(view)
         listView.updateDaysCalendar()
@@ -59,11 +57,10 @@ class ListVC: UIViewController {
             }
         } else { }
     }
-   
+    
     func toggleMessageLabelVisibility() {
         listView.messageLabel.isHidden = !listModel.habits.isEmpty
-     }
-    
+    }
 }
 
 
