@@ -29,44 +29,10 @@ extension SceneDelegate: UITabBarControllerDelegate {
     }
 }
 
-//class AnimatedTabBarController: UITabBarController {
-//    
-//    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-//       
-//        guard let index = tabBar.items?.firstIndex(of: item), let tabBarItemView = tabBar.subviews[index + 1] as? UIControl else { return }
-//        
-//        animateTabBarItem(tabBarItemView)
-//    }
-//    
-//    private func animateTabBarItem(_ view: UIControl) {
-//        for subview in view.subviews {
-//            if let label = subview as? UILabel {
-//                label.layer.removeAllAnimations()
-//            } else {
-//                let pulseAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-//                pulseAnimation.fromValue = 0
-//                pulseAnimation.toValue = 1 * CGFloat.pi
-//                pulseAnimation.repeatCount = 1
-//                subview.layer.add(pulseAnimation, forKey: "rotate")
-//            }
-//        }
-//    }
-//}
-
 class AnimatedTabBarController: UITabBarController {
-
-    private var isFirstLaunch = true
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if isFirstLaunch, let firstTabBarItemView = tabBar.subviews[1] as? UIControl {
-            animateTabBarItem(firstTabBarItemView)
-            isFirstLaunch = false
-        }
-    }
-
+    
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+       
         guard let index = tabBar.items?.firstIndex(of: item), let tabBarItemView = tabBar.subviews[index + 1] as? UIControl else { return }
         
         animateTabBarItem(tabBarItemView)
@@ -86,3 +52,4 @@ class AnimatedTabBarController: UITabBarController {
         }
     }
 }
+

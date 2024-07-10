@@ -41,8 +41,8 @@ class SettingVC: UIViewController  {
         ]
         accountItems = [
             ("apple.logo", "Войти с Apple", false, { self.signInWithApple() }, color: .red),
-            ("icloud.and.arrow.up", "Резервное копирование", false, { }, color: .green),
-            ("arrowshape.turn.up.left", "Выйти", false, {}, color: .blue)
+            ("icloud.and.arrow.up", "Резервное копирование", false, {self.backup()}, color: .green),
+            ("arrowshape.turn.up.left", "Выйти", false, {self.logout()}, color: .blue)
         ]
     }
     
@@ -109,6 +109,18 @@ class SettingVC: UIViewController  {
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
+    }
+    
+    func logout() {
+        isUserLoggedIn = false
+        userName = ""
+        userImage = nil
+        settingView.settingTableView.reloadSections(IndexSet(integer: 2), with: .automatic)
+    }
+
+    func backup() {
+        // Implement backup logic here
+        showAlert()
     }
 }
 

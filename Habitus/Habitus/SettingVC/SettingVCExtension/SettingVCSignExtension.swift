@@ -25,6 +25,7 @@ extension SettingVC: ASAuthorizationControllerDelegate {
     
 }
 
+
 extension SettingVC: ASAuthorizationControllerPresentationContextProviding {
     
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {

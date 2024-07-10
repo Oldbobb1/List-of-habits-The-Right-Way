@@ -94,7 +94,6 @@
 		C4606C9B2C3ADA68003DC45E /* enumImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumImage.swift; sourceTree = "<group>"; };
 		C4606C9F2C3ADAAF003DC45E /* ImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVC.swift; sourceTree = "<group>"; };
 		C46DA4CC2C3ED37A00980EAC /* GuidanceVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceVCExtension.swift; sourceTree = "<group>"; };
-		C46DA4D12C3EFA0A00980EAC /* Habitus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Habitus.entitlements; sourceTree = "<group>"; };
 		C4AC69A22C3A8F62004889C1 /* Habitus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habitus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AC69A52C3A8F62004889C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4AC69A72C3A8F62004889C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -337,7 +336,6 @@
 		C4AC69A42C3A8F62004889C1 /* Habitus */ = {
 			isa = PBXGroup;
 			children = (
-				C46DA4D12C3EFA0A00980EAC /* Habitus.entitlements */,
 				C4606C762C3AD697003DC45E /* Aplication */,
 				C4AC69C42C3A92AA004889C1 /* ListVC */,
 				C4606C792C3AD6F8003DC45E /* NotesVC */,
