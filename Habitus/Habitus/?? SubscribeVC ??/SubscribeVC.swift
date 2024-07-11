@@ -7,6 +7,7 @@
 import UIKit
 import SnapKit
 import StoreKit
+import ElementBuilder
 
 class SubscribeVC: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     

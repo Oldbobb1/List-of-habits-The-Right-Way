@@ -12,7 +12,6 @@
 		C412DCDD2C3D3FE0006674B8 /* HabitVCCOlorPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCDC2C3D3FE0006674B8 /* HabitVCCOlorPickerExtension.swift */; };
 		C412DCDF2C3D400C006674B8 /* HabitVCTextFieldEctension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCDE2C3D400C006674B8 /* HabitVCTextFieldEctension.swift */; };
 		C412DCE32C3D4314006674B8 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCE22C3D4314006674B8 /* ThemeManager.swift */; };
-		C412DCE52C3D4333006674B8 /* SwipeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCE42C3D4333006674B8 /* SwipeClass.swift */; };
 		C412DCE72C3D4356006674B8 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCE62C3D4356006674B8 /* Layout.swift */; };
 		C412DCED2C3D43DE006674B8 /* DaysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCEC2C3D43DE006674B8 /* DaysModel.swift */; };
 		C412DCF82C3D44CC006674B8 /* BackupСopyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCF72C3D44CC006674B8 /* BackupСopyVC.swift */; };
@@ -60,7 +59,6 @@
 		C412DCDC2C3D3FE0006674B8 /* HabitVCCOlorPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitVCCOlorPickerExtension.swift; sourceTree = "<group>"; };
 		C412DCDE2C3D400C006674B8 /* HabitVCTextFieldEctension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitVCTextFieldEctension.swift; sourceTree = "<group>"; };
 		C412DCE22C3D4314006674B8 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
-		C412DCE42C3D4333006674B8 /* SwipeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeClass.swift; sourceTree = "<group>"; };
 		C412DCE62C3D4356006674B8 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		C412DCEC2C3D43DE006674B8 /* DaysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysModel.swift; sourceTree = "<group>"; };
 		C412DCF72C3D44CC006674B8 /* BackupСopyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BackupСopyVC.swift"; sourceTree = "<group>"; };
@@ -267,14 +265,6 @@
 			path = GuidanceVCExtension;
 			sourceTree = "<group>";
 		};
-		C46DA4CE2C3ED79F00980EAC /* SwipeClass */ = {
-			isa = PBXGroup;
-			children = (
-				C412DCE42C3D4333006674B8 /* SwipeClass.swift */,
-			);
-			path = SwipeClass;
-			sourceTree = "<group>";
-		};
 		C46DA4CF2C3ED7E700980EAC /* ThemeManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,7 +312,6 @@
 				C412DCE02C3D422C006674B8 /* ?? SubscribeVC ?? */,
 				C412DCF62C3D449C006674B8 /* ?? BackupСopyVC ?? */,
 				C46DA4CF2C3ED7E700980EAC /* ThemeManager */,
-				C46DA4CE2C3ED79F00980EAC /* SwipeClass */,
 				C46DA4D02C3ED80D00980EAC /* Layout */,
 				C4AC69AE2C3A8F63004889C1 /* Assets.xcassets */,
 				C4AC69B02C3A8F63004889C1 /* LaunchScreen.storyboard */,
@@ -458,7 +447,6 @@
 				C4AC69BD2C3A9011004889C1 /* NotesVC.swift in Sources */,
 				C4606C7D2C3AD729003DC45E /* NotesViewUI.swift in Sources */,
 				C412DCF82C3D44CC006674B8 /* BackupСopyVC.swift in Sources */,
-				C412DCE52C3D4333006674B8 /* SwipeClass.swift in Sources */,
 				C4AC69A62C3A8F62004889C1 /* AppDelegate.swift in Sources */,
 				C4606C882C3AD7DD003DC45E /* SettingVCExtension.swift in Sources */,
 				C412DCE72C3D4356006674B8 /* Layout.swift in Sources */,

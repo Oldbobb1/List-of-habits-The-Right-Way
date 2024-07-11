@@ -8,15 +8,9 @@ import UIKit
 import ElementBuilder
 
 class BackupСopyVC: UIViewController {
-    
-    let label = Label.label(text: "subscribe", fontSize: 25, weight: .heavy, textColor: .black, textAlignment: .center)
-    let button = ButtonsWithAction.createButtonWithAction(setTitle: "close", cornerRadius: 10, content: .center)
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(label)
-        
-        Layout.applyView(label, view: view, topOffset: 20, leadingOffset: 10, trailingOffset: -10)
+ 
     }
 }
