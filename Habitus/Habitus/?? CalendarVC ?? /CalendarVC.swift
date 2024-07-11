@@ -6,12 +6,13 @@
 
 import Foundation
 import FSCalendar
+import ElementBuilder
 
 class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     let calendar = FSCalendar()
     var selectedDates = [Bool]()
     
-    let button = ButtonsWithAction.createButtonWithdAction(setTitle: "close", cornerRadius: 40, content: .center)
+    let button = ButtonsWithAction.createButtonWithAction(setTitle: "close", cornerRadius: 40, content: .center)
 
     override func viewDidLoad() {
         super.viewDidLoad()

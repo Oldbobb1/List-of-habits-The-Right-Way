@@ -5,6 +5,7 @@
 //  Created by Bobbi R. on 7.07.24.
 
 import UIKit
+import ElementBuilder
 
 class HabitListUI  {
     
@@ -13,6 +14,8 @@ class HabitListUI  {
     let calendarDateStackView = StackView.stackView()
     let userContentTableView = TableView.tableView(frame: .zero, style: .plain, backgroundColor: .secondarySystemBackground)
     let buttonOpenHabitVC = ButtonsWithAction.createButtonWithSystemImage(systemName: "plus.circle", setImage: nil )
+    
+  let dateAndWeekdayFormatter = DateAndWeekDayFormatter()
     
     func initializeUI(_ view: UIView) {
         view.addSubview(titleLabel)
@@ -44,7 +47,7 @@ class HabitListUI  {
         let calendar = Calendar.current
         for i in -2..<1 {
             let day = calendar.date(byAdding: .day, value: i, to: Date())!
-            dateCurrent(to: calendarDateStackView, withDay: day)
+            dateAndWeekdayFormatter.dateCurrent(to: calendarDateStackView, withDay: day)
         }
     }
 }

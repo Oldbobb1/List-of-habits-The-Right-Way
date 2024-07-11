@@ -5,18 +5,19 @@
 //  Created by Bobbi R. on 7.07.24.
 
 import UIKit
+import ElementBuilder
 
 class GuideViewUI {
     
-    let skipButtonPress = ButtonsWithAction.createButtonWithdAction(setTitle: "пропустить", cornerRadius: 10, content: .center)
+    let skipButtonPress = ButtonsWithAction.createButtonWithAction(setTitle: "пропустить", cornerRadius: 10, content: .center)
     
     var pageControl: UIPageControl!
 
     var imageNames  = [
         ("AppIcon", ImageShape.circle),
-        ("guidePrew2", ImageShape.square),
-        ("guidePrew3", ImageShape.square),
-        ("guidePrew4", ImageShape.square),
+        ("Image1", ImageShape.square),
+        ("Image2", ImageShape.square),
+        ("Image2", ImageShape.square),
         ("guidePrew5", ImageShape.square)
     ]
     var texts = [
@@ -46,7 +47,7 @@ TrackTide
         
         Layout.applyView(skipButtonPress, view: view, leadingOffset: 130, trailingOffset: -130, bottomOffset: -20)
         Layout.applyView(pageControl, view: view,leadingOffset: 10,trailingOffset: -10 , bottomOffset: -60)
-
+       
     }
     
 }

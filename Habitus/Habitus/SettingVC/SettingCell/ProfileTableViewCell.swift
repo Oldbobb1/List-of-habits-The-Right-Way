@@ -6,6 +6,7 @@
 
 import UIKit
 import SnapKit
+import ElementBuilder
 
 class ProfileTableViewCell: UITableViewCell {
     

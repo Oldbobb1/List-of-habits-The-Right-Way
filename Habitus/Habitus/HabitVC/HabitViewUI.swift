@@ -5,12 +5,13 @@
 //  Created by Bobbi R. on 7.07.24.
 
 import  UIKit
+import ElementBuilder
 
 class HabitViewUI {
 
     let titleLabel = Label.label(text: "New Habit", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center)
-    let buttonCloseUIView = ButtonsWithAction.addButtonWithAction(setTitle: "Cancel")
-    let buttonSaveAndSendInTable = ButtonsWithAction.addButtonWithAction(setTitle: "Save")
+    let buttonCloseUIView = ButtonsWithAction.makeButton(setTitle: "Cancel")
+    let buttonSaveAndSendInTable = ButtonsWithAction.makeButton(setTitle: "Save")
     let createTableView = UITableView(frame: .zero, style: .insetGrouped)
     
     let selectedColorView: UIView = {

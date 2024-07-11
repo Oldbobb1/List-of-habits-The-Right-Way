@@ -5,6 +5,7 @@
 //  Created by Bobbi R. on 9.07.24.
 
 import UIKit
+import ElementBuilder
 
 class DaysModel {
     
@@ -13,10 +14,10 @@ class DaysModel {
     
     func setupDaysOfWeek(_ view: UIView) {
         for (index, day) in days.enumerated() {
-            let dayButton = ButtonsWithAction.createButtonWithdAction(setTitle: day, cornerRadius: 10, content: .center)
+            let dayButton = ButtonsWithAction.createButtonWithAction(setTitle: day, cornerRadius: 10, content: .center)
             view.addSubview(dayButton)
             
-            Layout.applyView(dayButton, view: view,topOffset: 1, leadingOffset: (CGFloat(0.5) + CGFloat(index * 45)),bottomOffset: -1 ,additionalConstraints: { make in
+            Layout.applyView(dayButton, view: view,topOffset: 1, leadingOffset: (CGFloat(0.5) + CGFloat(CGFloat(index) * CGFloat(43.5))),bottomOffset: -1 ,additionalConstraints: { make in
                 make.width.equalTo(37)
             })
                         

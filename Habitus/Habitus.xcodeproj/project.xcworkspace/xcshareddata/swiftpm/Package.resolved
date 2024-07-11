@@ -1,6 +1,15 @@
 {
-  "originHash" : "1d6a5bb87d788520df40f929b458c8094956dd9bf803747dba469b588b5254e7",
+  "originHash" : "5eb50e99fe258c0fdf0c3a00aafee6647d10a1fdb143ca86a8f818f10bf2c067",
   "pins" : [
+    {
+      "identity" : "elementbuilder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Oldbobb1/ElementBuilder",
+      "state" : {
+        "branch" : "main",
+        "revision" : "38914102fd3dd998117778d3546bfaaee5bb9ed1"
+      }
+    },
     {
       "identity" : "fscalendar",
       "kind" : "remoteSourceControl",

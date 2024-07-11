@@ -14,13 +14,7 @@
 		C412DCE32C3D4314006674B8 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCE22C3D4314006674B8 /* ThemeManager.swift */; };
 		C412DCE52C3D4333006674B8 /* SwipeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCE42C3D4333006674B8 /* SwipeClass.swift */; };
 		C412DCE72C3D4356006674B8 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCE62C3D4356006674B8 /* Layout.swift */; };
-		C412DCE92C3D4382006674B8 /* ButtonsWithAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCE82C3D4382006674B8 /* ButtonsWithAction.swift */; };
-		C412DCEB2C3D43B5006674B8 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCEA2C3D43B5006674B8 /* Label.swift */; };
 		C412DCED2C3D43DE006674B8 /* DaysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCEC2C3D43DE006674B8 /* DaysModel.swift */; };
-		C412DCEF2C3D4412006674B8 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCEE2C3D4412006674B8 /* TextField.swift */; };
-		C412DCF12C3D442B006674B8 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCF02C3D442B006674B8 /* StackView.swift */; };
-		C412DCF32C3D444B006674B8 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCF22C3D444B006674B8 /* Image.swift */; };
-		C412DCF52C3D4464006674B8 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCF42C3D4464006674B8 /* TableView.swift */; };
 		C412DCF82C3D44CC006674B8 /* BackupСopyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCF72C3D44CC006674B8 /* BackupСopyVC.swift */; };
 		C4606C702C3ACE05003DC45E /* SubscribeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C6F2C3ACE05003DC45E /* SubscribeVC.swift */; };
 		C4606C782C3AD6B3003DC45E /* SceneDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C772C3AD6B3003DC45E /* SceneDelegateExtension.swift */; };
@@ -40,6 +34,7 @@
 		C4606C9C2C3ADA68003DC45E /* enumImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C9B2C3ADA68003DC45E /* enumImage.swift */; };
 		C4606CA02C3ADAAF003DC45E /* ImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C9F2C3ADAAF003DC45E /* ImageVC.swift */; };
 		C46DA4CD2C3ED37A00980EAC /* GuidanceVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DA4CC2C3ED37A00980EAC /* GuidanceVCExtension.swift */; };
+		C49ABEAD2C40267E0036CB20 /* ElementBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = C49ABEAC2C40267E0036CB20 /* ElementBuilder */; };
 		C4AC69A62C3A8F62004889C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69A52C3A8F62004889C1 /* AppDelegate.swift */; };
 		C4AC69A82C3A8F62004889C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69A72C3A8F62004889C1 /* SceneDelegate.swift */; };
 		C4AC69AA2C3A8F62004889C1 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69A92C3A8F62004889C1 /* ListVC.swift */; };
@@ -48,7 +43,6 @@
 		C4AC69BD2C3A9011004889C1 /* NotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69BC2C3A9011004889C1 /* NotesVC.swift */; };
 		C4AC69BF2C3A9017004889C1 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69BE2C3A9017004889C1 /* SettingVC.swift */; };
 		C4AC69C12C3A901D004889C1 /* HabbitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69C02C3A901D004889C1 /* HabbitVC.swift */; };
-		C4AC69C32C3A90AF004889C1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69C22C3A90AF004889C1 /* Date.swift */; };
 		C4AC69C62C3A92BD004889C1 /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69C52C3A92BD004889C1 /* HabitManager.swift */; };
 		C4AC69C82C3A92CA004889C1 /* HabitListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69C72C3A92CA004889C1 /* HabitListUI.swift */; };
 		C4AC69CB2C3A93A2004889C1 /* ListVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69CA2C3A93A2004889C1 /* ListVCExtension.swift */; };
@@ -68,13 +62,7 @@
 		C412DCE22C3D4314006674B8 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		C412DCE42C3D4333006674B8 /* SwipeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeClass.swift; sourceTree = "<group>"; };
 		C412DCE62C3D4356006674B8 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
-		C412DCE82C3D4382006674B8 /* ButtonsWithAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsWithAction.swift; sourceTree = "<group>"; };
-		C412DCEA2C3D43B5006674B8 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		C412DCEC2C3D43DE006674B8 /* DaysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysModel.swift; sourceTree = "<group>"; };
-		C412DCEE2C3D4412006674B8 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		C412DCF02C3D442B006674B8 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
-		C412DCF22C3D444B006674B8 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		C412DCF42C3D4464006674B8 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		C412DCF72C3D44CC006674B8 /* BackupСopyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BackupСopyVC.swift"; sourceTree = "<group>"; };
 		C4606C6F2C3ACE05003DC45E /* SubscribeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeVC.swift; sourceTree = "<group>"; };
 		C4606C772C3AD6B3003DC45E /* SceneDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateExtension.swift; sourceTree = "<group>"; };
@@ -104,7 +92,6 @@
 		C4AC69BC2C3A9011004889C1 /* NotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesVC.swift; sourceTree = "<group>"; };
 		C4AC69BE2C3A9017004889C1 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		C4AC69C02C3A901D004889C1 /* HabbitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitVC.swift; sourceTree = "<group>"; };
-		C4AC69C22C3A90AF004889C1 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		C4AC69C52C3A92BD004889C1 /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
 		C4AC69C72C3A92CA004889C1 /* HabitListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListUI.swift; sourceTree = "<group>"; };
 		C4AC69CA2C3A93A2004889C1 /* ListVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVCExtension.swift; sourceTree = "<group>"; };
@@ -112,6 +99,7 @@
 		C4AC69CF2C3A9504004889C1 /* HabitTrackerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerCell.swift; sourceTree = "<group>"; };
 		C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceVC.swift; sourceTree = "<group>"; };
 		C4AC6A032C3ABD21004889C1 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		C4C253972C3F05B000BD3D38 /* Habitus.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Habitus.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C49ABEAD2C40267E0036CB20 /* ElementBuilder in Frameworks */,
 				C4AC69D92C3AB1FE004889C1 /* SnapKit in Frameworks */,
 				C4AC6A072C3ABD49004889C1 /* FSCalendar in Frameworks */,
 			);
@@ -133,20 +122,6 @@
 				C4606C6F2C3ACE05003DC45E /* SubscribeVC.swift */,
 			);
 			path = "?? SubscribeVC ??";
-			sourceTree = "<group>";
-		};
-		C412DCE12C3D42FD006674B8 /* ElementBuld */ = {
-			isa = PBXGroup;
-			children = (
-				C412DCE82C3D4382006674B8 /* ButtonsWithAction.swift */,
-				C412DCEA2C3D43B5006674B8 /* Label.swift */,
-				C412DCEE2C3D4412006674B8 /* TextField.swift */,
-				C412DCF02C3D442B006674B8 /* StackView.swift */,
-				C412DCF42C3D4464006674B8 /* TableView.swift */,
-				C412DCF22C3D444B006674B8 /* Image.swift */,
-				C4AC69C22C3A90AF004889C1 /* Date.swift */,
-			);
-			path = ElementBuld;
 			sourceTree = "<group>";
 		};
 		C412DCF62C3D449C006674B8 /* ?? BackupСopyVC ?? */ = {
@@ -336,6 +311,7 @@
 		C4AC69A42C3A8F62004889C1 /* Habitus */ = {
 			isa = PBXGroup;
 			children = (
+				C4C253972C3F05B000BD3D38 /* Habitus.entitlements */,
 				C4606C762C3AD697003DC45E /* Aplication */,
 				C4AC69C42C3A92AA004889C1 /* ListVC */,
 				C4606C792C3AD6F8003DC45E /* NotesVC */,
@@ -345,7 +321,6 @@
 				C4606CA12C3ADB32003DC45E /* ?? CalendarVC ??  */,
 				C412DCE02C3D422C006674B8 /* ?? SubscribeVC ?? */,
 				C412DCF62C3D449C006674B8 /* ?? BackupСopyVC ?? */,
-				C412DCE12C3D42FD006674B8 /* ElementBuld */,
 				C46DA4CF2C3ED7E700980EAC /* ThemeManager */,
 				C46DA4CE2C3ED79F00980EAC /* SwipeClass */,
 				C46DA4D02C3ED80D00980EAC /* Layout */,
@@ -411,6 +386,7 @@
 			packageProductDependencies = (
 				C4AC69D82C3AB1FE004889C1 /* SnapKit */,
 				C4AC6A062C3ABD49004889C1 /* FSCalendar */,
+				C49ABEAC2C40267E0036CB20 /* ElementBuilder */,
 			);
 			productName = Habitus;
 			productReference = C4AC69A22C3A8F62004889C1 /* Habitus.app */;
@@ -443,6 +419,7 @@
 			packageReferences = (
 				C4AC69D72C3AB1FE004889C1 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C4AC6A052C3ABD49004889C1 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				C49ABEAB2C40267E0036CB20 /* XCRemoteSwiftPackageReference "ElementBuilder" */,
 			);
 			productRefGroup = C4AC69A32C3A8F62004889C1 /* Products */;
 			projectDirPath = "";
@@ -471,15 +448,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4AC69C82C3A92CA004889C1 /* HabitListUI.swift in Sources */,
-				C412DCE92C3D4382006674B8 /* ButtonsWithAction.swift in Sources */,
 				C412DCDD2C3D3FE0006674B8 /* HabitVCCOlorPickerExtension.swift in Sources */,
-				C412DCEF2C3D4412006674B8 /* TextField.swift in Sources */,
 				C4606C822C3AD767003DC45E /* SettingViewUI.swift in Sources */,
 				C4AC69C62C3A92BD004889C1 /* HabitManager.swift in Sources */,
 				C4AC69AA2C3A8F62004889C1 /* ListVC.swift in Sources */,
 				C4606C8F2C3AD8F5003DC45E /* HabitViewUI.swift in Sources */,
 				C4606C922C3AD949003DC45E /* DatePickerCell.swift in Sources */,
-				C412DCF32C3D444B006674B8 /* Image.swift in Sources */,
 				C4606C9A2C3ADA48003DC45E /* GuideViewUI.swift in Sources */,
 				C4AC69BD2C3A9011004889C1 /* NotesVC.swift in Sources */,
 				C4606C7D2C3AD729003DC45E /* NotesViewUI.swift in Sources */,
@@ -496,7 +470,6 @@
 				C412DCDF2C3D400C006674B8 /* HabitVCTextFieldEctension.swift in Sources */,
 				C4AC69BF2C3A9017004889C1 /* SettingVC.swift in Sources */,
 				C4606C802C3AD755003DC45E /* SettingModel.swift in Sources */,
-				C412DCF52C3D4464006674B8 /* TableView.swift in Sources */,
 				C4606C8D2C3AD8E1003DC45E /* HabitModel.swift in Sources */,
 				C4AC69C12C3A901D004889C1 /* HabbitVC.swift in Sources */,
 				C4AC69CE2C3A946B004889C1 /* HabitEntry.swift in Sources */,
@@ -511,12 +484,9 @@
 				C4AC69D02C3A9504004889C1 /* HabitTrackerCell.swift in Sources */,
 				C4AC6A022C3AB3A3004889C1 /* GuidanceVC.swift in Sources */,
 				C4AC69CB2C3A93A2004889C1 /* ListVCExtension.swift in Sources */,
-				C412DCF12C3D442B006674B8 /* StackView.swift in Sources */,
 				C4606C702C3ACE05003DC45E /* SubscribeVC.swift in Sources */,
 				C412DCDB2C3D3E6D006674B8 /* TextFieldCell.swift in Sources */,
 				C412DCED2C3D43DE006674B8 /* DaysModel.swift in Sources */,
-				C412DCEB2C3D43B5006674B8 /* Label.swift in Sources */,
-				C4AC69C32C3A90AF004889C1 /* Date.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +629,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Habitus/Habitus.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -678,6 +649,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Bobbi.Habitus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -690,6 +662,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Habitus/Habitus.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -709,6 +682,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Bobbi.Habitus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -739,6 +713,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C49ABEAB2C40267E0036CB20 /* XCRemoteSwiftPackageReference "ElementBuilder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Oldbobb1/ElementBuilder";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		C4AC69D72C3AB1FE004889C1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -758,6 +740,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C49ABEAC2C40267E0036CB20 /* ElementBuilder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C49ABEAB2C40267E0036CB20 /* XCRemoteSwiftPackageReference "ElementBuilder" */;
+			productName = ElementBuilder;
+		};
 		C4AC69D82C3AB1FE004889C1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C4AC69D72C3AB1FE004889C1 /* XCRemoteSwiftPackageReference "SnapKit" */;

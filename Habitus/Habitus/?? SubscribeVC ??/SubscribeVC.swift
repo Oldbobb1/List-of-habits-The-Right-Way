@@ -114,7 +114,7 @@ class SubscribeVC: UIViewController, UIPageViewControllerDataSource, UIPageViewC
         guard let index = slides.firstIndex(of: viewController), index > 0 else {
             return nil
         }
-        return slides[index - 1]
+        return slides[index + 1]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {

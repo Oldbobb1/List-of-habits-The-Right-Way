@@ -5,6 +5,7 @@
 //  Created by Bobbi R. on 7.07.24.
 
 import UIKit
+import ElementBuilder
 
 class ImagePresentViewController: UIViewController {
     
@@ -48,9 +49,9 @@ class ImagePresentViewController: UIViewController {
         imageView.layer.masksToBounds = true
         Layout.applyView(imageView, view: view, additionalConstraints: { (make) in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-60) // -50 - guidePrew2
-            make.width.equalTo(400)
-            make.height.equalTo(500) // 450 - guidePrew2
+            make.centerY.equalToSuperview().offset(-60)
+//            make.width.equalTo(800)
+            make.height.equalTo(460)
         })
     }
     
@@ -67,10 +68,11 @@ class ImagePresentViewController: UIViewController {
     
     private func setupDescriptionLabelConstraints() {
         Layout.applyView(descriptionLabel, view: view, additionalConstraints: { [self] (make) in
-             make.top.equalTo(imageView.snp.bottom).offset(20)
+             make.top.equalTo(imageView.snp.bottom).offset(15)
              make.leading.equalTo(view.snp.leading).offset(20)
              make.trailing.equalTo(view.snp.trailing).offset(-20)
-             make.bottom.lessThanOrEqualTo(view.snp.bottom).offset(-20)
+//             make.bottom.lessThanOrEqualTo(view.snp.bottom).offset(-20)
          })
      }
+
 }
