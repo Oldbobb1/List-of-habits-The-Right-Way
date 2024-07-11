@@ -10,6 +10,7 @@ import ElementBuilder
 class BackupСopyVC: UIViewController {
     
     let label = Label.label(text: "subscribe", fontSize: 25, weight: .heavy, textColor: .black, textAlignment: .center)
+    let button = ButtonsWithAction.createButtonWithAction(setTitle: "close", cornerRadius: 10, content: .center)
     
     override func viewDidLoad() {
         super.viewDidLoad()
