@@ -16,6 +16,12 @@ class SettingViewUI {
         view.addSubview(titleLabel)
         view.addSubview(settingTableView)
         
+//        titleLabel.layer.cornerRadius = 10
+//        titleLabel.layer.shadowColor = UIColor.black.cgColor
+//        titleLabel.layer.shadowOffset = CGSize(width: 0, height: 4)
+//        titleLabel.layer.shadowOpacity = 0.5
+//        titleLabel.layer.shadowRadius = 4
+        
         settingTableView.translatesAutoresizingMaskIntoConstraints = false
         settingTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         settingTableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "profileCell")

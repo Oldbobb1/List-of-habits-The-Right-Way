@@ -28,20 +28,24 @@ extension HabitVC: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
                     cell.configure(text: nil, delegate: self, color: selectedColor) // Передача текста и цвета
+            cell.backgroundColor = .clear
                  return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DatePickerCell", for: indexPath) as! DatePickerCell
             cell.configure(date: Date())
+            cell.backgroundColor = .clear
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DaysCell", for: indexPath) as! DaysCell
             cell.selectionStyle = .none
             cell.configure(selectedDays: [])
+            cell.backgroundColor = .systemBackground
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             let (imageName, title, hasSwitch, _) = settingsItems[indexPath.row]
             // Icon
+
             if let image = UIImage(systemName: imageName) {
                 cell.imageView?.image = image
             } else if let customImage = UIImage(named: imageName) {
@@ -53,6 +57,7 @@ extension HabitVC: UITableViewDataSource {
             // Title
             cell.textLabel?.text = title
             cell.textLabel?.font = .systemFont(ofSize: 17)
+            
             if title == "Color" {
                 habitView.selectedColorView.backgroundColor = habitView.selectedColorView.backgroundColor ?? .clear
                 cell.accessoryView = habitView.selectedColorView
@@ -69,8 +74,20 @@ extension HabitVC: UITableViewDataSource {
                 cell.accessoryType = .disclosureIndicator
                 cell.accessoryView = nil
                 cell.accessoryType = .none
-                
             }
+            
+//            cell.backgroundColor = .clear
+//
+//              cell.layer.shadowColor = UIColor.black.cgColor
+//              cell.layer.shadowOffset = CGSize(width: 0, height: 2)
+//              cell.layer.shadowRadius = 2
+//            cell.layer.shadowOpacity = 0.7
+              
+              // Animate floating effect
+//              UIView.animate(withDuration: 0.5, delay: 0, options: [.allowUserInteraction, .curveEaseInOut, .autoreverse, .repeat], animations: {
+//                  cell.layer.shadowOffset = CGSize(width: 0, height: 5)
+//              }, completion: nil)
+            
             return cell
         default:
             return UITableViewCell()
@@ -92,3 +109,12 @@ extension HabitVC: UITableViewDataSource {
 
 
 extension HabitVC: UITableViewDelegate {}
+
+
+
+//cell.layer.cornerRadius = 10
+//cell.layer.shadowColor = UIColor.black.cgColor
+//cell.layer.shadowOffset = CGSize(width: 0, height: 10)
+//cell.layer.shadowOpacity = 1
+//cell.layer.shadowRadius = 4
+//cell.backgroundColor = UIColor.systemGray6

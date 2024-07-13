@@ -17,7 +17,19 @@ class TextFieldCell: UITableViewCell {
         
         contentView.addSubview(textField)
         contentView.clipsToBounds = true
-
+    
+//        textField.layer.cornerRadius = 10
+//        textField.layer.shadowColor = UIColor.black.cgColor
+//        textField.layer.shadowOffset = CGSize(width: 0, height: 4)
+//        textField.layer.shadowOpacity = 0.6
+//        textField.layer.shadowRadius = 4
+//        textField.backgroundColor = UIColor.systemGray6
+        
+//        textField.layer.shadowColor = UIColor.blue.cgColor
+//        textField.layer.shadowOffset = CGSize(width: 1, height: 4)
+//        textField.layer.shadowOpacity = 1
+//        textField.layer.shadowRadius = 2
+    
         Layout.applyView(textField, view: contentView, topOffset: 8, leadingOffset: 10, trailingOffset: -10, bottomOffset: -8)
     }
     

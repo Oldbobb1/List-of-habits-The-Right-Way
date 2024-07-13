@@ -1,10 +1,11 @@
-//  SceneDelegate.swift
+////  SceneDelegate.swift
 
 //  Habitus
 
 //  Created by Bobbi R. on 7.07.24.
 
 import UIKit
+import RAMAnimatedTabBarController
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -16,29 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene )
         
-        let tabBar = AnimatedTabBarController()
-        tabBar.tabBar.barStyle = .default
-        tabBar.delegate = self
+        let customNavigationController = CustomNavigationController()
         
-        let listVC = ListVC()
-        listVC.view.backgroundColor = UIColor.systemBackground
-        let firstFolder = UIImage(systemName: "list.bullet.circle")?.resizableImage(withCapInsets: .zero, resizingMode: .stretch)
-        listVC.tabBarItem = UITabBarItem(title: "list", image: firstFolder, tag: 1 )
-        
-        let notesVC = NotesVC()
-        notesVC.view.backgroundColor = UIColor.systemBackground
-        let secondFolder = UIImage(systemName: "pencil.circle")?.resizableImage(withCapInsets: .zero, resizingMode: .stretch)
-        notesVC.tabBarItem = UITabBarItem(title: "notes", image: secondFolder, tag: 2 )
-        
-        let settingVC =  SettingVC()
-        settingVC.view.backgroundColor = UIColor.systemBackground
-        let thirdFolder = UIImage(systemName: "gear")?.resizableImage(withCapInsets: .zero, resizingMode: .stretch)
-        settingVC.tabBarItem = UITabBarItem(title: "setting", image: thirdFolder, tag: 3 )
-        
-        tabBar.viewControllers = [listVC, notesVC, settingVC]
-        
-        window.rootViewController = tabBar
+        window.rootViewController = customNavigationController
         window.makeKeyAndVisible()
+        
         self.window = window
     }
     
@@ -71,6 +54,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
 }
-
-
 

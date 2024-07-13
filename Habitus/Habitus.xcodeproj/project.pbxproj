@@ -16,7 +16,7 @@
 		C412DCED2C3D43DE006674B8 /* DaysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCEC2C3D43DE006674B8 /* DaysModel.swift */; };
 		C412DCF82C3D44CC006674B8 /* BackupСopyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C412DCF72C3D44CC006674B8 /* BackupСopyVC.swift */; };
 		C4606C702C3ACE05003DC45E /* SubscribeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C6F2C3ACE05003DC45E /* SubscribeVC.swift */; };
-		C4606C782C3AD6B3003DC45E /* SceneDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C772C3AD6B3003DC45E /* SceneDelegateExtension.swift */; };
+		C4606C782C3AD6B3003DC45E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C772C3AD6B3003DC45E /* CustomNavigationController.swift */; };
 		C4606C7B2C3AD70B003DC45E /* NotesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C7A2C3AD70B003DC45E /* NotesDataModel.swift */; };
 		C4606C7D2C3AD729003DC45E /* NotesViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C7C2C3AD729003DC45E /* NotesViewUI.swift */; };
 		C4606C802C3AD755003DC45E /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C7F2C3AD755003DC45E /* SettingModel.swift */; };
@@ -33,6 +33,7 @@
 		C4606C9C2C3ADA68003DC45E /* enumImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C9B2C3ADA68003DC45E /* enumImage.swift */; };
 		C4606CA02C3ADAAF003DC45E /* ImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4606C9F2C3ADAAF003DC45E /* ImageVC.swift */; };
 		C46DA4CD2C3ED37A00980EAC /* GuidanceVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DA4CC2C3ED37A00980EAC /* GuidanceVCExtension.swift */; };
+		C4745CC82C406630005C8C0C /* RAMAnimatedTabBarController in Frameworks */ = {isa = PBXBuildFile; productRef = C4745CC72C406630005C8C0C /* RAMAnimatedTabBarController */; };
 		C49ABEAD2C40267E0036CB20 /* ElementBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = C49ABEAC2C40267E0036CB20 /* ElementBuilder */; };
 		C4AC69A62C3A8F62004889C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69A52C3A8F62004889C1 /* AppDelegate.swift */; };
 		C4AC69A82C3A8F62004889C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC69A72C3A8F62004889C1 /* SceneDelegate.swift */; };
@@ -51,6 +52,7 @@
 		C4AC6A022C3AB3A3004889C1 /* GuidanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */; };
 		C4AC6A042C3ABD21004889C1 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC6A032C3ABD21004889C1 /* CalendarVC.swift */; };
 		C4AC6A072C3ABD49004889C1 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C4AC6A062C3ABD49004889C1 /* FSCalendar */; };
+		C4B2F68E2C42837500D0C683 /* CustomBottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2F68D2C42837500D0C683 /* CustomBottomMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +65,7 @@
 		C412DCEC2C3D43DE006674B8 /* DaysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysModel.swift; sourceTree = "<group>"; };
 		C412DCF72C3D44CC006674B8 /* BackupСopyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BackupСopyVC.swift"; sourceTree = "<group>"; };
 		C4606C6F2C3ACE05003DC45E /* SubscribeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeVC.swift; sourceTree = "<group>"; };
-		C4606C772C3AD6B3003DC45E /* SceneDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateExtension.swift; sourceTree = "<group>"; };
+		C4606C772C3AD6B3003DC45E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		C4606C7A2C3AD70B003DC45E /* NotesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDataModel.swift; sourceTree = "<group>"; };
 		C4606C7C2C3AD729003DC45E /* NotesViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewUI.swift; sourceTree = "<group>"; };
 		C4606C7F2C3AD755003DC45E /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		C4AC69CF2C3A9504004889C1 /* HabitTrackerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerCell.swift; sourceTree = "<group>"; };
 		C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceVC.swift; sourceTree = "<group>"; };
 		C4AC6A032C3ABD21004889C1 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		C4B2F68D2C42837500D0C683 /* CustomBottomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomMenu.swift; sourceTree = "<group>"; };
 		C4C253972C3F05B000BD3D38 /* Habitus.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Habitus.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +110,7 @@
 			files = (
 				C49ABEAD2C40267E0036CB20 /* ElementBuilder in Frameworks */,
 				C4AC69D92C3AB1FE004889C1 /* SnapKit in Frameworks */,
+				C4745CC82C406630005C8C0C /* RAMAnimatedTabBarController in Frameworks */,
 				C4AC6A072C3ABD49004889C1 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,12 +134,13 @@
 			path = "?? BackupСopyVC ??";
 			sourceTree = "<group>";
 		};
-		C4606C752C3AD683003DC45E /* SceneDelegateExtension */ = {
+		C4606C752C3AD683003DC45E /* CustomNavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				C4606C772C3AD6B3003DC45E /* SceneDelegateExtension.swift */,
+				C4B2F68D2C42837500D0C683 /* CustomBottomMenu.swift */,
+				C4606C772C3AD6B3003DC45E /* CustomNavigationController.swift */,
 			);
-			path = SceneDelegateExtension;
+			path = CustomNavigationController;
 			sourceTree = "<group>";
 		};
 		C4606C762C3AD697003DC45E /* Aplication */ = {
@@ -143,7 +148,7 @@
 			children = (
 				C4AC69A52C3A8F62004889C1 /* AppDelegate.swift */,
 				C4AC69A72C3A8F62004889C1 /* SceneDelegate.swift */,
-				C4606C752C3AD683003DC45E /* SceneDelegateExtension */,
+				C4606C752C3AD683003DC45E /* CustomNavigationController */,
 			);
 			path = Aplication;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				C4AC69D82C3AB1FE004889C1 /* SnapKit */,
 				C4AC6A062C3ABD49004889C1 /* FSCalendar */,
 				C49ABEAC2C40267E0036CB20 /* ElementBuilder */,
+				C4745CC72C406630005C8C0C /* RAMAnimatedTabBarController */,
 			);
 			productName = Habitus;
 			productReference = C4AC69A22C3A8F62004889C1 /* Habitus.app */;
@@ -409,6 +415,7 @@
 				C4AC69D72C3AB1FE004889C1 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C4AC6A052C3ABD49004889C1 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				C49ABEAB2C40267E0036CB20 /* XCRemoteSwiftPackageReference "ElementBuilder" */,
+				C4745CC62C406630005C8C0C /* XCRemoteSwiftPackageReference "animated-tab-bar" */,
 			);
 			productRefGroup = C4AC69A32C3A8F62004889C1 /* Products */;
 			projectDirPath = "";
@@ -458,6 +465,7 @@
 				C412DCDF2C3D400C006674B8 /* HabitVCTextFieldEctension.swift in Sources */,
 				C4AC69BF2C3A9017004889C1 /* SettingVC.swift in Sources */,
 				C4606C802C3AD755003DC45E /* SettingModel.swift in Sources */,
+				C4B2F68E2C42837500D0C683 /* CustomBottomMenu.swift in Sources */,
 				C4606C8D2C3AD8E1003DC45E /* HabitModel.swift in Sources */,
 				C4AC69C12C3A901D004889C1 /* HabbitVC.swift in Sources */,
 				C4AC69CE2C3A946B004889C1 /* HabitEntry.swift in Sources */,
@@ -465,7 +473,7 @@
 				C4AC69A82C3A8F62004889C1 /* SceneDelegate.swift in Sources */,
 				C4AC6A042C3ABD21004889C1 /* CalendarVC.swift in Sources */,
 				C4606C952C3AD97A003DC45E /* HabitVCExtension.swift in Sources */,
-				C4606C782C3AD6B3003DC45E /* SceneDelegateExtension.swift in Sources */,
+				C4606C782C3AD6B3003DC45E /* CustomNavigationController.swift in Sources */,
 				C46DA4CD2C3ED37A00980EAC /* GuidanceVCExtension.swift in Sources */,
 				C4606C852C3AD7A3003DC45E /* ProfileTableViewCell.swift in Sources */,
 				C412DCD92C3D3E50006674B8 /* DaysCell.swift in Sources */,
@@ -701,6 +709,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C4745CC62C406630005C8C0C /* XCRemoteSwiftPackageReference "animated-tab-bar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ramotion/animated-tab-bar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
 		C49ABEAB2C40267E0036CB20 /* XCRemoteSwiftPackageReference "ElementBuilder" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Oldbobb1/ElementBuilder";
@@ -728,6 +744,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C4745CC72C406630005C8C0C /* RAMAnimatedTabBarController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4745CC62C406630005C8C0C /* XCRemoteSwiftPackageReference "animated-tab-bar" */;
+			productName = RAMAnimatedTabBarController;
+		};
 		C49ABEAC2C40267E0036CB20 /* ElementBuilder */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C49ABEAB2C40267E0036CB20 /* XCRemoteSwiftPackageReference "ElementBuilder" */;

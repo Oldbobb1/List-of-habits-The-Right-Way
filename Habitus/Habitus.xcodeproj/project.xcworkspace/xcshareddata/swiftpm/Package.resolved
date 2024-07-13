@@ -1,6 +1,15 @@
 {
-  "originHash" : "5eb50e99fe258c0fdf0c3a00aafee6647d10a1fdb143ca86a8f818f10bf2c067",
+  "originHash" : "521b65bd47a8e08c9b3aecf11834bc1d62d0942c1ddf2e0afa4f460cfc261a35",
   "pins" : [
+    {
+      "identity" : "animated-tab-bar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Ramotion/animated-tab-bar",
+      "state" : {
+        "revision" : "52174249fa7b296c0fce1114be8f34081b85ffc3",
+        "version" : "5.2.0"
+      }
+    },
     {
       "identity" : "elementbuilder",
       "kind" : "remoteSourceControl",

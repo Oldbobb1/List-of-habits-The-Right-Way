@@ -29,7 +29,7 @@ class HabitVC: UIViewController {
             ("repeat.circle", "Signal repeat", true, nil),
         ]
     }
-    
+        
     func configureUI() {
         habitView.createTableView.dataSource = self
         habitView.createTableView.delegate = self

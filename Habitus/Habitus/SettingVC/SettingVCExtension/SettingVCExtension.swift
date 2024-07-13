@@ -32,6 +32,8 @@ extension SettingVC: UITableViewDataSource {
             let profileImage = isUserLoggedIn ? userImage : UIImage(systemName: "person.circle.fill")
             let profileName = isUserLoggedIn ? userName : "Sign In"
             cell.configure(profileImage: profileImage, name: profileName, subtitle: "Apple ID, Icloud")
+//            cell.backgroundColor = .systemBackground
+            
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

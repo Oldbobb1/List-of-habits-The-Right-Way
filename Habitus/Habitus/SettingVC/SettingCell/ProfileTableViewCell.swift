@@ -20,7 +20,7 @@ class ProfileTableViewCell: UITableViewCell {
         contentView.addSubview(profileImageView)
         contentView.addSubview(profileLabel)
         contentView.addSubview(profileSubtitleLabel)
-        
+
         Layout.applyView(profileImageView, view: contentView, additionalConstraints: { make in
             make.centerY.equalTo(self.contentView.snp.centerY)
             make.width.equalTo(70)

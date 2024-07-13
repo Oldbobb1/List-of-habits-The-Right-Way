@@ -12,7 +12,7 @@ class HabitListUI  {
     let titleLabel = Label.label(text: "List", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center)
     let messageLabel = Label.label(text: "Add Habit", fontSize: 20, weight: .bold, textColor: nil, textAlignment: .center)
     let calendarDateStackView = StackView.stackView()
-    let userContentTableView = TableView.tableView(frame: .zero, style: .plain, backgroundColor: .secondarySystemBackground)
+    let userContentTableView = TableView.tableView(frame: .zero, style: .plain, backgroundColor: .systemBackground)
     let buttonOpenHabitVC = ButtonsWithAction.createButtonWithSystemImage(systemName: "plus.circle", setImage: nil )
     
   let dateAndWeekdayFormatter = DateAndWeekDayFormatter()
@@ -29,6 +29,12 @@ class HabitListUI  {
         userContentTableView.frame = view.bounds
         userContentTableView.register(HabitTrackerCell.self, forCellReuseIdentifier: "habitCell")
         
+//        titleLabel.layer.cornerRadius = 10
+//        titleLabel.layer.shadowColor = UIColor.black.cgColor
+//        titleLabel.layer.shadowOffset = CGSize(width: 0, height: 4)
+//        titleLabel.layer.shadowOpacity = 0.5
+//        titleLabel.layer.shadowRadius = 4
+        
         Layout.applyView(titleLabel, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0)
         Layout.applyView(calendarDateStackView, view: view , leadingOffset: 285, trailingOffset: 0, additionalConstraints: {make in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(0)
@@ -37,10 +43,12 @@ class HabitListUI  {
         
         Layout.applyView(userContentTableView, view: view, leadingOffset: 0 , trailingOffset: 0, bottomOffset: 0, additionalConstraints:{ make in
             make.top.equalTo(self.calendarDateStackView.snp.bottom).offset(5)
+//            make.top.equalTo(self.calendarDateStackView.snp.bottom).offset(5)
+            make.bottom.equalTo(view.snp.bottom).offset(0)
         })
         
         Layout.applyView(messageLabel, view: view, topOffset: 300, leadingOffset: 10, trailingOffset: -10)
-        Layout.applyView(buttonOpenHabitVC, view: view, leadingOffset: 15 , bottomOffset: -10)
+        Layout.applyView(buttonOpenHabitVC, view: view, leadingOffset: 10 , bottomOffset: -60)
     }
     
     func updateDaysCalendar() {

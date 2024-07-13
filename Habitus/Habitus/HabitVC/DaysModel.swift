@@ -14,11 +14,25 @@ class DaysModel {
     
     func setupDaysOfWeek(_ view: UIView) {
         for (index, day) in days.enumerated() {
-            let dayButton = ButtonsWithAction.createButtonWithAction(setTitle: day, cornerRadius: 10, content: .center)
+            let dayButton = ButtonsWithAction.createButtonWithAction(setTitle: day, cornerRadius: 18.5, content: .center)
+            
+//            let dayButton = UIButton()
+//            dayButton.setTitle(day, for: .normal)
+//            dayButton.setTitleColor(.label, for: .normal)
+//            dayButton.layer.cornerRadius = 18.5
+//                     dayButton.layer.shadowColor = UIColor.blue.cgColor
+//                     dayButton.layer.shadowOffset = CGSize(width: 1, height: 4)
+//            dayButton.layer.shadowOpacity = 1
+//            dayButton.layer.shadowRadius = 2
+//            dayButton.backgroundColor = .systemGray6
+            
+        
+            
             view.addSubview(dayButton)
             
-            Layout.applyView(dayButton, view: view,topOffset: 1, leadingOffset: (CGFloat(0.5) + CGFloat(CGFloat(index) * CGFloat(43.5))),bottomOffset: -1 ,additionalConstraints: { make in
-                make.width.equalTo(37)
+            Layout.applyView(dayButton, view: view,topOffset: 1, leadingOffset: (CGFloat(0.5) + CGFloat(CGFloat(index) * CGFloat(44.5))),bottomOffset: -1 ,additionalConstraints: { make in
+                make.width.equalTo(40)
+                make.height.equalTo(40)
             })
                         
             dayButton.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
@@ -45,8 +59,10 @@ class DaysModel {
             if selectedDays.contains(index) {
                 button.backgroundColor = .systemBlue
             } else {
-                button.backgroundColor = .clear
+                button.backgroundColor = .clear //.clear
             }
         }
     }
 }
+
+
