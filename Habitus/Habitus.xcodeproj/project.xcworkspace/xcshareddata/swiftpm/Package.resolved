@@ -1,22 +1,13 @@
 {
-  "originHash" : "521b65bd47a8e08c9b3aecf11834bc1d62d0942c1ddf2e0afa4f460cfc261a35",
+  "originHash" : "5eb50e99fe258c0fdf0c3a00aafee6647d10a1fdb143ca86a8f818f10bf2c067",
   "pins" : [
-    {
-      "identity" : "animated-tab-bar",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Ramotion/animated-tab-bar",
-      "state" : {
-        "revision" : "52174249fa7b296c0fce1114be8f34081b85ffc3",
-        "version" : "5.2.0"
-      }
-    },
     {
       "identity" : "elementbuilder",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Oldbobb1/ElementBuilder",
       "state" : {
         "branch" : "main",
-        "revision" : "5cbb3298fd24045b9a5c4b05eb262e515ee80490"
+        "revision" : "635aa6be3efe84bf89689752efe9be900596c9a5"
       }
     },
     {
