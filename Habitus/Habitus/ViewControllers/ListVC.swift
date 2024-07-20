@@ -29,14 +29,6 @@ class ListVC: UIViewController {
         listView.buttonOpenHabitVC.addTarget(self, action: #selector(openHabbitCreation) , for: .touchUpInside)
     }
     
-    func updateDaysCalendar() {
-        let calendar = Calendar.current
-        for i in -2..<1 {
-            let day = calendar.date(byAdding: .day, value: i, to: Date())!
-            dateAndWeekdayFormatter.dateCurrent(to: listView.calendarDateStackView, withDay: day)
-        }
-    }
-    
     @objc func openHabbitCreation(_ sender: UIButton) {
         let habitVC  = HabitVC()
         let navController = UINavigationController(rootViewController: habitVC)
@@ -57,6 +49,8 @@ class ListVC: UIViewController {
     }
 
 }
+
+
 
 
 struct ViewControllerProvider1: PreviewProvider {

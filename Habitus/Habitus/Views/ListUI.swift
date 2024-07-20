@@ -23,10 +23,13 @@ class ListUI {
         self.userContentTableView.addSubview(buttonOpenHabitVC)
         self.userContentTableView.addSubview(messageLabel)
         
+        setupView(view)
+        layout(view)
+    }
+    
+    func setupView(_ view: UIView) {
         userContentTableView.frame = view.bounds
         userContentTableView.register(HabitTrackerCell.self, forCellReuseIdentifier: "habitCell")
-        
-        layout(view)
     }
     
     func layout(_ view: UIView) {

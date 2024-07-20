@@ -37,9 +37,12 @@ TrackTide
         
         view.addSubview(pageControl)
         view.addSubview(skipButtonPress)
-    
-        skipButtonPress.titleLabel?.textColor = .blue
         
+        skipButtonPress.titleLabel?.textColor = .blue
+        layout(view)
+    }
+    
+    func layout(_ view: UIView) {
         Layout.applyView(skipButtonPress, view: view, leadingOffset: 130, trailingOffset: -130, bottomOffset: -20)
         Layout.applyView(pageControl, view: view,leadingOffset: 10,trailingOffset: -10 , bottomOffset: -60)
     }
