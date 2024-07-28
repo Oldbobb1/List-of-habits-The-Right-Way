@@ -47,8 +47,16 @@ class CustomNavigationController: UINavigationController {
     @objc func favoriteButtonTapped(_ sender: UIButton) {
         let settingVC = SettingVC()
         self.setViewControllers([settingVC], animated: false)
-    }    
+    } 
+    
+//    @objc func favoriteButtonTapped(_ sender: UIButton) {
+//        let habitVC  = HabitVC()
+//        let navController = UINavigationController(rootViewController: habitVC)
+//        navController.modalPresentationStyle = .fullScreen
+//        self.present(navController, animated: true, completion: nil)
+//    }
 }
+
 
 
 

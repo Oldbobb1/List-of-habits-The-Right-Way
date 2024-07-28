@@ -17,7 +17,7 @@ extension HabitVC: UITableViewDataSource {
             return 0
         }
     }
-    
+ 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:

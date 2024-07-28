@@ -11,7 +11,6 @@ class NotesUI  {
         view.addSubview(titleLabel)
         layout(view)
         
-        titleLabel.textColor = UIColor(named: "Color")
     }
     
     func layout(_ view: UIView) {

@@ -38,7 +38,7 @@ class CustomButtomMenu: UIView {
     }
         
     private func setupView() {
-        
+                
         addSubview(customBar)
         customBar.addSubview(stackView)
         

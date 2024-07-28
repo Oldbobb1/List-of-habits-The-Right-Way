@@ -11,7 +11,7 @@ class ListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(named: "Color")
+        view.backgroundColor = .systemBackground
         configureUI()
         
         NotificationCenter.default.addObserver(self, selector: #selector(newHabitAdded(_:)), name: Notification.Name("NewHabitAdded"), object: nil)

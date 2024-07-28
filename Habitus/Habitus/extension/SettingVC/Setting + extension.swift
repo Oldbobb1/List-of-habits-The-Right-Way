@@ -1,11 +1,26 @@
 import UIKit
 
+
 extension SettingVC {
     
     func showAlert() {
         let alertController = UIAlertController(title: "Уведомление", message: "В разработке, появится позже", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
+    }
+
+    func requestNotificationAuthorization(completion: @escaping (Bool) -> Void) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            DispatchQueue.main.async {
+                if granted {
+                    UserDefaults.standard.set(true, forKey: "notificationsEnabled")
+                    UIApplication.shared.registerForRemoteNotifications()
+                } else {
+                    UserDefaults.standard.set(false, forKey: "notificationsEnabled")
+                }
+                completion(granted)
+            }
+        }
     }
     
     @objc func switchValueChanged(_ sender: UISwitch) {
@@ -25,21 +40,31 @@ extension SettingVC {
                 }
             }
         } else if index == 1 {
-            // Код для показа алерта и установки уведомлений
-            let notificationsEnabled = sender.isOn
-            UserDefaults.standard.set(notificationsEnabled, forKey: "notificationsEnabled")
-            if notificationsEnabled {
-                UIApplication.shared.registerForRemoteNotifications()
+            if sender.isOn {
+                requestNotificationAuthorization { granted in
+                    if !granted {
+                        self.showAuthorizationAlert(sender: sender)
+                    } else { }
+                }
             } else {
+                UserDefaults.standard.set(false, forKey: "notificationsEnabled")
                 UIApplication.shared.unregisterForRemoteNotifications()
             }
-            let message = notificationsEnabled ? "Уведомления включены" : "Уведомления выключены"
-            let alert = UIAlertController(title: "Уведомление", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
-            self.present(alert, animated: true, completion: nil)
         }
-        // Сохранение состояния переключателя
         UserDefaults.standard.set(sender.isOn, forKey: "switchState\(index)")
+    }
+    
+    private func showAuthorizationAlert(sender: UISwitch) {
+        let alert = UIAlertController(title: "Уведомления отключены", message: "Для включения уведомлений, пожалуйста, разрешите их в настройках.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
+            sender.setOn(false, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Настройки", style: .default, handler: { _ in
+            if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(appSettings)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
     func openSubscribeVC() {
@@ -74,5 +99,4 @@ extension SettingVC {
         // Implement backup logic here
         showAlert()
     }
-    
 }
