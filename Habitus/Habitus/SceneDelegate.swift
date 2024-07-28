@@ -12,8 +12,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let customNavigationController = CustomNavigationController()
         window.rootViewController = customNavigationController
         window.makeKeyAndVisible()
-        
         self.window = window
+        
+        if let theme = UserDefaults.standard.string(forKey: "theme") {
+            if theme == "dark" {
+                window.overrideUserInterfaceStyle = .dark
+            } else {
+                window.overrideUserInterfaceStyle = .light
+            }
+        } else {
+            window.overrideUserInterfaceStyle = .unspecified
+        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -43,6 +52,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-    
 }
 

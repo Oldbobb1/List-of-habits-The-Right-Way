@@ -10,6 +10,7 @@ class HabitVC: UIViewController {
     
     var swipe: SwipeClass?
     var selectedColor: UIColor?
+    
     var settingsItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?)] = []
     
     override func viewDidLoad() {
@@ -19,11 +20,13 @@ class HabitVC: UIViewController {
                 
         habitView.initializeUI(view)
     
-        swipeActions(); configureSettingsItems(); configureUI()
+        swipeActions()
+        configureSettingsItems()
+        configureUI()
+        themeUpdate()
         
-       themeUpdate()
     }
-    
+   
     func configureSettingsItems() {
         settingsItems = [
             ("paintbrush", "Color", false, { self.showColorPicker()}),
@@ -32,6 +35,7 @@ class HabitVC: UIViewController {
     }
         
     func configureUI() {
+        
         habitView.createTableView.dataSource = self
         habitView.createTableView.delegate = self
         
@@ -78,7 +82,6 @@ class HabitVC: UIViewController {
     @objc func closeHabitVC() {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }
 
 

@@ -18,7 +18,8 @@ class ImagePresentViewController: UIViewController {
         configureUI()
     }
     
-    func configureUI(){
+    func configureUI() {
+        
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -71,5 +72,4 @@ class ImagePresentViewController: UIViewController {
 //             make.bottom.lessThanOrEqualTo(view.snp.bottom).offset(-20)
          })
      }
-
 }

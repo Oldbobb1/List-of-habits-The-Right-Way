@@ -7,12 +7,10 @@ class DaysCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        // Добавление кнопок дней недели
+
         daysModel.setupDaysOfWeek(contentView, userInterfaceStyle: traitCollection.userInterfaceStyle)
         
         contentView.clipsToBounds = false
-        
     }
     
     required init?(coder: NSCoder) {
@@ -21,7 +19,5 @@ class DaysCell: UITableViewCell {
     
     func configure(selectedDays: [Int]) {
         daysModel.selectedDays = selectedDays
-//        daysModel.updateButtonStates(in: contentView)
     }
-    
 }

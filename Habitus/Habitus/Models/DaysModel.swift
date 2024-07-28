@@ -11,15 +11,12 @@ class DaysModel {
     func setupDaysOfWeek(_ view: UIView, userInterfaceStyle: UIUserInterfaceStyle) {
        
         for (index, day) in days.enumerated() {
-            let dayButton = ButtonsWithAction.makeButton(setTitle: day,cornerRadius: 18.5,content: .center, setTitleColor: .label,clipsToBounds: false, backgroundColor: .systemBackground)
+            let dayButton = ButtonsWithAction.makeButton(setTitle: day,cornerRadius: 10,content: .center, setTitleColor: .systemGray,clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.2,shadowRadius: 4)
             
-//            dayButton.layer.shadowColor = UIColor.black.cgColor
+
 //            dayButton.layer.shadowColor = (userInterfaceStyle == .dark) ? UIColor.white.cgColor : UIColor.black.cgColor
-//
-//            dayButton.layer.shadowOffset = CGSize(width: -1, height: 1)
-//            dayButton.layer.shadowOpacity = 0.5
-//            dayButton.layer.shadowRadius = 4
-//            
+//            dayButton.backgroundColor = (userInterfaceStyle == .dark) ? UIColor.gray: UIColor.red
+  
             view.addSubview(dayButton)
             
             Layout.applyView(dayButton, view: view,topOffset: 1, leadingOffset: (CGFloat(0.5) + CGFloat(CGFloat(index) * CGFloat(44.5))),bottomOffset: -1 ,additionalConstraints: { make in
@@ -29,7 +26,6 @@ class DaysModel {
             
             dayButton.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
         }
-        
     }
     
     @objc func dayButtonTapped(sender: UIButton) {
@@ -52,11 +48,10 @@ class DaysModel {
             if selectedDays.contains(index) {
                 button.backgroundColor = .systemBlue
             } else {
-                button.backgroundColor = .systemBackground//.clear
+                button.backgroundColor = .systemGray6//.clear
             }
         }
     }
-    
 }
 
 

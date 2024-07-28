@@ -16,12 +16,13 @@ struct HabitEntry: Codable {
         self.colorHex = color.toHexString()
         self.buttonStates = buttonStates
     }
-    
 }
+
 
 struct ButtonState: Codable {
     var isChecked: Bool
 }
+
 
 extension UIColor {
     
@@ -41,5 +42,4 @@ extension UIColor {
         let b = CGFloat(rgbValue & 0xff) / 255.0
         self.init(red: r, green: g, blue: b, alpha: 1.0)
     }
-    
 }

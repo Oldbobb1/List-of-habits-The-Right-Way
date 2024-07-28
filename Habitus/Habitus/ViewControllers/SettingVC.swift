@@ -12,8 +12,9 @@ class SettingVC: UIViewController  {
     let settingView = SettingUI()
     let settingModel = SettingModel()
     
-    var settingsItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?, color: UIColor)] = []
-    var accountItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?, color: UIColor)] = []
+    var settingsItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?)] = []
+    
+    var accountItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void))] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,35 +26,41 @@ class SettingVC: UIViewController  {
         settingModel.requestNotificationAuthorization()
         configureSettingsItems()
         
-        ThemeManager.observeSystemThemeChanges()
-        //        ThemeManager.setTheme(theme: ThemeManager.currentTheme)
+//        ThemeManager.observeSystemThemeChanges()
     }
     
     func configureSettingsItems() {
+        
         settingsItems = [
-            ("moon.stars.fill", "Оформление", true, nil, color: .red),
-            ("bell.and.waves.left.and.right.fill", "Уведомления", true, nil,color: .red),
-            ("questionmark.bubble", "Поддержка", false, { self.openMailApp()}, color: .red),
-            ("text.book.closed.fill", "Гайд", false, { self.openGuidancePresentation()}, color: .red),
-            ("star.square", "Оцените приложение", false, { self.showAlert()}, color: .red),
-            ("dollarsign.circle.fill", "Подписка", false, { self.openSubscribeVC()}, color: .red)
+            ("moon.stars.fill", "Оформление", true, nil),
+            ("bell.and.waves.left.and.right.fill", "Уведомления", true, nil),
+            ("questionmark.bubble", "Поддержка", false, { self.openMailApp()}),
+            ("text.book.closed.fill", "Гайд", false, { self.openGuidancePresentation()}),
+            ("star.square", "Оцените приложение", false, { self.showAlert()}),
+            ("dollarsign.circle.fill", "Подписка", false, { self.openSubscribeVC()})
         ]
         accountItems = [
-            ("apple.logo", "Войти с Apple", false, { self.signInWithApple() }, color: .red),
-            ("icloud.and.arrow.up", "Резервное копирование", false, {self.backup()}, color: .green),
-            ("arrowshape.turn.up.left", "Выйти", false, {self.logout()}, color: .blue)
+            ("apple.logo", "Войти с Apple", false, { self.signInWithApple() }),
+            ("icloud.and.arrow.up", "Резервное копирование", false, {self.backup()}),
+            ("arrowshape.turn.up.left", "Выйти", false, {self.logout()})
         ]
     }
     
     @objc func switchValueChanged(_ sender: UISwitch) {
         let index = sender.tag
-        
         if index == 0 {
-            let theme = sender.isOn ? "dark" : "light"
-            UserDefaults.standard.set(theme, forKey: "theme")
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let window = windowScene.windows.first {
-                window.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
+            if sender.isOn {
+                UserDefaults.standard.set("dark", forKey: "theme")
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let window = windowScene.windows.first {
+                    window.overrideUserInterfaceStyle = .dark
+                }
+            } else {
+                UserDefaults.standard.removeObject(forKey: "theme")
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let window = windowScene.windows.first {
+                    window.overrideUserInterfaceStyle = .unspecified
+                }
             }
         } else if index == 1 {
             // Код для показа алерта и установки уведомлений
@@ -71,12 +78,6 @@ class SettingVC: UIViewController  {
         }
         // Сохранение состояния переключателя
         UserDefaults.standard.set(sender.isOn, forKey: "switchState\(index)")
-    }
-    
-    func showAlert() {
-        let alertController = UIAlertController(title: "Уведомление", message: "В разработке, появится позже", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
     }
     
     func openSubscribeVC() {
@@ -120,7 +121,6 @@ class SettingVC: UIViewController  {
         // Implement backup logic here
         showAlert()
     }
-    
 }
 
 

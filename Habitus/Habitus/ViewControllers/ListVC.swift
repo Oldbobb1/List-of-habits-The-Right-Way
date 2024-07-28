@@ -14,13 +14,15 @@ class ListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view.backgroundColor = UIColor(named: "Color")
         configureUI()
         
         NotificationCenter.default.addObserver(self, selector: #selector(newHabitAdded(_:)), name: Notification.Name("NewHabitAdded"), object: nil)
     }
     
     private func configureUI() {
+        
         listModel.loadHabitData()
         listView.initializeUI(view)
         updateDaysCalendar()
@@ -47,7 +49,6 @@ class ListVC: UIViewController {
             }
         } else { }
     }
-
 }
 
 

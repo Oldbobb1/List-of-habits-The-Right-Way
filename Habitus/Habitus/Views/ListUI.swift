@@ -10,11 +10,12 @@ class ListUI {
     
     let calendarDateStackView = StackView.stackView(axis: .horizontal)
     
-    let userContentTableView = TableView.tableView(frame: .zero, style: .plain, backgroundColor: .systemBackground)
-    
-    let buttonOpenHabitVC = ButtonsWithAction.makeButton(systemName: "plus.circle", setImage: nil,alpha: 0.5)
+    let userContentTableView = UITableView()
+   
+    let buttonOpenHabitVC = ButtonsWithAction.makeButton(backgroundColor: .clear, systemName: "plus.circle", setImage: nil,alpha: 0.5)
     
     func initializeUI(_ view: UIView) {
+        
         view.addSubview(titleLabel)
         view.addSubview(messageLabel)
         view.addSubview(calendarDateStackView)
@@ -25,10 +26,13 @@ class ListUI {
         
         setupView(view)
         layout(view)
+        
     }
+    
     
     func setupView(_ view: UIView) {
         userContentTableView.frame = view.bounds
+        userContentTableView.showsVerticalScrollIndicator = false
         userContentTableView.register(HabitTrackerCell.self, forCellReuseIdentifier: "habitCell")
     }
     
@@ -42,8 +46,8 @@ class ListUI {
         })
         
         Layout.applyView(userContentTableView, view: view, leadingOffset: 0 , trailingOffset: 0, bottomOffset: 0, additionalConstraints:{ make in
-            make.top.equalTo(self.calendarDateStackView.snp.bottom).offset(5)
-            //            make.top.equalTo(self.calendarDateStackView.snp.bottom).offset(5)
+//            make.top.equalTo(self.calendarDateStackView.snp.bottom).offset(5)
+                        make.top.equalTo(self.calendarDateStackView.snp.bottom).offset(5)
             make.bottom.equalTo(view.snp.bottom).offset(0)
         })
         
@@ -51,5 +55,5 @@ class ListUI {
         
         Layout.applyView(buttonOpenHabitVC, view: view, leadingOffset: 10 , bottomOffset: -60)
     }
-    
 }
+

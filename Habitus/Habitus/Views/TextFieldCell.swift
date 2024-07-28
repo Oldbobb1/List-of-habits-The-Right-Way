@@ -5,22 +5,34 @@ import ElementBuilder
 
 class TextFieldCell: UITableViewCell {
     
-    let textField = TextField.textField(  placeholder: "  habit name", cornerRadius: 10, backgroundColor: .systemBackground,clipsToBounds: false)
-
+    let textField = TextField.textField(  placeholder: "  habit name", cornerRadius: 10, clipsToBounds: false)
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.addSubview(textField)
         contentView.clipsToBounds = true
-                
-        if traitCollection.userInterfaceStyle == .dark {
-               textField.layer.shadowColor = UIColor.white.cgColor
-           } else {
-               textField.layer.shadowColor = UIColor.black.cgColor
-           }
         
+//        if traitCollection.userInterfaceStyle == .dark {
+//            textField.backgroundColor = .red
+//            textField.layer.shadowColor = UIColor.white.cgColor
+//            textField.layer.shadowOpacity = 1
+//           } else {
+//               textField.layer.shadowColor = UIColor.black.cgColor
+//               textField.backgroundColor = .systemGray6
+//               textField.layer.shadowOpacity = 0.3
+//           }
+        
+        textField.contentMode = .scaleAspectFill
+        textField.backgroundColor = .systemGray6
+        textField.layer.cornerRadius = 10
+        textField.layer.shadowColor = UIColor.black.cgColor
+        textField.layer.shadowOffset = CGSize(width: 0, height: 2)
+        textField.layer.shadowOpacity = 0.2
+        textField.layer.shadowRadius = 4
+        textField.translatesAutoresizingMaskIntoConstraints = false
+//      
         layout()
-        applyNeomorphism(to: textField)
     }
     
     required init?(coder: NSCoder) {
@@ -36,3 +48,7 @@ class TextFieldCell: UITableViewCell {
         textField.delegate = delegate
     }
 }
+
+
+
+
