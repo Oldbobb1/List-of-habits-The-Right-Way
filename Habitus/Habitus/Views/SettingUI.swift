@@ -7,7 +7,7 @@ class SettingUI {
     let titleLabel = Label.label(text: "Setting", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
     
     let settingTableView = UITableView(frame: .zero, style: .insetGrouped)
-    
+        
     func initializeUI(_ view: UIView) {
         
         view.addSubview(titleLabel)
@@ -29,7 +29,6 @@ class SettingUI {
     }
     
     func layout(_ view: UIView) {
-        
         Layout.applyView(titleLabel, view: view, topOffset: 0, leadingOffset: 10, trailingOffset: -10)
         
         Layout.applyView(settingTableView, view: view, leadingOffset: 0 , trailingOffset: 0, bottomOffset: 0, additionalConstraints:{ make in

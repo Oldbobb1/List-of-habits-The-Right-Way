@@ -6,11 +6,11 @@ class CustomButtomMenu: UIView {
     
     let stackView = StackView.stackView(axis: .horizontal,distribution: .fillEqually, backgroundColor: .clear )
     
-    var openListVC = ButtonsWithAction.makeButton(cornerRadius: 15,clipsToBounds: false, backgroundColor: .systemGray6,systemName:"list.bullet.circle", setImage: nil,imageSize: CGSize(width: 38, height: 38) ,alpha: 1,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
+    let openListVC = ButtonsWithAction.makeButton(cornerRadius: 15,clipsToBounds: false, backgroundColor: .systemGray6,systemName:"list.bullet.circle", setImage: nil,imageSize: CGSize(width: 38, height: 38) ,alpha: 1,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
     
-    var openNotesVC = ButtonsWithAction.makeButton(cornerRadius: 15,clipsToBounds: false, backgroundColor: .systemGray6,systemName:"pencil.circle", setImage: nil,imageSize: CGSize(width: 38, height: 38) ,alpha: 1,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
+    let openNotesVC = ButtonsWithAction.makeButton(cornerRadius: 15,clipsToBounds: false, backgroundColor: .systemGray6,systemName:"pencil.circle", setImage: nil,imageSize: CGSize(width: 38, height: 38) ,alpha: 1,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
     
-    var openSettingVC = ButtonsWithAction.makeButton( cornerRadius: 15,clipsToBounds: false,backgroundColor: .systemGray6,systemName: "gear", setImage: nil,imageSize: CGSize(width: 38, height: 38) ,alpha: 1, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
+    let openSettingVC = ButtonsWithAction.makeButton( cornerRadius: 15,clipsToBounds: false,backgroundColor: .systemGray6,systemName: "gear", setImage: nil,imageSize: CGSize(width: 38, height: 38) ,alpha: 1, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
     
     private lazy var customBar: UIView = {
         let view = UIView()
@@ -55,7 +55,6 @@ class CustomButtomMenu: UIView {
     }
     
     func layout() {
-        
         customBar.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(10)
             make.bottom.equalToSuperview()

@@ -46,7 +46,6 @@ class HabitUI {
     }
     
     func layout(_ view: UIView) {
-        
         Layout.applyView(titleLabel, view: view, topOffset: 0.85, leadingOffset: 124, trailingOffset: -124)
         
         Layout.applyView(buttonCloseUIView, view: view, topOffset: 0, leadingOffset: 10, trailingOffset: -280)

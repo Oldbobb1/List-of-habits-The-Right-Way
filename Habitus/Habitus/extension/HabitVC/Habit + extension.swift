@@ -13,24 +13,42 @@ extension HabitVC {
         })
     }
     
-    func themeUpdate() {
+    @objc func switchSend( _ sender: UISwitch){
+        //        if sender.isOn {
+        //
+        //        } else {
+        //
+        //        }
         
-        if traitCollection.userInterfaceStyle == .dark {
-            //            view.backgroundColor = .red
-            // Настройка элементов для темной темы
-            habitView.buttonCloseUIView.layer.shadowColor = UIColor.white.cgColor
-            //            habitView.buttonCloseUIView.backgroundColor = .lightGray
-            habitView.buttonSaveAndSendInTable.layer.shadowColor = UIColor.white.cgColor
-            habitView.titleLabel.layer.shadowColor = UIColor.white.cgColor
-            // ...
-        } else {
-            view.backgroundColor = .systemBackground
-            // Настройка элементов для светлой темы
-            habitView.buttonCloseUIView.layer.shadowColor = UIColor.black.cgColor
-            habitView.buttonSaveAndSendInTable.layer.shadowColor = UIColor.black.cgColor
-            habitView.titleLabel.layer.shadowColor = UIColor.black.cgColor
-            // ...
-        }
     }
     
+    @objc func saveHabitAdnSendButtonTapped() {
+        guard let textCell = habitView.createTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldCell,
+              let habitName = textCell.textField.text, let selectedColor = selectedColor else { return }
+        let newHabit = HabitEntry(name: habitName, color: selectedColor)
+        updateHabitSaveButtonState()
+        NotificationCenter.default.post(name: Notification.Name("NewHabitAdded"), object: newHabit)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateHabitSaveButtonState()
+    }
+    
+    func updateHabitSaveButtonState() {
+        let textCell = habitView.createTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldCell
+        let nameText = textCell?.textField.text ?? ""
+        let isColorSelected = selectedColor != nil // Проверка, что цвет выбран
+        habitView.buttonSaveAndSendInTable.isEnabled = !nameText.isEmpty && isColorSelected
+    }
+    
+    func showColorPicker() {
+        let color  = UIColorPickerViewController()
+        color.delegate = self
+        present(color, animated: true, completion: nil)
+    }
+
+    @objc func closeHabitVC() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

@@ -26,9 +26,7 @@ class ListUI {
         
         setupView(view)
         layout(view)
-        
     }
-    
     
     func setupView(_ view: UIView) {
         userContentTableView.frame = view.bounds
@@ -37,7 +35,6 @@ class ListUI {
     }
     
     func layout(_ view: UIView) {
-        
         Layout.applyView(titleLabel, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0)
         
         Layout.applyView(calendarDateStackView, view: view , leadingOffset: 285, trailingOffset: 0, additionalConstraints: {make in

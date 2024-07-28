@@ -4,13 +4,11 @@ import ElementBuilder
 
 class ImagePresentViewController: UIViewController {
     
-    var imageView: UIImageView!
-    var imageName: String?
-    var currentIndex = 0
-    var totalPages = 0
-    var descriptionLabel: UILabel!
-    var imageShape: ImageShape = .square
-    var imageDescription: String = ""
+    var imageView = Image.image("", contentMode: .scaleAspectFit)
+    
+    var imageName: String?; var currentIndex = 0; var totalPages = 0
+    
+    var descriptionLabel: UILabel!; var imageShape: ImageShape = .square; var imageDescription: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +17,6 @@ class ImagePresentViewController: UIViewController {
     }
     
     func configureUI() {
-        
-        imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         descriptionLabel = Label.label(text:imageDescription, fontSize: 15, weight: .bold, textColor: .label, textAlignment: .center, backgroundColor: .systemBackground)
         
         view.addSubview(imageView)
@@ -41,7 +34,7 @@ class ImagePresentViewController: UIViewController {
         }
         setupDescriptionLabelConstraints()
     }
-    // Методы для установки constraints для квадратного и круглого изображений
+
     private func setupSquareImageConstraints() {
         imageView.layer.cornerRadius = 30
         imageView.layer.masksToBounds = true

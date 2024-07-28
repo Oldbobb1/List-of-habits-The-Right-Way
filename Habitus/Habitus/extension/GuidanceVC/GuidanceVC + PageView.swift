@@ -18,7 +18,6 @@ extension GuidanceVC: UIPageViewControllerDataSource {
         
         return viewControllerAtIndex(index)
     }
-    
 }
 
 

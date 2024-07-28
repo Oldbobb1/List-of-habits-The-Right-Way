@@ -7,6 +7,7 @@ import ElementBuilder
 class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     
     let calendar = FSCalendar()
+    
     let button = ButtonsWithAction.makeButton(setTitle: "close", cornerRadius: 15, content: .center)
     
     var selectedDates = [Bool]()

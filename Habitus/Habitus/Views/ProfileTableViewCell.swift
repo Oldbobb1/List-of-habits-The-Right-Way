@@ -47,7 +47,6 @@ class ProfileTableViewCell: UITableViewCell {
     }
     
     func layout() {
-        
         Layout.applyView(profileImageView, view: contentView, additionalConstraints: { make in
             make.centerY.equalTo(self.contentView.snp.centerY)
             make.width.equalTo(70)

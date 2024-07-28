@@ -25,7 +25,6 @@ class GuidanceVC: UIPageViewController {
     }
     
     func configureUI(){
-        
         guideVIew.initializeUI(view)
         guideVIew.skipButtonPress.addTarget(self, action: #selector(buttonTappClose), for: .touchUpInside )
         

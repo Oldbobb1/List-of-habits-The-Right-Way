@@ -6,11 +6,7 @@ import ElementBuilder
 
 class ListVC: UIViewController {
     
-    let habitCell = "HabitTableViewCell"
-    let maxElements = 10
-    let listView = ListUI()
-    let listModel = ListModel ()
-    let dateAndWeekdayFormatter = DateAndWeekDayFormatter()
+    let habitCell = "HabitTableViewCell"; let maxElements = 10; let listView = ListUI(); let listModel = ListModel (); let dateAndWeekdayFormatter = DateAndWeekDayFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()

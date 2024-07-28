@@ -15,7 +15,6 @@ class NotesUI  {
     }
     
     func layout(_ view: UIView) {
-        
         Layout.applyView(titleLabel, view: view, topOffset: 0, leadingOffset: 0, trailingOffset: 0)
     }
 }
