@@ -37,16 +37,7 @@ extension SettingVC: UITableViewDataSource {
   
             if let image = UIImage(systemName: imageName) {
                 cell1.imageView?.image = image
-//                cell1.imageView?.tintColor = .green
-                
-                cell1.imageView?.backgroundColor = .systemGray6
-                cell1.imageView?.layer.cornerRadius = 5
-                cell1.imageView?.layer.masksToBounds = false
                 cell1.imageView?.tintColor = .red
-                cell1.imageView?.layer.shadowColor = UIColor.black.withAlphaComponent(0.6).cgColor
-                cell1.imageView?.layer.shadowOffset = CGSize(width: 0, height: 2)
-                cell1.imageView?.layer.shadowOpacity = 1
-                cell1.imageView?.layer.shadowRadius = 4
                 
             } else if let customImage = UIImage(named: imageName) {
                 cell1.imageView?.image = customImage
@@ -56,13 +47,7 @@ extension SettingVC: UITableViewDataSource {
             
             cell1.textLabel?.text = title
             cell1.textLabel?.font = .systemFont(ofSize: 17)
-//            cell1.textLabel?.textColor = .red
-
-            cell1.textLabel?.layer.shadowColor = UIColor.black.withAlphaComponent(0.6).cgColor
-            cell1.textLabel?.layer.shadowOffset = CGSize(width: 0, height: 2)
-            cell1.textLabel?.layer.shadowOpacity = 1
-            cell1.textLabel?.layer.shadowRadius = 4
-         
+            
             if (hasSwitch) {
                 let switchView = UISwitch(frame: .zero)
                 switchView.tag = indexPath.row // Установка тега для различения переключателей
@@ -70,14 +55,6 @@ extension SettingVC: UITableViewDataSource {
                 switchView.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
                 cell1.accessoryView = switchView
                 cell1.selectionStyle = .none
-                
-                switchView.backgroundColor = .systemGray6
-                switchView.layer.cornerRadius = 15
-                switchView.layer.masksToBounds = false
-                switchView.layer.shadowColor = UIColor.black.cgColor
-                switchView.layer.shadowOffset = CGSize(width: 0, height: 2)
-                switchView.layer.shadowOpacity = 1
-                switchView.layer.shadowRadius = 4
                 
             } else {
                 cell1.accessoryType = .disclosureIndicator
@@ -93,14 +70,7 @@ extension SettingVC: UITableViewDataSource {
             if let image = UIImage(systemName: imageName) {
                 cell.imageView?.image = image
                 
-                cell.imageView?.backgroundColor = .systemGray6
-                cell.imageView?.layer.cornerRadius = 5
-                cell.imageView?.layer.masksToBounds = false
                 cell.imageView?.tintColor = .red
-                cell.imageView?.layer.shadowColor = UIColor.black.cgColor
-                cell.imageView?.layer.shadowOffset = CGSize(width: 0, height: 2)
-                cell.imageView?.layer.shadowOpacity = 0.2
-                cell.imageView?.layer.shadowRadius = 4
                 
             } else if let customImage = UIImage(named: imageName) {
                 cell.imageView?.image = customImage
@@ -141,7 +111,6 @@ extension SettingVC: UITableViewDataSource {
             break
         }
     }
-    
 }
 
 

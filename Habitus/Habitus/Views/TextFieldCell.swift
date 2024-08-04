@@ -6,23 +6,13 @@ import ElementBuilder
 class TextFieldCell: UITableViewCell {
     
     let textField = TextField.textField(  placeholder: "  habit name", cornerRadius: 10, clipsToBounds: false)
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    
         contentView.addSubview(textField)
         contentView.clipsToBounds = true
-        
-//        if traitCollection.userInterfaceStyle == .dark {
-//            textField.backgroundColor = .red
-//            textField.layer.shadowColor = UIColor.white.cgColor
-//            textField.layer.shadowOpacity = 1
-//           } else {
-//               textField.layer.shadowColor = UIColor.black.cgColor
-//               textField.backgroundColor = .systemGray6
-//               textField.layer.shadowOpacity = 0.3
-//           }
-        
+
         textField.contentMode = .scaleAspectFill
         textField.backgroundColor = .systemGray6
         textField.layer.cornerRadius = 10

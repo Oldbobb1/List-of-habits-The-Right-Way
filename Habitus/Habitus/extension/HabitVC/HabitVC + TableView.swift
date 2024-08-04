@@ -44,14 +44,7 @@ extension HabitVC: UITableViewDataSource {
             if let image = UIImage(systemName: imageName) {
                 cellS.imageView?.image = image
                 
-                cellS.imageView?.backgroundColor = .systemGray6
-                cellS.imageView?.layer.cornerRadius = 10
-                cellS.imageView?.layer.masksToBounds = false
                 cellS.imageView?.tintColor = .red
-                cellS.imageView?.layer.shadowColor = UIColor.black.cgColor
-                cellS.imageView?.layer.shadowOffset = CGSize(width: 0, height: 2)
-                cellS.imageView?.layer.shadowOpacity = 0.2
-                cellS.imageView?.layer.shadowRadius = 4
 
             } else if let customImage = UIImage(named: imageName) {
                 cellS.imageView?.image = customImage
@@ -80,7 +73,7 @@ extension HabitVC: UITableViewDataSource {
     //                switchView.setOn(UserDefaults.standard.bool(forKey: "switchState"), animated: false)
                 switchView.addTarget(self, action: #selector(switchSend(_:)), for: .valueChanged)
                cellS.accessoryView = switchView
-               cellS.selectionStyle = .none  // Отключаем возможность нажатия на всю область
+               cellS.selectionStyle = .none
                
             } else {
                 cellS.accessoryType = .disclosureIndicator
@@ -89,15 +82,6 @@ extension HabitVC: UITableViewDataSource {
             }
             cellS.backgroundColor = .clear
             
-//            if traitCollection.userInterfaceStyle == .dark {
-//    //            textField.backgroundColor = .red
-//                cellS.backgroundColor = .red
-//                cellS.layer.shadowColor = UIColor.white.cgColor
-//
-//               } else {
-//                   cellS.layer.shadowColor = UIColor.black.cgColor
-//               }
-        
             return cellS
         default:
             return UITableViewCell()
@@ -115,11 +99,7 @@ extension HabitVC: UITableViewDataSource {
             break
         }
     }
-    
 }
 
 
 extension HabitVC: UITableViewDelegate { }
-
-
-

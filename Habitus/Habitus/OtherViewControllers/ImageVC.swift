@@ -6,10 +6,12 @@ class ImagePresentViewController: UIViewController {
     
     var imageView = Image.image("", contentMode: .scaleAspectFit)
     
-    var imageName: String?; var currentIndex = 0; var totalPages = 0
+    var imageName: String?
+    var currentIndex = 0
+    var totalPages = 0
     
     var descriptionLabel: UILabel!; var imageShape: ImageShape = .square; var imageDescription: String = ""
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
                 

@@ -60,7 +60,6 @@ extension ListVC: UITableViewDataSource {
 //        listModel.habits.insert(movedEmoji, at: destinationIndexPath.row)
         tableView.reloadData()
     }
-
 }
 
 
@@ -72,6 +71,5 @@ extension ListVC: UITableViewDelegate {
         calendarVC.modalPresentationStyle = .fullScreen
         present(calendarVC, animated: true, completion: nil)
     }
-    
 }
 

@@ -5,9 +5,12 @@ import AuthenticationServices
 
 class SettingVC: UIViewController  {
     
-    var isUserLoggedIn = false; var userName: String = ""; var userImage: UIImage?
+    var isUserLoggedIn = false
+    var userName: String = ""
+    var userImage: UIImage?
     
-    let settingView = SettingUI(); let settingModel = SettingModel()
+    let settingView = SettingUI()
+    let settingModel = SettingModel()
     
     var settingsItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?)] = []
     

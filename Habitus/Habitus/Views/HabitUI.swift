@@ -21,7 +21,6 @@ class HabitUI {
     }()
     
     func initializeUI(_ view: UIView) {
-        
         view.addSubview(titleLabel)
         view.addSubview(buttonCloseUIView)
         view.addSubview(buttonSaveAndSendInTable)
@@ -33,7 +32,6 @@ class HabitUI {
     }
     
     func setupView(_ view: UIView) {
-        
         createTableView.showsVerticalScrollIndicator = false
         createTableView.translatesAutoresizingMaskIntoConstraints = false
         createTableView.backgroundColor = .systemBackground
@@ -46,11 +44,19 @@ class HabitUI {
     }
     
     func layout(_ view: UIView) {
-        Layout.applyView(titleLabel, view: view, topOffset: 0.85, leadingOffset: 124, trailingOffset: -124)
+        Layout.applyView(titleLabel, view: view, topOffset: 0.85, leadingOffset: 10, trailingOffset: -10)
         
-        Layout.applyView(buttonCloseUIView, view: view, topOffset: 0, leadingOffset: 10, trailingOffset: -280)
+//        Layout.applyView(buttonCloseUIView, view: view, topOffset: 0, leadingOffset: 10, trailingOffset: -280)
+       
+        Layout.applyView(buttonCloseUIView, view: view, topOffset: 0, leadingOffset: 10, additionalConstraints: {make in
+            make.width.equalTo(100)
+        })
+
+//        Layout.applyView(buttonSaveAndSendInTable, view: view, topOffset: 0, leadingOffset: 280, trailingOffset: -10)
         
-        Layout.applyView(buttonSaveAndSendInTable, view: view, topOffset: 0, leadingOffset: 280, trailingOffset: -10)
+        Layout.applyView(buttonSaveAndSendInTable, view: view, topOffset: 0, trailingOffset: -10, additionalConstraints: {make in
+            make.width.equalTo(100)
+        })
         
         Layout.applyView(createTableView, view: view, leadingOffset: 0 , trailingOffset: 0, bottomOffset: 0, additionalConstraints:{ make in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(15)

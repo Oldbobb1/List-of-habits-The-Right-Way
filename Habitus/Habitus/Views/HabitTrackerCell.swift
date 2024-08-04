@@ -29,7 +29,6 @@ class HabitTrackerCell: UITableViewCell {
     }
     
     func layout() {
-        
         nameLabelCell.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
             make.leading.equalToSuperview().offset(20)
@@ -60,7 +59,7 @@ class HabitTrackerCell: UITableViewCell {
     }
     
     private func setupDayButtons() {
-        
+
         buttonStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
         let days = ["Вчера", "Сегодня", "Завтра"]

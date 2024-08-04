@@ -12,5 +12,4 @@ extension HabitVC: UIColorPickerViewControllerDelegate {
         let selectedColor = viewController.selectedColor
         habitView.selectedColorView.backgroundColor = selectedColor
     }
-    
 }

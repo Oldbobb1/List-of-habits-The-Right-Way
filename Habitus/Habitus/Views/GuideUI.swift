@@ -27,8 +27,7 @@ TrackTide
           "конец"
       ]
     
-    func initializeUI(_ view: UIView){
-        
+    func initializeUI(_ view: UIView) {
         pageControl = UIPageControl()
         pageControl.numberOfPages = imageNames.count
         pageControl.currentPage = 0
@@ -44,7 +43,6 @@ TrackTide
     }
     
     func layout(_ view: UIView) {
-        
         Layout.applyView(skipButtonPress, view: view, leadingOffset: 130, trailingOffset: -130, bottomOffset: -20)
         
         Layout.applyView(pageControl, view: view,leadingOffset: 10,trailingOffset: -10 , bottomOffset: -60)

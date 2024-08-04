@@ -9,13 +9,9 @@ class DaysModel {
     var selectedDays = [Int]()
     
     func setupDaysOfWeek(_ view: UIView, userInterfaceStyle: UIUserInterfaceStyle) {
-       
         for (index, day) in days.enumerated() {
             let dayButton = ButtonsWithAction.makeButton(setTitle: day,cornerRadius: 10,content: .center, setTitleColor: .systemGray,clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.2,shadowRadius: 4)
         
-//            dayButton.layer.shadowColor = (userInterfaceStyle == .dark) ? UIColor.white.cgColor : UIColor.black.cgColor
-//            dayButton.backgroundColor = (userInterfaceStyle == .dark) ? UIColor.gray: UIColor.red
-  
             view.addSubview(dayButton)
             
             Layout.applyView(dayButton, view: view,topOffset: 1, leadingOffset: (CGFloat(0.5) + CGFloat(CGFloat(index) * CGFloat(44.5))),bottomOffset: -1 ,additionalConstraints: { make in

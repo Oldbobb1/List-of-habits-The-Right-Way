@@ -6,7 +6,11 @@ import ElementBuilder
 
 class ListVC: UIViewController {
     
-    let habitCell = "HabitTableViewCell"; let maxElements = 10; let listView = ListUI(); let listModel = ListModel (); let dateAndWeekdayFormatter = DateAndWeekDayFormatter()
+    let habitCell = "HabitTableViewCell"
+    let maxElements = 10
+    let listView = ListUI()
+    let listModel = ListModel ()
+    let dateAndWeekdayFormatter = DateAndWeekDayFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +28,16 @@ class ListVC: UIViewController {
         updateDaysCalendar()
         listView.userContentTableView.delegate = self
         listView.userContentTableView.dataSource = self
-        listView.buttonOpenHabitVC.addTarget(self, action: #selector(openHabbitCreation) , for: .touchUpInside)
+//        listView.buttonOpenHabitVC.addTarget(self, action: #selector(openHabbitCreation) , for: .touchUpInside)
     }
     
-    @objc func openHabbitCreation(_ sender: UIButton) {
-        let habitVC  = HabitVC()
-        let navController = UINavigationController(rootViewController: habitVC)
-        navController.modalPresentationStyle = .fullScreen
-        animateButtonScale(for: sender, scaleFactor: 1.1)
-        self.present(navController, animated: true, completion: nil)
-    }
+//    @objc func openHabbitCreation(_ sender: UIButton) {
+//        let habitVC  = HabitVC()
+//        let navController = UINavigationController(rootViewController: habitVC)
+//        navController.modalPresentationStyle = .fullScreen
+//        animateButtonScale(for: sender, scaleFactor: 1.1)
+//        self.present(navController, animated: true, completion: nil)
+//    }
     
     @objc func newHabitAdded(_ notification: Notification) {
         if listModel.habits.count < maxElements {

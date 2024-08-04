@@ -18,7 +18,7 @@ class HabitVC: UIViewController {
                 
         habitView.initializeUI(view)
     
-        swipeActions()
+//        swipeActions()
         configureSettingsItems()
         configureUI()
     }

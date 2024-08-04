@@ -45,7 +45,7 @@ class SubscribeVC: UIViewController, UIPageViewControllerDataSource, UIPageViewC
     
     func createSlides() -> [UIViewController] {
         let slide1 = SlideViewController()
-        slide1.imageView.image = UIImage(named: "slide1")
+        slide1.imageView.image = UIImage(named: "Image1")
         slide1.label.text = "Преимущество 1"
         
         let slide2 = SlideViewController()
@@ -113,7 +113,6 @@ class SubscribeVC: UIViewController, UIPageViewControllerDataSource, UIPageViewC
         }
         return slides[index + 1]
     }
-    
 }
 
 
@@ -139,7 +138,7 @@ class SlideViewController: UIViewController {
         view.addSubview(label)
         
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
+            make.top.equalToSuperview().offset(150)
             make.centerX.equalToSuperview()
             make.width.height.equalTo(200)
         }

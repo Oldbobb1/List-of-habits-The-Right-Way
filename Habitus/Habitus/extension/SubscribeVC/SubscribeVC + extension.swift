@@ -11,5 +11,4 @@ extension SubscribeVC {
             guard let self = self else {return}
             dismiss(animated: true, completion: nil)})
     }
-    
 }

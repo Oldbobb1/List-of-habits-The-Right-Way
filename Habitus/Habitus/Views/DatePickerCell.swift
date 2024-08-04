@@ -11,18 +11,7 @@ class DatePickerCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.addSubview(datePicker)
-        
-//        if traitCollection.userInterfaceStyle == .dark {
-//               // Настройка элементов для темной темы
-//            datePicker.layer.shadowColor = UIColor.white.cgColor
-//            datePicker.backgroundColor = .systemGray6
-//               // ...
-//           } else {
-//               // Настройка элементов для светлой темы
-//               datePicker.layer.shadowColor = UIColor.black.cgColor
-//               // ...
-//           }
-        
+
         datePicker.layer.shadowColor = UIColor.black.cgColor
         datePicker.layer.shadowOffset = CGSize(width: 0, height: 2)
         datePicker.layer.shadowOpacity = 0.2

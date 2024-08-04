@@ -17,7 +17,6 @@ extension SettingVC: ASAuthorizationControllerDelegate {
             settingView.settingTableView.reloadSections(IndexSet(integer: 2), with: .automatic)
         }
     }
-    
 }
 
 

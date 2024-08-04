@@ -4,14 +4,14 @@ import ElementBuilder
 
 extension HabitVC {
     
-    func swipeActions() {
-        swipe = SwipeClass(viewController: self,
-                           leftAction:{},
-                           rightAction: {[weak self] in
-            guard let self = self else {return}
-            self.dismiss(animated: true, completion: nil)
-        })
-    }
+//    func swipeActions() {
+//        swipe = SwipeClass(viewController: self,
+//                           leftAction:{},
+//                           rightAction: {[weak self] in
+//            guard let self = self else {return}
+//            self.dismiss(animated: true, completion: nil)
+//        })
+//    }
     
     @objc func switchSend( _ sender: UISwitch){
         //        if sender.isOn {

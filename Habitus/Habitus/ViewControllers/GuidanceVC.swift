@@ -34,7 +34,7 @@ class GuidanceVC: UIPageViewController {
     }
 
     @objc func buttonTappClose() {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func viewControllerAtIndex(_ index: Int) -> ImagePresentViewController? {

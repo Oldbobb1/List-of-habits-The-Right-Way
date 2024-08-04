@@ -4,9 +4,9 @@ import UIKit
 
 
 class CustomNavigationController: UINavigationController {
-        
+    
     let customButtomMenu = CustomButtomMenu()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,15 +17,15 @@ class CustomNavigationController: UINavigationController {
         showInitialViewController()
         layout()
     }
-
+    
     private func setupBottomMenu() {
-        
         view.addSubview(customButtomMenu)
         customButtomMenu.translatesAutoresizingMaskIntoConstraints = false
         
+        customButtomMenu.openHabitVC.addTarget(self, action: #selector(habitButtonTapped), for: .touchUpInside)
         customButtomMenu.openListVC.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
-        customButtomMenu.openNotesVC.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
-        customButtomMenu.openSettingVC.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
+        customButtomMenu.openNotesVC.addTarget(self, action: #selector(notesButtonTapped), for: .touchUpInside)
+        customButtomMenu.openSettingVC.addTarget(self, action: #selector(settingButtonTapped), for: .touchUpInside)
     }
     
     private func layout() {
@@ -39,24 +39,23 @@ class CustomNavigationController: UINavigationController {
         self.setViewControllers([listVC], animated: false)
     }
     
-    @objc func cartButtonTapped(_ sender: UIButton) {
+    @objc func notesButtonTapped(_ sender: UIButton) {
         let notesVC = NotesVC()
         self.setViewControllers([notesVC], animated: false)
     }
     
-    @objc func favoriteButtonTapped(_ sender: UIButton) {
+    @objc func settingButtonTapped(_ sender: UIButton) {
         let settingVC = SettingVC()
         self.setViewControllers([settingVC], animated: false)
-    } 
+    }
     
-//    @objc func favoriteButtonTapped(_ sender: UIButton) {
-//        let habitVC  = HabitVC()
-//        let navController = UINavigationController(rootViewController: habitVC)
-//        navController.modalPresentationStyle = .fullScreen
-//        self.present(navController, animated: true, completion: nil)
-//    }
+    @objc func habitButtonTapped(_ sender: UIButton) {
+        let habitVC  = HabitVC()
+        let navController = UINavigationController(rootViewController: habitVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
+    }
 }
-
 
 
 

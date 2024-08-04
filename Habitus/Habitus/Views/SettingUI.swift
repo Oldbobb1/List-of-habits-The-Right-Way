@@ -9,7 +9,6 @@ class SettingUI {
     let settingTableView = UITableView(frame: .zero, style: .insetGrouped)
         
     func initializeUI(_ view: UIView) {
-        
         view.addSubview(titleLabel)
         view.addSubview(settingTableView)
         
@@ -20,7 +19,6 @@ class SettingUI {
     }
     
     func setupView(_ view: UIView) {
-        
         settingTableView.translatesAutoresizingMaskIntoConstraints = false
         settingTableView.backgroundColor = .systemBackground
         settingTableView.showsVerticalScrollIndicator = false

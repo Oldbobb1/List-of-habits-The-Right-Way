@@ -2,7 +2,7 @@ import SwiftUI
 
 
 struct ViewControllersPreview: UIViewControllerRepresentable {
-    
+   
     let viewControllerGenerator: () -> UIViewController
     
     init(viewControllerGenerator: @escaping () -> UIViewController) {
@@ -14,6 +14,7 @@ struct ViewControllersPreview: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
     }
 }
 

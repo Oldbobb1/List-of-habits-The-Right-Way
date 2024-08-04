@@ -17,28 +17,7 @@ class ProfileTableViewCell: UITableViewCell {
         contentView.addSubview(profileImageView)
         contentView.addSubview(profileLabel)
         contentView.addSubview(profileSubtitleLabel)
-        
-//        profileImageView.backgroundColor = .systemGray6
-//        profileImageView.layer.cornerRadius = 30
-//        profileImageView.layer.masksToBounds = false
-        profileImageView.layer.shadowColor = UIColor.black.withAlphaComponent(0.8).cgColor
-        profileImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        profileImageView.layer.shadowOpacity = 0.7
-        profileImageView.layer.shadowRadius = 3.2
-        profileImageView.layer.masksToBounds = true
 
-        profileLabel.layer.shadowColor = UIColor.black.cgColor
-        profileLabel.layer.shadowOffset = CGSize(width: 0, height: 2)
-        profileLabel.layer.shadowOpacity = 0.6
-        profileLabel.layer.shadowRadius = 1.8
-//        profileLabel.layer.masksToBounds = true
-        
-        profileSubtitleLabel.layer.shadowColor = UIColor.black.cgColor
-        profileSubtitleLabel.layer.shadowOffset = CGSize(width: 0, height: 2)
-        profileSubtitleLabel.layer.shadowOpacity = 0.6
-        profileSubtitleLabel.layer.shadowRadius = 1.8
-//        profileSubtitleLabel.layer.masksToBounds = true
-        
         layout()
     }
     

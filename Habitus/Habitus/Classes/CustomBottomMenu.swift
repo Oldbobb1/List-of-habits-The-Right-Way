@@ -4,7 +4,9 @@ import ElementBuilder
 
 class CustomButtomMenu: UIView {
     
-    let stackView = StackView.stackView(axis: .horizontal,distribution: .fillEqually, backgroundColor: .clear )
+    let stackView = StackView.stackView(axis: .horizontal,distribution: .fillEqually, backgroundColor: .clear, cornerRadius: 15 )
+    
+    let openHabitVC = ButtonsWithAction.makeButton(cornerRadius: 15,clipsToBounds: false, backgroundColor: .systemGray6,systemName: "plus.circle", setImage: nil,imageSize: CGSize(width: 38, height: 38) ,alpha: 1,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
     
     let openListVC = ButtonsWithAction.makeButton(cornerRadius: 15,clipsToBounds: false, backgroundColor: .systemGray6,systemName:"list.bullet.circle", setImage: nil,imageSize: CGSize(width: 38, height: 38) ,alpha: 1,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
     
@@ -38,15 +40,16 @@ class CustomButtomMenu: UIView {
     }
         
     private func setupView() {
-                
         addSubview(customBar)
         customBar.addSubview(stackView)
         
+        addSubview(openHabitVC)
         addSubview(openListVC)
         addSubview(openNotesVC)
         addSubview(openSettingVC)
         addSubview(stackView)
         
+        stackView.addArrangedSubview(openHabitVC)
         stackView.addArrangedSubview(openListVC)
         stackView.addArrangedSubview(openNotesVC)
         stackView.addArrangedSubview(openSettingVC)
