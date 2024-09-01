@@ -38,6 +38,9 @@ class HabitVC: UIViewController {
         habitView.buttonSaveAndSendInTable.addTarget(self, action: #selector(saveHabitAdnSendButtonTapped), for: .touchUpInside)
         habitView.buttonSaveAndSendInTable.isEnabled = false
     }
+    
+//    let cellHeights = [100, 100, 45, 50]
+    
 }
 
 

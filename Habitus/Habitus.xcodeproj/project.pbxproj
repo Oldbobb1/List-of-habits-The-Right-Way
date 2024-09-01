@@ -57,6 +57,7 @@
 		C4AC6A042C3ABD21004889C1 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC6A032C3ABD21004889C1 /* CalendarVC.swift */; };
 		C4AC6A072C3ABD49004889C1 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C4AC6A062C3ABD49004889C1 /* FSCalendar */; };
 		C4B2F68E2C42837500D0C683 /* CustomBottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2F68D2C42837500D0C683 /* CustomBottomMenu.swift */; };
+		C4B7A1912C61156800E5D4B5 /* CalendarVC + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7A1902C61156800E5D4B5 /* CalendarVC + extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceVC.swift; sourceTree = "<group>"; };
 		C4AC6A032C3ABD21004889C1 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		C4B2F68D2C42837500D0C683 /* CustomBottomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomMenu.swift; sourceTree = "<group>"; };
+		C4B7A1902C61156800E5D4B5 /* CalendarVC + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVC + extension.swift"; sourceTree = "<group>"; };
 		C4C253972C3F05B000BD3D38 /* Habitus.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Habitus.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,12 +205,13 @@
 		C432DBAD2C4BFF3B001A02C6 /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				C432DBD02C4C3CAF001A02C6 /* CustomNavigationController */,
 				C432DBCB2C4C3C32001A02C6 /* ListVC */,
 				C432DBCC2C4C3C4F001A02C6 /* SettingVC */,
 				C432DBCD2C4C3C5E001A02C6 /* HabitVC */,
 				C432DBCE2C4C3C6F001A02C6 /* GuidanceVC */,
 				C432DBCF2C4C3C7E001A02C6 /* SubscribeVC */,
-				C432DBD02C4C3CAF001A02C6 /* CustomNavigationController */,
+				C4B7A18F2C61153300E5D4B5 /* CalendarVC */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -316,6 +319,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4B7A18F2C61153300E5D4B5 /* CalendarVC */ = {
+			isa = PBXGroup;
+			children = (
+				C4B7A1902C61156800E5D4B5 /* CalendarVC + extension.swift */,
+			);
+			path = CalendarVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +445,7 @@
 				C4606C782C3AD6B3003DC45E /* CustomNavigationController.swift in Sources */,
 				C46DA4CD2C3ED37A00980EAC /* GuidanceVC + PageView.swift in Sources */,
 				C4606C852C3AD7A3003DC45E /* ProfileTableViewCell.swift in Sources */,
+				C4B7A1912C61156800E5D4B5 /* CalendarVC + extension.swift in Sources */,
 				C412DCD92C3D3E50006674B8 /* DaysCell.swift in Sources */,
 				C4AC69D02C3A9504004889C1 /* HabitTrackerCell.swift in Sources */,
 				C4AC6A022C3AB3A3004889C1 /* GuidanceVC.swift in Sources */,

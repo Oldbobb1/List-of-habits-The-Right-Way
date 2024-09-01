@@ -16,6 +16,9 @@ class CustomNavigationController: UINavigationController {
         setupBottomMenu()
         showInitialViewController()
         layout()
+        
+        self.delegate = self
+
     }
     
     private func setupBottomMenu() {
@@ -25,7 +28,9 @@ class CustomNavigationController: UINavigationController {
         customButtomMenu.openHabitVC.addTarget(self, action: #selector(habitButtonTapped), for: .touchUpInside)
         customButtomMenu.openListVC.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
         customButtomMenu.openNotesVC.addTarget(self, action: #selector(notesButtonTapped), for: .touchUpInside)
+        customButtomMenu.openStatisticsVC.addTarget(self, action: #selector(statisticButtonTapped), for: .touchUpInside)
         customButtomMenu.openSettingVC.addTarget(self, action: #selector(settingButtonTapped), for: .touchUpInside)
+        
     }
     
     private func layout() {
@@ -34,9 +39,28 @@ class CustomNavigationController: UINavigationController {
         })
     }
     
+//    @objc func habitButtonTapped(_ sender: UIButton) {
+//        if let currentViewController = self.viewControllers.last, currentViewController is ListVC {
+//            let habitVC  = HabitVC()
+//            let navController = UINavigationController(rootViewController: habitVC)
+//            navController.modalPresentationStyle = .fullScreen
+//            self.present(navController, animated: true, completion: nil)
+//        } else {
+//            print("Сейчас отображается другой контроллер.")
+//        }
+//        updateButtonVisibility()
+//    }
+        
+    @objc func habitButtonTapped(_ sender: UIButton) {
+        let habitVC  = HabitVC()
+        let navController = UINavigationController(rootViewController: habitVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
+    }
+        
     @objc func homeButtonTapped(_ sender: UIButton) {
-        let listVC = ListVC()
-        self.setViewControllers([listVC], animated: false)
+          let listVC = ListVC()
+          self.setViewControllers([listVC], animated: false)
     }
     
     @objc func notesButtonTapped(_ sender: UIButton) {
@@ -44,16 +68,36 @@ class CustomNavigationController: UINavigationController {
         self.setViewControllers([notesVC], animated: false)
     }
     
+    @objc func statisticButtonTapped(_ sender: UIButton) {
+        let stat = CalendarViewController()
+        self.setViewControllers([stat], animated: false)
+    
+    }
+    
     @objc func settingButtonTapped(_ sender: UIButton) {
         let settingVC = SettingVC()
         self.setViewControllers([settingVC], animated: false)
     }
     
-    @objc func habitButtonTapped(_ sender: UIButton) {
-        let habitVC  = HabitVC()
-        let navController = UINavigationController(rootViewController: habitVC)
-        navController.modalPresentationStyle = .fullScreen
-        self.present(navController, animated: true, completion: nil)
+    func updateButtonVisibility() {
+        if let currentViewController = self.viewControllers.last {
+            // Проверяем, что текущий контроллер - это нужный вам контроллер
+            if currentViewController is ListVC {
+                customButtomMenu.openHabitVC.isHidden = false
+            } else {
+                customButtomMenu.openHabitVC.isHidden = true
+            }
+        }
+    }
+
+}
+
+
+extension CustomNavigationController: UINavigationControllerDelegate {
+ 
+    // Переопределяем метод, который срабатывает при смене контроллера
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        updateButtonVisibility()
     }
 }
 
@@ -67,3 +111,7 @@ struct ViewControllerProvider0: PreviewProvider {
         }.edgesIgnoringSafeArea(.all)
     }
 }
+
+
+
+

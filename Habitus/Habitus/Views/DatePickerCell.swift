@@ -16,6 +16,8 @@ class DatePickerCell: UITableViewCell {
         datePicker.layer.shadowOffset = CGSize(width: 0, height: 2)
         datePicker.layer.shadowOpacity = 0.2
         datePicker.layer.shadowRadius = 4
+//        datePicker.layer.borderColor = UIColor.red.cgColor
+//        datePicker.layer.borderWidth = 1
     
         layout()
    }

@@ -15,8 +15,8 @@ class CalendarViewController: UIViewController {
     let label = Label.label(text: "name", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
     
     let buttonChangeUIView = ButtonsWithAction.makeButton(setTitle: "Edit Habit",cornerRadius: 15,setTitleColor: .black, clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.2,shadowRadius: 4)
-    
-    var selectedDates = [Bool]()
+        
+    var selectedDates =  [Date]()
     
     let containerView: UIView = {
         let containerView = UIView()
@@ -68,9 +68,12 @@ class CalendarViewController: UIViewController {
     
     let buttonScoreApply = ButtonsWithAction.makeButton(setTitle: "Write off Points",cornerRadius: 15,setTitleColor: .black, clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.2,shadowRadius: 4)
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
         view.backgroundColor = .systemBackground
         
         calendar.backgroundColor = .systemGray6
@@ -82,6 +85,7 @@ class CalendarViewController: UIViewController {
    
         calendar.delegate = self
         calendar.dataSource = self
+//        calendar.appearance.selectionColor = .red
         calendar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(calendar)
         
@@ -168,18 +172,28 @@ class CalendarViewController: UIViewController {
 //            make.height.equalTo(59)
 //            make.width.equalTo(180)
         })
-        // Выделяем выбранные даты
-        let calendar = Calendar.current
-        for (index, selected) in selectedDates.enumerated() {
-            if selected {
-                let date = calendar.date(byAdding: .day, value: index - 2, to: Date())!
-                self.calendar.select(date)
-            }
-        }
+
+        loadSelectedDates()
     }
     
     @objc func close() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+     func loadSelectedDates() {
+        if let data = UserDefaults.standard.data(forKey: "selectedDates"),
+           let dates = try? JSONDecoder().decode([Date].self, from: data) {
+            selectedDates = dates
+            for date in selectedDates {
+                calendar.select(date)
+            }
+        }
+    }
+    
+     func saveSelectedDates() {
+        if let data = try? JSONEncoder().encode(selectedDates) {
+            UserDefaults.standard.set(data, forKey: "selectedDates")
+        }
     }
 
 }
@@ -194,51 +208,3 @@ struct ViewControllerProvider6: PreviewProvider {
         }.edgesIgnoringSafeArea(.all)
     }
 }
-
-
-
-
-
-extension CalendarViewController: FSCalendarDataSource {
-    
-    
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let calendar = Calendar.current
-        let dayIndex = calendar.component(.day, from: date) - 1
-        
-        if dayIndex >= 0 && dayIndex < selectedDates.count {
-            selectedDates[dayIndex].toggle()
-
-            // Обновляем отображение календаря
-            if selectedDates[dayIndex] {
-                // Выделяем дату в календаре
-                self.calendar.select(date, scrollToDate: true)
-            } else {
-                // Снимаем выделение с даты в календаре
-                self.calendar.deselect(date)
-            }
-        }
-    }
-
-    // Метод, который определяет количество событий для определенной даты
-    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        let calendar = Calendar.current
-        let dayIndex = calendar.component(.day, from: date) - 1
-        
-        if dayIndex >= 0 && dayIndex < selectedDates.count && selectedDates[dayIndex] {
-            return 1 // Возвращаем 1, если дата выбрана
-        }
-        return 0 // Возвращаем 0, если дата не выбрана
-    }
-    
-    
-}
-
-
-
-
-
-
-
-
-extension CalendarViewController: FSCalendarDelegate { }

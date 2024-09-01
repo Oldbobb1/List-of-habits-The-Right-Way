@@ -6,6 +6,12 @@ extension HabitVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 7
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//        return CGFloat(cellHeights[indexPath.section])
+//    }
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -22,7 +28,7 @@ extension HabitVC: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cellText = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
-            cellText.configure(text: nil, delegate: self, color: selectedColor) // Передача текста и цвета
+//            cellText.configure(text: nil, delegate: self, color: selectedColor) // Передача текста и цвета
             cellText.backgroundColor = .clear
                  return cellText
         case 1:
