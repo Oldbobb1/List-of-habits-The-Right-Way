@@ -28,13 +28,37 @@ extension ListVC: UITableViewDataSource {
         cell.layer.mask = maskLayer
         
         listView.messageLabel.isHidden = !listModel.habits.isEmpty
+        listView.descriptionLabel.isHidden = !listModel.habits.isEmpty
+        listView.image.isHidden = !listModel.habits.isEmpty
+        
     }
+    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! HabitTrackerCell
+//        let object = listModel.habits[indexPath.row]
+////        cell.set(object: object)
+//        cell.set(object: object , habitName: object.name)
+//        return cell
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! HabitTrackerCell
         let object = listModel.habits[indexPath.row]
-//        cell.set(object: object)
+        
+        // Настройка ячейки
         cell.set(object: object , habitName: object.name)
+        
+        // Обновляем интерфейс в зависимости от состояния привычки
+        if object.isCompleted {
+            cell.messageLabel.text = "Выполнено"
+            cell.nameLabelCell.textColor = .systemGray6
+            cell.contentView.backgroundColor = cell.contentView.backgroundColor?.withAlphaComponent(0.5)
+        } else {
+            cell.messageLabel.text = ""
+            cell.nameLabelCell.textColor = .black
+            cell.contentView.backgroundColor = cell.contentView.backgroundColor?.withAlphaComponent(1)
+        }
+        
         return cell
     }
         
@@ -62,14 +86,70 @@ extension ListVC: UITableViewDataSource {
     }
 }
 
-
 extension ListVC: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let calendarVC = CalendarViewController()
-        calendarVC.modalPresentationStyle = .fullScreen
-        present(calendarVC, animated: true, completion: nil)
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? HabitTrackerCell else { return }
+        
+        let habit = listModel.habits[indexPath.row]  // Получаем привычку по индексу
+
+        if !habit.isCompleted {
+            // Первый алерт для подтверждения выполнения
+            let firstAlertController = UIAlertController(title: "Уведомление", message: "mission complete?", preferredStyle: .alert)
+            
+            firstAlertController.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+            
+            firstAlertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in   //[weak self]
+                guard let strongSelf = self else { return }
+                
+                // Обновляем интерфейс
+                cell.messageLabel.text = "Выполнено"
+                cell.nameLabelCell.textColor = .systemGray6
+                cell.contentView.backgroundColor = cell.contentView.backgroundColor?.withAlphaComponent(0.5)
+                cell.isCompleted = true
+                
+                // Обновляем данные привычки
+                strongSelf.listModel.habits[indexPath.row].isCompleted = true
+//                
+//                // Сохраняем обновленные данные
+                strongSelf.listModel.saveHabitData()
+                
+//                self.listModel.habits[indexPath.row].isCompleted = true
+                
+                // Сохраняем обновленные данные
+//                self.listModel.saveHabitData()
+            }))
+            
+            present(firstAlertController, animated: true, completion: nil)
+            
+        } else {
+            // Второй алерт для отмены выполнения
+            let cancelAlertController = UIAlertController(title: "Отмена", message: "Хотите отменить изменения?", preferredStyle: .alert)
+            
+            cancelAlertController.addAction(UIAlertAction(title: "Отменить", style: .destructive, handler: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                
+                // Восстанавливаем интерфейс
+                cell.messageLabel.text = ""
+                cell.nameLabelCell.textColor = .black
+                cell.contentView.backgroundColor = cell.contentView.backgroundColor?.withAlphaComponent(1)
+                cell.isCompleted = false
+                
+                // Обновляем данные привычки
+                strongSelf.listModel.habits[indexPath.row].isCompleted = false
+                
+                // Сохраняем обновленные данные
+                strongSelf.listModel.saveHabitData()
+            }))
+            
+            cancelAlertController.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
+            
+            present(cancelAlertController, animated: true, completion: nil)
+        }
     }
 }
+
+
 

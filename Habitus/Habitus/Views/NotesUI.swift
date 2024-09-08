@@ -4,7 +4,7 @@ import ElementBuilder
 
 class NotesUI  {
     
-    let titleLabel = Label.label(text: "Notes", fontSize: 25, weight:.bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
+    let titleLabel = Label.label(text: "Notes", fontSize: 25, weight:.bold, textColor: nil, textAlignment: .center, backgroundColor: .systemBackground)
     
     func initializeUI(_ view: UIView) {
         view.addSubview(titleLabel)

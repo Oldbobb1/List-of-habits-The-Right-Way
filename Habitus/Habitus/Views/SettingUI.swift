@@ -4,7 +4,7 @@ import ElementBuilder
 
 class SettingUI {
     
-    let titleLabel = Label.label(text: "Setting", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
+    let titleLabel = Label.label(text: "Setting", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .systemBackground)
     
     let settingTableView = UITableView(frame: .zero, style: .insetGrouped)
         
@@ -22,8 +22,14 @@ class SettingUI {
         settingTableView.translatesAutoresizingMaskIntoConstraints = false
         settingTableView.backgroundColor = .systemBackground
         settingTableView.showsVerticalScrollIndicator = false
-        settingTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//        settingTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         settingTableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "profileCell")
+        settingTableView.register(SetupCell.self, forCellReuseIdentifier: "setupCell")
+        settingTableView.register(SetupCell1.self, forCellReuseIdentifier: "setupCell1")
+        settingTableView.register(SetupCell2.self, forCellReuseIdentifier: "setupCell2")
+
+        
+
     }
     
     func layout(_ view: UIView) {

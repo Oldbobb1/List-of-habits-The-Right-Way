@@ -44,7 +44,8 @@ class CustomButtomMenu: UIView {
     private func setupView() {
         addSubview(customBar)
         customBar.addSubview(stackView)
-        
+        stackView.spacing = 5
+      
         addSubview(openHabitVC)
         addSubview(openListVC)
         addSubview(openNotesVC)
@@ -58,6 +59,7 @@ class CustomButtomMenu: UIView {
         stackView.addArrangedSubview(openStatisticsVC)
         stackView.addArrangedSubview(openSettingVC)
         
+
         layout()
     }
     

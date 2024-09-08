@@ -12,9 +12,9 @@ class SettingVC: UIViewController  {
     let settingView = SettingUI()
     let settingModel = SettingModel()
     
-    var settingsItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?)] = []
-    
-    var accountItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void))] = []
+//    var settingsItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?)] = []
+//    
+//    var accountItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void))] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,24 +24,29 @@ class SettingVC: UIViewController  {
         
         settingView.initializeUI(view)
         settingModel.requestNotificationAuthorization()
-        configureSettingsItems()
+//        configureSettingsItems()
     }
     
-    func configureSettingsItems() {
-        settingsItems = [
-            ("moon.stars.fill", "Оформление", true, nil),
-            ("bell.and.waves.left.and.right.fill", "Уведомления", true, nil),
-            ("questionmark.bubble", "Поддержка", false, { self.openMailApp()}),
-            ("text.book.closed.fill", "Гайд", false, { self.openGuidancePresentation()}),
-            ("star.square", "Оцените приложение", false, { self.showAlert()}),
-            ("dollarsign.circle.fill", "Подписка", false, { self.openSubscribeVC()})
-        ]
-        accountItems = [
-            ("apple.logo", "Войти с Apple", false, { self.signInWithApple() }),
-            ("icloud.and.arrow.up", "Резервное копирование", false, {self.backup()}),
-            ("arrowshape.turn.up.left", "Выйти", false, {self.logout()})
-        ]
-    }
+//    func configureSettingsItems() {
+//        settingsItems = [
+//            ("moon.stars.fill", "Оформление", true, nil),
+//            ("bell.and.waves.left.and.right.fill", "Уведомления", true, nil),
+//            ("questionmark.bubble", "Поддержка", false, { self.openMailApp()}),
+    
+//            ("text.book.closed.fill", "Гайд", false, { self.openGuidancePresentation()}),
+    
+//            ("star.square", "Оцените приложение", false, { self.showAlert()}),
+    
+//            ("dollarsign.circle.fill", "Подписка", false, { self.openSubscribeVC()})
+//        ]
+    
+    
+//        accountItems = [
+//            ("apple.logo", "Войти с Apple", false, { self.signInWithApple() }),
+//            ("icloud.and.arrow.up", "Резервное копирование", false, {self.backup()}),
+//            ("arrowshape.turn.up.left", "Выйти", false, {self.logout()})
+//        ]
+//    }
         
     func signInWithApple() {
         let request = ASAuthorizationAppleIDProvider().createRequest()

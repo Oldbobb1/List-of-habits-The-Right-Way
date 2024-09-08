@@ -15,10 +15,8 @@ extension HabitVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0, 1, 2:
+        case 0, 1, 2, 3:
             return 1
-        case 3:
-            return settingsItems.count
         default:
             return 0
         }
@@ -43,69 +41,47 @@ extension HabitVC: UITableViewDataSource {
             cellDays.backgroundColor = .clear
             return cellDays
         case 3:
-            let cellS = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            let (imageName, title, hasSwitch, _) = settingsItems[indexPath.row]
-            // Icon
-
-            if let image = UIImage(systemName: imageName) {
-                cellS.imageView?.image = image
-                
-                cellS.imageView?.tintColor = .red
-
-            } else if let customImage = UIImage(named: imageName) {
-                cellS.imageView?.image = customImage
-            } else {
-                cellS.imageView?.image = UIImage(systemName: "questionmark.circle")
-            }
-            // Title
-            cellS.textLabel?.text = title
-            cellS.textLabel?.font = .systemFont(ofSize: 17)
-     
-            if title == "Color" {
-                habitView.selectedColorView.backgroundColor = habitView.selectedColorView.backgroundColor ?? .clear
-                cellS.accessoryView = habitView.selectedColorView
-                
-                habitView.selectedColorView.layer.cornerRadius = 15
-                habitView.selectedColorView.layer.shadowColor = UIColor.black.cgColor
-                habitView.selectedColorView.layer.shadowOffset = CGSize(width: 0, height: 2)
-                habitView.selectedColorView.layer.shadowOpacity = 0.2
-                habitView.selectedColorView.layer.shadowRadius = 4
-                
-                cellS.selectionStyle = .default
-            }
-            // Accessory
-           else if (hasSwitch) {
-                let switchView = UISwitch(frame: .zero)
-    //                switchView.setOn(UserDefaults.standard.bool(forKey: "switchState"), animated: false)
-                switchView.addTarget(self, action: #selector(switchSend(_:)), for: .valueChanged)
-               cellS.accessoryView = switchView
-               cellS.selectionStyle = .none
-               
-            } else {
-                cellS.accessoryType = .disclosureIndicator
-                cellS.accessoryView = nil
-                cellS.accessoryType = .none
-            }
-            cellS.backgroundColor = .clear
+//            let cellS = tableView.dequeueReusableCell(withIdentifier: "TexеCell", for: indexPath) as! TexеCell
+//            cellS.selectionStyle = .none
+//            cellS.backgroundColor = .clear
+//            cellS.onColorViewTapped = { [weak self] in
+//                     self?.showColorPicker()
+//                 }
+//            return cellS
             
-            return cellS
+            let cellS = tableView.dequeueReusableCell(withIdentifier: "TexеCell", for: indexPath) as! TexеCell
+                   cellS.selectionStyle = .none
+                   cellS.backgroundColor = .clear
+                   cellS.onColorViewTapped = { [weak self] in
+                       self?.selectedIndexPath = indexPath // Сохраняем индекс ячейки
+                       self?.showColorPicker()
+                   }
+                   return cellS
+    
         default:
             return UITableViewCell()
         }
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        switch indexPath.section {
-        case 3:
-            let (_, _, _, action) = settingsItems[indexPath.row]
-            action?()
-        default:
-            break
-        }
-    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        
+//        switch indexPath.section {
+//        case 3:
+//            let (_, _, _, action) = settingsItems[indexPath.row]
+//            action?()
+//        default:
+//            break
+//        }
+//    }
 }
 
 
 extension HabitVC: UITableViewDelegate { }
+
+
+
+
+
+
+

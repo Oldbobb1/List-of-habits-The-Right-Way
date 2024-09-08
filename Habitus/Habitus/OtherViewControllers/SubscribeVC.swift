@@ -85,7 +85,7 @@ class SubscribeVC: UIViewController, UIPageViewControllerDataSource, UIPageViewC
         let option2 = UIAlertAction(title: "Годовая подписка", style: .default) { _ in
             print("Годовая подписка выбрана")
         }
-        let option3 = UIAlertAction(title: "Пожизненная подписка", style: .default) { _ in
+        let option3 = UIAlertAction(title: "Покупка приложения", style: .default) { _ in
             print("Пожизненная подписка выбрана")
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)

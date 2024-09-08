@@ -13,5 +13,7 @@ extension ListVC {
     
     func toggleMessageLabelVisibility() {
         listView.messageLabel.isHidden = !listModel.habits.isEmpty
-    } 
+        listView.descriptionLabel.isHidden = !listModel.habits.isEmpty
+        listView.image.isHidden = !listModel.habits.isEmpty
+    }
 }

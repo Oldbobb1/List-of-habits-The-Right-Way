@@ -1,22 +1,24 @@
 import SwiftUI
 import UIKit
-import FSCalendar
+
 import ElementBuilder
 
 
 class CalendarViewController: UIViewController {
     
-    let calendar = FSCalendar()
+  
     
-    let buttonCloseUIView = ButtonsWithAction.makeButton(setTitle: "Close",cornerRadius: 15,setTitleColor: .black, clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.2,shadowRadius: 4)
-    
-    let buttonDeleteUIView = ButtonsWithAction.makeButton(setTitle: "Delete",cornerRadius: 15,setTitleColor: .black, clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.2,shadowRadius: 4)
-    
-    let label = Label.label(text: "name", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
-    
-    let buttonChangeUIView = ButtonsWithAction.makeButton(setTitle: "Edit Habit",cornerRadius: 15,setTitleColor: .black, clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.2,shadowRadius: 4)
+    let stack = StackView.stackView(axis: .horizontal, cornerRadius: 15)
         
+    let label = Label.label(text: "Stats", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
+    
     var selectedDates =  [Date]()
+    
+//    let table: UITableView = {
+//        let table = UITableView()
+//        table.backgroundColor = .red
+//        return table
+//    }()
     
     let containerView: UIView = {
         let containerView = UIView()
@@ -63,10 +65,8 @@ class CalendarViewController: UIViewController {
     }()
     
     let scoreLabel = Label.label(text: "Points Accumulated: \n 0", fontSize: 15, weight: .regular, textColor: nil, textAlignment: .center, backgroundColor: .clear)
-    
-    let buttonMuteAndEnable = ButtonsWithAction.makeButton( cornerRadius: 15,clipsToBounds: false,backgroundColor: .systemGray6,systemName: "bell.badge.slash.fill.rtl", setImage: nil,imageSize: CGSize(width: 38, height: 38) ,alpha: 1, shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
-    
-    let buttonScoreApply = ButtonsWithAction.makeButton(setTitle: "Write off Points",cornerRadius: 15,setTitleColor: .black, clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.2,shadowRadius: 4)
+        
+    let buttonScoreApply = ButtonsWithAction.makeButton(setTitle: "Write off Points",cornerRadius: 15,setTitleColor: .black, clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.6,shadowRadius: 4)
     
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -76,27 +76,14 @@ class CalendarViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         
-        calendar.backgroundColor = .systemGray6
-        calendar.layer.cornerRadius = 15
-        calendar.layer.shadowColor = UIColor.black.cgColor
-        calendar.layer.shadowOffset = CGSize(width: 1, height: 1)
-        calendar.layer.shadowOpacity = 1
-        calendar.layer.shadowRadius = 2
-   
-        calendar.delegate = self
-        calendar.dataSource = self
-//        calendar.appearance.selectionColor = .red
-        calendar.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(calendar)
-        
-        view.addSubview(buttonCloseUIView)
-        
-        view.addSubview(buttonDeleteUIView)
-        
+       
         view.addSubview(label)
-        view.addSubview(buttonChangeUIView)
+//   
+//        view.addSubview(table)
+//        table.delegate = self
+//        table.dataSource = self
         
-        view.addSubview(containerView)
+//        view.addSubview(containerView)
         containerView.addSubview(greenCircle)
         containerView.addSubview(redCircle)
         containerView.addSubview(completeLabel)
@@ -105,27 +92,25 @@ class CalendarViewController: UIViewController {
         view.addSubview(containerView1)
         containerView1.addSubview(scoreLabel)
         
-        view.addSubview(buttonMuteAndEnable)
+
         view.addSubview(buttonScoreApply)
         
-        buttonCloseUIView.addTarget(self, action: #selector(close), for: .touchUpInside)
-
-        Layout.applyView(calendar, view: view, topOffset: 60, leadingOffset: 10, trailingOffset: -10, bottomOffset: -400)
+        view.addSubview(stack)
+        stack.addArrangedSubview(containerView)
+        stack.addArrangedSubview(containerView1)
         
-        Layout.applyView(buttonCloseUIView, view: view, topOffset: 0, leadingOffset: 10, additionalConstraints: { make in
+        Layout.applyView(stack, view: view,topOffset: 90, leadingOffset: 10, trailingOffset: -10, additionalConstraints: {make in
             make.width.equalTo(100)
+            make.height.equalTo(120)
         })
         
-        Layout.applyView(buttonDeleteUIView, view: view, topOffset: 0, trailingOffset: -10, additionalConstraints: {make in
-            make.width.equalTo(100)
-        })
+ 
         
         Layout.applyView(label, view: view, topOffset: 0.85, leadingOffset: 10, trailingOffset: -10)
         
-//        Layout.applyView(buttonChangeUIView, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: 0)
- 
-        Layout.applyView(containerView, view: view,topOffset: 390, leadingOffset: 10, additionalConstraints: {make in
-            make.width.equalTo(180)
+        Layout.applyView(containerView, view: stack,additionalConstraints: {make in
+            make.trailing.equalTo(self.containerView1.snp.leading).offset(-10)
+             make.width.equalTo(180)
             make.height.equalTo(80)
         })
 
@@ -151,51 +136,20 @@ class CalendarViewController: UIViewController {
             make.centerY.equalTo(redCircle.snp.centerY)
         }
         
-        Layout.applyView(containerView1, view: view,topOffset: 390, trailingOffset: -10, additionalConstraints: {make in
+        Layout.applyView(containerView1, view: stack, additionalConstraints: {make in
             make.width.equalTo(180)
             make.height.equalTo(80)
         })
         
         Layout.applyView(scoreLabel, view: containerView1, topOffset: 15, leadingOffset: 10)
                 
-        Layout.applyView(buttonMuteAndEnable, view: view,topOffset: 490, leadingOffset: 10, additionalConstraints: {make in
-            make.width.equalTo(180)
-            make.height.equalTo(58)
-        })
-              
-        Layout.applyView(buttonChangeUIView, view: view,topOffset: 490, trailingOffset: -10, additionalConstraints: {make in
-            make.height.equalTo(59)
-            make.width.equalTo(180)
-        })
-        
-        Layout.applyView(buttonScoreApply, view: view,topOffset: 570, leadingOffset: 10,trailingOffset: -10, additionalConstraints: {make in
+        Layout.applyView(buttonScoreApply, view: view,topOffset: 240, leadingOffset: 10,trailingOffset: -10, additionalConstraints: {make in
 //            make.height.equalTo(59)
 //            make.width.equalTo(180)
         })
-
-        loadSelectedDates()
-    }
     
-    @objc func close() {
-        self.dismiss(animated: true, completion: nil)
     }
-    
-     func loadSelectedDates() {
-        if let data = UserDefaults.standard.data(forKey: "selectedDates"),
-           let dates = try? JSONDecoder().decode([Date].self, from: data) {
-            selectedDates = dates
-            for date in selectedDates {
-                calendar.select(date)
-            }
-        }
-    }
-    
-     func saveSelectedDates() {
-        if let data = try? JSONEncoder().encode(selectedDates) {
-            UserDefaults.standard.set(data, forKey: "selectedDates")
-        }
-    }
-
+ 
 }
 
 
@@ -208,3 +162,20 @@ struct ViewControllerProvider6: PreviewProvider {
         }.edgesIgnoringSafeArea(.all)
     }
 }
+
+
+
+//extension CalendarViewController: UITableViewDelegate { }
+//
+//
+//extension CalendarViewController: UITableViewDataSource {
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//    
+//}

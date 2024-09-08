@@ -2,6 +2,7 @@ import SwiftUI
 import UIKit
 import SnapKit
 import ElementBuilder
+import JTAppleCalendar
 
 
 class ListVC: UIViewController {
@@ -12,6 +13,8 @@ class ListVC: UIViewController {
     let listModel = ListModel ()
     let dateAndWeekdayFormatter = DateAndWeekDayFormatter()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,15 +22,33 @@ class ListVC: UIViewController {
         configureUI()
         
         NotificationCenter.default.addObserver(self, selector: #selector(newHabitAdded(_:)), name: Notification.Name("NewHabitAdded"), object: nil)
+
+    }
+    
+  func updateMonthLabel(for date: Date) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM, yyyy"
+      listView.monthLabel.text = dateFormatter.string(from: date)
     }
     
     private func configureUI() {
         
+    
+          // Обновляем таблицу, чтобы показать загруженные привычки
+        listView.userContentTableView.reloadData()
+        
         listModel.loadHabitData()
         listView.initializeUI(view)
-        updateDaysCalendar()
+//        updateDaysCalendar()
         listView.userContentTableView.delegate = self
         listView.userContentTableView.dataSource = self
+        
+        listView.calendarView.calendarDataSource = self
+        listView.calendarView.calendarDelegate = self
+        
+        listView.calendarView.scrollToDate(Date(), animateScroll: false)
+        updateMonthLabel(for: Date())
+        
 //        listView.buttonOpenHabitVC.addTarget(self, action: #selector(openHabbitCreation) , for: .touchUpInside)
     }
     
@@ -61,4 +82,12 @@ struct ViewControllerProvider1: PreviewProvider {
         }.edgesIgnoringSafeArea(.all)
     }
 }
+
+
+
+
+
+
+
+
 

@@ -9,7 +9,7 @@ class HabitVC: UIViewController {
     
     var swipe: SwipeClass?; var selectedColor: UIColor?
     
-    var settingsItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?)] = []
+//    var settingsItems: [(image: String, title: String, hasSwitch: Bool, action: (() -> Void)?)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,16 +19,16 @@ class HabitVC: UIViewController {
         habitView.initializeUI(view)
     
 //        swipeActions()
-        configureSettingsItems()
+//        configureSettingsItems()
         configureUI()
     }
    
-    func configureSettingsItems() {
-        settingsItems = [
-            ("paintbrush", "Color", false, { self.showColorPicker()}),
-            ("repeat.circle", "Signal repeat", true, nil),
-        ]
-    }
+//    func configureSettingsItems() {
+//        settingsItems = [
+//           ("paintbrush", "Color", false, { self.showColorPicker()}),
+//            ("repeat.circle", "Signal repeat", true, nil),
+//        ]
+//    }
         
     func configureUI() {
         habitView.createTableView.dataSource = self
@@ -40,6 +40,8 @@ class HabitVC: UIViewController {
     }
     
 //    let cellHeights = [100, 100, 45, 50]
+    
+    var selectedIndexPath: IndexPath?
     
 }
 
@@ -53,6 +55,15 @@ struct ViewControllerProvider4: PreviewProvider {
         }.edgesIgnoringSafeArea(.all)
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 

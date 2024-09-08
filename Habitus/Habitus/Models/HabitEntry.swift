@@ -1,27 +1,30 @@
 import UIKit
 
-
 struct HabitEntry: Codable {
     
     var name: String
     var colorHex: String
-    var buttonStates: [ButtonState]
+    var isCompleted: Bool
+//    var message: String
+//    var buttonStates: [ButtonState]
     
     var color: UIColor {
         return UIColor(hexString: colorHex)
     }
     
-    init(name: String, color: UIColor, buttonStates:[ButtonState] = [ButtonState](repeating: ButtonState(isChecked: false), count: 3)) {
+    init(name: String, color: UIColor, isCompleted: Bool = false) {
         self.name = name
         self.colorHex = color.toHexString()
-        self.buttonStates = buttonStates
+//        self.buttonStates = buttonStates
+        self.isCompleted = isCompleted
+//        self.message = message
     }
 }
 
 
-struct ButtonState: Codable {
-    var isChecked: Bool
-}
+//struct ButtonState: Codable {
+//    var isChecked: Bool
+//}
 
 
 extension UIColor {
@@ -43,3 +46,6 @@ extension UIColor {
         self.init(red: r, green: g, blue: b, alpha: 1.0)
     }
 }
+
+
+

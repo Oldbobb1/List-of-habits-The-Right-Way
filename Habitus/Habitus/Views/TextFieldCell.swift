@@ -56,7 +56,7 @@ class TextFieldCell: UITableViewCell {
         textField.layer.cornerRadius = 8
         textField.layer.shadowColor = UIColor.black.cgColor
         textField.layer.shadowOffset = CGSize(width: 0, height: 2)
-        textField.layer.shadowOpacity = 0.2
+        textField.layer.shadowOpacity = 0.6
         textField.layer.shadowRadius = 4
         textField.translatesAutoresizingMaskIntoConstraints = false
         
@@ -68,7 +68,10 @@ class TextFieldCell: UITableViewCell {
     }
     
     func layout() {
-        Layout.applyView(textField, view: contentView, topOffset: 8, leadingOffset: 10, trailingOffset: -10, bottomOffset: -8)
+        Layout.applyView(textField, view: contentView, topOffset: 8, leadingOffset: 10, trailingOffset: -10, bottomOffset: -8, additionalConstraints: {make in
+            
+//            make.height.equalTo(50)
+        })
         
 //        Layout.applyView(containerView, view: contentView,topOffset: 8, leadingOffset: 10, additionalConstraints: {make in
 //            make.width.equalTo(150)
