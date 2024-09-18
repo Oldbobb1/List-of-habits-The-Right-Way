@@ -1,31 +1,21 @@
 import UIKit
 
 struct HabitEntry: Codable {
-    
     var name: String
     var colorHex: String
     var isCompleted: Bool
-//    var message: String
-//    var buttonStates: [ButtonState]
-    
+    var reminderTime: Date? // Store the selected time for the reminder
     var color: UIColor {
         return UIColor(hexString: colorHex)
     }
     
-    init(name: String, color: UIColor, isCompleted: Bool = false) {
+    init(name: String, color: UIColor, reminderTime: Date?, isCompleted: Bool = false) {
         self.name = name
         self.colorHex = color.toHexString()
-//        self.buttonStates = buttonStates
+        self.reminderTime = reminderTime
         self.isCompleted = isCompleted
-//        self.message = message
     }
 }
-
-
-//struct ButtonState: Codable {
-//    var isChecked: Bool
-//}
-
 
 extension UIColor {
     
@@ -46,6 +36,4 @@ extension UIColor {
         self.init(red: r, green: g, blue: b, alpha: 1.0)
     }
 }
-
-
 

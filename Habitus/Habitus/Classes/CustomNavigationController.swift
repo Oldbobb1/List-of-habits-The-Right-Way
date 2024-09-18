@@ -30,7 +30,6 @@ class CustomNavigationController: UINavigationController {
         customButtomMenu.openNotesVC.addTarget(self, action: #selector(notesButtonTapped), for: .touchUpInside)
         customButtomMenu.openStatisticsVC.addTarget(self, action: #selector(statisticButtonTapped), for: .touchUpInside)
         customButtomMenu.openSettingVC.addTarget(self, action: #selector(settingButtonTapped), for: .touchUpInside)
-        
     }
     
     private func layout() {

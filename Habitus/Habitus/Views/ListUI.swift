@@ -5,10 +5,10 @@ import JTAppleCalendar
 
 class ListUI {
     
-    let titleLabel = Label.label(text: "List", fontSize: 25, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
+    let titleLabel = Label.label(text: "List", fontSize: 28, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
     
     
-    let messageLabel = Label.label(text: "Welcome to Habit Tracker!", fontSize: 24, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
+    let messageLabel = Label.label(text: "Welcome to Habit!", fontSize: 24, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
     let descriptionLabel = Label.label(text: "Track your daily habits and improve your life", fontSize: 17, weight: .light, textColor: .gray, textAlignment: .center, backgroundColor: .clear)
     let image = Image.image("welcome", contentMode: .scaleToFill)
     
@@ -46,7 +46,8 @@ class ListUI {
     let monthLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
-        label.textColor = .lightGray
+//        label.textColor = .lightGray
+        label.textColor = .systemBackground
         label.backgroundColor = .clear
 //        label.textAlignment = .center
         return label
@@ -78,8 +79,8 @@ class ListUI {
     func setupView(_ view: UIView) {
         userContentTableView.frame = view.bounds
         userContentTableView.backgroundColor = .systemBackground
-        userContentTableView.layer.cornerRadius = 40
-        userContentTableView.layer.borderWidth = 1
+        userContentTableView.layer.cornerRadius = 25
+//        userContentTableView.layer.borderWidth = 1
         userContentTableView.showsVerticalScrollIndicator = false
         userContentTableView.register(HabitTrackerCell.self, forCellReuseIdentifier: "habitCell")
         
@@ -103,7 +104,7 @@ class ListUI {
 
         Layout.applyView(userContentTableView, view: view, leadingOffset: 0 , trailingOffset: 0, bottomOffset: 0, additionalConstraints:{ make in
 //            make.top.equalTo(self.calendarDateStackView.snp.bottom).offset(5)
-                        make.top.equalTo(self.calendarView.snp.bottom).offset(10)
+                        make.top.equalTo(self.calendarView.snp.bottom).offset(15)
             make.bottom.equalTo(view.snp.bottom).offset(0)
         })
         

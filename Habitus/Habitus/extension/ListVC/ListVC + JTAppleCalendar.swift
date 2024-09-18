@@ -13,7 +13,7 @@ extension ListVC: JTACMonthViewDelegate {
         cell.configureCell(state: cellState, date: date)
         return cell
     }
-    
+
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState) {
         guard let validCell = cell as? CustomCalendarCell else { return }
         validCell.select()
@@ -23,14 +23,15 @@ extension ListVC: JTACMonthViewDelegate {
         guard let validCell = cell as? CustomCalendarCell else { return }
         validCell.deselect()
     }
+
     
     func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         if let date = visibleDates.monthDates.first?.date {
             updateMonthLabel(for: date)
         }
     }
-    
 }
+
 
 
 extension ListVC: JTACMonthViewDataSource {
@@ -43,10 +44,15 @@ extension ListVC: JTACMonthViewDataSource {
                                                  endDate: endDate,
                                                  numberOfRows: 1,
                                                  calendar: Calendar.current,
-                                                 generateInDates: .forAllMonths,
-                                                 generateOutDates: .tillEndOfGrid,
-                                                 hasStrictBoundaries: true)
+                                                 generateInDates: .off,             //.forAllMonths,
+                                                 generateOutDates:.off,     //.tillEndOfGrid,
+                                                 firstDayOfWeek: .monday,
+                                                 hasStrictBoundaries: false)
         return parameters
     }
     
 }
+
+
+
+

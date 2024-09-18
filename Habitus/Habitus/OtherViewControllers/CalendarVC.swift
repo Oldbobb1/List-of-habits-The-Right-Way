@@ -71,11 +71,44 @@ class CalendarViewController: UIViewController {
     let scrollView = UIScrollView()
     let contentView = UIView()
     
+    
+    
+    
+    private let gradientLayer: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.colors = [
+            UIColor.systemBlue.withAlphaComponent(0.8).cgColor,
+            UIColor.systemPink.withAlphaComponent(0.8).cgColor
+        ]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        return gradient
+    }()
+    
+    // таблца
+//    private let gradientLayer: CAGradientLayer = {
+//        let gradient = CAGradientLayer()
+//        gradient.colors = [
+//            UIColor.systemPurple.withAlphaComponent(0.8).cgColor,
+//            UIColor.systemOrange.withAlphaComponent(0.8).cgColor
+//        ]
+//        gradient.startPoint = CGPoint(x: 0, y: 0)
+//        gradient.endPoint = CGPoint(x: 1, y: 1)
+//        return gradient
+//    }()
+    
+
+    private func setupGradientBackground() {
+        gradientLayer.frame = view.bounds
+        view.layer.addSublayer(gradientLayer)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
+//        view.backgroundColor = .systemBackground
         
+        setupGradientBackground()
        
         view.addSubview(label)
 //   

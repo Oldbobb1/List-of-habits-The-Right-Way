@@ -10,7 +10,8 @@ class DaysCell: UITableViewCell {
 
         daysModel.setupDaysOfWeek(contentView, userInterfaceStyle: traitCollection.userInterfaceStyle)
         
-        contentView.clipsToBounds = false
+        contentView.clipsToBounds = true
+       
     }
     
     required init?(coder: NSCoder) {

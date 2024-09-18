@@ -5,14 +5,17 @@ import ElementBuilder
 
 class SetupCell2: UITableViewCell {
     
-    let buttonCloseUIView = ButtonsWithAction.makeButton(setTitle:"Sign in Apple", cornerRadius: 15, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), configuration: .plain(), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "apple.logo",setImage: nil, imageSize:CGSize(width: 20, height: 25),alpha: 1, shadowColor:UIColor.black.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
+//    let buttonCloseUIView = ButtonsWithAction.makeButton(setTitle:"Sign in Apple", cornerRadius: 15, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), configuration: .plain(), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "apple.logo",setImage: nil, imageSize:CGSize(width: 20, height: 25),alpha: 1, shadowColor:UIColor.black.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
+//    
+//    
+//    let buttonCloseUIView1 = ButtonsWithAction.makeButton(setTitle:"Backup" ,cornerRadius: 15, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "icloud.and.arrow.up",setImage: nil, imageSize:CGSize(width: 30, height: 30),alpha: 1, shadowColor:UIColor.black.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
+//    
+//    
+//    let buttonCloseUIView2 = ButtonsWithAction.makeButton(setTitle:"LogOut" ,cornerRadius: 15, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "arrowshape.turn.up.left",setImage: nil, imageSize:CGSize(width: 30, height: 30),alpha: 1, shadowColor:UIColor.black.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
     
-    
-    let buttonCloseUIView1 = ButtonsWithAction.makeButton(setTitle:"Backup" ,cornerRadius: 15, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "icloud.and.arrow.up",setImage: nil, imageSize:CGSize(width: 30, height: 30),alpha: 1, shadowColor:UIColor.black.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
-    
-    
-    let buttonCloseUIView2 = ButtonsWithAction.makeButton(setTitle:"LogOut" ,cornerRadius: 15, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "arrowshape.turn.up.left",setImage: nil, imageSize:CGSize(width: 30, height: 30),alpha: 1, shadowColor:UIColor.black.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
-    
+    let buttonCloseUIView = ButtonsWithAction.makeButton(setTitle:"Star" ,cornerRadius: 20, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "star.square",setImage: nil, imageSize:CGSize(width: 30, height: 30),alpha: 1, shadowColor:UIColor.gray.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
+   //
+    let buttonCloseUIView1 = ButtonsWithAction.makeButton(setTitle:"Subscribe" ,cornerRadius: 20, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "dollarsign.circle.fill",setImage: nil, imageSize:CGSize(width: 30, height: 30),alpha: 1, shadowColor:UIColor.gray.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -21,6 +24,9 @@ class SetupCell2: UITableViewCell {
         stackView.layer.cornerRadius = 15
         stackView.spacing = 5 // Отступ между контейнерами
 //                stackView.backgroundColor = .green
+        stackView.isLayoutMarginsRelativeArrangement = true
+               stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // Отступы от границ stackView
+
         return stackView
     }()
     
@@ -31,6 +37,9 @@ class SetupCell2: UITableViewCell {
         stackView.layer.cornerRadius = 15
         stackView.spacing = 5 // Отступ между контейнерами
 //                stackView.backgroundColor = .green
+        stackView.isLayoutMarginsRelativeArrangement = true
+               stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // Отступы от границ stackView
+
         return stackView
     }()
     
@@ -43,7 +52,7 @@ class SetupCell2: UITableViewCell {
         stackView.addArrangedSubview(buttonCloseUIView)
         
         stackView1.addArrangedSubview(buttonCloseUIView1)
-        stackView1.addArrangedSubview(buttonCloseUIView2)
+//        stackView1.addArrangedSubview(buttonCloseUIView2)
         
         
         contentView.addSubview(stackView1)
@@ -64,19 +73,36 @@ class SetupCell2: UITableViewCell {
 //              make.height.equalTo(40) // Высота stackView
 //          }
         
+//        stackView.snp.makeConstraints { make in
+//              make.top.equalToSuperview().inset(5) // Отступ сверху
+//              make.leading.trailing.equalToSuperview().inset(5) // Горизонтальные отступы
+//              make.height.equalTo(40) // Высота stackView
+//          }
+//          
+//          // Размещение stackView1 под stackView
+//          stackView1.snp.makeConstraints { make in
+//              make.top.equalTo(stackView.snp.bottom).offset(5) // Отступ сверху от stackView
+//              make.leading.trailing.equalToSuperview().inset(5) // Горизонтальные отступы
+//              make.height.equalTo(40) // Высота stackView1
+//              make.bottom.equalToSuperview().inset(5) // Отступ снизу
+//          }
+        
         stackView.snp.makeConstraints { make in
-              make.top.equalToSuperview().inset(5) // Отступ сверху
-              make.leading.trailing.equalToSuperview().inset(5) // Горизонтальные отступы
-              make.height.equalTo(40) // Высота stackView
+              make.top.equalToSuperview().inset(20) // Отступ сверху
+              make.leading.trailing.equalToSuperview().inset(1) // Горизонтальные отступы
+//            make.trailing.equalToSuperview().inset(175)
+              make.height.equalTo(60)// Высота stackView
+            make.width.equalToSuperview().inset(90)
           }
-          
-          // Размещение stackView1 под stackView
-          stackView1.snp.makeConstraints { make in
-              make.top.equalTo(stackView.snp.bottom).offset(5) // Отступ сверху от stackView
-              make.leading.trailing.equalToSuperview().inset(5) // Горизонтальные отступы
-              make.height.equalTo(40) // Высота stackView1
-              make.bottom.equalToSuperview().inset(5) // Отступ снизу
-          }
+        
+        stackView1.snp.makeConstraints { make in
+            make.top.equalTo(stackView.snp.bottom).offset(-10) // Отступ сверху от stackView
+//              make.leading.trailing.equalToSuperview().inset(1) // Горизонтальные отступы
+            make.trailing.equalToSuperview().inset(1)
+            make.height.equalTo(60) // Высота stackView1
+            make.bottom.equalToSuperview().inset(1) // Отступ снизу
+            make.width.equalToSuperview().inset(90)
+        }
         
     }
     
@@ -203,4 +229,8 @@ class SetupCell2: UITableViewCell {
 //        return UIApplication.shared.windows.first { $0.isKeyWindow } ?? UIWindow()
 //    }
 //}
+
+
+
+
 

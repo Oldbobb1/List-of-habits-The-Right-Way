@@ -44,7 +44,6 @@ class HabitTrackerCell: UITableViewCell {
     
     func set(object: HabitEntry, habitName: String) {
         nameLabelCell.text = object.name
-//        messageLabel.text = object.message
         contentView.backgroundColor = object.color
         self.habitName = habitName // сохраняем имя привычки для использования в ключе UserDefaults
     }

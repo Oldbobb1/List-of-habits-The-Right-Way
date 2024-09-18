@@ -3,17 +3,17 @@ import ElementBuilder
 
 
 class HabitUI {
-
-    let titleLabel = Label.label(text: "New Habit", fontSize: 25, weight: .bold, textColor: nil,textAlignment: .center, backgroundColor: .systemBackground,clipsToBounds: false)
+    
+    let titleLabel = Label.label(text: "New Habit", fontSize: 28, weight: .bold, textColor: nil,textAlignment: .center, backgroundColor: .clear,clipsToBounds: false)
 //cornerRadius: 16
 //    let buttonCloseUIView = ButtonsWithAction.makeButton(setTitle: "Cancel",cornerRadius: 15,setTitleColor: .systemGray, clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.2,shadowRadius: 4)
     
     // 28 - 28 // 38 - 38
-    let buttonCloseUIView = ButtonsWithAction.makeButton(cornerRadius: 17,clipsToBounds: false,backgroundColor: .clear,systemName:"x.circle.fill", setImage: nil,imageSize: CGSize(width: 39, height: 38) ,alpha: 1,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
+    let buttonCloseUIView = ButtonsWithAction.makeButton(cornerRadius: 17,clipsToBounds: false,backgroundColor: .clear,systemName:"x.circle", setImage: nil,imageSize: CGSize(width: 39, height: 38) ,alpha: 1,shadowColor: UIColor.systemRed.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
     
 //    let buttonSaveAndSendInTable = ButtonsWithAction.makeButton(setTitle: "Save", cornerRadius: 15, setTitleColor: .systemGray,clipsToBounds: false,backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.2,shadowRadius: 4)
     
-    let buttonSaveAndSendInTable = ButtonsWithAction.makeButton(cornerRadius: 17,clipsToBounds: false,backgroundColor: .clear,systemName:"paperplane.circle.fill", setImage: nil,imageSize: CGSize(width: 39, height: 38) ,alpha: 1,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
+    let buttonSaveAndSendInTable = ButtonsWithAction.makeButton(cornerRadius: 17,clipsToBounds: false,backgroundColor: .clear,systemName:"paperplane.circle", setImage:nil,imageSize: CGSize(width: 39, height: 38) ,alpha: 1,shadowColor: UIColor.systemRed.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4)
     
     let createTableView = UITableView(frame: .zero, style: .insetGrouped)
     
@@ -41,7 +41,9 @@ class HabitUI {
         createTableView.translatesAutoresizingMaskIntoConstraints = false
         createTableView.backgroundColor = .systemBackground
         createTableView.showsVerticalScrollIndicator = false
-        createTableView.layer.cornerRadius = 15
+        createTableView.layer.cornerRadius = 25
+//        createTableView.layer.borderWidth = 1
+//        createTableView.contentInset = UIEdgeInsets(top: -15, left: 0, bottom: 0, right: 0)
 
         createTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         createTableView.register(TextFieldCell.self, forCellReuseIdentifier: "TextFieldCell")
@@ -49,7 +51,8 @@ class HabitUI {
         createTableView.register(DaysCell.self, forCellReuseIdentifier: "DaysCell")
         createTableView.register(TexеCell.self, forCellReuseIdentifier: "TexеCell")
         
-//        buttonCloseUIView.tintColor = .white
+        buttonCloseUIView.tintColor = .red   
+        buttonSaveAndSendInTable.tintColor = .red
     }
     
     func layout(_ view: UIView) {
@@ -69,7 +72,7 @@ class HabitUI {
         })
         
         Layout.applyView(createTableView, view: view, leadingOffset: 0 , trailingOffset: 0, bottomOffset: 0, additionalConstraints:{ make in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(15)
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(30)
             make.leading.trailing.bottom.equalToSuperview()
         })
     }

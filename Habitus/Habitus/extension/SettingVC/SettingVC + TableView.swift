@@ -4,27 +4,39 @@ import UIKit
 extension SettingVC: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 8
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0,1,2,3:
+        case 0,1,2,3,4,5:
             //        case 0,1,2,3,4:
             return 1
         default:
             return 0
         }
     }
-    //
+//    MARK: - установка отступа
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5 // Укажите нужную высоту отступа
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear // Прозрачный фон
+        return headerView
+    }
+    
+
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //        
         switch indexPath.section {
         case 0:
             let profileCell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as! ProfileTableViewCell
-            let profileImage = isUserLoggedIn ? userImage : UIImage(systemName: "person.circle.fill")
-            let profileName = isUserLoggedIn ? userName : "Sign In"
-            profileCell.configure(profileImage: profileImage, name: profileName, subtitle: "Apple ID, Icloud")
+            let profileImage = isUserLoggedIn ? userImage : UIImage(systemName: "person.circle")
+            let profileName = isUserLoggedIn ? userName : "?"
+            profileCell.configure(profileImage: profileImage, name: profileName, subtitle: "?")
             profileCell.backgroundColor = .clear
             profileCell.selectionStyle = .none
             return profileCell
@@ -44,15 +56,28 @@ extension SettingVC: UITableViewDataSource {
                         let cell = tableView.dequeueReusableCell(withIdentifier: "setupCell1", for: indexPath) as! SetupCell1
             cell.selectionStyle = .none
             cell.backgroundColor = .clear
-                        return cell
+            cell.view = self
+            return cell
             case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "setupCell2", for: indexPath) as! SetupCell2
             cell.selectionStyle = .none
             cell.backgroundColor = .clear
                 return cell
-            //case 4:
-            //    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as!
-            //    return cell
+            case 4:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "setupCell3", for: indexPath) as! SetupCell3
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+//            cell.isHidden = true 
+                return cell
+        case 5:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "setupCell4", for: indexPath) as! SetupCell4
+        cell.backgroundColor = .clear
+        cell.selectionStyle = .none
+            // При удачном входе
+//            cell.updateButton(isLoggedIn: true)
+            // Если пользователь не вошёл в систему
+//            cell.updateButton(isLoggedIn: false)
+            return cell
             //        default:
             //            return UITableViewCell()
             //        }
@@ -75,10 +100,78 @@ extension SettingVC: UITableViewDataSource {
         //        }
         //    }
     }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.row == 0 {
+            return indexPath // Отключаем выбор для первой ячейки
+        }
+        return nil // Включаем выбор для остальных ячеек
+    }
+
 }
 
-extension SettingVC: UITableViewDelegate { }
+extension SettingVC: UITableViewDelegate {
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        
+//        let alertController = UIAlertController(title: " Sing in Account", message: nil, preferredStyle: .actionSheet)
+//        
+//        let option1 = UIAlertAction(title: " Sign in Apple", style: .default) { _ in
+////            print("Месячная подписка выбрана")
+//        }
+////        let option2 = UIAlertAction(title: "Годовая подписка", style: .default) { _ in
+////            print("Годовая подписка выбрана")
+////        }
+////        let option3 = UIAlertAction(title: "Покупка приложения", style: .default) { _ in
+////            print("Пожизненная подписка выбрана")
+////        }
+//        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+//        
+//        alertController.addAction(option1)
+////        alertController.addAction(option2)
+////        alertController.addAction(option3)
+//        alertController.addAction(cancelAction)
+//        
+//        self.present(alertController, animated: true, completion: nil)
+//        
+//    }
 
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        
+//        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        
+//        // Создаем атрибутированный заголовок
+//        let titleFont = UIFont.systemFont(ofSize: 18)
+//        let titleText = " Sign in with Apple"
+//        
+//        let imageAttachment = NSTextAttachment()
+//        imageAttachment.image = UIImage(systemName: "apple.logo")?.withRenderingMode(.alwaysTemplate) // Используем системную иконку
+//        let imageString = NSAttributedString(attachment: imageAttachment)
+//        
+//        let textString = NSAttributedString(string: titleText, attributes: [.font: titleFont])
+//        
+//        let attributedTitle = NSMutableAttributedString()
+//        attributedTitle.append(imageString)
+//        attributedTitle.append(textString)
+//        
+//        alertController.setValue(attributedTitle, forKey: "attributedTitle")
+//        
+//        let option1 = UIAlertAction(title: "Sign in", style: .default) { _ in
+//            // Действие при выборе
+//        }
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        
+//        alertController.addAction(option1)
+//        alertController.addAction(cancelAction)
+//        
+//        self.present(alertController, animated: true, completion: nil)
+//    }
+    
+}
+    
+    
 
 
 

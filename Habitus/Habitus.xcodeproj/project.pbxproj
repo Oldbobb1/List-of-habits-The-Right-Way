@@ -21,6 +21,8 @@
 		C432DBB22C4C10DC001A02C6 /* SubscribeVC + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432DBB12C4C10DC001A02C6 /* SubscribeVC + extension.swift */; };
 		C432DBB42C4C1B42001A02C6 /* CustomNavigationController + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432DBB32C4C1B42001A02C6 /* CustomNavigationController + extension.swift */; };
 		C432DBD22C4C3CF7001A02C6 /* Habit + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C432DBD12C4C3CF7001A02C6 /* Habit + extension.swift */; };
+		C43307A12C98961600DB0516 /* LAunchSCreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43307A02C98961600DB0516 /* LAunchSCreen.swift */; };
+		C43307A32C98963E00DB0516 /* черновик.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43307A22C98963E00DB0516 /* черновик.swift */; };
 		C43D3A162C8B5055005A0C7D /* ListVC + JTAppleCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D3A152C8B5055005A0C7D /* ListVC + JTAppleCalendar.swift */; };
 		C43D3A182C8B50C3005A0C7D /* CustomCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D3A172C8B50C3005A0C7D /* CustomCalendarCell.swift */; };
 		C43D3A1A2C8B516E005A0C7D /* TexеCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D3A192C8B516E005A0C7D /* TexеCell.swift */; };
@@ -62,8 +64,9 @@
 		C4AC69D92C3AB1FE004889C1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4AC69D82C3AB1FE004889C1 /* SnapKit */; };
 		C4AC6A022C3AB3A3004889C1 /* GuidanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */; };
 		C4AC6A042C3ABD21004889C1 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC6A032C3ABD21004889C1 /* CalendarVC.swift */; };
-		C4AC6A072C3ABD49004889C1 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C4AC6A062C3ABD49004889C1 /* FSCalendar */; };
 		C4B2F68E2C42837500D0C683 /* CustomBottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2F68D2C42837500D0C683 /* CustomBottomMenu.swift */; };
+		C4B32CCF2C973DF500C050E1 /* SetupCell4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B32CCE2C973DF400C050E1 /* SetupCell4.swift */; };
+		C4B32CD12C973E2700C050E1 /* SetupCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B32CD02C973E2700C050E1 /* SetupCell3.swift */; };
 		C4B7A1912C61156800E5D4B5 /* CalendarVC + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7A1902C61156800E5D4B5 /* CalendarVC + extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +85,8 @@
 		C432DBB12C4C10DC001A02C6 /* SubscribeVC + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubscribeVC + extension.swift"; sourceTree = "<group>"; };
 		C432DBB32C4C1B42001A02C6 /* CustomNavigationController + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomNavigationController + extension.swift"; sourceTree = "<group>"; };
 		C432DBD12C4C3CF7001A02C6 /* Habit + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit + extension.swift"; sourceTree = "<group>"; };
+		C43307A02C98961600DB0516 /* LAunchSCreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAunchSCreen.swift; sourceTree = "<group>"; };
+		C43307A22C98963E00DB0516 /* черновик.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "черновик.swift"; sourceTree = "<group>"; };
 		C43D3A152C8B5055005A0C7D /* ListVC + JTAppleCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListVC + JTAppleCalendar.swift"; sourceTree = "<group>"; };
 		C43D3A172C8B50C3005A0C7D /* CustomCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarCell.swift; sourceTree = "<group>"; };
 		C43D3A192C8B516E005A0C7D /* TexеCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TexеCell.swift"; sourceTree = "<group>"; };
@@ -123,6 +128,8 @@
 		C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceVC.swift; sourceTree = "<group>"; };
 		C4AC6A032C3ABD21004889C1 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		C4B2F68D2C42837500D0C683 /* CustomBottomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomMenu.swift; sourceTree = "<group>"; };
+		C4B32CCE2C973DF400C050E1 /* SetupCell4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCell4.swift; sourceTree = "<group>"; };
+		C4B32CD02C973E2700C050E1 /* SetupCell3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCell3.swift; sourceTree = "<group>"; };
 		C4B7A1902C61156800E5D4B5 /* CalendarVC + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVC + extension.swift"; sourceTree = "<group>"; };
 		C4C253972C3F05B000BD3D38 /* Habitus.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Habitus.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,7 +142,6 @@
 				C49ABEAD2C40267E0036CB20 /* ElementBuilder in Frameworks */,
 				C44CFCA92C88907B00D15DC1 /* JTAppleCalendar in Frameworks */,
 				C4AC69D92C3AB1FE004889C1 /* SnapKit in Frameworks */,
-				C4AC6A072C3ABD49004889C1 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,16 +180,18 @@
 				C4606C7C2C3AD729003DC45E /* NotesUI.swift */,
 				C4606C812C3AD767003DC45E /* SettingUI.swift */,
 				C4606C992C3ADA48003DC45E /* GuideUI.swift */,
+				C4AC69CF2C3A9504004889C1 /* HabitTrackerCell.swift */,
 				C412DCDA2C3D3E6D006674B8 /* TextFieldCell.swift */,
 				C4606C912C3AD949003DC45E /* DatePickerCell.swift */,
 				C412DCD82C3D3E50006674B8 /* DaysCell.swift */,
-				C4AC69CF2C3A9504004889C1 /* HabitTrackerCell.swift */,
 				C4606C842C3AD7A3003DC45E /* ProfileTableViewCell.swift */,
 				C43D3A172C8B50C3005A0C7D /* CustomCalendarCell.swift */,
 				C43D3A192C8B516E005A0C7D /* TexеCell.swift */,
 				C420D59C2C8DDF660082A503 /* SetupCell.swift */,
 				C420D59E2C8DDFAA0082A503 /* SetupCell1.swift */,
 				C420D5A02C8DDFDA0082A503 /* SetupCell2.swift */,
+				C4B32CD02C973E2700C050E1 /* SetupCell3.swift */,
+				C4B32CCE2C973DF400C050E1 /* SetupCell4.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +338,8 @@
 				C432DBAD2C4BFF3B001A02C6 /* extension */,
 				C432DBAE2C4BFF7C001A02C6 /* enum */,
 				C432DBAA2C4BFE21001A02C6 /* Resources */,
+				C43307A22C98963E00DB0516 /* черновик.swift */,
+				C43307A02C98961600DB0516 /* LAunchSCreen.swift */,
 			);
 			path = Habitus;
 			sourceTree = "<group>";
@@ -367,7 +377,6 @@
 			name = Habitus;
 			packageProductDependencies = (
 				C4AC69D82C3AB1FE004889C1 /* SnapKit */,
-				C4AC6A062C3ABD49004889C1 /* FSCalendar */,
 				C49ABEAC2C40267E0036CB20 /* ElementBuilder */,
 				C44CFCA82C88907B00D15DC1 /* JTAppleCalendar */,
 			);
@@ -401,7 +410,6 @@
 			mainGroup = C4AC69992C3A8F62004889C1;
 			packageReferences = (
 				C4AC69D72C3AB1FE004889C1 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				C4AC6A052C3ABD49004889C1 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				C49ABEAB2C40267E0036CB20 /* XCRemoteSwiftPackageReference "ElementBuilder" */,
 				C44CFCA72C88907B00D15DC1 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
 			);
@@ -439,6 +447,7 @@
 				C4606C822C3AD767003DC45E /* SettingUI.swift in Sources */,
 				C4AC69C62C3A92BD004889C1 /* ListModel.swift in Sources */,
 				C4AC69AA2C3A8F62004889C1 /* ListVC.swift in Sources */,
+				C43307A12C98961600DB0516 /* LAunchSCreen.swift in Sources */,
 				C4606C8F2C3AD8F5003DC45E /* HabitUI.swift in Sources */,
 				C4606C922C3AD949003DC45E /* DatePickerCell.swift in Sources */,
 				C4606C9A2C3ADA48003DC45E /* GuideUI.swift in Sources */,
@@ -448,6 +457,7 @@
 				C412DCF82C3D44CC006674B8 /* BackupСopyVC.swift in Sources */,
 				C4AC69A62C3A8F62004889C1 /* AppDelegate.swift in Sources */,
 				C43D3A1A2C8B516E005A0C7D /* TexеCell.swift in Sources */,
+				C4B32CCF2C973DF500C050E1 /* SetupCell4.swift in Sources */,
 				C4606C882C3AD7DD003DC45E /* SettingVC + TableView.swift in Sources */,
 				C412DCE72C3D4356006674B8 /* Layout.swift in Sources */,
 				C432DBB22C4C10DC001A02C6 /* SubscribeVC + extension.swift in Sources */,
@@ -457,6 +467,7 @@
 				C4606C7B2C3AD70B003DC45E /* NotesModel.swift in Sources */,
 				C4606C8A2C3AD809003DC45E /* SettingVC + SignInApple.swift in Sources */,
 				C412DCDF2C3D400C006674B8 /* HabitVC + TextField.swift in Sources */,
+				C43307A32C98963E00DB0516 /* черновик.swift in Sources */,
 				C4AC69BF2C3A9017004889C1 /* SettingVC.swift in Sources */,
 				C43D3A162C8B5055005A0C7D /* ListVC + JTAppleCalendar.swift in Sources */,
 				C4606C802C3AD755003DC45E /* SettingModel.swift in Sources */,
@@ -473,6 +484,7 @@
 				C46DA4CD2C3ED37A00980EAC /* GuidanceVC + PageView.swift in Sources */,
 				C4606C852C3AD7A3003DC45E /* ProfileTableViewCell.swift in Sources */,
 				C4B7A1912C61156800E5D4B5 /* CalendarVC + extension.swift in Sources */,
+				C4B32CD12C973E2700C050E1 /* SetupCell3.swift in Sources */,
 				C412DCD92C3D3E50006674B8 /* DaysCell.swift in Sources */,
 				C4AC69D02C3A9504004889C1 /* HabitTrackerCell.swift in Sources */,
 				C43D3A182C8B50C3005A0C7D /* CustomCalendarCell.swift in Sources */,
@@ -628,7 +640,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F23TVVXJV4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Habitus/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Habitus;
@@ -638,6 +650,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -661,7 +674,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F23TVVXJV4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Habitus/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Habitus;
@@ -671,6 +684,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -733,14 +747,6 @@
 				minimumVersion = 5.7.1;
 			};
 		};
-		C4AC6A052C3ABD49004889C1 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.8.4;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -758,11 +764,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C4AC69D72C3AB1FE004889C1 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		C4AC6A062C3ABD49004889C1 /* FSCalendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C4AC6A052C3ABD49004889C1 /* XCRemoteSwiftPackageReference "FSCalendar" */;
-			productName = FSCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

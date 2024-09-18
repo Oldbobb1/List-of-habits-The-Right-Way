@@ -16,15 +16,16 @@ class CustomCalendarCell: JTACDayCell {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18)
+
         return label
     }()
     
     let selectedView: UIView = {
          let view = UIView()
-         view.backgroundColor = .systemGray3
+         view.backgroundColor = .systemGray6
          view.layer.cornerRadius = 18
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOffset = CGSize(width: 1, height: 2)
         view.layer.shadowOpacity = 0.6
         view.layer.shadowRadius = 4
          return view
@@ -35,9 +36,9 @@ class CustomCalendarCell: JTACDayCell {
         view.backgroundColor = .blue
         view.layer.cornerRadius = 15
 //        view.isHidden = true // Скрыт по умолчанию
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 2)
-        view.layer.shadowOpacity = 0.6
+        view.layer.shadowColor = UIColor.blue.cgColor
+        view.layer.shadowOffset = CGSize(width: 1, height: 2)
+        view.layer.shadowOpacity = 0.7
         view.layer.shadowRadius = 4
         return view
     }()
@@ -114,7 +115,7 @@ class CustomCalendarCell: JTACDayCell {
         let today = Date()
         if Calendar.current.isDate(cellState.date, inSameDayAs: today) {
             currentDayHighlightView.isHidden = false
-            dateLabel.textColor = .red
+            dateLabel.textColor = .systemRed
             dayOfWeekLabel.textColor = .white // Также выделяем день недели
         } else {
             currentDayHighlightView.isHidden = true
@@ -128,7 +129,8 @@ class CustomCalendarCell: JTACDayCell {
     }
     
     func deselect() {
-        dateLabel.textColor = .yellow
+//        dateLabel.textColor = .yellow
+        dateLabel.textColor = UIColor(named: "tint")
         dayOfWeekLabel.textColor = .black // Сбрасываем цвет при отмене выбора
     }
 }

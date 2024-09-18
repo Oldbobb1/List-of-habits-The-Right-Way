@@ -3,6 +3,11 @@ import UIKit
 
 extension ListVC: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listModel.habits.count
+    }
+    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -11,10 +16,7 @@ extension ListVC: UITableViewDataSource {
         return 80
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listModel.habits.count
-    }
-    
+ 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let maskLayer = CALayer()
         maskLayer.cornerRadius = 25
@@ -44,10 +46,9 @@ extension ListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! HabitTrackerCell
         let object = listModel.habits[indexPath.row]
-        
         // Настройка ячейки
         cell.set(object: object , habitName: object.name)
-        
+ 
         // Обновляем интерфейс в зависимости от состояния привычки
         if object.isCompleted {
             cell.messageLabel.text = "Выполнено"
@@ -59,9 +60,10 @@ extension ListVC: UITableViewDataSource {
             cell.contentView.backgroundColor = cell.contentView.backgroundColor?.withAlphaComponent(1)
         }
         
+        
         return cell
     }
-        
+      
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
@@ -150,6 +152,11 @@ extension ListVC: UITableViewDelegate {
         }
     }
 }
+
+
+
+
+
 
 
 
