@@ -129,8 +129,7 @@ class CustomCalendarCell: JTACDayCell {
     }
     
     func deselect() {
-//        dateLabel.textColor = .yellow
-        dateLabel.textColor = UIColor(named: "tint")
+        dateLabel.textColor = .gray
         dayOfWeekLabel.textColor = .black // Сбрасываем цвет при отмене выбора
     }
 }

@@ -9,7 +9,7 @@ extension SettingVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0,1,2,3,4,5:
+        case 0,1,2,3,4:
             //        case 0,1,2,3,4:
             return 1
         default:
@@ -39,6 +39,7 @@ extension SettingVC: UITableViewDataSource {
             profileCell.configure(profileImage: profileImage, name: profileName, subtitle: "?")
             profileCell.backgroundColor = .clear
             profileCell.selectionStyle = .none
+           
             return profileCell
                     case 1:
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "setupCell", for: indexPath) as! SetupCell
@@ -69,15 +70,15 @@ extension SettingVC: UITableViewDataSource {
             cell.selectionStyle = .none
 //            cell.isHidden = true 
                 return cell
-        case 5:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "setupCell4", for: indexPath) as! SetupCell4
-        cell.backgroundColor = .clear
-        cell.selectionStyle = .none
-            // При удачном входе
-//            cell.updateButton(isLoggedIn: true)
-            // Если пользователь не вошёл в систему
-//            cell.updateButton(isLoggedIn: false)
-            return cell
+//        case 5:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "setupCell4", for: indexPath) as! SetupCell4
+//            cell.backgroundColor = .clear
+//        cell.selectionStyle = .none
+//            // При удачном входе
+////            cell.updateButton(isLoggedIn: true)
+//            // Если пользователь не вошёл в систему
+////            cell.updateButton(isLoggedIn: false)
+//            return cell
             //        default:
             //            return UITableViewCell()
             //        }

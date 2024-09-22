@@ -52,12 +52,13 @@ class CustomButtomMenu: UIView {
         openSettingVC.tintColor = .black
         openNotesVC.tintColor = .black
         openStatisticsVC.tintColor = .black
-      
-        addSubview(openHabitVC)
-        addSubview(openListVC)
-        addSubview(openNotesVC)
-        addSubview(openSettingVC)
-        addSubview(openStatisticsVC)
+        
+    
+//        addSubview(openHabitVC)
+//        addSubview(openListVC)
+//        addSubview(openNotesVC)
+//        addSubview(openSettingVC)
+//        addSubview(openStatisticsVC)
         addSubview(stackView)
         
         stackView.addArrangedSubview(openHabitVC)
@@ -82,6 +83,7 @@ class CustomButtomMenu: UIView {
         }
     }
 }
+
 
 
 

@@ -65,7 +65,6 @@
 		C4AC6A022C3AB3A3004889C1 /* GuidanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */; };
 		C4AC6A042C3ABD21004889C1 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC6A032C3ABD21004889C1 /* CalendarVC.swift */; };
 		C4B2F68E2C42837500D0C683 /* CustomBottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2F68D2C42837500D0C683 /* CustomBottomMenu.swift */; };
-		C4B32CCF2C973DF500C050E1 /* SetupCell4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B32CCE2C973DF400C050E1 /* SetupCell4.swift */; };
 		C4B32CD12C973E2700C050E1 /* SetupCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B32CD02C973E2700C050E1 /* SetupCell3.swift */; };
 		C4B7A1912C61156800E5D4B5 /* CalendarVC + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B7A1902C61156800E5D4B5 /* CalendarVC + extension.swift */; };
 /* End PBXBuildFile section */
@@ -128,7 +127,6 @@
 		C4AC6A012C3AB3A3004889C1 /* GuidanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceVC.swift; sourceTree = "<group>"; };
 		C4AC6A032C3ABD21004889C1 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		C4B2F68D2C42837500D0C683 /* CustomBottomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomMenu.swift; sourceTree = "<group>"; };
-		C4B32CCE2C973DF400C050E1 /* SetupCell4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCell4.swift; sourceTree = "<group>"; };
 		C4B32CD02C973E2700C050E1 /* SetupCell3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCell3.swift; sourceTree = "<group>"; };
 		C4B7A1902C61156800E5D4B5 /* CalendarVC + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVC + extension.swift"; sourceTree = "<group>"; };
 		C4C253972C3F05B000BD3D38 /* Habitus.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Habitus.entitlements; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 				C420D59E2C8DDFAA0082A503 /* SetupCell1.swift */,
 				C420D5A02C8DDFDA0082A503 /* SetupCell2.swift */,
 				C4B32CD02C973E2700C050E1 /* SetupCell3.swift */,
-				C4B32CCE2C973DF400C050E1 /* SetupCell4.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -457,7 +454,6 @@
 				C412DCF82C3D44CC006674B8 /* BackupСopyVC.swift in Sources */,
 				C4AC69A62C3A8F62004889C1 /* AppDelegate.swift in Sources */,
 				C43D3A1A2C8B516E005A0C7D /* TexеCell.swift in Sources */,
-				C4B32CCF2C973DF500C050E1 /* SetupCell4.swift in Sources */,
 				C4606C882C3AD7DD003DC45E /* SettingVC + TableView.swift in Sources */,
 				C412DCE72C3D4356006674B8 /* Layout.swift in Sources */,
 				C432DBB22C4C10DC001A02C6 /* SubscribeVC + extension.swift in Sources */,

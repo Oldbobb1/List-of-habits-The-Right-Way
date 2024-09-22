@@ -72,7 +72,7 @@ class HabitVC: UIViewController {
         setupGradientBackground()
         setupGradientBackground1()
         habitView.initializeUI(view)
-//        swipeActions()
+        swipeActions()
 //        configureSettingsItems()
         configureUI()
     }

@@ -4,16 +4,6 @@ import ElementBuilder
 
 class SetupCell: UITableViewCell {
     
-    let buttonCloseUIView = ButtonsWithAction.makeButton(setTitle:"Поддержка" ,cornerRadius: 15, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "questionmark.bubble",setImage: nil, imageSize:CGSize(width: 30, height: 30),alpha: 1, shadowColor:UIColor.gray.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
-    
-    let buttonCloseUIView1 = ButtonsWithAction.makeButton(setTitle:"Гайд" ,cornerRadius: 15, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "text.book.closed.fill",setImage: nil, imageSize:CGSize(width: 30, height: 30),alpha: 1, shadowColor:UIColor.gray.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
-        
-    
-//    let buttonCloseUIView2 = ButtonsWithAction.makeButton(setTitle:"Оценка" ,cornerRadius: 15, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "star.square",setImage: nil, imageSize:CGSize(width: 30, height: 30),alpha: 1, shadowColor:UIColor.black.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
-//
-//    let buttonCloseUIView3 = ButtonsWithAction.makeButton(setTitle:"Подписка" ,cornerRadius: 15, content: .center, setTitleColor: .darkGray, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, systemName: "dollarsign.circle.fill",setImage: nil, imageSize:CGSize(width: 30, height: 30),alpha: 1, shadowColor:UIColor.black.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
-    
-    
     let switchButton: UISwitch = {
         let switchButton = UISwitch()
         //            switchButton.isOn = isOn
@@ -53,9 +43,9 @@ class SetupCell: UITableViewCell {
         return welcomeImageView
     }()
     
-    let messageLabel = Label.label(text: "Night", fontSize: 20, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
+    let messageLabel = Label.label(text: "Dark Theme", fontSize: 20, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
     
-    let messageLabel1 = Label.label(text: "Notif", fontSize: 20, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
+    let messageLabel1 = Label.label(text: "Notifications", fontSize: 20, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
     
     
     let containerView: UIView = {
@@ -86,10 +76,10 @@ class SetupCell: UITableViewCell {
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.layer.cornerRadius = 15
-        stackView.spacing = 10 // Отступ между контейнерами
+        stackView.spacing = 1 // Отступ между контейнерами
 //                stackView.backgroundColor = .green
         
         stackView.isLayoutMarginsRelativeArrangement = true
@@ -129,10 +119,11 @@ class SetupCell: UITableViewCell {
         
         // Добавляем контейнеры в stackView
         stackView.addArrangedSubview(containerView)
-//        stackView.addArrangedSubview(containerView1)
+        stackView.addArrangedSubview(containerView1)
         
 //        stackView1.addArrangedSubview(buttonCloseUIView)
-        stackView1.addArrangedSubview(containerView1)
+//        stackView1.addArrangedSubview(containerView1)
+//        stackView1.addArrangedSubview(containerView)
         
 //        stackView2.addArrangedSubview(buttonCloseUIView2)
 //        stackView2.addArrangedSubview(buttonCloseUIView3)
@@ -140,7 +131,7 @@ class SetupCell: UITableViewCell {
         
         // Добавляем stackView в contentView
         contentView.addSubview(stackView)
-        contentView.addSubview(stackView1)
+//        contentView.addSubview(stackView1)
         contentView.addSubview(stackView2)
         
         containerView.addSubview(switchButton)
@@ -152,6 +143,12 @@ class SetupCell: UITableViewCell {
         containerView1.addSubview(welcomeImageView1)
         containerView1.addSubview(messageLabel1)
         
+        
+        containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        containerView.clipsToBounds = true
+        
+        containerView1.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        containerView1.clipsToBounds = true
         
         
         layout()
@@ -188,22 +185,23 @@ class SetupCell: UITableViewCell {
 //        }
         
         stackView.snp.makeConstraints { make in
-              make.top.equalToSuperview().inset(1) // Отступ сверху
-              make.leading.trailing.equalToSuperview().inset(1) // Горизонтальные отступы
+            make.edges.equalToSuperview().inset(1)
+//              make.top.equalToSuperview().inset(1) // Отступ сверху
+//              make.leading.trailing.equalToSuperview().inset(50) // Горизонтальные отступы
 //            make.trailing.equalToSuperview().inset(175)
-              make.height.equalTo(60)// Высота stackView
-            make.width.equalToSuperview().inset(90)
+              make.height.equalTo(100)// Высота stackView
+//            make.width.equalToSuperview().inset(90)
           }
           
           // Размещение stackView1 под stackView
-          stackView1.snp.makeConstraints { make in
-              make.top.equalTo(stackView.snp.bottom).offset(-10) // Отступ сверху от stackView
-//              make.leading.trailing.equalToSuperview().inset(1) // Горизонтальные отступы
-              make.trailing.equalToSuperview().inset(1)
-              make.height.equalTo(60) // Высота stackView1
-              make.bottom.equalToSuperview().inset(1) // Отступ снизу
-              make.width.equalToSuperview().inset(90)
-          }
+//          stackView1.snp.makeConstraints { make in
+//              make.top.equalTo(stackView.snp.bottom).offset(-10) // Отступ сверху от stackView
+////              make.leading.trailing.equalToSuperview().inset(1) // Горизонтальные отступы
+//              make.leading.trailing.equalToSuperview().inset(10)
+//              make.height.equalTo(70) // Высота stackView1
+//              make.bottom.equalToSuperview().inset(1) // Отступ снизу
+////              make.width.equalToSuperview().inset(90)
+//          }
         
 //        stackView2.snp.makeConstraints { make in
 //            make.top.equalTo(stackView1.snp.bottom).offset(5) // Отступ сверху от stackView
@@ -214,13 +212,13 @@ class SetupCell: UITableViewCell {
                 
         switchButton.snp.makeConstraints{make in
             make.top.equalToSuperview().offset(5)
-            make.trailing.equalToSuperview().offset(-23)
+            make.trailing.equalToSuperview().offset(-25)
             make.width.height.equalTo(30)
         }
         
         welcomeImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(5)
-            make.leading.equalToSuperview().offset(5)
+            make.top.equalToSuperview().offset(4)
+            make.leading.equalToSuperview().offset(7)
             make.width.height.equalTo(30)
         }
         
@@ -234,13 +232,13 @@ class SetupCell: UITableViewCell {
         
         switchButton1.snp.makeConstraints{make in
             make.top.equalToSuperview().offset(5)
-            make.trailing.equalToSuperview().offset(-23)
+            make.trailing.equalToSuperview().offset(-25)
             make.width.height.equalTo(30)
         }
         
         welcomeImageView1.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(2.5)
-            make.leading.equalToSuperview().offset(5)
+            make.top.equalToSuperview().offset(4)
+            make.leading.equalToSuperview().offset(7)
             make.width.height.equalTo(35)
         }
         

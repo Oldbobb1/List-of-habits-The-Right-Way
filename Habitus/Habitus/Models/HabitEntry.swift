@@ -22,7 +22,7 @@ extension UIColor {
     func toHexString() -> String {
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         getRed(&r, green: &g, blue: &b, alpha: &a)
-        return String(format: "%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
+        return String(format: "%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255), Int(a * 255))
     }
     
     convenience init(hexString: String) {
@@ -33,6 +33,7 @@ extension UIColor {
         let r = CGFloat((rgbValue & 0xff0000) >> 16) / 255.0
         let g = CGFloat((rgbValue & 0xff00) >> 8) / 255.0
         let b = CGFloat(rgbValue & 0xff) / 255.0
+        let a = CGFloat(rgbValue & 0xff000000) / 255.0
         self.init(red: r, green: g, blue: b, alpha: 1.0)
     }
 }

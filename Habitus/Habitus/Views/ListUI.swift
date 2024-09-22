@@ -6,18 +6,12 @@ import JTAppleCalendar
 class ListUI {
     
     let titleLabel = Label.label(text: "List", fontSize: 28, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
-    
-    
     let messageLabel = Label.label(text: "Welcome to Habit!", fontSize: 24, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
     let descriptionLabel = Label.label(text: "Track your daily habits and improve your life", fontSize: 17, weight: .light, textColor: .gray, textAlignment: .center, backgroundColor: .clear)
     let image = Image.image("welcome", contentMode: .scaleToFill)
-    
     let calendarDateStackView = StackView.stackView(axis: .horizontal)
-    
     let userContentTableView = UITableView()
-   
 //    let buttonOpenHabitVC = ButtonsWithAction.makeButton(backgroundColor: .clear, systemName: "plus.circle", setImage: nil,alpha: 0.5)
-    
     let calendarView: JTACMonthView = {
         let calendar = JTACMonthView()
         calendar.scrollDirection = .horizontal
@@ -28,7 +22,6 @@ class ListUI {
 //        calendar.layer.borderWidth = 1
         calendar.minimumLineSpacing = 0
         calendar.minimumInteritemSpacing = 0
-        
         calendar.layer.shadowColor = UIColor.black.cgColor
         calendar.layer.shadowOffset = CGSize(width: 0, height: 2)
         calendar.layer.shadowOpacity = 0.4

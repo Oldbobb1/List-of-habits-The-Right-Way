@@ -22,6 +22,7 @@ class CustomNavigationController: UINavigationController {
     }
     
     private func setupBottomMenu() {
+       
         view.addSubview(customButtomMenu)
         customButtomMenu.translatesAutoresizingMaskIntoConstraints = false
         
@@ -77,7 +78,7 @@ class CustomNavigationController: UINavigationController {
         let settingVC = SettingVC()
         self.setViewControllers([settingVC], animated: false)
     }
-    
+        
     func updateButtonVisibility() {
         if let currentViewController = self.viewControllers.last {
             // Проверяем, что текущий контроллер - это нужный вам контроллер

@@ -7,7 +7,10 @@ import JTAppleCalendar
 
 
 
-class ListVC: UIViewController  {
+class ListVC: UIViewController {
+
+    var habits: [HabitEntry] = []
+    
 
     let habitCell = "HabitTableViewCell"
     let maxElements = 10
@@ -75,9 +78,12 @@ class ListVC: UIViewController  {
         configureUI()
 
         NotificationCenter.default.addObserver(self, selector: #selector(newHabitAdded(_:)), name: Notification.Name("NewHabitAdded"), object: nil)
-       
     }
     
+    deinit {
+         // Удаляем наблюдателя при уничтожении контроллера
+         NotificationCenter.default.removeObserver(self)
+     }
     
     func updateMonthLabel(for date: Date) {
         let dateFormatter = DateFormatter()
@@ -92,6 +98,7 @@ class ListVC: UIViewController  {
         listView.userContentTableView.reloadData()
         
         listModel.loadHabitData()
+        
         listView.initializeUI(view)
         //        updateDaysCalendar()
         listView.userContentTableView.delegate = self
@@ -122,7 +129,13 @@ class ListVC: UIViewController  {
                 listView.userContentTableView.insertRows(at: [newIndexPath], with: .automatic)
                 listModel.saveHabitData()
             }
-        } else { }
+        } else {
+            DispatchQueue.main.async {
+                let alert  = UIAlertController(title: "Attention", message: "You have achieved the maximum number of habits.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style: .cancel))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 }
 
@@ -136,6 +149,7 @@ struct ViewControllerProvider1: PreviewProvider {
         }.edgesIgnoringSafeArea(.all)
     }
 }
+
 
 
 

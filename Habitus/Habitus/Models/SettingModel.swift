@@ -1,5 +1,5 @@
 import UIKit
-
+import UserNotifications
 
 class SettingModel {
     
@@ -20,14 +20,6 @@ class SettingModel {
         }
     }
 }
-//import UserNotifications
-//
-//class SettingModel {
-//    func requestNotificationAuthorization(completion: @escaping (Bool) -> Void) {
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-//            DispatchQueue.main.async {
-//                completion(granted)
-//            }
-//        }
-//    }
-//}
+
+
+

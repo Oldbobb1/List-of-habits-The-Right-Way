@@ -4,14 +4,15 @@ import ElementBuilder
 
 extension HabitVC {
 
-//    func swipeActions() {
-//        swipe = SwipeClass(viewController: self,
-//                           leftAction:{},
-//                           rightAction: {[weak self] in
-//            guard let self = self else {return}
-//            self.dismiss(animated: true, completion: nil)
-//        })
-//    }
+    func swipeActions() {
+        swipe = SwipeClass(viewController: self,
+                           leftAction:{},
+                           rightAction: {[weak self] in
+            guard let self = self else {return}
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
+    
     
     @objc func switchSend( _ sender: UISwitch){
         //        if sender.isOn {
@@ -137,7 +138,6 @@ extension HabitVC {
         content.title = "Habit Reminder"
         content.body = "It's time to work on: \(habitName)"
         content.sound = .default
-    
         
         // Настраиваем время уведомления
         let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: date)
