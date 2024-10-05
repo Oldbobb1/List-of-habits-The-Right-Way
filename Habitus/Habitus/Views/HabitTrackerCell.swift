@@ -8,11 +8,10 @@ class HabitTrackerCell: UITableViewCell {
     
     let messageLabel = UILabel()
     
-    
     var habitName: String?
     
     var isCompleted: Bool = false
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -49,3 +48,5 @@ class HabitTrackerCell: UITableViewCell {
     }
     
 }
+
+

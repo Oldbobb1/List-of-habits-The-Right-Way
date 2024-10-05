@@ -1,15 +1,17 @@
 import UIKit
 
 struct HabitEntry: Codable {
+    
     var name: String
     var colorHex: String
     var isCompleted: Bool
     var reminderTime: Date? // Store the selected time for the reminder
+    
     var color: UIColor {
         return UIColor(hexString: colorHex)
     }
     
-    init(name: String, color: UIColor, reminderTime: Date?, isCompleted: Bool = false) {
+    init(name: String, color: UIColor, reminderTime: Date?, isCompleted: Bool = false){//,selectedDays: [Int]  ) {
         self.name = name
         self.colorHex = color.toHexString()
         self.reminderTime = reminderTime
@@ -33,7 +35,7 @@ extension UIColor {
         let r = CGFloat((rgbValue & 0xff0000) >> 16) / 255.0
         let g = CGFloat((rgbValue & 0xff00) >> 8) / 255.0
         let b = CGFloat(rgbValue & 0xff) / 255.0
-        let a = CGFloat(rgbValue & 0xff000000) / 255.0
+        _ = CGFloat(rgbValue & 0xff000000) / 255.0
         self.init(red: r, green: g, blue: b, alpha: 1.0)
     }
 }

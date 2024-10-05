@@ -1,8 +1,9 @@
 import Foundation
 import JTAppleCalendar
 
+
 extension ListVC: JTACMonthViewDelegate {
-    
+     
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         guard let cell = cell as? CustomCalendarCell else { return }
         cell.configureCell(state: cellState, date: date)
@@ -13,11 +14,12 @@ extension ListVC: JTACMonthViewDelegate {
         cell.configureCell(state: cellState, date: date)
         return cell
     }
-
+    
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState) {
         guard let validCell = cell as? CustomCalendarCell else { return }
         validCell.select()
     }
+  
     
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState) {
         guard let validCell = cell as? CustomCalendarCell else { return }
@@ -33,26 +35,22 @@ extension ListVC: JTACMonthViewDelegate {
 }
 
 
-
 extension ListVC: JTACMonthViewDataSource {
     
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-        let startDate = listView.formatter.date(from: "2024 01 01")!
+        let startDate = Date() // Начало с текущего месяца
         let endDate = listView.formatter.date(from: "2100 12 31")!
-        
-        let parameters = ConfigurationParameters(startDate: startDate,
-                                                 endDate: endDate,
-                                                 numberOfRows: 1,
-                                                 calendar: Calendar.current,
-                                                 generateInDates: .off,             //.forAllMonths,
-                                                 generateOutDates:.off,     //.tillEndOfGrid,
-                                                 firstDayOfWeek: .monday,
-                                                 hasStrictBoundaries: false)
+
+        let parameters = ConfigurationParameters(
+            startDate: startDate,
+            endDate: endDate,
+            numberOfRows: 1, // Отображаем все 6 строк для полного месяца
+            calendar: Calendar.current,
+            generateInDates: .forFirstMonthOnly, // Включаем дополнительные даты для начала месяца .forAllMonths,
+            generateOutDates: .off, // Включаем даты до конца сетки месяца .tillEndOfGrid
+            firstDayOfWeek: .monday,
+            hasStrictBoundaries: true // Строгие границы для календаря
+        )
         return parameters
     }
-    
 }
-
-
-
-

@@ -1,10 +1,3 @@
-//
-//  LAunchSCreen.swift
-//  Habitus
-//
-//  Created by Bobbi R. on 16.09.24.
-//
-
 import Foundation
 
 //class LAunchSCreen: UIViewController {

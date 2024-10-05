@@ -7,7 +7,6 @@ extension ListVC: UITableViewDataSource {
         return listModel.habits.count
     }
     
-
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -16,12 +15,9 @@ extension ListVC: UITableViewDataSource {
         return 80
     }
     
- 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let maskLayer = CALayer()
         maskLayer.cornerRadius = 25
-        maskLayer.borderWidth = 1
-        maskLayer.borderColor = UIColor.black.cgColor
         maskLayer.backgroundColor = UIColor.black.cgColor
         
         let verticalPadding: CGFloat = 10
@@ -35,20 +31,11 @@ extension ListVC: UITableViewDataSource {
         
     }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! HabitTrackerCell
-//        let object = listModel.habits[indexPath.row]
-////        cell.set(object: object)
-//        cell.set(object: object , habitName: object.name)
-//        return cell
-//    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! HabitTrackerCell
         let object = listModel.habits[indexPath.row]
         // Настройка ячейки
         cell.set(object: object , habitName: object.name)
- 
         // Обновляем интерфейс в зависимости от состояния привычки
         if object.isCompleted {
             cell.messageLabel.text = "Выполнено"
@@ -59,11 +46,9 @@ extension ListVC: UITableViewDataSource {
             cell.nameLabelCell.textColor = .black
             cell.contentView.backgroundColor = cell.contentView.backgroundColor?.withAlphaComponent(1)
         }
-        
-        
         return cell
     }
-      
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
@@ -76,27 +61,28 @@ extension ListVC: UITableViewDataSource {
             toggleMessageLabelVisibility()
         }
     }
-
+    
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        let movedEmoji = listModel.habits.remove(at: sourceIndexPath.row)
-//        listModel.habits.insert(movedEmoji, at: destinationIndexPath.row)
+        //        let movedEmoji = listModel.habits.remove(at: sourceIndexPath.row)
+        //        listModel.habits.insert(movedEmoji, at: destinationIndexPath.row)
         tableView.reloadData()
     }
 }
 
-extension ListVC: UITableViewDelegate {
 
+extension ListVC: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let cell = tableView.cellForRow(at: indexPath) as? HabitTrackerCell else { return }
         
         let habit = listModel.habits[indexPath.row]  // Получаем привычку по индексу
-
+        
         if !habit.isCompleted {
             // Первый алерт для подтверждения выполнения
             let firstAlertController = UIAlertController(title: "Уведомление", message: "mission complete?", preferredStyle: .alert)
@@ -114,14 +100,14 @@ extension ListVC: UITableViewDelegate {
                 
                 // Обновляем данные привычки
                 strongSelf.listModel.habits[indexPath.row].isCompleted = true
-//                
-//                // Сохраняем обновленные данные
+                //
+                //                // Сохраняем обновленные данные
                 strongSelf.listModel.saveHabitData()
                 
-//                self.listModel.habits[indexPath.row].isCompleted = true
+                //                self.listModel.habits[indexPath.row].isCompleted = true
                 
                 // Сохраняем обновленные данные
-//                self.listModel.saveHabitData()
+                //                self.listModel.saveHabitData()
             }))
             
             present(firstAlertController, animated: true, completion: nil)

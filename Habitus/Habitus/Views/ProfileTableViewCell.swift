@@ -16,7 +16,7 @@ class ProfileTableViewCell: UITableViewCell {
         containerView.backgroundColor = .systemGray6
         containerView.layer.cornerRadius = 25
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.layer.shadowColor = UIColor.gray.cgColor
+        containerView.layer.shadowColor = UIColor.black.cgColor
         containerView.layer.shadowOffset = CGSize(width: 1, height: 2)
         containerView.layer.shadowOpacity = 1
         containerView.layer.shadowRadius = 4
@@ -25,10 +25,10 @@ class ProfileTableViewCell: UITableViewCell {
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.distribution = .fillProportionally
         stackView.layer.cornerRadius = 15
-//        stackView.spacing = 5 // Отступ между контейнерами
+        stackView.spacing = 36 // Отступ между контейнерами
 //        stackView.backgroundColor = .green
         
         stackView.isLayoutMarginsRelativeArrangement = true
@@ -37,23 +37,24 @@ class ProfileTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    let buttonCloseUIView1 = ButtonsWithAction.makeButton(setTitle:"Upgrade to Premium" ,cornerRadius: 15, content: .center, setTitleColor: .label, font: .boldSystemFont(ofSize: 20), clipsToBounds: false, backgroundColor: .systemGray6, shadowColor:UIColor.black.cgColor,shadowOffset: CGSize(width: 0, height: 2), shadowOpacity: 0.6, shadowRadius: 4)
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-//        contentView.addSubview(profileImageView)
-//        contentView.addSubview(profileLabel)
-//        contentView.addSubview(profileSubtitleLabel)
-        
-        
+
         contentView.addSubview(stackView)
         stackView.addArrangedSubview(containerView)
         containerView.addSubview(profileImageView)
         containerView.addSubview(profileLabel)
         containerView.addSubview(profileSubtitleLabel)
         
-        
+       
+        stackView.addArrangedSubview(buttonCloseUIView1)
         
         layout()
+        
+        buttonCloseUIView1.addTarget(self, action: #selector(openSubscribeVC), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -63,12 +64,13 @@ class ProfileTableViewCell: UITableViewCell {
     func layout() {
         
         stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(5) // Добавляем отступы от краев
-            make.height.equalTo(100) // Высота stackView
+            make.edges.equalToSuperview().inset(1) // Добавляем отступы от краев
+//            make.leading.trailing.equalToSuperview().inset(100)
+            make.height.equalTo(170) // Высота stackView
         }
         
         Layout.applyView(profileImageView, view: contentView, additionalConstraints: { make in
-            make.centerY.equalTo(self.contentView.snp.centerY)
+            make.centerY.equalTo(self.containerView.snp.centerY)
             make.width.equalTo(70)
             make.height.equalTo(70)
         })
@@ -80,12 +82,21 @@ class ProfileTableViewCell: UITableViewCell {
             make.top.equalTo(profileLabel.snp.bottom).offset(15)
             make.bottom.lessThanOrEqualTo(containerView.snp.bottom).offset(-10)
         }
+
     }
     
     func configure(profileImage: UIImage?, name: String, subtitle: String) {
         profileImageView.image = profileImage
         profileLabel.text = name
         profileSubtitleLabel.text = subtitle
+    }
+    
+    weak var views: SettingVC?
+    
+    @objc func openSubscribeVC() {
+        let sub = SubscribeVC()
+        sub.modalPresentationStyle = .fullScreen
+        views?.present(sub, animated: true, completion: nil)
     }
 }
 

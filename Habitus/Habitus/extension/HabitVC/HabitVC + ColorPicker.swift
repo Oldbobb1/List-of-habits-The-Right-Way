@@ -7,13 +7,7 @@ extension HabitVC: UIColorPickerViewControllerDelegate {
         selectedColor = viewController.selectedColor
         updateHabitSaveButtonState()
     }
-    
-//    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
-//        let selectedColor = viewController.selectedColor
-////        habitView.selectedColorView.backgroundColor = selectedColor
-//
-//    }
-    
+
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         let selectedColor = viewController.selectedColor
         
@@ -24,7 +18,6 @@ extension HabitVC: UIColorPickerViewControllerDelegate {
             cell.selectedColorView.backgroundColor = selectedColor
         }
     }
-   
-    
-   }
+
+}
 

@@ -21,8 +21,22 @@ import ElementBuilder
 //}
 
 
+class ListModel {
+    
+    var habits: [HabitEntry] = []
+    
+    func saveHabitData() {
+        UserDefaults.standard.save(habits, forKey: "SavedHabit")
+    }
+    
+    func loadHabitData() {
+        habits = UserDefaults.standard.load(forKey: "SavedHabit", as: [HabitEntry].self) ?? []
+    }
+}
+
 
 extension UserDefaults {
+    
     func save<T: Codable>(_ object: T, forKey key: String) {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(object) {
@@ -39,14 +53,3 @@ extension UserDefaults {
     }
 }
 
-class ListModel {
-    var habits: [HabitEntry] = []
-    
-    func saveHabitData() {
-        UserDefaults.standard.save(habits, forKey: "SavedHabit")
-    }
-    
-    func loadHabitData() {
-        habits = UserDefaults.standard.load(forKey: "SavedHabit", as: [HabitEntry].self) ?? []
-    }
-}

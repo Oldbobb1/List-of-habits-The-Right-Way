@@ -5,25 +5,18 @@ import ElementBuilder
 import JTAppleCalendar
 
 
-
-
 class ListVC: UIViewController {
-
-    var habits: [HabitEntry] = []
-    
 
     let habitCell = "HabitTableViewCell"
     let maxElements = 10
     let listView = ListUI()
     let listModel = ListModel ()
-    let dateAndWeekdayFormatter = DateAndWeekDayFormatter()
-
-
+   
     private let gradientLayer: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor.systemCyan.withAlphaComponent(0.8).cgColor,
-            UIColor.systemBlue.withAlphaComponent(0.8).cgColor
+            UIColor.systemCyan.cgColor,
+            UIColor.systemBlue.cgColor
         ]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
@@ -37,54 +30,45 @@ class ListVC: UIViewController {
     private let gradientLayer1: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor.systemCyan.withAlphaComponent(0.6).cgColor,
-            UIColor.systemBlue.withAlphaComponent(0.6).cgColor
-        ]
+            UIColor.systemCyan.withAlphaComponent(0.7).cgColor,
+            UIColor.systemBlue.withAlphaComponent(0.7).cgColor
+        ] 
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         return gradient
     }()
     
-
-    private func setupGradientBackground1() {
-           // Устанавливаем размеры градиентного слоя на размер таблицы
-//           gradientLayer1.frame = settingView.settingTableView.bounds
-           
-           // Создаем представление для фона и добавляем в него градиентный слой
-           let backgroundView = UIView(frame: listView.userContentTableView.bounds)
-           backgroundView.layer.insertSublayer(gradientLayer1, at: 0)
-           
-           // Устанавливаем это представление как backgroundView таблицы
-        listView.userContentTableView.backgroundView = backgroundView
-       }
-
-       // Обновление слоя при изменении размеров
-       override func viewDidLayoutSubviews() {
-           super.viewDidLayoutSubviews()
-           
-           // Обновляем frame градиентного слоя при изменении размеров таблицы
-           gradientLayer1.frame = listView.userContentTableView.bounds
-       }
     
+    private func setupGradientBackground1() {
+        let backgroundView = UIView(frame: listView.userContentTableView.bounds)
+        backgroundView.layer.insertSublayer(gradientLayer1, at: 0)
+        
+        listView.userContentTableView.backgroundView = backgroundView
+    }
+    // Обновление слоя при изменении размеров
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // Обновляем frame градиентного слоя при изменении размеров таблицы
+        gradientLayer1.frame = listView.userContentTableView.bounds
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupGradientBackground()
         setupGradientBackground1()
-        
-//        view.backgroundColor = UIColor(red: 255/255, green: 99/255, blue: 71/255, alpha: 1)
-        
-        configureUI()
 
+        configureUI()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(newHabitAdded(_:)), name: Notification.Name("NewHabitAdded"), object: nil)
+        
     }
     
     deinit {
-         // Удаляем наблюдателя при уничтожении контроллера
-         NotificationCenter.default.removeObserver(self)
-     }
-    
+        // Удаляем наблюдателя при уничтожении контроллера
+        NotificationCenter.default.removeObserver(self)
+    }
+
     func updateMonthLabel(for date: Date) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM, yyyy"
@@ -92,15 +76,11 @@ class ListVC: UIViewController {
     }
     
     private func configureUI() {
-        
-        
-        // Обновляем таблицу, чтобы показать загруженные привычки
         listView.userContentTableView.reloadData()
-        
+    
         listModel.loadHabitData()
         
         listView.initializeUI(view)
-        //        updateDaysCalendar()
         listView.userContentTableView.delegate = self
         listView.userContentTableView.dataSource = self
         
@@ -109,18 +89,9 @@ class ListVC: UIViewController {
         
         listView.calendarView.scrollToDate(Date(), animateScroll: false)
         updateMonthLabel(for: Date())
-        
-        //        listView.buttonOpenHabitVC.addTarget(self, action: #selector(openHabbitCreation) , for: .touchUpInside)
+
     }
-    
-    //    @objc func openHabbitCreation(_ sender: UIButton) {
-    //        let habitVC  = HabitVC()
-    //        let navController = UINavigationController(rootViewController: habitVC)
-    //        navController.modalPresentationStyle = .fullScreen
-    //        animateButtonScale(for: sender, scaleFactor: 1.1)
-    //        self.present(navController, animated: true, completion: nil)
-    //    }
-    
+     
     @objc func newHabitAdded(_ notification: Notification) {
         if listModel.habits.count < maxElements {
             if let newHabit = notification.object as? HabitEntry  {
@@ -131,12 +102,23 @@ class ListVC: UIViewController {
             }
         } else {
             DispatchQueue.main.async {
-                let alert  = UIAlertController(title: "Attention", message: "You have achieved the maximum number of habits.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style: .cancel))
-                self.present(alert, animated: true, completion: nil)
+                self.showMaxHabitAlert()
             }
         }
     }
+    
+    func toggleMessageLabelVisibility() {
+        listView.messageLabel.isHidden = !listModel.habits.isEmpty
+        listView.descriptionLabel.isHidden = !listModel.habits.isEmpty
+        listView.image.isHidden = !listModel.habits.isEmpty
+    }
+    
+    func showMaxHabitAlert() {
+        let alert = UIAlertController(title: "Attention", message: "You have achieved the maximum number of habits.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -149,6 +131,11 @@ struct ViewControllerProvider1: PreviewProvider {
         }.edgesIgnoringSafeArea(.all)
     }
 }
+
+
+
+
+
 
 
 

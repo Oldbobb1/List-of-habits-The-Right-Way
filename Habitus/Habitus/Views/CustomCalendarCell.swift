@@ -1,30 +1,19 @@
 import UIKit
 import JTAppleCalendar
+import ElementBuilder
 
 
 class CustomCalendarCell: JTACDayCell {
     
-    let dayOfWeekLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .gray
-        return label
-    }()
+    let dayOfWeekLabel = Label.label(fontSize: 12, weight: .regular, textColor: .gray,textAlignment: .center,backgroundColor: .clear)
     
-    let dateLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 18)
-
-        return label
-    }()
+    let dateLabel = Label.label(fontSize: 18, weight: .regular,textAlignment: .center, backgroundColor: .clear)
     
     let selectedView: UIView = {
          let view = UIView()
          view.backgroundColor = .systemGray6
          view.layer.cornerRadius = 18
-        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 1, height: 2)
         view.layer.shadowOpacity = 0.6
         view.layer.shadowRadius = 4
@@ -35,7 +24,6 @@ class CustomCalendarCell: JTACDayCell {
         let view = UIView()
         view.backgroundColor = .blue
         view.layer.cornerRadius = 15
-//        view.isHidden = true // Скрыт по умолчанию
         view.layer.shadowColor = UIColor.blue.cgColor
         view.layer.shadowOffset = CGSize(width: 1, height: 2)
         view.layer.shadowOpacity = 0.7
@@ -129,7 +117,7 @@ class CustomCalendarCell: JTACDayCell {
     }
     
     func deselect() {
-        dateLabel.textColor = .gray
+        dateLabel.textColor = .label
         dayOfWeekLabel.textColor = .black // Сбрасываем цвет при отмене выбора
     }
 }

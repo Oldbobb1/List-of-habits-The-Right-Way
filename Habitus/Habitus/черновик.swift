@@ -1,14 +1,3 @@
-//
-//  черновик.swift
-//  Habitus
-//
-//  Created by Bobbi R. on 16.09.24.
-//
-
-import Foundation
-
-
-
 //MARK: - Color
 
 //private let weekDaysButtons: [UIButton] = {
@@ -98,6 +87,3 @@ import Foundation
 //        gradient.endPoint = CGPoint(x: 1, y: 1)
 //        return gradient
 //    }()
-
-
-
