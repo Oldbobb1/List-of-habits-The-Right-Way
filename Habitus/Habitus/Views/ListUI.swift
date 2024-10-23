@@ -2,21 +2,20 @@ import UIKit
 import ElementBuilder
 import JTAppleCalendar
 
-
 class ListUI {
     
-    let titleLabel = Label.label(text: "List", fontSize: 28, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
+    let titleLabel = Label.label(text:"List", fontSize: 28, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
     
     let messageLabel = Label.label(text: "Welcome to Habit!", fontSize: 24, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
     
-    let descriptionLabel = Label.label(text: "Track your daily habits and improve your life", fontSize: 17, weight: .light, textColor: .gray, textAlignment: .center, backgroundColor: .clear)
+    let descriptionLabel = Label.label(text:  "Track your daily habits and improve your life", fontSize: 17, weight: .light, textColor: .gray, textAlignment: .center, backgroundColor: .clear)
     
     let image = Image.image("welcome", contentMode: .scaleToFill)
     
     let calendarDateStackView = StackView.stackView(axis: .horizontal)
     
     let userContentTableView = UITableView()
-    
+
     let monthLabel = Label.label(fontSize: 20, weight: .light, textColor: .systemBackground, textAlignment: .center, backgroundColor: .clear)
     
     let calendarView: JTACMonthView = {
@@ -29,9 +28,9 @@ class ListUI {
         calendar.minimumLineSpacing = 0
         calendar.minimumInteritemSpacing = 0
         calendar.layer.shadowColor = UIColor.black.cgColor
-        calendar.layer.shadowOffset = CGSize(width: 0, height: 2)
-        calendar.layer.shadowOpacity = 0.4
-        calendar.layer.shadowRadius = 4
+        calendar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        calendar.layer.shadowOpacity = 0.6
+        calendar.layer.shadowRadius = 3
         calendar.clipsToBounds = false
         return calendar
     }()
@@ -80,7 +79,7 @@ class ListUI {
             make.leading.equalTo(10)
         }
         
-        Layout.applyView(userContentTableView, view: view, leadingOffset: 0 , trailingOffset: 0, bottomOffset: 0, additionalConstraints:{ make in
+        Layout.applyView(userContentTableView, view: view, leadingOffset: 0 , trailingOffset: 0, additionalConstraints:{ make in
 //            make.top.equalTo(self.calendarDateStackView.snp.bottom).offset(5)
                         make.top.equalTo(self.calendarView.snp.bottom).offset(15)
             make.bottom.equalTo(view.snp.bottom).offset(0)

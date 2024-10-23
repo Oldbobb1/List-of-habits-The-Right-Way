@@ -1,6 +1,5 @@
 import SwiftUI
 import UIKit
-import AuthenticationServices
 
 
 class SettingVC: UIViewController  {
@@ -11,7 +10,6 @@ class SettingVC: UIViewController  {
     
     let settingView = SettingUI()
     let settingModel = SettingModel()
-    
     
     private let gradientLayer: CAGradientLayer = {
         let gradient = CAGradientLayer()
@@ -27,8 +25,8 @@ class SettingVC: UIViewController  {
     private let gradientLayer1: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor.systemTeal.withAlphaComponent(0.9).cgColor,
-            UIColor.systemIndigo.withAlphaComponent(0.9).cgColor
+            UIColor.systemTeal.withAlphaComponent(0.8).cgColor,
+            UIColor.systemIndigo.withAlphaComponent(0.8).cgColor
         ]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
@@ -64,23 +62,7 @@ class SettingVC: UIViewController  {
         super.viewDidLayoutSubviews()
         gradientLayer1.frame = settingView.settingTableView.bounds
     }
-    
-    func signInWithApple() {
-        let request = ASAuthorizationAppleIDProvider().createRequest()
-        request.requestedScopes = [.fullName, .email]
-        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
-    }
-    
-    func logout() {
-        isUserLoggedIn = false
-        userName = ""
-        userImage = nil
-        settingView.settingTableView.reloadSections(IndexSet(integer: 2), with: .automatic)
-    }
-    
+
 }
 
 

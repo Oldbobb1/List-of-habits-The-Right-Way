@@ -29,7 +29,7 @@ extension ListVC: JTACMonthViewDelegate {
     
     func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         if let date = visibleDates.monthDates.first?.date {
-            updateMonthLabel(for: date)
+           updateMonthLabel(for: date)
         }
     }
 }

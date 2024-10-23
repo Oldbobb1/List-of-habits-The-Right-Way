@@ -15,8 +15,6 @@ class NotesVC: UIViewController {
         return gradient
     }()
     
-
-    
     private func setupGradientBackground() {
         gradientLayer.frame = view.bounds
         view.layer.addSublayer(gradientLayer)

@@ -1,0 +1,31 @@
+//ListVC
+"listTitle_text" = "List";
+"message_label_text" = "Welcome to Habit!";
+"description_label_text" = "Track your daily habits and improve your life";
+
+
+
+
+
+//HabitVC
+"habitTitle_text" = "New Habit";
+
+
+
+//NotesVC
+"notesTitle_text" = "Notes";
+
+
+
+//SettingVC
+"settingTitle_text" = "Setting";
+
+
+
+//SubscribeVC
+"subscribeTitle_text" = "Subscribe";
+
+
+
+//BackupCopyVC
+"backupTitle_text" = "BackupCopy";

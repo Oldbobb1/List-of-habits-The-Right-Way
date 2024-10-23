@@ -5,7 +5,9 @@ import ElementBuilder
 class DaysCell: UITableViewCell {
     
     var selectedDays = [Int]()
+    
     let days = ["All","Mon","Tue","Wed","thur", "Fri","Sat", "Sun"]
+    
     let stackView = StackView.stackView(axis: .horizontal, distribution: .fillEqually, backgroundColor: .clear, cornerRadius: 10, spacing: 5, layoutMargins: .init(top: 10, left: 10, bottom: 10, right: 10))
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -24,10 +26,16 @@ class DaysCell: UITableViewCell {
     
     func createButton() {
         for (_, day) in days.enumerated() {
-            let dayButton = ButtonsWithAction.makeButton(setTitle: day,cornerRadius: 10,content: .center,setTitleColor: .label,clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.black.cgColor, shadowOffset: CGSize(width: 1, height: 2),shadowOpacity: 0.8,shadowRadius: 4)
+            let dayButton = ButtonsWithAction.makeButton(setTitle: day,cornerRadius: 10,content: .center,setTitleColor: .label,clipsToBounds: false, backgroundColor: .systemGray6,shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 0, height: 0),shadowOpacity: 1,shadowRadius: 3)
             
             stackView.addArrangedSubview(dayButton)
-            dayButton.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
+            
+//            dayButton.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
+            
+            dayButton.addAction(UIAction(handler:{[weak self] _ in
+                guard let self = self else {return}
+                self.dayButtonTapped(dayButton)
+            }), for: .touchUpInside)
         }
     }
     
@@ -38,7 +46,7 @@ class DaysCell: UITableViewCell {
         }
     }
     
-    @objc func dayButtonTapped(sender: UIButton) {
+     func dayButtonTapped(_ sender: UIButton) {
         guard let index = days.firstIndex(of: sender.titleLabel?.text ?? "") else { return }
         if index ==  0  {
             if  selectedDays.count == days.count - 1 {
@@ -62,7 +70,7 @@ class DaysCell: UITableViewCell {
                 
             } else {
                 button.backgroundColor = .systemGray6
-                button.layer.shadowColor = UIColor.gray.cgColor
+                button.layer.shadowColor = UIColor.darkGray.cgColor
             }
             
         }
@@ -73,6 +81,9 @@ class DaysCell: UITableViewCell {
     }
     
 }
+
+
+
 
 
 

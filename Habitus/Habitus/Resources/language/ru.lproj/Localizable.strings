@@ -1,0 +1,30 @@
+//ListVC
+"listTitle_text" = "Список";
+"message_label_text" = "Добро пожаловать в Habit!";
+"description_label_text" = "Следите за своими ежедневными привычками и улучшайте свою жизнь";
+
+//HabitVC
+"habitTitle_text" = "Новая Привычка";
+
+
+//NotesVC
+"notesTitle_text" = "Заметки";
+
+
+
+//SettingVC
+"settingTitle_text" = "Настройки";
+
+
+//SubscribeVC
+"subscribeTitle_text" = "Подписка";
+
+
+
+//BackupCopyVC
+"backupTitle_text" = "Резервная копия";
+
+
+
+
+//let titleLabel = Label.label(text:   NSLocalizedString("habitTitle_text", comment: "Title text"), fontSize: 28, weight: .bold, textColor: nil,textAlignment: .center, backgroundColor: .clear,clipsToBounds: false)

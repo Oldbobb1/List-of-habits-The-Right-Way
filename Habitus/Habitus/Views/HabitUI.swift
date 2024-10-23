@@ -3,15 +3,15 @@ import ElementBuilder
 
 
 class HabitUI {
-    
-    let titleLabel = Label.label(text: "New Habit", fontSize: 28, weight: .bold, textColor: nil,textAlignment: .center, backgroundColor: .clear,clipsToBounds: false)
 
-    let buttonCloseUIView = ButtonsWithAction.makeButton(cornerRadius: 17,clipsToBounds: false,backgroundColor: .clear,systemName:"x.circle", setImage: nil,imageSize: CGSize(width: 39, height: 38) ,alpha: 1,shadowColor: UIColor.systemRed.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4, tintColor: .red)
+    let titleLabel = Label.label(text:"New Habit", fontSize: 28, weight: .bold, textColor: nil,textAlignment: .center, backgroundColor: .clear,clipsToBounds: false)
 
-    let buttonSaveAndSendInTable = ButtonsWithAction.makeButton(cornerRadius: 17,clipsToBounds: false,backgroundColor: .clear,systemName:"paperplane.circle", setImage:nil,imageSize: CGSize(width: 39, height: 38) ,alpha: 1,shadowColor: UIColor.systemRed.cgColor, shadowOffset: CGSize(width: 0, height: 2),shadowOpacity: 0.4, shadowRadius: 4, tintColor: .red)
+    let buttonCloseUIView = ButtonsWithAction.makeButton(cornerRadius: 17,clipsToBounds: false,backgroundColor: .clear,systemName:"x.circle", setImage: nil,imageSize: CGSize(width: 39, height: 38) ,alpha: 1,shadowColor: UIColor.systemRed.cgColor, shadowOffset: CGSize(width: 0, height: 0),shadowOpacity: 0.6, shadowRadius: 3, tintColor: .red)
+
+    let buttonSaveAndSendInTable = ButtonsWithAction.makeButton(cornerRadius: 17,clipsToBounds: false,backgroundColor: .clear,systemName:"paperplane.circle", setImage:nil,imageSize: CGSize(width: 39, height: 38) ,alpha: 1,shadowColor: UIColor.systemRed.cgColor, shadowOffset: CGSize(width: 0, height: 0),shadowOpacity: 0.6, shadowRadius: 3, tintColor: .red)
     
     let createTableView = UITableView(frame: .zero, style: .insetGrouped)
-
+    
     func initializeUI(_ view: UIView) {
         view.addSubview(titleLabel)
         view.addSubview(buttonCloseUIView)
@@ -42,7 +42,7 @@ class HabitUI {
 
         Layout.applyView(buttonSaveAndSendInTable, view: view, topOffset: 0, trailingOffset: -20)
         
-        Layout.applyView(createTableView, view: view, leadingOffset: 0 , trailingOffset: 0, bottomOffset: 0, additionalConstraints:{ make in
+        Layout.applyView(createTableView, view: view, leadingOffset: 0 , trailingOffset: 0, additionalConstraints:{ make in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(30)
             make.leading.trailing.bottom.equalToSuperview()
         })

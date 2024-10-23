@@ -54,16 +54,11 @@ extension HabitVC: UITableViewDataSource {
             cellDays.backgroundColor = .clear
             return cellDays
         case 3:
-            
             let cellS = tableView.dequeueReusableCell(withIdentifier: "TexеCell", for: indexPath) as! TexеCell
             cellS.selectionStyle = .none
             cellS.backgroundColor = .clear
-            cellS.onColorViewTapped = { [weak self] in
-                self?.selectedIndexPath = indexPath // Сохраняем индекс ячейки
-                self?.showColorPicker()
-            }
+            cellS.habitVC = self
             return cellS
-            
         default:
             return UITableViewCell()
         }
@@ -75,6 +70,10 @@ extension HabitVC: UITableViewDelegate { }
 
 
 
+//cellS.onColorViewTapped = { [weak self] in
+//                self?.selectedIndexPath = indexPath // Сохраняем индекс ячейки
+//                self?.showColorPicker()
+//            }
 
 
 

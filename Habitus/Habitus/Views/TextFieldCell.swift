@@ -5,7 +5,7 @@ import ElementBuilder
 
 class TextFieldCell: UITableViewCell {
     
-    let textField = TextField.textField(placeholder: "  habit name", cornerRadius: 10, backgroundColor: .systemGray6, clipsToBounds: false, shadowColor: UIColor.black.cgColor, shadowOffset: .init(width: 0, height: 3), shadowOpacity: 0.8, shadowRadius: 4)
+    let textField = TextField.textField(placeholder: "  habit name", cornerRadius: 10, backgroundColor: .systemGray6, clipsToBounds: false, shadowColor: UIColor.darkGray.cgColor, shadowOffset: .init(width: 0, height: 0), shadowOpacity: 1, shadowRadius: 3)
 
     let stackView = StackView.stackView(axis: .horizontal,distribution: .fillEqually,spacing: 10,layoutMargins: .init(top: 10, left: 10, bottom: 10, right: 10))
     

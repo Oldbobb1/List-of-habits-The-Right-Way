@@ -23,21 +23,21 @@ class ListVC: UIViewController {
         return gradient
     }()
     
-    private func setupGradientBackground() {
-        gradientLayer.frame = view.bounds
-        view.layer.addSublayer(gradientLayer)
-    }
     private let gradientLayer1: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
             UIColor.systemCyan.withAlphaComponent(0.7).cgColor,
             UIColor.systemBlue.withAlphaComponent(0.7).cgColor
-        ] 
+        ]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         return gradient
     }()
     
+    private func setupGradientBackground() {
+        gradientLayer.frame = view.bounds
+        view.layer.addSublayer(gradientLayer)
+    }
     
     private func setupGradientBackground1() {
         let backgroundView = UIView(frame: listView.userContentTableView.bounds)
@@ -45,7 +45,7 @@ class ListVC: UIViewController {
         
         listView.userContentTableView.backgroundView = backgroundView
     }
-    // Обновление слоя при изменении размеров
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // Обновляем frame градиентного слоя при изменении размеров таблицы
@@ -60,8 +60,13 @@ class ListVC: UIViewController {
 
         configureUI()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(newHabitAdded(_:)), name: Notification.Name("NewHabitAdded"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(newHabitAdded(_:)), name: Notification.Name("NewHabitAdded"), object: nil)
         
+        NotificationCenter.default.addObserver(forName: Notification.Name("NewHabitAdded"), object: nil, queue: .main) { [weak self] notification in
+            guard let self = self else { return }
+            self.newHabitAdded(notification)
+        }
+
     }
     
     deinit {
@@ -88,11 +93,12 @@ class ListVC: UIViewController {
         listView.calendarView.calendarDelegate = self
         
         listView.calendarView.scrollToDate(Date(), animateScroll: false)
+        
         updateMonthLabel(for: Date())
 
     }
      
-    @objc func newHabitAdded(_ notification: Notification) {
+     func newHabitAdded(_ notification: Notification) {
         if listModel.habits.count < maxElements {
             if let newHabit = notification.object as? HabitEntry  {
                 listModel.habits.append(newHabit)
@@ -118,7 +124,6 @@ class ListVC: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         self.present(alert, animated: true, completion: nil)
     }
-    
 }
 
 
@@ -131,22 +136,5 @@ struct ViewControllerProvider1: PreviewProvider {
         }.edgesIgnoringSafeArea(.all)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

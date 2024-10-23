@@ -6,25 +6,15 @@ class SetupCell: UITableViewCell {
     
     let switchButton: UISwitch = {
         let switchButton = UISwitch()
-        //            switchButton.isOn = isOn
         switchButton.onTintColor = .systemBlue
         switchButton.layer.cornerRadius = 20
-        switchButton.layer.shadowColor = UIColor.black.cgColor
-        switchButton.layer.shadowOffset = CGSize(width: 1, height: 2)
-        switchButton.layer.shadowOpacity = 0.4
-        switchButton.layer.shadowRadius = 4
         return switchButton
     }()
     
     let switchButton1: UISwitch = {
         let switchButton = UISwitch()
-        //            switchButton.isOn = isOn
         switchButton.onTintColor = .systemBlue
         switchButton.layer.cornerRadius = 20
-        switchButton.layer.shadowColor = UIColor.black.cgColor
-        switchButton.layer.shadowOffset = CGSize(width: 1, height: 2)
-        switchButton.layer.shadowOpacity = 0.4
-        switchButton.layer.shadowRadius = 4
         return switchButton
     }()
     
@@ -35,6 +25,7 @@ class SetupCell: UITableViewCell {
         welcomeImageView.tintColor = .red
         return welcomeImageView
     }()
+    
     let welcomeImageView1: UIImageView = {
         let welcomeImageView = UIImageView()
         welcomeImageView.image = UIImage(systemName: "bell.and.waves.left.and.right.fill")
@@ -47,78 +38,57 @@ class SetupCell: UITableViewCell {
     
     let messageLabel1 = Label.label(text: "Notifications", fontSize: 20, weight: .bold, textColor: nil, textAlignment: .center, backgroundColor: .clear)
     
+    let container = containerView(backgroundColor:.systemGray6,cornerRadius: 18,shadowColor: UIColor.darkGray.cgColor,shadowOffset: .init(width: -1, height: -1),shadowOpacity: 1, shadowRadius: 3)
     
-    let containerView: UIView = {
-        let containerView = UIView()
-        containerView.backgroundColor = .systemGray6                       // .systemGray6
-        containerView.layer.cornerRadius = 18
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.layer.shadowColor = UIColor.black.cgColor    // systemGray
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        containerView.layer.shadowOpacity = 1
-        containerView.layer.shadowRadius = 4
-        return containerView
-    }()
-
-    let containerView1: UIView = {
-        let containerView = UIView()
-        containerView.backgroundColor = .systemGray6 // .systemGray6
-        containerView.layer.cornerRadius = 18
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.layer.shadowColor = UIColor.black.cgColor             // .systemGray
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        containerView.layer.shadowOpacity = 1
-        containerView.layer.shadowRadius = 4
-        return containerView
-    }()
+    let container1 = containerView(backgroundColor:.systemGray6,cornerRadius: 18,shadowColor: UIColor.darkGray.cgColor,shadowOffset: .init(width: 0, height: 1),shadowOpacity: 1, shadowRadius: 3)
     
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.layer.cornerRadius = 15
-        stackView.spacing = 1 // Отступ между контейнерами
-//               stackView.backgroundColor = .green
-        
-        stackView.isLayoutMarginsRelativeArrangement = true
-//               stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // Отступы от границ stackView
-        stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // Отступы от границ stackView
+    let stackView = StackView.stackView(axis: .vertical, distribution: .fillEqually, backgroundColor: .clear, spacing: 1, layoutMargins: .init(top: 10, left: 10, bottom: 10, right: 10))
+    
 
-        return stackView
-    }()
-
+    weak var views: SettingVC?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.clipsToBounds = true
 
-        stackView.addArrangedSubview(containerView)
-        stackView.addArrangedSubview(containerView1)
+        stackView.addArrangedSubview(container)
+        stackView.addArrangedSubview(container1)
 
         contentView.addSubview(stackView)
 
-        containerView.addSubview(switchButton)
-        containerView.addSubview(welcomeImageView)
-        containerView.addSubview(messageLabel)
+        container.addSubview(switchButton)
+        container.addSubview(welcomeImageView)
+        container.addSubview(messageLabel)
         
         
-        containerView1.addSubview(switchButton1)
-        containerView1.addSubview(welcomeImageView1)
-        containerView1.addSubview(messageLabel1)
+        container1.addSubview(switchButton1)
+        container1.addSubview(welcomeImageView1)
+        container1.addSubview(messageLabel1)
         
         
-        containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        containerView1.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        container.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        container1.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
 
         layout()
         
         let switchState = UserDefaults.standard.bool(forKey: "switchState")
         switchButton.isOn = switchState
-        switchButton.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
+//        switchButton.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
+        
+        switchButton.addAction(UIAction(handler: {[weak self] _ in
+            guard let self = self else {return}
+            self.switchValueChanged(switchButton)
+        }), for: .valueChanged)
         
         let switchState1 = UserDefaults.standard.bool(forKey: "switchState1")
         switchButton1.isOn = switchState1
-        switchButton1.addTarget(self, action: #selector(switchValueChanged1), for: .valueChanged)
+//        switchButton1.addTarget(self, action: #selector(switchValueChanged1), for: .valueChanged)
+        
+        switchButton1.addAction(UIAction(handler: {[weak self] _ in
+            guard let self = self else {return}
+            self.switchValueChanged1(switchButton1)
+        }), for: .valueChanged)
     }
     
     required init?(coder: NSCoder) {
@@ -126,7 +96,7 @@ class SetupCell: UITableViewCell {
     }
     
     func layout() {
-
+        
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(1)
               make.height.equalTo(100)// Высота stackView
@@ -173,7 +143,7 @@ class SetupCell: UITableViewCell {
         }
     }
     
-    @objc func switchValueChanged(_ sender: UISwitch) {
+     func switchValueChanged(_ sender: UISwitch) {
     //    let index = sender.tag
     //    if index == 0 {
             if sender.isOn {
@@ -193,7 +163,7 @@ class SetupCell: UITableViewCell {
         UserDefaults.standard.set(sender.isOn, forKey: "switchState")
     }
     
-    @objc func switchValueChanged1(_ sender: UISwitch) {
+     func switchValueChanged1(_ sender: UISwitch) {
             if sender.isOn {
                 requestNotificationAuthorization { granted in
                     if !granted {
@@ -207,8 +177,7 @@ class SetupCell: UITableViewCell {
         
         UserDefaults.standard.set(sender.isOn, forKey: "switchState1")
     }
-    weak var views: SettingVC?
-    
+
      func showAuthorizationAlert(sender: UISwitch) {
         let alert = UIAlertController(title: "Уведомления отключены", message: "Для включения уведомлений, пожалуйста, разрешите их в настройках.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in
@@ -237,3 +206,16 @@ class SetupCell: UITableViewCell {
         }
     }
 }
+
+//    let stackView: UIStackView = {
+//        let stackView = UIStackView()
+//        stackView.axis = .vertical
+//        stackView.distribution = .fillEqually
+//        stackView.layer.cornerRadius = 15
+//        stackView.spacing = 1 // Отступ между контейнерами
+////               stackView.backgroundColor = .green
+//        stackView.isLayoutMarginsRelativeArrangement = true
+//        stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // Отступы от границ stackView
+//        return stackView
+//    }()
+    

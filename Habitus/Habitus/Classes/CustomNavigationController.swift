@@ -3,98 +3,58 @@ import ElementBuilder
 import UIKit
 
 
-class ModelButtomMenu { }
-
-
 class CustomNavigationController: UINavigationController {
     
     let customButtomMenu = CustomButtomMenu()
+    let modelNC = CustomNavigationModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.isHidden = true
+        view.addSubview(customButtomMenu)
+        customButtomMenu.translatesAutoresizingMaskIntoConstraints = false
         
-        setupBottomMenu() ; showInitialViewController()
+        navigationBar.isHidden = true
         self.delegate = self
+        
+        setupBottomMenu()
+        modelNC.openViewController(ofType: ListVC.self, in: self)
     }
     
     private func setupBottomMenu() {
-        view.addSubview(customButtomMenu)
+        customButtomMenu.openHabitVC.addAction(UIAction{ [weak self] _ in
+            guard let self = self else { return }
+            let habitVC = HabitVC()
+            habitVC.modalPresentationStyle = .fullScreen
+            self.present(habitVC, animated: true, completion: nil)
+        }, for: .touchUpInside)
         
-        customButtomMenu.translatesAutoresizingMaskIntoConstraints = false
-
-        customButtomMenu.openHabitVC.addTarget(self, action: #selector(habitButtonTapped), for: .touchUpInside)
-
-        customButtomMenu.openListVC.addTarget(self, action: #selector(screenVC), for: .touchUpInside)
-
-        customButtomMenu.openNotesVC.addTarget(self, action: #selector(screenVC), for: .touchUpInside)
-
-        customButtomMenu.openStatisticsVC.addTarget(self, action: #selector(screenVC), for: .touchUpInside)
-
-        customButtomMenu.openSettingVC.addTarget(self, action: #selector(screenVC), for: .touchUpInside)
+        customButtomMenu.openListVC.addAction(UIAction{[weak self] _ in
+            guard let self = self else {return}
+            self.modelNC.openViewController(ofType: ListVC.self, in: self)
+        }, for: .touchUpInside)
+        
+        customButtomMenu.openNotesVC.addAction(UIAction{[weak self] _ in
+            guard let self = self else {return}
+            self.modelNC.openViewController(ofType: NotesVC.self, in: self)
+        }, for: .touchUpInside)
+        
+        customButtomMenu.openStatisticsVC.addAction(UIAction{[weak self] _ in
+            guard let self = self else {return}
+            self.modelNC.openViewController(ofType: CalendarViewController.self, in: self)
+        }, for: .touchUpInside)
+        
+        customButtomMenu.openSettingVC.addAction(UIAction{[weak self] _ in
+            guard let self = self else {return}
+            self.modelNC.openViewController(ofType: SettingVC.self, in: self)
+        }, for: .touchUpInside)
         
         Layout.applyView(customButtomMenu, view: view, leadingOffset: 10, trailingOffset: -10, bottomOffset: 12,  additionalConstraints: {make in
             make.height.equalTo(60)
         })
-        
-    }
-    
-    func openVC( number: Int) {
-      var viewController: UIViewController
-        
-      switch number {
-      case 1:
-          viewController = ListVC()
-      case 2:
-          viewController =  NotesVC()
-      case 3:
-          viewController = CalendarViewController()
-      case 4:
-          viewController = SettingVC()
-      default:
-          return
-      }
-      self.setViewControllers( [ viewController ], animated: false)
-  }
-
-  @objc func screenVC(_ sender: UIButton) {
-      openVC(number: sender.tag)
-  }
-    
-    @objc func habitButtonTapped(_ sender: UIButton) {
-        let habitVC  = HabitVC()
-        let navController = UINavigationController(rootViewController: habitVC)
-        navController.modalPresentationStyle = .fullScreen
-        self.present(navController, animated: true, completion: nil)
-    }
-    
-    func updateButtonVisibility() {
-        if let currentViewController = self.viewControllers.last {
-            if currentViewController is ListVC {
-                customButtomMenu.openHabitVC.isHidden = false
-            } else {
-                customButtomMenu.openHabitVC.isHidden = true
-            }
-        }
-    }
-    
-    func showInitialViewController() {
-        let listVC = ListVC()
-        self.setViewControllers([listVC], animated: false)
     }
 }
 
-extension CustomNavigationController { }
-
-
-extension CustomNavigationController: UINavigationControllerDelegate {
-    // Переопределяем метод, который срабатывает при смене контроллера
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        updateButtonVisibility()
-    }
-    
-}
 
 
 
@@ -105,28 +65,4 @@ struct ViewControllerProvider0: PreviewProvider {
         }.edgesIgnoringSafeArea(.all)
     }
 }
-
-
-
-
-
-//    @objc func homeButtonTapped(_ sender: UIButton) {
-//          let listVC = ListVC()
-//          self.setViewControllers([listVC], animated: false)
-//    }
-//
-//    @objc func notesButtonTapped(_ sender: UIButton) {
-//        let notesVC = NotesVC()
-//        self.setViewControllers([notesVC], animated: false)
-//    }
-//
-//    @objc func statisticButtonTapped(_ sender: UIButton) {
-//        let stat = CalendarViewController()
-//        self.setViewControllers([stat], animated: false)
-//    }
-//
-//    @objc func settingButtonTapped(_ sender: UIButton) {
-//        let settingVC = SettingVC()
-//        self.setViewControllers([settingVC], animated: false)
-//    }
 

@@ -8,28 +8,10 @@ class CustomCalendarCell: JTACDayCell {
     let dayOfWeekLabel = Label.label(fontSize: 12, weight: .regular, textColor: .gray,textAlignment: .center,backgroundColor: .clear)
     
     let dateLabel = Label.label(fontSize: 18, weight: .regular,textAlignment: .center, backgroundColor: .clear)
-    
-    let selectedView: UIView = {
-         let view = UIView()
-         view.backgroundColor = .systemGray6
-         view.layer.cornerRadius = 18
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 1, height: 2)
-        view.layer.shadowOpacity = 0.6
-        view.layer.shadowRadius = 4
-         return view
-     }()
-    
-    let currentDayHighlightView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        view.layer.cornerRadius = 15
-        view.layer.shadowColor = UIColor.blue.cgColor
-        view.layer.shadowOffset = CGSize(width: 1, height: 2)
-        view.layer.shadowOpacity = 0.7
-        view.layer.shadowRadius = 4
-        return view
-    }()
+        
+    let selectedView = containerView(backgroundColor:.systemGray6,cornerRadius: 18,shadowColor: UIColor.darkGray.cgColor,shadowOffset: .init(width: 0, height: 0),shadowOpacity: 1, shadowRadius: 3)
+
+    let currentDayHighlightView = containerView(backgroundColor:.blue,cornerRadius: 15,shadowColor: UIColor.blue.cgColor,shadowOffset: .init(width: 0, height: 0),shadowOpacity: 1, shadowRadius: 3)
             
     override init(frame: CGRect) {
         super.init(frame: frame)

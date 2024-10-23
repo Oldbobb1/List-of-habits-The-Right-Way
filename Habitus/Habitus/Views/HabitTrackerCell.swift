@@ -17,7 +17,7 @@ class HabitTrackerCell: UITableViewCell {
         
         contentView.addSubview(nameLabelCell)
         contentView.addSubview(messageLabel)
-        
+                
         messageLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold, width: .expanded)
         layout()
     }
@@ -48,5 +48,4 @@ class HabitTrackerCell: UITableViewCell {
     }
     
 }
-
 

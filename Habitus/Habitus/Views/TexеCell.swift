@@ -3,7 +3,7 @@ import ElementBuilder
 
 
 class TexеCell: UITableViewCell {
-    
+
     let messageLabel = Label.label(text: "Color", fontSize: 20, weight: .regular, textColor: nil, textAlignment: .center, backgroundColor: .clear)
         
     let welcomeImageView: UIImageView = {
@@ -13,83 +13,42 @@ class TexеCell: UITableViewCell {
         welcomeImageView.tintColor = .red
         return welcomeImageView
     }()
-    
-    let containerView: UIView = {
-        let containerView = UIView()
-        containerView.backgroundColor = .systemGray6
-        containerView.layer.cornerRadius = 20
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.layer.shadowColor = UIColor.black.cgColor
-        containerView.layer.shadowOffset = CGSize(width: 1, height: 2)
-        containerView.layer.shadowOpacity = 0.6
-        containerView.layer.shadowRadius = 4
-        return containerView
-    }()
-
-    let selectedColorView: UIView = {
-        let col = UIView()
-        col.layer.cornerRadius = 15
-        col.translatesAutoresizingMaskIntoConstraints = false
-        col.backgroundColor = .systemGray4
-        col.layer.shadowColor = UIColor.gray.cgColor
-        col.layer.shadowOffset = CGSize(width: 1, height: 2)
-        col.layer.shadowOpacity = 0.6
-        col.layer.shadowRadius = 4
-        return col
-    }()
-    
-    
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.layer.cornerRadius = 15
-        stackView.spacing = 10 // Отступ между контейнерами
-        //        stackView.backgroundColor = .green
-        stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5) // Отступы от границ stackView
         
-        return stackView
-    }()
+    let container = containerView(backgroundColor:.systemGray6,cornerRadius: 20,shadowColor: UIColor.darkGray.cgColor,shadowOffset: .init(width: 0, height: 0),shadowOpacity: 1, shadowRadius: 3)
     
+
+    let selectedColorView = ButtonsWithAction.makeButton( cornerRadius: 15,clipsToBounds: false,backgroundColor: .systemGray6,shadowColor: UIColor.darkGray.cgColor, shadowOffset: CGSize(width: 0, height: 0),shadowOpacity: 1, shadowRadius: 3)
+    
+    let stackView = StackView.stackView(axis: .horizontal, distribution: .fillEqually, backgroundColor: .clear, spacing: 10, layoutMargins: .init(top: 10, left: 5, bottom: 10, right: 5))
+    
+    weak var habitVC: HabitVC?
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.clipsToBounds = true
         
-
+        
         contentView.addSubview(stackView)
         
-        stackView.addArrangedSubview(containerView)
+        stackView.addArrangedSubview(container)
 
-        containerView.addSubview(selectedColorView)
-        containerView.addSubview(welcomeImageView)
-        containerView.addSubview(messageLabel)
+        container.addSubview(selectedColorView)
+        container.addSubview(welcomeImageView)
+        container.addSubview(messageLabel)
 
         layout()
     
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleColorTap))
-        selectedColorView.addGestureRecognizer(tapGesture)
-        selectedColorView.isUserInteractionEnabled = true
-        
+        selectedColorView.addAction(UIAction { [weak self] _ in
+                    guard let self = self, let habitVC = self.habitVC else { return }
+                    habitVC.showColorPicker(for: self)  // Передаем текущую ячейку
+                }, for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    @objc private func handleColorTap() {
-        // Сообщаем делегату или вызываем функцию нажатия
-        onColorViewTapped?()
-    }
-    
-    // Создаем замыкание для обработки нажатия
-    var onColorViewTapped: (() -> Void)?
-    
-    func updateSelectedColor(_ color: UIColor) {
-        selectedColorView.backgroundColor = color
-    }
-    
+
     func layout() {
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(1) // Добавляем отступы от краев
@@ -117,3 +76,39 @@ class TexеCell: UITableViewCell {
 }
 
 
+//selectedColorView.addAction(UIAction{[weak self] _ in
+//    guard let self = self else { return }
+//    self.habitVC?.showColorPicker(for: self)
+//}, for: .touchUpInside)
+
+
+
+//@objc private func handleColorTap() {
+//        // Сообщаем делегату или вызываем функцию нажатия
+//        onColorViewTapped?()
+//    }
+//
+//    // Создаем замыкание для обработки нажатия
+//    var onColorViewTapped: (() -> Void)?
+//
+//    func updateSelectedColor(_ color: UIColor) {
+//        selectedColorView.backgroundColor = color
+//    }
+  
+//let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleColorTap))
+//        selectedColorView.addGestureRecognizer(tapGesture)
+//        selectedColorView.isUserInteractionEnabled = true
+   
+
+//    let selectedColorView: UIView = {
+//        let col = UIView()
+//        col.layer.cornerRadius = 15
+//        col.translatesAutoresizingMaskIntoConstraints = false
+//        col.backgroundColor = .systemGray4
+//        col.layer.shadowColor = UIColor.darkGray.cgColor
+//        col.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        col.layer.shadowOpacity = 1
+//        col.layer.shadowRadius = 3
+//        return col
+//    }()
+    

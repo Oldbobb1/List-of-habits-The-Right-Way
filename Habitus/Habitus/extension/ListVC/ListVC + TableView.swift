@@ -4,7 +4,8 @@ import UIKit
 extension ListVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listModel.habits.count
+        return listModel.habits.count// Количество привычек для сегодняшнего дня
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -14,7 +15,7 @@ extension ListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-    
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let maskLayer = CALayer()
         maskLayer.cornerRadius = 25
@@ -37,14 +38,27 @@ extension ListVC: UITableViewDataSource {
         // Настройка ячейки
         cell.set(object: object , habitName: object.name)
         // Обновляем интерфейс в зависимости от состояния привычки
-        if object.isCompleted {
+        if object.isCompleted{
             cell.messageLabel.text = "Выполнено"
-            cell.nameLabelCell.textColor = .systemGray6
+//            cell.nameLabelCell.textColor = .lightGray
             cell.contentView.backgroundColor = cell.contentView.backgroundColor?.withAlphaComponent(0.5)
+            
+            if let backgroundColor = cell.contentView.backgroundColor {
+                var white: CGFloat = 0
+                backgroundColor.getWhite(&white, alpha: nil) // Получаем яркость
+                cell.nameLabelCell.textColor = white > 0.7 ? .black :  .white     //.lightGray
+            }
+                    
         } else {
             cell.messageLabel.text = ""
-            cell.nameLabelCell.textColor = .black
+//            cell.nameLabelCell.textColor = .white
             cell.contentView.backgroundColor = cell.contentView.backgroundColor?.withAlphaComponent(1)
+            
+            if let backgroundColor = cell.contentView.backgroundColor {
+                      var white: CGFloat = 0
+                      backgroundColor.getWhite(&white, alpha: nil) // Получаем яркость
+                      cell.nameLabelCell.textColor = white > 0.7 ? .black : .white
+                  }
         }
         return cell
     }
@@ -52,14 +66,16 @@ extension ListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let habitToDelete = listModel.habits[indexPath.row]
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [habitToDelete.name])
             listModel.habits.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             listModel.saveHabitData()
-            toggleMessageLabelVisibility()
         }
+        toggleMessageLabelVisibility()
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -89,12 +105,12 @@ extension ListVC: UITableViewDelegate {
             
             firstAlertController.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
             
-            firstAlertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in   //[weak self]
+            firstAlertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in 
                 guard let strongSelf = self else { return }
                 
                 // Обновляем интерфейс
                 cell.messageLabel.text = "Выполнено"
-                cell.nameLabelCell.textColor = .systemGray6
+//                cell.nameLabelCell.textColor = .lightGray
                 cell.contentView.backgroundColor = cell.contentView.backgroundColor?.withAlphaComponent(0.5)
                 cell.isCompleted = true
                 
@@ -121,7 +137,7 @@ extension ListVC: UITableViewDelegate {
                 
                 // Восстанавливаем интерфейс
                 cell.messageLabel.text = ""
-                cell.nameLabelCell.textColor = .black
+//                cell.nameLabelCell.textColor = .white
                 cell.contentView.backgroundColor = cell.contentView.backgroundColor?.withAlphaComponent(1)
                 cell.isCompleted = false
                 
@@ -138,11 +154,3 @@ extension ListVC: UITableViewDelegate {
         }
     }
 }
-
-
-
-
-
-
-
-

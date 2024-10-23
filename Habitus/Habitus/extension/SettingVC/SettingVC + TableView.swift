@@ -7,9 +7,10 @@ extension SettingVC: UITableViewDataSource {
         return 8
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+ 
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0,1,2,3,4:
+        case 0,1,2,3:
             //        case 0,1,2,3,4:
             return 1
         default:
@@ -56,11 +57,11 @@ extension SettingVC: UITableViewDataSource {
             cell.backgroundColor = .clear
             cell.views = self
             return cell
-        case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "setupCell3", for: indexPath) as! SetupCell3
-            cell.backgroundColor = .clear
-            cell.selectionStyle = .none
-            return cell
+//        case 4:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "setupCell3", for: indexPath) as! SetupCell3
+//            cell.backgroundColor = .clear
+//            cell.selectionStyle = .none
+//            return cell
         default:
             return UITableViewCell()
         }

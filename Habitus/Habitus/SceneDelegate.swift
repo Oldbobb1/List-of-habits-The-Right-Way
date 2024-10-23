@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             window.overrideUserInterfaceStyle = .unspecified
         }
+        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
